@@ -5,6 +5,15 @@ package entidade;
 
 public class Usuario {
 
+    private int codigo;
+
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
     private String nome;
     private String login;
     private String senha;

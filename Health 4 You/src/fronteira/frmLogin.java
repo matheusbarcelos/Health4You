@@ -155,7 +155,7 @@ public class frmLogin extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void verificarUsuario(){
         
         Usuario usuario = new Usuario();
@@ -218,6 +218,7 @@ public class frmLogin extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new frmLogin().setVisible(true);
             }

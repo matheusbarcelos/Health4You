@@ -19,6 +19,9 @@ public class PacienteDAO {
                 + "(NOME, CPF, DATANASCIMENTO, RUA, NUMERO , BAIRRO, ESTADO, CIDADE, TELEFONE, CELULAR ,EMAIL)" +
                     "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     
+    private String consultaPaciente = "SELECT * FROM PACIENTE WHERE "
+                                        + "NOME LIKE ?";
+    
     
      public void cadastrarPaciente(Paciente paciente){
         
@@ -43,6 +46,41 @@ public class PacienteDAO {
             
             e.printStackTrace();
         }   
+     }
+     
+      public List<Paciente> listarPacientes(String nome) {
+         List<Paciente> listaPacientes = new ArrayList<Paciente>();
+         try {
+             
+             bd = new BaseDeDados();
+             pstm = bd.conecta().prepareStatement(consultaPaciente);
+             pstm.setString(1, nome);
+             rs = pstm.executeQuery();
+             while (rs.next()){
+                 paciente = new Paciente();
+                 paciente.setCodigo(rs.getInt("CODIGO"));
+                 paciente.setNome(rs.getString("NOME"));
+                 paciente.setCpf(rs.getString("CPF"));
+                 paciente.setDatanascimento(rs.getString("DATANASCIMENTO"));
+                 paciente.setRua(rs.getString("RUA"));
+                 paciente.setNumero(rs.getString("NUMERO"));
+                 paciente.setBairro(rs.getString("BAIRRO"));
+                 paciente.setEstado(rs.getString("ESTADO"));
+                 paciente.setCidade(rs.getString("CIDADE"));
+                 paciente.setTelefone(rs.getString("TELEFONE"));
+                 paciente.setCelular(rs.getString("CELULAR"));
+                 paciente.setEmail(rs.getString("EMAIL"));
+                 listaPacientes.add(paciente);
+        
+             }
+         }catch(Exception e) {
+                     
+           e.printStackTrace();
+                     
+         }
+         
+         bd.desconecta();
+         return listaPacientes;
      }
     
     

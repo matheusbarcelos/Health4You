@@ -5,12 +5,31 @@
  */
 package fronteira;
 
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.ListSelectionModel;
+import javax.swing.table.DefaultTableModel;
+import entidade.Paciente;
+import javax.swing.JTable;
+import persistencia.PacienteDAO;
+
+
 /**
  *
  * @author ma-th
  */
 public class frmPesquisarCliente extends javax.swing.JFrame {
 
+    private String[] colunas = new String[]{"Codigo","Nome",
+           "Endereço","Telefone"};
+    
+    private DefaultTableModel tmPacientes = new DefaultTableModel
+               (null, colunas);
+    
+    private List<Paciente> listaPacientes;
+    private ListSelectionModel lsmPacientes; 
+    
+    
     /**
      * Creates new form frmPesquisarCliente
      */
@@ -28,8 +47,8 @@ public class frmPesquisarCliente extends javax.swing.JFrame {
     private void initComponents() {
 
         jButton3 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jToggleButton1 = new javax.swing.JToggleButton();
+        txtPesquisaPaciente = new javax.swing.JTextField();
+        btnPesquisar = new javax.swing.JToggleButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         btnInserir = new javax.swing.JButton();
@@ -43,23 +62,18 @@ public class frmPesquisarCliente extends javax.swing.JFrame {
         setTitle("Cadastro de Pacientes");
         setResizable(false);
 
-        jTextField1.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
+        txtPesquisaPaciente.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
 
-        jToggleButton1.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
-        jToggleButton1.setText("Pesquisar");
+        btnPesquisar.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
+        btnPesquisar.setText("Pesquisar");
+        btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesquisarActionPerformed(evt);
+            }
+        });
 
         jTable1.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Nome do Paciente", "CPF", "Data de Nascimento", "Telefone"
-            }
-        ));
+        jTable1.setModel(tmPacientes);
         jScrollPane1.setViewportView(jTable1);
 
         btnInserir.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
@@ -97,9 +111,9 @@ public class frmPesquisarCliente extends javax.swing.JFrame {
                 .addContainerGap(15, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtPesquisaPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jToggleButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(btnPesquisar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -117,8 +131,8 @@ public class frmPesquisarCliente extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jToggleButton1))
+                    .addComponent(txtPesquisaPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnPesquisar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -149,6 +163,12 @@ public class frmPesquisarCliente extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.setVisible(false);
     }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
+        // TODO add your handling code here:
+        
+        listarPacientes();
+    }//GEN-LAST:event_btnPesquisarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -185,15 +205,45 @@ public class frmPesquisarCliente extends javax.swing.JFrame {
         });
     }
 
+    
+      private void mostrarPacientes(List<Paciente> pacientes){
+        
+        while (tmPacientes.getRowCount() > 0){
+            tmPacientes.removeRow(0);
+        }
+        if(pacientes.size() == 0){
+            JOptionPane.showMessageDialog(this, "Nenhum Paciente foi encontrado!");
+        }else{
+            
+            for (int i = 0; i < pacientes.size(); i++){
+                tmPacientes.addRow(colunas);
+                tmPacientes.setValueAt(pacientes.get(i).getCodigo(), i,0);
+                tmPacientes.setValueAt(pacientes.get(i).getNome(), i,1);
+                tmPacientes.setValueAt(pacientes.get(i).getRua(), i,2);
+                tmPacientes.setValueAt(pacientes.get(i).getTelefone(), i,3);
+                
+            }
+        }
+    }
+      
+      private void listarPacientes(){
+        
+        PacienteDAO pacienteDAO =  new PacienteDAO();
+        listaPacientes = pacienteDAO.listarPacientes("%"
+             +txtPesquisaPaciente.getText().trim() + "%");
+        mostrarPacientes(listaPacientes);
+        
+    }
+          
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAlterar;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnExcluir;
     private javax.swing.JButton btnInserir;
+    private javax.swing.JToggleButton btnPesquisar;
     private javax.swing.JButton jButton3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JTextField txtPesquisaPaciente;
     // End of variables declaration//GEN-END:variables
 }

@@ -5,12 +5,30 @@
  */
 package fronteira;
 
+
+import entidade.Servico;
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.ListSelectionModel;
+import javax.swing.table.DefaultTableModel;
+import persistencia.ServicoDAO;
+
 /**
  *
  * @author ma-th
  */
 public class frmPesquisaServico extends javax.swing.JFrame {
 
+      private String[] colunas = new String[]{"Codigo","Nome",
+           "Valor"};
+    
+    private DefaultTableModel tmServicos = new DefaultTableModel
+               (null, colunas);
+    
+    private List<Servico> listaServicos;
+    private ListSelectionModel lsmServicos; 
+    
+    
     /**
      * Creates new form frmPesquisaServico
      */
@@ -29,10 +47,10 @@ public class frmPesquisaServico extends javax.swing.JFrame {
 
         btnExcluir = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jToggleButton1 = new javax.swing.JToggleButton();
+        txtPesquisaServicos = new javax.swing.JTextField();
+        btnPesquisarServicos = new javax.swing.JToggleButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblServicos = new javax.swing.JTable();
         btnInserir = new javax.swing.JButton();
         btnAlterar = new javax.swing.JButton();
 
@@ -51,24 +69,19 @@ public class frmPesquisaServico extends javax.swing.JFrame {
             }
         });
 
-        jTextField1.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
+        txtPesquisaServicos.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
 
-        jToggleButton1.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
-        jToggleButton1.setText("Pesquisar");
-
-        jTable1.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
-            },
-            new String [] {
-                "Nome do Serviço", "Valor"
+        btnPesquisarServicos.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
+        btnPesquisarServicos.setText("Pesquisar");
+        btnPesquisarServicos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesquisarServicosActionPerformed(evt);
             }
-        ));
-        jScrollPane1.setViewportView(jTable1);
+        });
+
+        tblServicos.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
+        tblServicos.setModel(tmServicos);
+        jScrollPane1.setViewportView(tblServicos);
 
         btnInserir.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
         btnInserir.setText("Inserir");
@@ -94,9 +107,9 @@ public class frmPesquisaServico extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtPesquisaServicos, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jToggleButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(btnPesquisarServicos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -114,8 +127,8 @@ public class frmPesquisaServico extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jToggleButton1))
+                    .addComponent(txtPesquisaServicos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnPesquisarServicos))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33)
@@ -143,6 +156,12 @@ public class frmPesquisaServico extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.setVisible(false);
     }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void btnPesquisarServicosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarServicosActionPerformed
+        // TODO add your handling code here:
+        listarServicos();
+        
+    }//GEN-LAST:event_btnPesquisarServicosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -179,14 +198,44 @@ public class frmPesquisaServico extends javax.swing.JFrame {
         });
     }
 
+    private void mostrarServicos(List<Servico> servicos){
+        
+        while (tmServicos.getRowCount() > 0){
+            tmServicos.removeRow(0);
+        }
+        if(servicos.size() == 0){
+            JOptionPane.showMessageDialog(this, "Nenhum Serviço foi encontrado!");
+        }else{
+            
+            for (int i = 0; i < servicos.size(); i++){
+                tmServicos.addRow(colunas);
+                tmServicos.setValueAt(servicos.get(i).getCodigo(), i,0);
+                tmServicos.setValueAt(servicos.get(i).getNome(), i,1);
+                tmServicos.setValueAt(servicos.get(i).getValor(), i,2);
+                                
+            }
+        }
+    }
+    
+     private void listarServicos(){
+        
+        ServicoDAO servicoDAO =  new ServicoDAO();
+        listaServicos = servicoDAO.listarServicos("%"
+             +txtPesquisaServicos.getText().trim() + "%");
+        mostrarServicos(listaServicos);
+        
+    }
+    
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAlterar;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnExcluir;
     private javax.swing.JButton btnInserir;
+    private javax.swing.JToggleButton btnPesquisarServicos;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JTable tblServicos;
+    private javax.swing.JTextField txtPesquisaServicos;
     // End of variables declaration//GEN-END:variables
 }

@@ -18,7 +18,8 @@ public class ServicoDAO {
                 + "(NOME, VALOR)" +
                     "VALUES (?, ?)";
     
-    
+    private String consultaServico = "SELECT * FROM SERVICO WHERE "
+                                        + "NOME LIKE ?";
     
     
     
@@ -38,6 +39,32 @@ public class ServicoDAO {
             
             e.printStackTrace();
         }   
+     }
+    
+    public List<Servico> listarServicos(String nome) {
+         List<Servico> listaServicos = new ArrayList<Servico>();
+         try {
+             
+             bd = new BaseDeDados();
+             pstm = bd.conecta().prepareStatement(consultaServico);
+             pstm.setString(1, nome);
+             rs = pstm.executeQuery();
+             while (rs.next()){
+                 servico = new Servico();
+                 servico.setCodigo(rs.getInt("ID_SERVICO"));
+                 servico.setNome(rs.getString("NOME"));
+                 servico.setValor(rs.getString("VALOR"));
+                 listaServicos.add(servico);
+        
+             }
+         }catch(Exception e) {
+                     
+           e.printStackTrace();
+                     
+         }
+         
+         bd.desconecta();
+         return listaServicos;
      }
     
     

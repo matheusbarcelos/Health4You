@@ -5,12 +5,32 @@
  */
 package fronteira;
 
+
+import entidade.Usuario;
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.ListSelectionModel;
+import javax.swing.table.DefaultTableModel;
+import persistencia.UsuarioDAO;
+
 /**
  *
  * @author ma-th
  */
 public class frmPesquisaUsuario extends javax.swing.JFrame {
 
+    private String[] colunas = new String[]{"Codigo","Nome",
+           "Login","Permissao"};
+    
+    private DefaultTableModel tmUsuarios = new DefaultTableModel
+               (null, colunas);
+    
+    private List<Usuario> listaUsuarios;
+    private ListSelectionModel lsmUsuarios; 
+    
+    
+    
+    
     /**
      * Creates new form frmPesquisaUsuario
      */
@@ -28,31 +48,22 @@ public class frmPesquisaUsuario extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblUsuarios = new javax.swing.JTable();
         btnInserir = new javax.swing.JButton();
         btnAlterar = new javax.swing.JButton();
         btnExcluir = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jToggleButton1 = new javax.swing.JToggleButton();
+        txtPesquisarUsuarios = new javax.swing.JTextField();
+        btnPesquisar = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Pesquisa de Usuários");
         setResizable(false);
 
-        jTable1.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
-            },
-            new String [] {
-                "Nome", "Usuário", "Senha", "Permissão", "Status"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
+        tblUsuarios.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
+        tblUsuarios.setModel(tmUsuarios);
+        tblUsuarios.setToolTipText("");
+        jScrollPane1.setViewportView(tblUsuarios);
 
         btnInserir.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
         btnInserir.setText("Inserir");
@@ -81,10 +92,15 @@ public class frmPesquisaUsuario extends javax.swing.JFrame {
             }
         });
 
-        jTextField1.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
+        txtPesquisarUsuarios.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
 
-        jToggleButton1.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
-        jToggleButton1.setText("Pesquisar");
+        btnPesquisar.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
+        btnPesquisar.setText("Pesquisar");
+        btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesquisarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -94,9 +110,9 @@ public class frmPesquisaUsuario extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtPesquisarUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jToggleButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(btnPesquisar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -114,8 +130,8 @@ public class frmPesquisaUsuario extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jToggleButton1))
+                    .addComponent(txtPesquisarUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnPesquisar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33)
@@ -143,6 +159,13 @@ public class frmPesquisaUsuario extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.setVisible(false);
     }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
+        // TODO add your handling code here:
+        
+        listarUsuarios();
+        
+    }//GEN-LAST:event_btnPesquisarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -179,14 +202,46 @@ public class frmPesquisaUsuario extends javax.swing.JFrame {
         });
     }
 
+    
+    private void mostrarUsuarios(List<Usuario> usuarios){
+        
+        while (tmUsuarios.getRowCount() > 0){
+            tmUsuarios.removeRow(0);
+        }
+        if(usuarios.size() == 0){
+            JOptionPane.showMessageDialog(this, "Nenhum Paciente foi encontrado!");
+        }else{
+            
+            for (int i = 0; i < usuarios.size(); i++){
+                tmUsuarios.addRow(colunas);
+                tmUsuarios.setValueAt(usuarios.get(i).getCodigo(), i,0);
+                tmUsuarios.setValueAt(usuarios.get(i).getNome(), i,1);
+                tmUsuarios.setValueAt(usuarios.get(i).getLogin(), i,2);
+                tmUsuarios.setValueAt(usuarios.get(i).getPermissao(), i,3);
+                
+            }
+        }
+    }
+    
+    
+    private void listarUsuarios(){
+        
+        UsuarioDAO usuarioDAO =  new UsuarioDAO();
+        listaUsuarios = usuarioDAO.listarUsuarios("%"
+             +txtPesquisarUsuarios.getText().trim() + "%");
+        mostrarUsuarios(listaUsuarios);
+        
+    }
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAlterar;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnExcluir;
     private javax.swing.JButton btnInserir;
+    private javax.swing.JToggleButton btnPesquisar;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JTable tblUsuarios;
+    private javax.swing.JTextField txtPesquisarUsuarios;
     // End of variables declaration//GEN-END:variables
 }

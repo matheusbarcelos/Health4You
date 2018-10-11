@@ -19,6 +19,9 @@ public class UsuarioDAO {
                 + "(NOME, LOGIN, SENHA, PERMISSAO, STATUS)" +
                     "VALUES (?, ?, ?, ?, ?)";
     
+    private String consultaUsuario = "SELECT * FROM USUARIO WHERE "
+                                        + "NOME LIKE ?";
+    
     
     
     public void cadastrarUsuario(Usuario usuario ){
@@ -40,6 +43,36 @@ public class UsuarioDAO {
             e.printStackTrace();
         }   
      }
+    
+    public List<Usuario> listarUsuarios(String nome) {
+         List<Usuario> listaUsuarios = new ArrayList<Usuario>();
+         try {
+             
+             bd = new BaseDeDados();
+             pstm = bd.conecta().prepareStatement(consultaUsuario);
+             pstm.setString(1, nome);
+             rs = pstm.executeQuery();
+             while (rs.next()){
+                 usuario = new Usuario();
+                 usuario.setCodigo(rs.getInt("ID_USUARIO"));
+                 usuario.setNome(rs.getString("NOME"));
+                 usuario.setLogin(rs.getString("LOGIN"));
+                 usuario.setSenha(rs.getString("SENHA"));
+                 usuario.setPermissao(rs.getString("PERMISSAO"));
+                 usuario.setStatus(rs.getString("STATUS"));
+                 listaUsuarios.add(usuario);
+        
+             }
+         }catch(Exception e) {
+                     
+           e.printStackTrace();
+                     
+         }
+         
+         bd.desconecta();
+         return listaUsuarios;
+     }
+    
 
     
 }

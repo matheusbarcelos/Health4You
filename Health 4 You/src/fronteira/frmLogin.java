@@ -173,8 +173,8 @@ public class frmLogin extends javax.swing.JFrame {
     
     
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
-        frmTelaPrincipal telaPrincipal = new frmTelaPrincipal();
-        telaPrincipal.Sair();
+        telaSair sair = new telaSair();
+        sair.setVisible(true);
     }//GEN-LAST:event_btnSairActionPerformed
     
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
@@ -185,8 +185,8 @@ public class frmLogin extends javax.swing.JFrame {
 
     private void lblFecharMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblFecharMouseClicked
         // TODO add your handling code here:
-        frmTelaPrincipal telaPrincipal = new frmTelaPrincipal();
-        telaPrincipal.Sair();
+        telaSair sair = new telaSair();
+        sair.setVisible(true);
     }//GEN-LAST:event_lblFecharMouseClicked
 
     /**

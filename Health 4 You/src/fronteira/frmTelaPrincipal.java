@@ -21,14 +21,6 @@ public class frmTelaPrincipal extends javax.swing.JFrame {
         this.setExtendedState(MAXIMIZED_BOTH);
     }
     
-    public void Sair(){
-        int opcao = JOptionPane.showConfirmDialog(null, "Deseja realmente sair?", "SAIR DO SISTEMA", 0, JOptionPane.OK_CANCEL_OPTION);
-        if(opcao == 0){
-            System.exit(0);
-        } else {
-            JOptionPane.showMessageDialog(null, "Voltando ao sistema em 3... 2... 1!");
-        }
-    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -164,7 +156,8 @@ public class frmTelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_mnuClientesActionPerformed
 
     private void mnuSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnuSairMouseClicked
-        Sair();
+        telaSair sair = new telaSair();
+        sair.setVisible(true);
     }//GEN-LAST:event_mnuSairMouseClicked
 
     private void mnuServicosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuServicosActionPerformed

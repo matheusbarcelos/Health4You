@@ -51,7 +51,7 @@ public class frmPesquisaUsuario extends javax.swing.JFrame {
         tblUsuarios = new javax.swing.JTable();
         btnInserir = new javax.swing.JButton();
         btnAlterar = new javax.swing.JButton();
-        btnExcluir = new javax.swing.JButton();
+        btnExcluirPaciente = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
         txtPesquisarUsuarios = new javax.swing.JTextField();
         btnPesquisar = new javax.swing.JToggleButton();
@@ -81,8 +81,13 @@ public class frmPesquisaUsuario extends javax.swing.JFrame {
             }
         });
 
-        btnExcluir.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
-        btnExcluir.setText("Excluir");
+        btnExcluirPaciente.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
+        btnExcluirPaciente.setText("Excluir");
+        btnExcluirPaciente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirPacienteActionPerformed(evt);
+            }
+        });
 
         btnCancelar.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
         btnCancelar.setText("Cancelar");
@@ -120,7 +125,7 @@ public class frmPesquisaUsuario extends javax.swing.JFrame {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(btnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnExcluirPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
@@ -138,7 +143,7 @@ public class frmPesquisaUsuario extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnInserir)
                     .addComponent(btnAlterar)
-                    .addComponent(btnExcluir)
+                    .addComponent(btnExcluirPaciente)
                     .addComponent(btnCancelar))
                 .addContainerGap(26, Short.MAX_VALUE))
         );
@@ -166,6 +171,10 @@ public class frmPesquisaUsuario extends javax.swing.JFrame {
         listarUsuarios();
         
     }//GEN-LAST:event_btnPesquisarActionPerformed
+
+    private void btnExcluirPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirPacienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnExcluirPacienteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -223,6 +232,7 @@ public class frmPesquisaUsuario extends javax.swing.JFrame {
         }
     }
     
+     
     
     private void listarUsuarios(){
         
@@ -237,7 +247,7 @@ public class frmPesquisaUsuario extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAlterar;
     private javax.swing.JButton btnCancelar;
-    private javax.swing.JButton btnExcluir;
+    private javax.swing.JButton btnExcluirPaciente;
     private javax.swing.JButton btnInserir;
     private javax.swing.JToggleButton btnPesquisar;
     private javax.swing.JScrollPane jScrollPane1;

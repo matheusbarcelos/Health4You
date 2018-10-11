@@ -22,6 +22,7 @@ public class PacienteDAO {
     private String consultaPaciente = "SELECT * FROM PACIENTE WHERE "
                                         + "NOME LIKE ?";
     
+    private String excluiPaciente = "DELETE FROM PACIENTE WHERE CODIGO = ?";
     
      public void cadastrarPaciente(Paciente paciente){
         
@@ -82,7 +83,19 @@ public class PacienteDAO {
          bd.desconecta();
          return listaPacientes;
      }
+      
+       public void excluirPaciente(Paciente paciente){
+         try{
+             bd = new BaseDeDados();
+             pstm = bd.conecta().prepareStatement(excluiPaciente);
+             pstm.setInt(1,paciente.getCodigo());
+             pstm.executeUpdate();
+             bd.desconecta();
+            
+         }catch(Exception e){
+             e.printStackTrace();
+         }
     
-    
+       }
 }
 

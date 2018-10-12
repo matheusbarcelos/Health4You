@@ -120,6 +120,12 @@
               <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tblPacienteMouseClicked"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="tblPaciente.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);&#xd;&#xa;lsmPacientes = tblPaciente.getSelectionModel();&#xd;&#xa;lsmPacientes.addListSelectionListener (new ListSelectionListener() {&#xd;&#xa;    public void valueChanged(ListSelectionEvent e) {&#xd;&#xa;        if (! e.getValueIsAdjusting()) {&#xd;&#xa;            tblPacienteLinhaSelecionada(tblPaciente);&#xd;&#xa;         }&#xd;&#xa;   }&#xd;&#xa;    &#xd;&#xa;});&#xd;&#xa;"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>

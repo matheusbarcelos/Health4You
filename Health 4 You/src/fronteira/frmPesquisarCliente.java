@@ -12,7 +12,8 @@ import javax.swing.table.DefaultTableModel;
 import entidade.Paciente;
 import javax.swing.JTable;
 import persistencia.PacienteDAO;
-
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 /**
  *
@@ -29,14 +30,19 @@ public class frmPesquisarCliente extends javax.swing.JFrame {
     private List<Paciente> listaPacientes;
     private ListSelectionModel lsmPacientes; 
     
-    
+   
     /**
      * Creates new form frmPesquisarCliente
      */
     public frmPesquisarCliente() {
         initComponents();
+        
+        
     }
 
+    
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -74,6 +80,21 @@ public class frmPesquisarCliente extends javax.swing.JFrame {
 
         tblPaciente.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
         tblPaciente.setModel(tmPacientes);
+        tblPaciente.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        lsmPacientes = tblPaciente.getSelectionModel();
+        lsmPacientes.addListSelectionListener (new ListSelectionListener() {
+            public void valueChanged(ListSelectionEvent e) {
+                if (! e.getValueIsAdjusting()) {
+                    tblPacienteLinhaSelecionada(tblPaciente);
+                }
+            }
+
+        });
+        tblPaciente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblPacienteMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblPaciente);
 
         btnInserir.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
@@ -160,8 +181,11 @@ public class frmPesquisarCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_btnInserirActionPerformed
 
     private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
-        frmPaciente cliente = new frmPaciente();
-        cliente.setVisible(true);
+        
+        frmAlterarPaciente alterar = new frmAlterarPaciente();
+        alterar.setVisible(true);
+        
+        
     }//GEN-LAST:event_btnAlterarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
@@ -179,6 +203,11 @@ public class frmPesquisarCliente extends javax.swing.JFrame {
         // TODO add your handling code here:
         excluirPaciente();
     }//GEN-LAST:event_btnExcluirPacienteActionPerformed
+
+    private void tblPacienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblPacienteMouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_tblPacienteMouseClicked
 
     /**
      * @param args the command line arguments
@@ -262,7 +291,35 @@ public class frmPesquisarCliente extends javax.swing.JFrame {
     }
       
       }
+      
+         public void tblPacienteLinhaSelecionada(JTable tbl){
+        
+        int linhaSelecionada = tbl.getSelectedRow();
+        
+        if (linhaSelecionada != -1){
+            
+            frmAlterarPaciente alt = new frmAlterarPaciente();
+            
+          
+            alt.txtNomeAlterar.setText(listaPacientes.get(linhaSelecionada).getNome());
+            alt.txtCPFAlterar.setText(listaPacientes.get(linhaSelecionada).getCpf());
+            alt.txtDataDeNascimentoAlterar.setText(listaPacientes.get(linhaSelecionada).getDatanascimento());
+            alt.txtEnderecoAlterar.setText(listaPacientes.get(linhaSelecionada).getRua());
+            alt.txtNumeroAlterar.setText(listaPacientes.get(linhaSelecionada).getNumero());
+            alt.txtBairroAlterar.setText(listaPacientes.get(linhaSelecionada).getBairro());
+            alt.txtEstadoAlterar.setText(listaPacientes.get(linhaSelecionada).getEstado());
+            
+             } else{
+            
+            
+        } 
+    }
+      
+      
     
+      
+    
+      
           
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAlterar;

@@ -323,6 +323,7 @@ public class frmPaciente extends javax.swing.JFrame {
         paciente.setCelular(txtCelular.getText().trim());
         paciente.setEmail(txtEmail.getText().trim());
         
+  
         PacienteDAO pacienteDAO = new PacienteDAO();
         pacienteDAO.cadastrarPaciente(paciente);
         JOptionPane.showMessageDialog(null,"Paciente Cadastrado com sucesso !","Cadastro de Cliente",

@@ -22,6 +22,7 @@ public class UsuarioDAO {
     private String consultaUsuario = "SELECT * FROM USUARIO WHERE "
                                         + "NOME LIKE ?";
     
+    private String excluiUsuario = "DELETE FROM USUARIO WHERE ID_USUARIO = ?";
     
     
     public void cadastrarUsuario(Usuario usuario ){
@@ -74,5 +75,19 @@ public class UsuarioDAO {
      }
     
 
+     public void excluirUsuario(Usuario usuario){
+         try{
+             bd = new BaseDeDados();
+             pstm = bd.conecta().prepareStatement(excluiUsuario);
+             pstm.setInt(1,usuario.getCodigo());
+             pstm.executeUpdate();
+             bd.desconecta();
+            
+         }catch(Exception e){
+             e.printStackTrace();
+         }
+    
+       
+      }
     
 }

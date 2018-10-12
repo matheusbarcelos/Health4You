@@ -5,9 +5,10 @@ package entidade;
 
 public class Servico {
 
+    private int codigo;
     private String nome;
     private String valor;
-    private int codigo;
+    
 
     public int getCodigo() {
         return codigo;

@@ -12,6 +12,7 @@ import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 import persistencia.ServicoDAO;
+import javax.swing.JTable;
 
 /**
  *
@@ -45,7 +46,7 @@ public class frmPesquisaServico extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnExcluir = new javax.swing.JButton();
+        btnExcluirServico = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
         txtPesquisaServicos = new javax.swing.JTextField();
         btnPesquisarServicos = new javax.swing.JToggleButton();
@@ -58,8 +59,13 @@ public class frmPesquisaServico extends javax.swing.JFrame {
         setTitle("Pesquisa de Serviços");
         setResizable(false);
 
-        btnExcluir.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
-        btnExcluir.setText("Excluir");
+        btnExcluirServico.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
+        btnExcluirServico.setText("Excluir");
+        btnExcluirServico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirServicoActionPerformed(evt);
+            }
+        });
 
         btnCancelar.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
         btnCancelar.setText("Cancelar");
@@ -117,7 +123,7 @@ public class frmPesquisaServico extends javax.swing.JFrame {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(btnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnExcluirServico, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
@@ -135,7 +141,7 @@ public class frmPesquisaServico extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnInserir)
                     .addComponent(btnAlterar)
-                    .addComponent(btnExcluir)
+                    .addComponent(btnExcluirServico)
                     .addComponent(btnCancelar))
                 .addContainerGap(26, Short.MAX_VALUE))
         );
@@ -162,6 +168,12 @@ public class frmPesquisaServico extends javax.swing.JFrame {
         listarServicos();
         
     }//GEN-LAST:event_btnPesquisarServicosActionPerformed
+
+    private void btnExcluirServicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirServicoActionPerformed
+        // TODO add your handling code here:
+        
+        excluirServico();
+    }//GEN-LAST:event_btnExcluirServicoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -225,13 +237,34 @@ public class frmPesquisaServico extends javax.swing.JFrame {
         mostrarServicos(listaServicos);
         
     }
+
     
-    
+     private void excluirServico(){
+        
+          int excluir;
+          
+          excluir = JOptionPane.showConfirmDialog(null,"Deseja excluir esse serviço ?","Excluir Serviço",0);
+          
+          if(excluir == 0){
+              
+        Servico servico = new Servico();
+        servico.setCodigo(listaServicos.get(tblServicos.getSelectedRow()).getCodigo());
+        ServicoDAO servicoDAO = new ServicoDAO();
+        servicoDAO.excluirServico(servico);
+        JOptionPane.showMessageDialog(this, "Servico excluído com sucesso!");
+        
+    }
+     
+     }
+     
+      
+      
+      
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAlterar;
     private javax.swing.JButton btnCancelar;
-    private javax.swing.JButton btnExcluir;
+    private javax.swing.JButton btnExcluirServico;
     private javax.swing.JButton btnInserir;
     private javax.swing.JToggleButton btnPesquisarServicos;
     private javax.swing.JScrollPane jScrollPane1;

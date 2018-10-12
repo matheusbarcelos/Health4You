@@ -21,6 +21,9 @@ public class ServicoDAO {
     private String consultaServico = "SELECT * FROM SERVICO WHERE "
                                         + "NOME LIKE ?";
     
+    private String excluiServico = "DELETE FROM SERVICO WHERE ID_SERVICO = ?";
+    
+    
     
     
     public void cadastrarServico(Servico servico){
@@ -67,5 +70,21 @@ public class ServicoDAO {
          return listaServicos;
      }
     
+      public void excluirServico(Servico servico){
+         try{
+             bd = new BaseDeDados();
+             pstm = bd.conecta().prepareStatement(excluiServico);
+             pstm.setInt(1,servico.getCodigo());
+             pstm.executeUpdate();
+             bd.desconecta();
+            
+         }catch(Exception e){
+             e.printStackTrace();
+         }
+    
+       
+      }
+      
+       
     
 }

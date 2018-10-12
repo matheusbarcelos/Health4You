@@ -247,12 +247,21 @@ public class frmPesquisarCliente extends javax.swing.JFrame {
       
       private void excluirPaciente(){
         
+          int excluir;
+          
+          excluir = JOptionPane.showConfirmDialog(null,"Deseja excluir esse paciente ?","Excluir Paciente",0);
+          
+          if(excluir == 0){
+              
         Paciente paciente = new Paciente();
         paciente.setCodigo(listaPacientes.get(tblPaciente.getSelectedRow()).getCodigo());
         PacienteDAO pacienteDAO = new PacienteDAO();
         pacienteDAO.excluirPaciente(paciente);
-        JOptionPane.showMessageDialog(this, "Pacinte excluído comsucesso!");
+        JOptionPane.showMessageDialog(this, "Pacinte excluído com sucesso!");
+        
     }
+      
+      }
     
           
     // Variables declaration - do not modify//GEN-BEGIN:variables

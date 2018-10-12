@@ -174,6 +174,7 @@ public class frmPesquisaUsuario extends javax.swing.JFrame {
 
     private void btnExcluirPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirPacienteActionPerformed
         // TODO add your handling code here:
+        excluirUsuario();
     }//GEN-LAST:event_btnExcluirPacienteActionPerformed
 
     /**
@@ -242,6 +243,24 @@ public class frmPesquisaUsuario extends javax.swing.JFrame {
         mostrarUsuarios(listaUsuarios);
         
     }
+    
+    private void excluirUsuario(){
+        
+          int excluir;
+          
+          excluir = JOptionPane.showConfirmDialog(null,"Deseja excluir esse usuario ?","Excluir Usuario",0);
+          
+          if(excluir == 0){
+              
+        Usuario usuario = new Usuario();
+        usuario.setCodigo(listaUsuarios.get(tblUsuarios.getSelectedRow()).getCodigo());
+        UsuarioDAO usuarioDAO = new UsuarioDAO();
+        usuarioDAO.excluirUsuario(usuario);
+        JOptionPane.showMessageDialog(this, "Usuário excluído com sucesso!");
+        
+    }
+     
+     }
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

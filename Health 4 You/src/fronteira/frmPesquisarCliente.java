@@ -21,6 +21,8 @@ import javax.swing.event.ListSelectionListener;
  */
 public class frmPesquisarCliente extends javax.swing.JFrame {
   
+  
+    
     frmAlterarPaciente enviar;
     
     private String[] colunas = new String[]{"Codigo","Nome",
@@ -216,46 +218,14 @@ public class frmPesquisarCliente extends javax.swing.JFrame {
         cliente.setVisible(true);
 
     }//GEN-LAST:event_btnInserirActionPerformed
-
     private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
 
-
-        if(enviar==null){
-            
-            enviar = new frmAlterarPaciente();
-            enviar.setVisible(true);
-            enviar.recebe(txtNome.getText());
-            enviar.recebeId(txtId.getText());
-            enviar.recebeCPF(txtCPF.getText());
-            enviar.recebeNascimento(txtDataDeNascimento.getText());
-            enviar.recebeEndereco(txtEndereco.getText());
-            enviar.recebeNumero(txtNumero.getText());
-            enviar.recebeBairro(txtBairro.getText());
-            enviar.recebeEstado(txtEstado.getText());
-            enviar.recebeCidade(txtCidade.getText());
-            enviar.recebeTelefone(txtTelefone.getText());
-            enviar.recebeCelular(txtCelular.getText());
-            enviar.recebeEmail(txtEmail.getText());
-            
+        if(txtNome.getText().isEmpty()){
+         JOptionPane.showMessageDialog(null,"Favor selecionar um paciente para alterar","Alterar Paciente",JOptionPane.INFORMATION_MESSAGE);
         }else{
-            enviar = new frmAlterarPaciente();
-            enviar.setVisible(true);
-            enviar.recebe(txtNome.getText());
-            enviar.recebeId(txtId.getText());
-            enviar.recebeCPF(txtCPF.getText());
-            enviar.recebeNascimento(txtDataDeNascimento.getText());
-            enviar.recebeEndereco(txtEndereco.getText());
-            enviar.recebeNumero(txtNumero.getText());
-            enviar.recebeBairro(txtBairro.getText());
-            enviar.recebeEstado(txtEstado.getText());
-            enviar.recebeCidade(txtCidade.getText());
-            enviar.recebeTelefone(txtTelefone.getText());
-            enviar.recebeCelular(txtCelular.getText());
-            enviar.recebeEmail(txtEmail.getText());
-            enviar.setState(frmAlterarPaciente.NORMAL);
+            enviarAlteracaoPaciente();
         }
-        
-
+      
     }//GEN-LAST:event_btnAlterarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
@@ -348,6 +318,10 @@ public class frmPesquisarCliente extends javax.swing.JFrame {
       
       private void excluirPaciente(){
         
+          if(txtNome.getText().isEmpty()){
+         JOptionPane.showMessageDialog(null,"Favor selecionar um paciente para exclusão","Excluir Paciente",JOptionPane.INFORMATION_MESSAGE);
+        }else{
+          
           int excluir;
           
           excluir = JOptionPane.showConfirmDialog(null,"Deseja excluir esse paciente ?","Excluir Paciente",0);
@@ -361,13 +335,15 @@ public class frmPesquisarCliente extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Pacinte excluído com sucesso!");
         
     }
-      
+          }
       }
       
           public void tblPacienteLinhaSelecionada(JTable tbl){
         
             int linhaSelecionada = tbl.getSelectedRow();
-        
+            
+            
+            
              if (linhaSelecionada != -1){
             
              txtNome.setText(listaPacientes.get(linhaSelecionada).getNome());
@@ -383,13 +359,49 @@ public class frmPesquisarCliente extends javax.swing.JFrame {
              txtEmail.setText(listaPacientes.get(linhaSelecionada).getEmail());
              txtId.setText(String.valueOf(listaPacientes.get(linhaSelecionada).getCodigo()));
              
-             } 
+             }
         }
       
       
-    
+          public void enviarAlteracaoPaciente(){
+              if(enviar==null){
+            
+            enviar = new frmAlterarPaciente();
+            enviar.setVisible(true);
+            enviar.recebe(txtNome.getText());
+            enviar.recebeId(txtId.getText());
+            enviar.recebeCPF(txtCPF.getText());
+            enviar.recebeNascimento(txtDataDeNascimento.getText());
+            enviar.recebeEndereco(txtEndereco.getText());
+            enviar.recebeNumero(txtNumero.getText());
+            enviar.recebeBairro(txtBairro.getText());
+            enviar.recebeEstado(txtEstado.getText());
+            enviar.recebeCidade(txtCidade.getText());
+            enviar.recebeTelefone(txtTelefone.getText());
+            enviar.recebeCelular(txtCelular.getText());
+            enviar.recebeEmail(txtEmail.getText());
+            
+        }else{
+            enviar = new frmAlterarPaciente();
+            enviar.setVisible(true);
+            enviar.recebe(txtNome.getText());
+            enviar.recebeId(txtId.getText());
+            enviar.recebeCPF(txtCPF.getText());
+            enviar.recebeNascimento(txtDataDeNascimento.getText());
+            enviar.recebeEndereco(txtEndereco.getText());
+            enviar.recebeNumero(txtNumero.getText());
+            enviar.recebeBairro(txtBairro.getText());
+            enviar.recebeEstado(txtEstado.getText());
+            enviar.recebeCidade(txtCidade.getText());
+            enviar.recebeTelefone(txtTelefone.getText());
+            enviar.recebeCelular(txtCelular.getText());
+            enviar.recebeEmail(txtEmail.getText());
+            enviar.setState(frmAlterarPaciente.NORMAL);
+              
+          }
       
-    
+          }
+          
       
           
     // Variables declaration - do not modify//GEN-BEGIN:variables

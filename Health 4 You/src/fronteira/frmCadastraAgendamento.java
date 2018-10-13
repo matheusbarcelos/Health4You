@@ -9,6 +9,7 @@ import entidade.Paciente;
 import entidade.Servico;
 import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 import persistencia.PacienteDAO;
@@ -20,6 +21,9 @@ import persistencia.ServicoDAO;
  */
 public class frmCadastraAgendamento extends javax.swing.JFrame {
 
+    public String Nome, Servico;
+    
+    
     private String[] colunas = new String[]{"Codigo","Nome",
            "Valor"};
     
@@ -69,11 +73,12 @@ public class frmCadastraAgendamento extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        tblPaciente = new javax.swing.JTable();
         jTextField4 = new javax.swing.JTextField();
         jTextField5 = new javax.swing.JTextField();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
+        txtNomeRecebe = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Agendamentos");
@@ -122,9 +127,9 @@ public class frmCadastraAgendamento extends javax.swing.JFrame {
         jTable1.setModel(tmServicos);
         jScrollPane1.setViewportView(jTable1);
 
-        jTable2.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
-        jTable2.setModel(tmPacientes);
-        jScrollPane2.setViewportView(jTable2);
+        tblPaciente.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
+        tblPaciente.setModel(tmPacientes);
+        jScrollPane2.setViewportView(tblPaciente);
 
         jButton5.setText("Cancelar");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -169,24 +174,31 @@ public class frmCadastraAgendamento extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(btnPesquisarServico, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jLabel3))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(btnNovoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnPesquisarPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(btnPesquisarPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(221, 221, 221)
+                                .addComponent(txtNomeRecebe)))))
                 .addGap(33, 33, 33))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel2)
-                .addGap(9, 9, 9)
-                .addComponent(jLabel1)
-                .addGap(6, 6, 6)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(9, 9, 9)
+                        .addComponent(jLabel1)
+                        .addGap(6, 6, 6))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(txtNomeRecebe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)))
                 .addComponent(txtPesquisaPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -346,7 +358,25 @@ public class frmCadastraAgendamento extends javax.swing.JFrame {
     }
      
      
-    
+        private void cadastrarAgendamento(){
+        
+         
+        
+        }
+        
+        
+            private void tblClienteLinhaSelecionada(JTable tbl){
+        
+            int linhaSelecionada = tbl.getSelectedRow();
+        
+            if (linhaSelecionada != -1){
+            
+            txtNomeRecebe.setText(listaPacientes.get(linhaSelecionada).getNome());
+           
+           } 
+          }
+     
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnNovoCliente;
     private javax.swing.JButton btnNovoServico;
@@ -362,9 +392,10 @@ public class frmCadastraAgendamento extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
+    private javax.swing.JTable tblPaciente;
+    private javax.swing.JTextField txtNomeRecebe;
     private javax.swing.JTextField txtPesquisaPaciente;
     private javax.swing.JTextField txtPesquisaServicos;
     // End of variables declaration//GEN-END:variables

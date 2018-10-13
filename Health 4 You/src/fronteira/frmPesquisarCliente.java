@@ -20,7 +20,7 @@ import javax.swing.event.ListSelectionListener;
  * @author ma-th
  */
 public class frmPesquisarCliente extends javax.swing.JFrame {
-
+  
     private String[] colunas = new String[]{"Codigo","Nome",
            "Endereço","Telefone"};
     
@@ -36,6 +36,7 @@ public class frmPesquisarCliente extends javax.swing.JFrame {
      */
     public frmPesquisarCliente() {
         initComponents();
+        
         
         
     }
@@ -142,7 +143,7 @@ public class frmPesquisarCliente extends javax.swing.JFrame {
                         .addComponent(btnPesquisar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createSequentialGroup()
                             .addComponent(btnInserir, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(btnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -167,7 +168,7 @@ public class frmPesquisarCliente extends javax.swing.JFrame {
                     .addComponent(btnAlterar)
                     .addComponent(btnExcluirPaciente)
                     .addComponent(btnCancelar))
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(110, Short.MAX_VALUE))
         );
 
         pack();
@@ -182,9 +183,7 @@ public class frmPesquisarCliente extends javax.swing.JFrame {
 
     private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
         
-        frmAlterarPaciente alterar = new frmAlterarPaciente();
-        alterar.setVisible(true);
-        
+      
         
     }//GEN-LAST:event_btnAlterarActionPerformed
 
@@ -274,6 +273,8 @@ public class frmPesquisarCliente extends javax.swing.JFrame {
         
     }
       
+     
+      
       private void excluirPaciente(){
         
           int excluir;
@@ -298,16 +299,7 @@ public class frmPesquisarCliente extends javax.swing.JFrame {
         
         if (linhaSelecionada != -1){
             
-            frmAlterarPaciente alt = new frmAlterarPaciente();
-            
-          
-            alt.txtNomeAlterar.setText(listaPacientes.get(linhaSelecionada).getNome());
-            alt.txtCPFAlterar.setText(listaPacientes.get(linhaSelecionada).getCpf());
-            alt.txtDataDeNascimentoAlterar.setText(listaPacientes.get(linhaSelecionada).getDatanascimento());
-            alt.txtEnderecoAlterar.setText(listaPacientes.get(linhaSelecionada).getRua());
-            alt.txtNumeroAlterar.setText(listaPacientes.get(linhaSelecionada).getNumero());
-            alt.txtBairroAlterar.setText(listaPacientes.get(linhaSelecionada).getBairro());
-            alt.txtEstadoAlterar.setText(listaPacientes.get(linhaSelecionada).getEstado());
+           
             
              } else{
             
@@ -332,4 +324,8 @@ public class frmPesquisarCliente extends javax.swing.JFrame {
     private javax.swing.JTable tblPaciente;
     private javax.swing.JTextField txtPesquisaPaciente;
     // End of variables declaration//GEN-END:variables
+
+    private void tblPacienteLinhaSelecionada() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

@@ -24,6 +24,9 @@ public class PacienteDAO {
     
     private String excluiPaciente = "DELETE FROM PACIENTE WHERE CODIGO = ?";
     
+    private String alteraPaciente = "UPDATE FROM PACIENTE WHERE CODIGO = ? ,SET NOME =?";
+            
+    
      public void cadastrarPaciente(Paciente paciente){
         
         try{
@@ -97,5 +100,22 @@ public class PacienteDAO {
          }
     
        }
+       
+       
+       public void alterarPaciente(Paciente paciente){
+         try{
+             bd = new BaseDeDados();
+             pstm = bd.conecta().prepareStatement(alteraPaciente);
+             pstm.setString(1, paciente.getNome().trim());
+             pstm.setInt(8, paciente.getCodigo());
+             pstm.executeUpdate();
+             bd.desconecta();
+             
+         }catch(Exception e){
+             
+             e.printStackTrace();
+         }
+     }
+       
 }
 

@@ -21,6 +21,8 @@ import javax.swing.event.ListSelectionListener;
  */
 public class frmPesquisarCliente extends javax.swing.JFrame {
   
+    frmAlterarPaciente enviar;
+    
     private String[] colunas = new String[]{"Codigo","Nome",
            "Endereço","Telefone"};
     
@@ -54,6 +56,18 @@ public class frmPesquisarCliente extends javax.swing.JFrame {
     private void initComponents() {
 
         jButton3 = new javax.swing.JButton();
+        txtNome = new javax.swing.JTextField();
+        txtId = new javax.swing.JTextField();
+        txtCPF = new javax.swing.JTextField();
+        txtDataDeNascimento = new javax.swing.JTextField();
+        txtEndereco = new javax.swing.JTextField();
+        txtNumero = new javax.swing.JTextField();
+        txtBairro = new javax.swing.JTextField();
+        txtEstado = new javax.swing.JTextField();
+        txtCidade = new javax.swing.JTextField();
+        txtTelefone = new javax.swing.JTextField();
+        txtCelular = new javax.swing.JTextField();
+        txtEmail = new javax.swing.JTextField();
         txtPesquisaPaciente = new javax.swing.JTextField();
         btnPesquisar = new javax.swing.JToggleButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -64,6 +78,26 @@ public class frmPesquisarCliente extends javax.swing.JFrame {
         btnCancelar = new javax.swing.JButton();
 
         jButton3.setText("jButton1");
+
+        txtCPF.setText("jTextField1");
+
+        txtDataDeNascimento.setText("jTextField1");
+
+        txtEndereco.setText("jTextField1");
+
+        txtNumero.setText("jTextField1");
+
+        txtBairro.setText("jTextField1");
+
+        txtEstado.setText("jTextField1");
+
+        txtCidade.setText("jTextField1");
+
+        txtTelefone.setText("jTextField1");
+
+        txtCelular.setText("jTextField1");
+
+        txtEmail.setText("jTextField1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro de Pacientes");
@@ -141,16 +175,18 @@ public class frmPesquisarCliente extends javax.swing.JFrame {
                         .addComponent(txtPesquisaPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnPesquisar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(btnInserir, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(btnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(btnExcluirPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnInserir, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnExcluirPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -168,7 +204,7 @@ public class frmPesquisarCliente extends javax.swing.JFrame {
                     .addComponent(btnAlterar)
                     .addComponent(btnExcluirPaciente)
                     .addComponent(btnCancelar))
-                .addContainerGap(110, Short.MAX_VALUE))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
 
         pack();
@@ -182,9 +218,44 @@ public class frmPesquisarCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_btnInserirActionPerformed
 
     private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
+
+
+        if(enviar==null){
+            
+            enviar = new frmAlterarPaciente();
+            enviar.setVisible(true);
+            enviar.recebe(txtNome.getText());
+            enviar.recebeId(txtId.getText());
+            enviar.recebeCPF(txtCPF.getText());
+            enviar.recebeNascimento(txtDataDeNascimento.getText());
+            enviar.recebeEndereco(txtEndereco.getText());
+            enviar.recebeNumero(txtNumero.getText());
+            enviar.recebeBairro(txtBairro.getText());
+            enviar.recebeEstado(txtEstado.getText());
+            enviar.recebeCidade(txtCidade.getText());
+            enviar.recebeTelefone(txtTelefone.getText());
+            enviar.recebeCelular(txtCelular.getText());
+            enviar.recebeEmail(txtEmail.getText());
+            
+        }else{
+            enviar = new frmAlterarPaciente();
+            enviar.setVisible(true);
+            enviar.recebe(txtNome.getText());
+            enviar.recebeId(txtId.getText());
+            enviar.recebeCPF(txtCPF.getText());
+            enviar.recebeNascimento(txtDataDeNascimento.getText());
+            enviar.recebeEndereco(txtEndereco.getText());
+            enviar.recebeNumero(txtNumero.getText());
+            enviar.recebeBairro(txtBairro.getText());
+            enviar.recebeEstado(txtEstado.getText());
+            enviar.recebeCidade(txtCidade.getText());
+            enviar.recebeTelefone(txtTelefone.getText());
+            enviar.recebeCelular(txtCelular.getText());
+            enviar.recebeEmail(txtEmail.getText());
+            enviar.setState(frmAlterarPaciente.NORMAL);
+        }
         
-      
-        
+
     }//GEN-LAST:event_btnAlterarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
@@ -293,19 +364,27 @@ public class frmPesquisarCliente extends javax.swing.JFrame {
       
       }
       
-         public void tblPacienteLinhaSelecionada(JTable tbl){
+          public void tblPacienteLinhaSelecionada(JTable tbl){
         
-        int linhaSelecionada = tbl.getSelectedRow();
+            int linhaSelecionada = tbl.getSelectedRow();
         
-        if (linhaSelecionada != -1){
+             if (linhaSelecionada != -1){
             
-           
-            
-             } else{
-            
-            
-        } 
-    }
+             txtNome.setText(listaPacientes.get(linhaSelecionada).getNome());
+             txtCPF.setText(listaPacientes.get(linhaSelecionada).getCpf());
+             txtDataDeNascimento.setText(listaPacientes.get(linhaSelecionada).getDatanascimento());
+             txtEndereco.setText(listaPacientes.get(linhaSelecionada).getRua());
+             txtNumero.setText(listaPacientes.get(linhaSelecionada).getNumero());
+             txtBairro.setText(listaPacientes.get(linhaSelecionada).getBairro());
+             txtEstado.setText(listaPacientes.get(linhaSelecionada).getEstado());
+             txtCidade.setText(listaPacientes.get(linhaSelecionada).getCidade());
+             txtTelefone.setText(listaPacientes.get(linhaSelecionada).getTelefone());
+             txtCelular.setText(listaPacientes.get(linhaSelecionada).getCelular());
+             txtEmail.setText(listaPacientes.get(linhaSelecionada).getEmail());
+             txtId.setText(String.valueOf(listaPacientes.get(linhaSelecionada).getCodigo()));
+             
+             } 
+        }
       
       
     
@@ -322,7 +401,19 @@ public class frmPesquisarCliente extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblPaciente;
+    private javax.swing.JTextField txtBairro;
+    private javax.swing.JTextField txtCPF;
+    private javax.swing.JTextField txtCelular;
+    private javax.swing.JTextField txtCidade;
+    private javax.swing.JTextField txtDataDeNascimento;
+    private javax.swing.JTextField txtEmail;
+    private javax.swing.JTextField txtEndereco;
+    private javax.swing.JTextField txtEstado;
+    private javax.swing.JTextField txtId;
+    private javax.swing.JTextField txtNome;
+    private javax.swing.JTextField txtNumero;
     private javax.swing.JTextField txtPesquisaPaciente;
+    private javax.swing.JTextField txtTelefone;
     // End of variables declaration//GEN-END:variables
 
     private void tblPacienteLinhaSelecionada() {

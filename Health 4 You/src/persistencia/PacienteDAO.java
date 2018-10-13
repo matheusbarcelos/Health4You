@@ -23,8 +23,10 @@ public class PacienteDAO {
                                         + "NOME LIKE ?";
     
     private String excluiPaciente = "DELETE FROM PACIENTE WHERE CODIGO = ?";
+   
     
-    private String alteraPaciente = "UPDATE FROM PACIENTE WHERE CODIGO = ? ,SET NOME =?";
+    private String alteraPaciente = "UPDATE PACIENTE SET NOME =?,CPF=?,DATANASCIMENTO=?,RUA=?,NUMERO=?,BAIRRO=?,ESTADO=?,CIDADE=?,"
+            + "TELEFONE=?,CELULAR=?,EMAIL=? WHERE CODIGO=?";
             
     
      public void cadastrarPaciente(Paciente paciente){
@@ -107,7 +109,17 @@ public class PacienteDAO {
              bd = new BaseDeDados();
              pstm = bd.conecta().prepareStatement(alteraPaciente);
              pstm.setString(1, paciente.getNome().trim());
-             pstm.setInt(8, paciente.getCodigo());
+             pstm.setString(2, paciente.getCpf().trim());
+             pstm.setString(3, paciente.getDatanascimento().trim());
+             pstm.setString(4, paciente.getRua().trim());
+             pstm.setString(5, paciente.getNumero().trim());
+             pstm.setString(6, paciente.getBairro().trim());
+             pstm.setString(7, paciente.getEstado().trim());
+             pstm.setString(8, paciente.getCidade().trim());
+             pstm.setString(9, paciente.getTelefone().trim());
+             pstm.setString(10, paciente.getCelular().trim());
+             pstm.setString(11, paciente.getEmail().trim());
+             pstm.setInt(12, paciente.getCodigo());
              pstm.executeUpdate();
              bd.desconecta();
              

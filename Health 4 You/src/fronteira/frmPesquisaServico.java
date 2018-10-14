@@ -13,6 +13,9 @@ import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 import persistencia.ServicoDAO;
 import javax.swing.JTable;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+
 
 /**
  *
@@ -20,6 +23,8 @@ import javax.swing.JTable;
  */
 public class frmPesquisaServico extends javax.swing.JFrame {
 
+    frmAlterarServico enviar;
+    
       private String[] colunas = new String[]{"Codigo","Nome",
            "Valor"};
     
@@ -46,6 +51,9 @@ public class frmPesquisaServico extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        txtNomeServico = new javax.swing.JTextField();
+        txtValor = new javax.swing.JTextField();
+        txtId = new javax.swing.JTextField();
         btnExcluirServico = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
         txtPesquisaServicos = new javax.swing.JTextField();
@@ -87,6 +95,16 @@ public class frmPesquisaServico extends javax.swing.JFrame {
 
         tblServicos.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
         tblServicos.setModel(tmServicos);
+        tblServicos.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        lsmServicos = tblServicos.getSelectionModel();
+        lsmServicos.addListSelectionListener (new ListSelectionListener() {
+            public void valueChanged(ListSelectionEvent e) {
+                if (! e.getValueIsAdjusting()) {
+                    tblServicosLinhaSelecionada(tblServicos);
+                }
+            }
+
+        });
         jScrollPane1.setViewportView(tblServicos);
 
         btnInserir.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
@@ -155,7 +173,13 @@ public class frmPesquisaServico extends javax.swing.JFrame {
     }//GEN-LAST:event_btnInserirActionPerformed
 
     private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
-        new frmCadastraServico().setVisible(true);
+       if(txtNomeServico.getText().isEmpty()){
+         JOptionPane.showMessageDialog(null,"Favor selecionar um servico para alterar","Alterar Servico",
+                 JOptionPane.INFORMATION_MESSAGE);
+        }else{
+            enviarAlteracaoServico();
+       }
+        
     }//GEN-LAST:event_btnAlterarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
@@ -257,9 +281,34 @@ public class frmPesquisaServico extends javax.swing.JFrame {
      
      }
      
+     public void tblServicosLinhaSelecionada(JTable tbl){
+        
+            int linhaSelecionada = tbl.getSelectedRow();
+          
+             if (linhaSelecionada != -1){
+            
+             txtNomeServico.setText(listaServicos.get(linhaSelecionada).getNome());
+             txtValor.setText(listaServicos.get(linhaSelecionada).getValor());
+             txtId.setText(String.valueOf(listaServicos.get(linhaSelecionada).getCodigo()));  
+             }
+        }
       
-      
-      
+     public void enviarAlteracaoServico(){
+              if(enviar==null){
+            enviar = new frmAlterarServico();
+            enviar.setVisible(true);
+            enviar.recebeNome(txtNomeServico.getText());
+            enviar.recebeId(txtId.getText());
+            enviar.recebeValor(txtValor.getText());
+             }else{
+            enviar = new frmAlterarServico();
+            enviar.setVisible(true);
+            enviar.recebeNome(txtNomeServico.getText());
+            enviar.recebeId(txtId.getText());
+            enviar.recebeValor(txtValor.getText());
+            enviar.setState(frmAlterarServico.NORMAL);
+       }
+     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAlterar;
@@ -269,6 +318,9 @@ public class frmPesquisaServico extends javax.swing.JFrame {
     private javax.swing.JToggleButton btnPesquisarServicos;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblServicos;
+    private javax.swing.JTextField txtId;
+    private javax.swing.JTextField txtNomeServico;
     private javax.swing.JTextField txtPesquisaServicos;
+    private javax.swing.JTextField txtValor;
     // End of variables declaration//GEN-END:variables
 }

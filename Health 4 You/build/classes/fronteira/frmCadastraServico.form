@@ -116,9 +116,6 @@
       </Events>
     </Component>
     <Component class="javax.swing.JFormattedTextField" name="txtValor">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="R$"/>
-      </Properties>
     </Component>
   </SubComponents>
 </Form>

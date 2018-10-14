@@ -22,6 +22,9 @@ public class PacienteDAO {
     private String consultaPaciente = "SELECT * FROM PACIENTE WHERE "
                                         + "NOME LIKE ?";
     
+    private String exibePaciente = "SELECT * FROM PACIENTE ";
+                                       
+    
     private String excluiPaciente = "DELETE FROM PACIENTE WHERE CODIGO = ?";
    
     
@@ -88,6 +91,8 @@ public class PacienteDAO {
          bd.desconecta();
          return listaPacientes;
      }
+      
+   
       
        public void excluirPaciente(Paciente paciente){
          try{

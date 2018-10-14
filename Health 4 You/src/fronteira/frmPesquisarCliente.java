@@ -21,8 +21,7 @@ import javax.swing.event.ListSelectionListener;
  */
 public class frmPesquisarCliente extends javax.swing.JFrame {
   
-  
-    
+ 
     frmAlterarPaciente enviar;
     
     private String[] colunas = new String[]{"Codigo","Nome",
@@ -236,7 +235,7 @@ public class frmPesquisarCliente extends javax.swing.JFrame {
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
         // TODO add your handling code here:
         
-        listarPacientes();
+       listarPacientes();
     }//GEN-LAST:event_btnPesquisarActionPerformed
 
     private void btnExcluirPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirPacienteActionPerformed
@@ -285,7 +284,7 @@ public class frmPesquisarCliente extends javax.swing.JFrame {
     }
 
     
-      private void mostrarPacientes(List<Paciente> pacientes){
+      public void mostrarPacientes(List<Paciente> pacientes){
         
         while (tmPacientes.getRowCount() > 0){
             tmPacientes.removeRow(0);
@@ -305,7 +304,7 @@ public class frmPesquisarCliente extends javax.swing.JFrame {
         }
     }
       
-      private void listarPacientes(){
+      public void listarPacientes(){
         
         PacienteDAO pacienteDAO =  new PacienteDAO();
         listaPacientes = pacienteDAO.listarPacientes("%"
@@ -313,6 +312,16 @@ public class frmPesquisarCliente extends javax.swing.JFrame {
         mostrarPacientes(listaPacientes);
         
     }
+      
+      public void exibePacientes(){
+          
+          frmAlterarPaciente alt = new frmAlterarPaciente();
+          PacienteDAO pacienteDAO =  new PacienteDAO();
+        listaPacientes = pacienteDAO.listarPacientes("%"
+             +alt.txtNomeAlterar.getText().trim() + "%");
+        mostrarPacientes(listaPacientes);
+      }
+    
       
      
       
@@ -365,6 +374,7 @@ public class frmPesquisarCliente extends javax.swing.JFrame {
       
           public void enviarAlteracaoPaciente(){
               if(enviar==null){
+           
             
             enviar = new frmAlterarPaciente();
             enviar.setVisible(true);
@@ -382,6 +392,8 @@ public class frmPesquisarCliente extends javax.swing.JFrame {
             enviar.recebeEmail(txtEmail.getText());
             
         }else{
+             
+                  
             enviar = new frmAlterarPaciente();
             enviar.setVisible(true);
             enviar.recebe(txtNome.getText());
@@ -397,7 +409,7 @@ public class frmPesquisarCliente extends javax.swing.JFrame {
             enviar.recebeCelular(txtCelular.getText());
             enviar.recebeEmail(txtEmail.getText());
             enviar.setState(frmAlterarPaciente.NORMAL);
-              
+             
           }
       
           }

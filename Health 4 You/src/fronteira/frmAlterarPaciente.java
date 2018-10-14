@@ -4,10 +4,12 @@
  * and open the template in the editor.
  */
 package fronteira;
+
 import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 import entidade.Paciente;
+import java.util.List;
 import javax.swing.JTable;
 import persistencia.PacienteDAO;
 import javax.swing.event.ListSelectionEvent;
@@ -19,7 +21,8 @@ import javax.swing.event.ListSelectionListener;
 public class frmAlterarPaciente extends javax.swing.JFrame {
 
     
-    ;
+    private List<Paciente> listaPacientes;
+    private ListSelectionModel lsmPacientes;
   
     
     
@@ -308,6 +311,8 @@ public class frmAlterarPaciente extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         alterarPaciente();
+        
+        
     }//GEN-LAST:event_btnSalvarAlteracaoActionPerformed
 
     /**
@@ -386,6 +391,7 @@ public class frmAlterarPaciente extends javax.swing.JFrame {
     private void alterarPaciente(){
         
         Paciente paciente = new Paciente();
+        frmPesquisarCliente al = new frmPesquisarCliente ();
         
         paciente.setNome(txtNomeAlterar.getText().trim());
         paciente.setCpf(txtCPFAlterar.getText().trim());
@@ -399,15 +405,23 @@ public class frmAlterarPaciente extends javax.swing.JFrame {
         paciente.setCelular(txtCelularAlterar.getText().trim());
         paciente.setEmail(txtEmailAlterar.getText().trim());
         paciente.setCodigo(Integer.valueOf(txtCodigo.getText()));
-        
-        
+       
         PacienteDAO pacienteDAO = new PacienteDAO();
         pacienteDAO.alterarPaciente(paciente);
+        al.exibePacientes();
         JOptionPane.showMessageDialog(this, "Paciente alterado com sucesso!");
         
+        
+        
+        
+   
     } 
    
+     
     
+     
+            
+        
     
     
     

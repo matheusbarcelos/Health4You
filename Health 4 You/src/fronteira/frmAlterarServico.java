@@ -4,21 +4,19 @@
  * and open the template in the editor.
  */
 package fronteira;
-
-import javax.swing.JOptionPane;
 import entidade.Servico;
+import javax.swing.JOptionPane;
 import persistencia.ServicoDAO;
-
 /**
  *
  * @author ma-th
  */
-public class frmCadastraServico extends javax.swing.JFrame {
+public class frmAlterarServico extends javax.swing.JFrame {
 
     /**
-     * Creates new form frmCadastraServico
+     * Creates new form frmAlterarServico
      */
-    public frmCadastraServico() {
+    public frmAlterarServico() {
         initComponents();
     }
 
@@ -31,20 +29,21 @@ public class frmCadastraServico extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        txtCodigo = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        txtNomeServicoAlterar = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        btnCadastrar = new javax.swing.JButton();
-        txtNomeServico = new javax.swing.JTextField();
-        btnCancelar = new javax.swing.JButton();
-        txtValor = new javax.swing.JFormattedTextField();
+        btnCadastrar = new javax.swing.JToggleButton();
+        btnCancelar = new javax.swing.JToggleButton();
+        txtValorAlterar = new javax.swing.JFormattedTextField();
+
+        txtCodigo.setText("jTextField1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Cadastro de Serviços");
-        setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Open Sans", 1, 18)); // NOI18N
-        jLabel1.setText("Cadastro de Serviços");
+        jLabel1.setText("Alteração de  Serviços");
 
         jLabel2.setText("Nome do Serviço:");
 
@@ -68,80 +67,51 @@ public class frmCadastraServico extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(38, 38, 38)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 39, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtValorAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(txtNomeServicoAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel3)
-                                .addComponent(jLabel2))
-                            .addGap(180, 180, 180))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(txtNomeServico, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addGap(27, 27, 27)
-                            .addComponent(jLabel1)))
-                    .addComponent(txtValor, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(28, Short.MAX_VALUE))
+                            .addGap(16, 16, 16)
+                            .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel1)
+                            .addGap(14, 14, 14)))
+                    .addComponent(jLabel3))
+                .addGap(48, 48, 48))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
+                .addGap(25, 25, 25)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
-                .addGap(7, 7, 7)
-                .addComponent(txtNomeServico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtNomeServicoAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
+                .addComponent(txtValorAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCancelar)
-                    .addComponent(btnCadastrar))
-                .addContainerGap(35, Short.MAX_VALUE))
+                    .addComponent(btnCadastrar)
+                    .addComponent(btnCancelar))
+                .addContainerGap(54, Short.MAX_VALUE))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cadastrarServico(){
-        
-        if(txtNomeServico.getText().isEmpty() || txtValor.getText().equals("R$"))
-               {
-        
-            JOptionPane.showMessageDialog(null,"Existem campos obrigatórios a serem preenchidos","Preencher Campos",
-                    JOptionPane.INFORMATION_MESSAGE);
-            
-    }else{
-        
-        
-        Servico servico = new  Servico();
-        servico.setNome(txtNomeServico.getText().trim());
-        servico.setValor(txtValor.getText().trim());
- 
-        
-        ServicoDAO servicoDAO = new ServicoDAO();
-        servicoDAO.cadastrarServico(servico);
-        JOptionPane.showMessageDialog(null,"Servico Cadastrado com sucesso !","Cadastro de Cliente",
-                JOptionPane.INFORMATION_MESSAGE);
-        
-    }
-    }
-    
-    
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
         // TODO add your handling code here:
-        
-        cadastrarServico();
+        alterarServico();
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
@@ -166,31 +136,58 @@ public class frmCadastraServico extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frmCadastraServico.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmAlterarServico.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frmCadastraServico.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmAlterarServico.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frmCadastraServico.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmAlterarServico.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frmCadastraServico.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmAlterarServico.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new frmCadastraServico().setVisible(true);
+                new frmAlterarServico().setVisible(true);
             }
         });
     }
 
+    public void recebeNome(String recebeNome){ 
+       txtNomeServicoAlterar.setText(recebeNome);
+   }
+    
+    public void recebeValor(String recebeValor){ 
+       txtValorAlterar.setText(recebeValor);
+   }
+    
+    public void recebeId(String recebeId){
+      txtCodigo.setText(recebeId);
+    }
+    
+    private void alterarServico(){
+    
+        Servico ser = new Servico();
+        
+        ser.setNome(txtNomeServicoAlterar.getText().trim());
+        ser.setValor(txtValorAlterar.getText().trim());
+        ser.setCodigo(Integer.valueOf(txtCodigo.getText()));
+        
+        ServicoDAO servicoDAO = new ServicoDAO();
+        servicoDAO.alterarServico(ser);
+        JOptionPane.showMessageDialog(this, "Serviço alterado com sucesso!");
+        
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCadastrar;
-    private javax.swing.JButton btnCancelar;
+    private javax.swing.JToggleButton btnCadastrar;
+    private javax.swing.JToggleButton btnCancelar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JTextField txtNomeServico;
-    private javax.swing.JFormattedTextField txtValor;
+    private javax.swing.JTextField txtCodigo;
+    private javax.swing.JTextField txtNomeServicoAlterar;
+    private javax.swing.JFormattedTextField txtValorAlterar;
     // End of variables declaration//GEN-END:variables
 }

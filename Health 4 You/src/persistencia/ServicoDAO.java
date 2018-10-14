@@ -23,7 +23,7 @@ public class ServicoDAO {
     
     private String excluiServico = "DELETE FROM SERVICO WHERE ID_SERVICO = ?";
     
-    
+    private String alteraServico = "UPDATE SERVICO SET NOME =?,VALOR=? WHERE ID_SERVICO=?";
     
     
     public void cadastrarServico(Servico servico){
@@ -84,6 +84,22 @@ public class ServicoDAO {
     
        
       }
+      
+      public void alterarServico(Servico servico){
+         try{
+             bd = new BaseDeDados();
+             pstm = bd.conecta().prepareStatement(alteraServico);
+             pstm.setString(1, servico.getNome().trim());
+             pstm.setString(2, servico.getValor().trim());
+             pstm.setInt(3, servico.getCodigo());
+             pstm.executeUpdate();
+             bd.desconecta();
+             
+         }catch(Exception e){
+             
+             e.printStackTrace();
+         }
+     }
       
        
     

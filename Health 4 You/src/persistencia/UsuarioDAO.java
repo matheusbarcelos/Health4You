@@ -24,6 +24,9 @@ public class UsuarioDAO {
     
     private String excluiUsuario = "DELETE FROM USUARIO WHERE ID_USUARIO = ?";
     
+    private String alteraUsuario = "UPDATE USUARIO SET NOME =?,LOGIN=?,SENHA=?,PERMISSAO=?,STATUS=?"
+            + "WHERE ID_USUARIO=?";
+    
     
     public void cadastrarUsuario(Usuario usuario ){
         
@@ -89,5 +92,24 @@ public class UsuarioDAO {
     
        
       }
+     
+      public void alterarUsuario(Usuario usuario){
+         try{
+             bd = new BaseDeDados();
+             pstm = bd.conecta().prepareStatement(alteraUsuario);
+             pstm.setString(1, usuario.getNome().trim());
+             pstm.setString(2, usuario.getLogin().trim());
+             pstm.setString(3, usuario.getSenha().trim());
+             pstm.setString(4, usuario.getPermissao().trim());
+             pstm.setString(5, usuario.getStatus().trim());
+             pstm.setInt(6, usuario.getCodigo());
+             pstm.executeUpdate();
+             bd.desconecta();
+             
+         }catch(Exception e){
+             
+             e.printStackTrace();
+         }
+     }
     
 }

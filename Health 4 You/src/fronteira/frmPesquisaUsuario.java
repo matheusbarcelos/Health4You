@@ -9,9 +9,12 @@ package fronteira;
 import entidade.Usuario;
 import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 import persistencia.UsuarioDAO;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 /**
  *
@@ -19,6 +22,9 @@ import persistencia.UsuarioDAO;
  */
 public class frmPesquisaUsuario extends javax.swing.JFrame {
 
+    
+    frmAlterarUsuario enviar;
+    
     private String[] colunas = new String[]{"Codigo","Nome",
            "Login","Permissao"};
     
@@ -47,6 +53,12 @@ public class frmPesquisaUsuario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        txtNome = new javax.swing.JTextField();
+        txtLogin = new javax.swing.JTextField();
+        txtSenha = new javax.swing.JTextField();
+        cmbPermissao = new javax.swing.JComboBox<>();
+        cmbStatus = new javax.swing.JComboBox<>();
+        txtId = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblUsuarios = new javax.swing.JTable();
         btnInserir = new javax.swing.JButton();
@@ -55,16 +67,12 @@ public class frmPesquisaUsuario extends javax.swing.JFrame {
         btnCancelar = new javax.swing.JButton();
         txtPesquisarUsuarios = new javax.swing.JTextField();
         btnPesquisar = new javax.swing.JToggleButton();
-        cmbPermissao = new javax.swing.JComboBox<>();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        cmbStatus = new javax.swing.JComboBox<>();
-        txtNome = new javax.swing.JTextField();
-        txtLogin = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        txtSenha = new javax.swing.JTextField();
+
+        cmbPermissao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Usuário" }));
+
+        cmbStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ativo", "Inativo" }));
+
+        txtId.setText("jTextField1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Pesquisa de Usuários");
@@ -73,6 +81,16 @@ public class frmPesquisaUsuario extends javax.swing.JFrame {
         tblUsuarios.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
         tblUsuarios.setModel(tmUsuarios);
         tblUsuarios.setToolTipText("");
+        tblUsuarios.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        lsmUsuarios = tblUsuarios.getSelectionModel();
+        lsmUsuarios.addListSelectionListener (new ListSelectionListener() {
+            public void valueChanged(ListSelectionEvent e) {
+                if (! e.getValueIsAdjusting()) {
+                    tblUsuariosLinhaSelecionada(tblUsuarios);
+                }
+            }
+
+        });
         tblUsuarios.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblUsuariosMouseClicked(evt);
@@ -122,31 +140,6 @@ public class frmPesquisaUsuario extends javax.swing.JFrame {
             }
         });
 
-        cmbPermissao.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
-        cmbPermissao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Usuário" }));
-
-        jLabel10.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
-        jLabel10.setText("Permissão:");
-
-        jLabel3.setText("Status:");
-
-        cmbStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ativo", "Inativo" }));
-
-        txtNome.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
-
-        txtLogin.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
-
-        jLabel2.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
-        jLabel2.setText("Nome:");
-
-        jLabel7.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
-        jLabel7.setText("Login:");
-
-        jLabel8.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
-        jLabel8.setText("Senha:");
-
-        txtSenha.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -155,46 +148,20 @@ public class frmPesquisaUsuario extends javax.swing.JFrame {
                 .addContainerGap(43, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel10)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cmbPermissao, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel3)
-                        .addGap(18, 18, 18)
-                        .addComponent(cmbStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(62, 62, 62))
-                    .addGroup(layout.createSequentialGroup()
                         .addComponent(txtPesquisarUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnPesquisar, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(btnInserir, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(btnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(btnExcluirPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel2)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel8)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel7)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(txtLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(btnInserir, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnExcluirPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -213,25 +180,7 @@ public class frmPesquisaUsuario extends javax.swing.JFrame {
                     .addComponent(btnAlterar)
                     .addComponent(btnExcluirPaciente)
                     .addComponent(btnCancelar))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(jLabel3)
-                    .addComponent(cmbPermissao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cmbStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(63, Short.MAX_VALUE))
         );
 
         pack();
@@ -243,7 +192,12 @@ public class frmPesquisaUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_btnInserirActionPerformed
 
     private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
-        new frmCadastraUsuario().setVisible(true);
+        if(txtNome.getText().isEmpty()){
+         JOptionPane.showMessageDialog(null,"Favor selecionar um usuário para alterar","Alterar Usuário",
+                 JOptionPane.INFORMATION_MESSAGE);
+        }else{
+            enviarAlteracaoUsuario();
+        }        
     }//GEN-LAST:event_btnAlterarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
@@ -355,7 +309,53 @@ public class frmPesquisaUsuario extends javax.swing.JFrame {
      
      }
     
+     public void tblUsuariosLinhaSelecionada(JTable tbl){
+        
+            int linhaSelecionada = tbl.getSelectedRow();
+            
+             if (linhaSelecionada != -1){
+            
+             txtNome.setText(listaUsuarios.get(linhaSelecionada).getNome());
+             txtLogin.setText(listaUsuarios.get(linhaSelecionada).getLogin());
+             txtSenha.setText(listaUsuarios.get(linhaSelecionada).getSenha());
+             cmbPermissao.setSelectedItem(listaUsuarios.get(linhaSelecionada).getPermissao());
+             cmbStatus.setSelectedItem(listaUsuarios.get(linhaSelecionada).getStatus());
+             txtId.setText(String.valueOf(listaUsuarios.get(linhaSelecionada).getCodigo()));
+             
+             }
+        }
      
+     public void enviarAlteracaoUsuario(){
+              if(enviar==null){
+           
+            
+            enviar = new frmAlterarUsuario();
+            enviar.setVisible(true);
+            enviar.recebeNome(txtNome.getText());
+            enviar.recebeLogin(txtLogin.getText());
+            enviar.recebeSenha(txtSenha.getText());
+            enviar.recebePermissao((String) cmbPermissao.getSelectedItem());
+            enviar.recebeStatus((String) cmbStatus.getSelectedItem());
+            enviar.recebeId(txtId.getText());
+            
+            
+        }else{
+             
+                  
+            enviar = new frmAlterarUsuario();
+            enviar.setVisible(true);
+            enviar.recebeNome(txtNome.getText());
+            enviar.recebeLogin(txtLogin.getText());
+            enviar.recebeSenha(txtSenha.getText());
+            enviar.recebePermissao((String) cmbPermissao.getSelectedItem());
+            enviar.recebeStatus((String) cmbStatus.getSelectedItem());
+            enviar.recebeId(txtId.getText());
+            enviar.setState(frmAlterarUsuario.NORMAL);
+             
+          }
+      
+          }
+          
     
     
     
@@ -367,13 +367,9 @@ public class frmPesquisaUsuario extends javax.swing.JFrame {
     private javax.swing.JToggleButton btnPesquisar;
     private javax.swing.JComboBox<String> cmbPermissao;
     private javax.swing.JComboBox<String> cmbStatus;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblUsuarios;
+    private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtLogin;
     private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtPesquisarUsuarios;

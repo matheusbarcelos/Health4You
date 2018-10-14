@@ -5,17 +5,36 @@
  */
 package fronteira;
 
+import entidade.Agendamento;
+import persistencia.AgendamentoDAO;
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.ListSelectionModel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author joao-
  */
 public class frmAgendamento extends javax.swing.JFrame {
 
+    private String[] colunas = new String[]{"Número","Nome",
+           "Servico","Valor","Horario","Data"};
+    
+    private DefaultTableModel tmAgendamentos = new DefaultTableModel
+               (null, colunas);
+    
+    private List<Agendamento> listaAgendamentos;
+    private ListSelectionModel lsmAgendamentos;
+    
+    
+    
     /**
      * Creates new form frmAgendamento
      */
     public frmAgendamento() {
         initComponents();
+        
     }
 
     /**
@@ -28,9 +47,9 @@ public class frmAgendamento extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        txtPesquisar = new javax.swing.JTextField();
+        txtPesquisarConsultas = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblConsultas = new javax.swing.JTable();
+        tblAgendamentos = new javax.swing.JTable();
         btnAlterar = new javax.swing.JButton();
         btnPesquisar = new javax.swing.JButton();
         btnExcluir = new javax.swing.JButton();
@@ -42,20 +61,10 @@ public class frmAgendamento extends javax.swing.JFrame {
         setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Champagne & Limousines", 1, 24)); // NOI18N
-        jLabel1.setText("Agendamento de Consultas:");
+        jLabel1.setText("Agendamento de Consultas");
 
-        tblConsultas.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Nome do Paciente", "CPF", "Data da Consulta", "Horário"
-            }
-        ));
-        jScrollPane1.setViewportView(tblConsultas);
+        tblAgendamentos.setModel(tmAgendamentos);
+        jScrollPane1.setViewportView(tblAgendamentos);
 
         btnAlterar.setText("Alterar");
         btnAlterar.addActionListener(new java.awt.event.ActionListener() {
@@ -65,6 +74,11 @@ public class frmAgendamento extends javax.swing.JFrame {
         });
 
         btnPesquisar.setText("Pesquisar");
+        btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesquisarActionPerformed(evt);
+            }
+        });
 
         btnExcluir.setText("Excluir");
 
@@ -90,7 +104,7 @@ public class frmAgendamento extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(21, 21, 21)
-                        .addComponent(txtPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtPesquisarConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(9, 9, 9)
                         .addComponent(btnPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
@@ -107,7 +121,7 @@ public class frmAgendamento extends javax.swing.JFrame {
                         .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(68, 68, 68)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel1)))
                 .addContainerGap(38, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -118,7 +132,7 @@ public class frmAgendamento extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnPesquisar)
-                    .addComponent(txtPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtPesquisarConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(8, 8, 8)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24)
@@ -147,6 +161,12 @@ public class frmAgendamento extends javax.swing.JFrame {
         // TODO add your handling code here:
         new frmCadastraAgendamento().setVisible(true);
     }//GEN-LAST:event_btnAlterarActionPerformed
+
+    private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
+        // TODO add your handling code here:
+        
+        listarAgendamentos();
+    }//GEN-LAST:event_btnPesquisarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -183,6 +203,41 @@ public class frmAgendamento extends javax.swing.JFrame {
         });
     }
 
+      private void mostrarAgendamentos(List<Agendamento> agendamentos){
+        
+        while (tmAgendamentos.getRowCount() > 0){
+            tmAgendamentos.removeRow(0);
+        }
+        if(agendamentos.size() == 0){
+            JOptionPane.showMessageDialog(this, "Nenhum Agendamento foi encontrado!");
+        }else{
+            
+            for (int i = 0; i < agendamentos.size(); i++){
+                tmAgendamentos.addRow(colunas);
+                tmAgendamentos.setValueAt(agendamentos.get(i).getCodigo(), i,0);
+                tmAgendamentos.setValueAt(agendamentos.get(i).getNome(), i,1);
+                tmAgendamentos.setValueAt(agendamentos.get(i).getServico(), i,2);
+                tmAgendamentos.setValueAt(agendamentos.get(i).getValor(), i,3);
+                tmAgendamentos.setValueAt(agendamentos.get(i).getHorario(), i,4);
+                tmAgendamentos.setValueAt(agendamentos.get(i).getData(), i,5);
+                
+            }
+        }
+    }
+      
+      
+      private void listarAgendamentos(){
+        
+        AgendamentoDAO agendamentoDAO =  new AgendamentoDAO();
+        listaAgendamentos = agendamentoDAO.listarAgendamentos("%"
+             +txtPesquisarConsultas.getText().trim() + "%");
+        mostrarAgendamentos(listaAgendamentos);
+        
+    }
+    
+    
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAlterar;
     private javax.swing.JButton btnCancelar;
@@ -191,7 +246,7 @@ public class frmAgendamento extends javax.swing.JFrame {
     private javax.swing.JButton btnPesquisar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tblConsultas;
-    private javax.swing.JTextField txtPesquisar;
+    private javax.swing.JTable tblAgendamentos;
+    private javax.swing.JTextField txtPesquisarConsultas;
     // End of variables declaration//GEN-END:variables
 }

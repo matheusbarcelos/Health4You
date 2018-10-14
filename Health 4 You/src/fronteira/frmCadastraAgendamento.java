@@ -5,6 +5,8 @@
  */
 package fronteira;
 
+import persistencia.AgendamentoDAO;
+import entidade.Agendamento;
 import entidade.Paciente;
 import entidade.Servico;
 import java.util.List;
@@ -14,7 +16,8 @@ import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 import persistencia.PacienteDAO;
 import persistencia.ServicoDAO;
-
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 /**
  *
  * @author joao-
@@ -59,6 +62,10 @@ public class frmCadastraAgendamento extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        txtNomePaciente = new javax.swing.JTextField();
+        txtCPFPaciente = new javax.swing.JTextField();
+        txtNomeServico = new javax.swing.JTextField();
+        txtValorServico = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -71,14 +78,15 @@ public class frmCadastraAgendamento extends javax.swing.JFrame {
         btnNovoServico = new javax.swing.JButton();
         txtPesquisaServicos = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblServico = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblPaciente = new javax.swing.JTable();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
         jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        txtNomeRecebe = new javax.swing.JTextField();
+        btnCadastrar = new javax.swing.JButton();
+        txtData = new com.toedter.calendar.JDateChooser();
+        txtHorario = new javax.swing.JTextField();
+
+        txtValorServico.setText("jTextField1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Agendamentos");
@@ -123,12 +131,32 @@ public class frmCadastraAgendamento extends javax.swing.JFrame {
             }
         });
 
-        jTable1.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
-        jTable1.setModel(tmServicos);
-        jScrollPane1.setViewportView(jTable1);
+        tblServico.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
+        tblServico.setModel(tmServicos);
+        tblServico.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        lsmServicos = tblServico.getSelectionModel();
+        lsmServicos.addListSelectionListener (new ListSelectionListener() {
+            public void valueChanged(ListSelectionEvent e) {
+                if (! e.getValueIsAdjusting()) {
+                    tblServicoLinhaSelecionada(tblServico);
+                }
+            }
+
+        });
+        jScrollPane1.setViewportView(tblServico);
 
         tblPaciente.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
         tblPaciente.setModel(tmPacientes);
+        tblPaciente.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        lsmPacientes = tblPaciente.getSelectionModel();
+        lsmPacientes.addListSelectionListener (new ListSelectionListener() {
+            public void valueChanged(ListSelectionEvent e) {
+                if (! e.getValueIsAdjusting()) {
+                    tblPacienteLinhaSelecionada(tblPaciente);
+                }
+            }
+
+        });
         jScrollPane2.setViewportView(tblPaciente);
 
         jButton5.setText("Cancelar");
@@ -138,67 +166,70 @@ public class frmCadastraAgendamento extends javax.swing.JFrame {
             }
         });
 
-        jButton6.setText("Cadastrar");
+        btnCadastrar.setText("Cadastrar");
+        btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastrarActionPerformed(evt);
+            }
+        });
+
+        txtHorario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtHorarioActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(80, 80, 80))
+                    .addComponent(txtPesquisaServicos)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(txtPesquisaPaciente, javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(37, 37, 37)
+                        .addComponent(btnNovoServico, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnPesquisarServico, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addComponent(btnNovoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnPesquisarPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtPesquisaServicos, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addComponent(txtPesquisaPaciente)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addComponent(jLabel4)
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addComponent(jTextField5, javax.swing.GroupLayout.Alignment.LEADING))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jTextField4)
-                                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel1))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnCadastrar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnNovoServico, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnPesquisarServico, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnNovoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnPesquisarPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(221, 221, 221)
-                                .addComponent(txtNomeRecebe)))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel4)
+                                    .addComponent(txtHorario, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(33, 33, 33))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(113, 113, 113))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(9, 9, 9)
-                        .addComponent(jLabel1)
-                        .addGap(6, 6, 6))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(txtNomeRecebe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)))
+                .addComponent(jLabel2)
+                .addGap(9, 9, 9)
+                .addComponent(jLabel1)
+                .addGap(6, 6, 6)
                 .addComponent(txtPesquisaPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -222,12 +253,13 @@ public class frmCadastraAgendamento extends javax.swing.JFrame {
                     .addComponent(jLabel5))
                 .addGap(6, 6, 6)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton6)
-                    .addComponent(jButton5))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(txtHorario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnCadastrar)
+                            .addComponent(jButton5)))
+                    .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
@@ -261,6 +293,15 @@ public class frmCadastraAgendamento extends javax.swing.JFrame {
         
         listarPacientes();
     }//GEN-LAST:event_btnPesquisarPacienteActionPerformed
+
+    private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
+        // TODO add your handling code here:
+        cadastrarAgendamento();
+    }//GEN-LAST:event_btnCadastrarActionPerformed
+
+    private void txtHorarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHorarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtHorarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -297,6 +338,36 @@ public class frmCadastraAgendamento extends javax.swing.JFrame {
         });
     }
     
+    private void cadastrarAgendamento(){
+        
+        if(txtNomePaciente.getText().isEmpty()){
+            
+            JOptionPane.showMessageDialog(null,"Você precisa selecionar um paciente para agendar","Selecionar Paciente",
+                    JOptionPane.INFORMATION_MESSAGE);
+            
+        }else if( txtNomeServico.getText().isEmpty()){
+            
+            JOptionPane.showMessageDialog(null,"Você precisa selecionar um serviço para agendar","Selecionar Serviço",
+                    JOptionPane.INFORMATION_MESSAGE);
+            
+        }else{
+        
+        
+        Agendamento agendamento = new  Agendamento();
+        agendamento.setNome(txtNomePaciente.getText().trim());
+        agendamento.setCpf(txtCPFPaciente.getText().trim());
+        agendamento.setServico(txtNomeServico.getText().trim());
+        agendamento.setValor(txtValorServico.getText().trim());;
+        
+        AgendamentoDAO agendamentoDAO = new AgendamentoDAO();
+        agendamentoDAO.cadastrarAgendamento(agendamento);
+        JOptionPane.showMessageDialog(null,"Agendamento Cadastrado com sucesso !","Cadastro de Agendamento",
+                JOptionPane.INFORMATION_MESSAGE);
+        
+        
+    }
+    
+    }
     
      private void mostrarServicos(List<Servico> servicos){
         
@@ -358,32 +429,38 @@ public class frmCadastraAgendamento extends javax.swing.JFrame {
     }
      
      
-        private void cadastrarAgendamento(){
-        
-         
-        
-        }
-        
-        
-            private void tblClienteLinhaSelecionada(JTable tbl){
+       public void tblPacienteLinhaSelecionada(JTable tbl){
         
             int linhaSelecionada = tbl.getSelectedRow();
-        
-            if (linhaSelecionada != -1){
+          
+             if (linhaSelecionada != -1){
             
-            txtNomeRecebe.setText(listaPacientes.get(linhaSelecionada).getNome());
-           
-           } 
-          }
+             txtNomePaciente.setText(listaPacientes.get(linhaSelecionada).getNome());
+             txtCPFPaciente.setText(listaPacientes.get(linhaSelecionada).getCpf());
+                 }
+        }
      
+       public void tblServicoLinhaSelecionada(JTable tbl){
+        
+            int linhaSelecionada = tbl.getSelectedRow();
+          
+             if (linhaSelecionada != -1){
+            
+             txtNomeServico.setText(listaServicos.get(linhaSelecionada).getNome());
+             txtValorServico.setText(listaServicos.get(linhaSelecionada).getValor());
+                 }
+        }
+       
+       
+       
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCadastrar;
     private javax.swing.JButton btnNovoCliente;
     private javax.swing.JButton btnNovoServico;
     private javax.swing.JButton btnPesquisarPaciente;
     private javax.swing.JButton btnPesquisarServico;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -391,12 +468,15 @@ public class frmCadastraAgendamento extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
     private javax.swing.JTable tblPaciente;
-    private javax.swing.JTextField txtNomeRecebe;
+    private javax.swing.JTable tblServico;
+    private javax.swing.JTextField txtCPFPaciente;
+    private com.toedter.calendar.JDateChooser txtData;
+    private javax.swing.JTextField txtHorario;
+    private javax.swing.JTextField txtNomePaciente;
+    private javax.swing.JTextField txtNomeServico;
     private javax.swing.JTextField txtPesquisaPaciente;
     private javax.swing.JTextField txtPesquisaServicos;
+    private javax.swing.JTextField txtValorServico;
     // End of variables declaration//GEN-END:variables
 }

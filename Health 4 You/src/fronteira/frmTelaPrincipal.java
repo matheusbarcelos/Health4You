@@ -5,22 +5,27 @@
  */
 package fronteira;
 
+import java.awt.Color;
+import java.awt.Graphics;
+import javax.swing.JComponent;
 import javax.swing.JOptionPane;
+import javax.swing.plaf.basic.BasicMenuBarUI;
 
 /**
  *
  * @author ma-th
  */
 public class frmTelaPrincipal extends javax.swing.JFrame {
-    
+
     /**
      * Creates new form frmTelaPrincipal
      */
     public frmTelaPrincipal() {
         initComponents();
-        this.setExtendedState(MAXIMIZED_BOTH);
+        lblHelpPrincipal.setText("<html><u>Precisa de Ajuda?</u></html>");
+        
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -31,8 +36,29 @@ public class frmTelaPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel4 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jMenuBar1 = new javax.swing.JMenuBar();
+        jLabel2 = new javax.swing.JLabel();
+        lblNomeUsuario = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jLabel5 = new javax.swing.JLabel();
+        lblWelcome = new javax.swing.JLabel();
+        filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(1080, 0), new java.awt.Dimension(1080, 0), new java.awt.Dimension(1080, 32767));
+        iconProfille = new javax.swing.JLabel();
+        btnConsultaAgendada = new javax.swing.JLabel();
+        btnHelpPrincipal = new javax.swing.JLabel();
+        btnCadastroUsuario = new javax.swing.JLabel();
+        lblConsultaAgendada = new javax.swing.JLabel();
+        lblCadastroPaciente = new javax.swing.JLabel();
+        lblHelpPrincipal = new javax.swing.JLabel();
+        lblCadastroUsuario = new javax.swing.JLabel();
+        lblRelatorioConsulta = new javax.swing.JLabel();
+        btnCadastroPaciente = new javax.swing.JLabel();
+        lblRelatorioPaciente = new javax.swing.JLabel();
+        btnRelatorioConsulta = new javax.swing.JLabel();
+        btnRelatorioPaciente = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        menuPrincipal = new javax.swing.JMenuBar();
         mnuAgendamento = new javax.swing.JMenu();
         mnuCadastros = new javax.swing.JMenu();
         mnuClientes = new javax.swing.JMenuItem();
@@ -45,6 +71,8 @@ public class frmTelaPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Health For You");
+        setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(1280, 720));
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -54,16 +82,145 @@ public class frmTelaPrincipal extends javax.swing.JFrame {
         getContentPane().add(jLabel4);
         jLabel4.setBounds(940, 1060, 181, 16);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\joao-\\Desktop\\2systemonemore.png")); // NOI18N
-        jLabel1.setText("jLabel1");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(420, 240, 540, 190);
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setMinimumSize(new java.awt.Dimension(1080, 1920));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1280, 720));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jMenuBar1.setForeground(new java.awt.Color(51, 102, 255));
-        jMenuBar1.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/Health Solution - Blue.png"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 600, -1, -1));
 
+        jLabel2.setBackground(new java.awt.Color(0, 73, 125));
+        jLabel2.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 73, 125));
+        jLabel2.setText("Desenvolvido por");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 570, -1, -1));
+
+        lblNomeUsuario.setFont(new java.awt.Font("Open Sans", 2, 14)); // NOI18N
+        lblNomeUsuario.setForeground(new java.awt.Color(0, 73, 125));
+        lblNomeUsuario.setText("Nome da Pessoa");
+        jPanel1.add(lblNomeUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 30, -1, -1));
+
+        jSeparator1.setBackground(new java.awt.Color(0, 155, 219));
+        jSeparator1.setForeground(new java.awt.Color(0, 155, 219));
+        jSeparator1.setAlignmentX(2.0F);
+        jSeparator1.setAlignmentY(2.0F);
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 1240, 20));
+
+        jLabel5.setFont(new java.awt.Font("Open Sans", 2, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 73, 125));
+        jLabel5.setText("Acesso Rápido");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
+
+        lblWelcome.setFont(new java.awt.Font("Open Sans", 2, 14)); // NOI18N
+        lblWelcome.setForeground(new java.awt.Color(0, 73, 125));
+        lblWelcome.setText("Seja bem-vindo, ");
+        jPanel1.add(lblWelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 30, -1, -1));
+        jPanel1.add(filler1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, -1, -1));
+
+        iconProfille.setIcon(new javax.swing.ImageIcon("C:\\Users\\joao-\\Desktop\\Sistema JAVA Imagens - Health Solution\\Principal\\for system\\doctor profile teste.png")); // NOI18N
+        jPanel1.add(iconProfille, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 10, 70, 70));
+
+        btnConsultaAgendada.setIcon(new javax.swing.ImageIcon("C:\\Users\\joao-\\Desktop\\Sistema JAVA Imagens - Health Solution\\Principal\\for system\\icon 1 principal.png")); // NOI18N
+        btnConsultaAgendada.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnConsultaAgendadaMouseClicked(evt);
+            }
+        });
+        jPanel1.add(btnConsultaAgendada, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
+
+        btnHelpPrincipal.setIcon(new javax.swing.ImageIcon("C:\\Users\\joao-\\Desktop\\Sistema JAVA Imagens - Health Solution\\Principal\\for system\\icon 6 principal.png")); // NOI18N
+        jPanel1.add(btnHelpPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 500, -1, -1));
+
+        btnCadastroUsuario.setIcon(new javax.swing.ImageIcon("C:\\Users\\joao-\\Desktop\\Sistema JAVA Imagens - Health Solution\\Principal\\for system\\icon 3 principal.png")); // NOI18N
+        btnCadastroUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCadastroUsuarioMouseClicked(evt);
+            }
+        });
+        jPanel1.add(btnCadastroUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 130, -1, -1));
+
+        lblConsultaAgendada.setBackground(new java.awt.Color(0, 73, 125));
+        lblConsultaAgendada.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
+        lblConsultaAgendada.setForeground(new java.awt.Color(0, 73, 125));
+        lblConsultaAgendada.setText("Consultas Agendadas");
+        lblConsultaAgendada.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblConsultaAgendadaMouseClicked(evt);
+            }
+        });
+        jPanel1.add(lblConsultaAgendada, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, -1, -1));
+
+        lblCadastroPaciente.setBackground(new java.awt.Color(0, 73, 125));
+        lblCadastroPaciente.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
+        lblCadastroPaciente.setForeground(new java.awt.Color(0, 73, 125));
+        lblCadastroPaciente.setText("Cadastro de Pacientes");
+        lblCadastroPaciente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblCadastroPacienteMouseClicked(evt);
+            }
+        });
+        jPanel1.add(lblCadastroPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 320, -1, -1));
+
+        lblHelpPrincipal.setBackground(new java.awt.Color(0, 73, 125));
+        lblHelpPrincipal.setFont(new java.awt.Font("Open Sans", 2, 14)); // NOI18N
+        lblHelpPrincipal.setForeground(new java.awt.Color(0, 73, 125));
+        lblHelpPrincipal.setText("Precida de ajuda?");
+        jPanel1.add(lblHelpPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 580, -1, 20));
+
+        lblCadastroUsuario.setBackground(new java.awt.Color(0, 73, 125));
+        lblCadastroUsuario.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
+        lblCadastroUsuario.setForeground(new java.awt.Color(0, 73, 125));
+        lblCadastroUsuario.setText("Cadastro de Usuários");
+        lblCadastroUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblCadastroUsuarioMouseClicked(evt);
+            }
+        });
+        jPanel1.add(lblCadastroUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 320, -1, -1));
+
+        lblRelatorioConsulta.setBackground(new java.awt.Color(0, 73, 125));
+        lblRelatorioConsulta.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
+        lblRelatorioConsulta.setForeground(new java.awt.Color(0, 73, 125));
+        lblRelatorioConsulta.setText("Relatório de Consultas");
+        jPanel1.add(lblRelatorioConsulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 320, -1, -1));
+
+        btnCadastroPaciente.setIcon(new javax.swing.ImageIcon("C:\\Users\\joao-\\Desktop\\Sistema JAVA Imagens - Health Solution\\Principal\\for system\\icon 2 principal.png")); // NOI18N
+        btnCadastroPaciente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCadastroPacienteMouseClicked(evt);
+            }
+        });
+        jPanel1.add(btnCadastroPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 130, -1, -1));
+
+        lblRelatorioPaciente.setBackground(new java.awt.Color(0, 73, 125));
+        lblRelatorioPaciente.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
+        lblRelatorioPaciente.setForeground(new java.awt.Color(0, 73, 125));
+        lblRelatorioPaciente.setText("Relatório de Pacientes");
+        jPanel1.add(lblRelatorioPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 320, -1, -1));
+
+        btnRelatorioConsulta.setIcon(new javax.swing.ImageIcon("C:\\Users\\joao-\\Desktop\\Sistema JAVA Imagens - Health Solution\\Principal\\for system\\icon 4 principal.png")); // NOI18N
+        jPanel1.add(btnRelatorioConsulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 130, -1, -1));
+
+        btnRelatorioPaciente.setIcon(new javax.swing.ImageIcon("C:\\Users\\joao-\\Desktop\\Sistema JAVA Imagens - Health Solution\\Principal\\for system\\icon 5 principal.png")); // NOI18N
+        jPanel1.add(btnRelatorioPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 130, -1, -1));
+
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(0, 0, 1280, 720);
+
+        jLabel15.setText("jLabel15");
+        getContentPane().add(jLabel15);
+        jLabel15.setBounds(0, 0, 40, 14);
+
+        menuPrincipal.setBackground(new java.awt.Color(0, 155, 219));
+        menuPrincipal.setBorder(null);
+        menuPrincipal.setForeground(new java.awt.Color(255, 255, 255));
+        menuPrincipal.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
+
+        mnuAgendamento.setBackground(new java.awt.Color(0, 155, 219));
+        mnuAgendamento.setForeground(new java.awt.Color(255, 255, 255));
         mnuAgendamento.setText("Agendamento");
-        mnuAgendamento.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
+        mnuAgendamento.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
         mnuAgendamento.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 mnuAgendamentoMouseClicked(evt);
@@ -74,12 +231,16 @@ public class frmTelaPrincipal extends javax.swing.JFrame {
                 mnuAgendamentoActionPerformed(evt);
             }
         });
-        jMenuBar1.add(mnuAgendamento);
+        menuPrincipal.add(mnuAgendamento);
 
+        mnuCadastros.setBackground(new java.awt.Color(0, 155, 219));
+        mnuCadastros.setForeground(new java.awt.Color(255, 255, 255));
         mnuCadastros.setText("Cadastros");
-        mnuCadastros.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
+        mnuCadastros.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
 
+        mnuClientes.setBackground(new java.awt.Color(0, 155, 219));
         mnuClientes.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
+        mnuClientes.setForeground(new java.awt.Color(255, 255, 255));
         mnuClientes.setText("Pacientes");
         mnuClientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -88,7 +249,9 @@ public class frmTelaPrincipal extends javax.swing.JFrame {
         });
         mnuCadastros.add(mnuClientes);
 
+        mnuServicos.setBackground(new java.awt.Color(0, 155, 219));
         mnuServicos.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
+        mnuServicos.setForeground(new java.awt.Color(255, 255, 255));
         mnuServicos.setText("Serviços");
         mnuServicos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -97,16 +260,22 @@ public class frmTelaPrincipal extends javax.swing.JFrame {
         });
         mnuCadastros.add(mnuServicos);
 
-        jMenuBar1.add(mnuCadastros);
+        menuPrincipal.add(mnuCadastros);
 
+        mnuRelatorio.setBackground(new java.awt.Color(0, 155, 219));
+        mnuRelatorio.setForeground(new java.awt.Color(255, 255, 255));
         mnuRelatorio.setText("Relatórios");
-        mnuRelatorio.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
-        jMenuBar1.add(mnuRelatorio);
+        mnuRelatorio.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
+        menuPrincipal.add(mnuRelatorio);
 
+        mnuConfiguracoes.setBackground(new java.awt.Color(0, 155, 219));
+        mnuConfiguracoes.setForeground(new java.awt.Color(255, 255, 255));
         mnuConfiguracoes.setText("Configurações");
-        mnuConfiguracoes.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
+        mnuConfiguracoes.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
 
+        mnuCadastroUsuario.setBackground(new java.awt.Color(0, 155, 219));
         mnuCadastroUsuario.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
+        mnuCadastroUsuario.setForeground(new java.awt.Color(255, 255, 255));
         mnuCadastroUsuario.setText("Usuários");
         mnuCadastroUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,7 +284,9 @@ public class frmTelaPrincipal extends javax.swing.JFrame {
         });
         mnuConfiguracoes.add(mnuCadastroUsuario);
 
+        mnuSobre.setBackground(new java.awt.Color(0, 155, 219));
         mnuSobre.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
+        mnuSobre.setForeground(new java.awt.Color(255, 255, 255));
         mnuSobre.setText("Sobre");
         mnuSobre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -124,10 +295,13 @@ public class frmTelaPrincipal extends javax.swing.JFrame {
         });
         mnuConfiguracoes.add(mnuSobre);
 
-        jMenuBar1.add(mnuConfiguracoes);
+        menuPrincipal.add(mnuConfiguracoes);
 
+        mnuSair.setBackground(new java.awt.Color(0, 155, 219));
+        mnuSair.setBorder(null);
+        mnuSair.setForeground(new java.awt.Color(255, 255, 255));
         mnuSair.setText("Sair");
-        mnuSair.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
+        mnuSair.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
         mnuSair.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 mnuSairMouseClicked(evt);
@@ -138,16 +312,16 @@ public class frmTelaPrincipal extends javax.swing.JFrame {
                 mnuSairActionPerformed(evt);
             }
         });
-        jMenuBar1.add(mnuSair);
+        menuPrincipal.add(mnuSair);
 
-        setJMenuBar(jMenuBar1);
+        setJMenuBar(menuPrincipal);
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void mnuSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuSairActionPerformed
-        
+
     }//GEN-LAST:event_mnuSairActionPerformed
 
     private void mnuClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuClientesActionPerformed
@@ -172,7 +346,7 @@ public class frmTelaPrincipal extends javax.swing.JFrame {
 
     private void mnuSobreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuSobreActionPerformed
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(null, "Sistema desenvolvido por Health Solutions" 
+        JOptionPane.showMessageDialog(null, "Sistema desenvolvido por Health Solutions"
                 + "\n - Igor, João Paulo, Matheus Alves, Matheus Gontijo e Túlio "
                 + "\n - 2018, Una Bom Despacho", "Sobre Nós", JOptionPane.PLAIN_MESSAGE);
     }//GEN-LAST:event_mnuSobreActionPerformed
@@ -187,6 +361,36 @@ public class frmTelaPrincipal extends javax.swing.JFrame {
         new frmAgendamento().setVisible(true);
     }//GEN-LAST:event_mnuAgendamentoMouseClicked
 
+    private void btnConsultaAgendadaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConsultaAgendadaMouseClicked
+        // TODO add your handling code here:
+        new frmAgendamento().setVisible(true);
+    }//GEN-LAST:event_btnConsultaAgendadaMouseClicked
+
+    private void lblConsultaAgendadaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblConsultaAgendadaMouseClicked
+        // TODO add your handling code here:
+        new frmAgendamento().setVisible(true);
+    }//GEN-LAST:event_lblConsultaAgendadaMouseClicked
+
+    private void btnCadastroPacienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCadastroPacienteMouseClicked
+        // TODO add your handling code here:
+        new frmPesquisarCliente().setVisible(true);
+    }//GEN-LAST:event_btnCadastroPacienteMouseClicked
+
+    private void lblCadastroPacienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCadastroPacienteMouseClicked
+        // TODO add your handling code here:
+        new frmPesquisarCliente().setVisible(true);
+    }//GEN-LAST:event_lblCadastroPacienteMouseClicked
+
+    private void btnCadastroUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCadastroUsuarioMouseClicked
+        // TODO add your handling code here:
+        new frmPesquisaUsuario().setVisible(true);
+    }//GEN-LAST:event_btnCadastroUsuarioMouseClicked
+
+    private void lblCadastroUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCadastroUsuarioMouseClicked
+        // TODO add your handling code here:
+        new frmPesquisaUsuario().setVisible(true);
+    }//GEN-LAST:event_lblCadastroUsuarioMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -196,23 +400,23 @@ public class frmTelaPrincipal extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frmTelaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frmTelaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frmTelaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frmTelaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(frmTelaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(frmTelaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(frmTelaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(frmTelaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -223,9 +427,30 @@ public class frmTelaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel btnCadastroPaciente;
+    private javax.swing.JLabel btnCadastroUsuario;
+    private javax.swing.JLabel btnConsultaAgendada;
+    private javax.swing.JLabel btnHelpPrincipal;
+    private javax.swing.JLabel btnRelatorioConsulta;
+    private javax.swing.JLabel btnRelatorioPaciente;
+    private javax.swing.Box.Filler filler1;
+    private javax.swing.JLabel iconProfille;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel lblCadastroPaciente;
+    private javax.swing.JLabel lblCadastroUsuario;
+    private javax.swing.JLabel lblConsultaAgendada;
+    private javax.swing.JLabel lblHelpPrincipal;
+    private javax.swing.JLabel lblNomeUsuario;
+    private javax.swing.JLabel lblRelatorioConsulta;
+    private javax.swing.JLabel lblRelatorioPaciente;
+    private javax.swing.JLabel lblWelcome;
+    private javax.swing.JMenuBar menuPrincipal;
     private javax.swing.JMenu mnuAgendamento;
     private javax.swing.JMenuItem mnuCadastroUsuario;
     private javax.swing.JMenu mnuCadastros;

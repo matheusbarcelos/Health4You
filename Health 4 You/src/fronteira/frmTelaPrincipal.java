@@ -118,10 +118,10 @@ public class frmTelaPrincipal extends javax.swing.JFrame {
         jPanel1.add(lblWelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 30, -1, -1));
         jPanel1.add(filler1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, -1, -1));
 
-        iconProfille.setIcon(new javax.swing.ImageIcon("C:\\Users\\joao-\\Desktop\\Sistema JAVA Imagens - Health Solution\\Principal\\for system\\doctor profile teste.png")); // NOI18N
+        iconProfille.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/doctor profile teste.png"))); // NOI18N
         jPanel1.add(iconProfille, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 10, 70, 70));
 
-        btnConsultaAgendada.setIcon(new javax.swing.ImageIcon("C:\\Users\\joao-\\Desktop\\Sistema JAVA Imagens - Health Solution\\Principal\\for system\\icon 1 principal.png")); // NOI18N
+        btnConsultaAgendada.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/icon 1 principal.png"))); // NOI18N
         btnConsultaAgendada.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnConsultaAgendadaMouseClicked(evt);
@@ -129,10 +129,10 @@ public class frmTelaPrincipal extends javax.swing.JFrame {
         });
         jPanel1.add(btnConsultaAgendada, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
 
-        btnHelpPrincipal.setIcon(new javax.swing.ImageIcon("C:\\Users\\joao-\\Desktop\\Sistema JAVA Imagens - Health Solution\\Principal\\for system\\icon 6 principal.png")); // NOI18N
+        btnHelpPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/icon 6 principal.png"))); // NOI18N
         jPanel1.add(btnHelpPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 500, -1, -1));
 
-        btnCadastroUsuario.setIcon(new javax.swing.ImageIcon("C:\\Users\\joao-\\Desktop\\Sistema JAVA Imagens - Health Solution\\Principal\\for system\\icon 3 principal.png")); // NOI18N
+        btnCadastroUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/icon 3 principal.png"))); // NOI18N
         btnCadastroUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnCadastroUsuarioMouseClicked(evt);
@@ -185,7 +185,7 @@ public class frmTelaPrincipal extends javax.swing.JFrame {
         lblRelatorioConsulta.setText("Relatório de Consultas");
         jPanel1.add(lblRelatorioConsulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 320, -1, -1));
 
-        btnCadastroPaciente.setIcon(new javax.swing.ImageIcon("C:\\Users\\joao-\\Desktop\\Sistema JAVA Imagens - Health Solution\\Principal\\for system\\icon 2 principal.png")); // NOI18N
+        btnCadastroPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/icon 2 principal.png"))); // NOI18N
         btnCadastroPaciente.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnCadastroPacienteMouseClicked(evt);
@@ -199,10 +199,10 @@ public class frmTelaPrincipal extends javax.swing.JFrame {
         lblRelatorioPaciente.setText("Relatório de Pacientes");
         jPanel1.add(lblRelatorioPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 320, -1, -1));
 
-        btnRelatorioConsulta.setIcon(new javax.swing.ImageIcon("C:\\Users\\joao-\\Desktop\\Sistema JAVA Imagens - Health Solution\\Principal\\for system\\icon 4 principal.png")); // NOI18N
+        btnRelatorioConsulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/icon 4 principal.png"))); // NOI18N
         jPanel1.add(btnRelatorioConsulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 130, -1, -1));
 
-        btnRelatorioPaciente.setIcon(new javax.swing.ImageIcon("C:\\Users\\joao-\\Desktop\\Sistema JAVA Imagens - Health Solution\\Principal\\for system\\icon 5 principal.png")); // NOI18N
+        btnRelatorioPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/icon 5 principal.png"))); // NOI18N
         jPanel1.add(btnRelatorioPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 130, -1, -1));
 
         getContentPane().add(jPanel1);

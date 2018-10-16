@@ -363,7 +363,7 @@
         <Component class="javax.swing.JLabel" name="iconProfille">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\joao-\Desktop\Sistema JAVA Imagens - Health Solution\Principal\for system\doctor profile teste.png"/>
+              <Image iconType="3" name="/fronteira/imgs/doctor profile teste.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -375,7 +375,7 @@
         <Component class="javax.swing.JLabel" name="btnConsultaAgendada">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\joao-\Desktop\Sistema JAVA Imagens - Health Solution\Principal\for system\icon 1 principal.png"/>
+              <Image iconType="3" name="/fronteira/imgs/icon 1 principal.png"/>
             </Property>
           </Properties>
           <Events>
@@ -390,7 +390,7 @@
         <Component class="javax.swing.JLabel" name="btnHelpPrincipal">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\joao-\Desktop\Sistema JAVA Imagens - Health Solution\Principal\for system\icon 6 principal.png"/>
+              <Image iconType="3" name="/fronteira/imgs/icon 6 principal.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -402,7 +402,7 @@
         <Component class="javax.swing.JLabel" name="btnCadastroUsuario">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\joao-\Desktop\Sistema JAVA Imagens - Health Solution\Principal\for system\icon 3 principal.png"/>
+              <Image iconType="3" name="/fronteira/imgs/icon 3 principal.png"/>
             </Property>
           </Properties>
           <Events>
@@ -521,7 +521,7 @@
         <Component class="javax.swing.JLabel" name="btnCadastroPaciente">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\joao-\Desktop\Sistema JAVA Imagens - Health Solution\Principal\for system\icon 2 principal.png"/>
+              <Image iconType="3" name="/fronteira/imgs/icon 2 principal.png"/>
             </Property>
           </Properties>
           <Events>
@@ -555,7 +555,7 @@
         <Component class="javax.swing.JLabel" name="btnRelatorioConsulta">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\joao-\Desktop\Sistema JAVA Imagens - Health Solution\Principal\for system\icon 4 principal.png"/>
+              <Image iconType="3" name="/fronteira/imgs/icon 4 principal.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -567,7 +567,7 @@
         <Component class="javax.swing.JLabel" name="btnRelatorioPaciente">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\joao-\Desktop\Sistema JAVA Imagens - Health Solution\Principal\for system\icon 5 principal.png"/>
+              <Image iconType="3" name="/fronteira/imgs/icon 5 principal.png"/>
             </Property>
           </Properties>
           <Constraints>

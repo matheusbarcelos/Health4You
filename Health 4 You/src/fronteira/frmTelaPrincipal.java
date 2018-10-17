@@ -4,7 +4,8 @@
  * and open the template in the editor.
  */
 package fronteira;
-
+import entidade.Usuario;
+import persistencia.UsuarioDAO;
 import java.awt.Color;
 import java.awt.Graphics;
 import javax.swing.JComponent;
@@ -23,6 +24,10 @@ public class frmTelaPrincipal extends javax.swing.JFrame {
     public frmTelaPrincipal() {
         initComponents();
         lblHelpPrincipal.setText("<html><u>Precisa de Ajuda?</u></html>");
+        UsuarioDAO logado = new UsuarioDAO();
+        Usuario us = new Usuario();
+        lblNomeUsuario.setText(us.getNome());
+              
         
     }
 
@@ -80,7 +85,7 @@ public class frmTelaPrincipal extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Desenvolvido por Health Solutions");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(940, 1060, 181, 16);
+        jLabel4.setBounds(940, 1060, 164, 15);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setMinimumSize(new java.awt.Dimension(1080, 1920));

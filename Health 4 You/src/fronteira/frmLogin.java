@@ -164,10 +164,6 @@ public class frmLogin extends javax.swing.JFrame {
         usuario.setSenha(txtSenha.getText().trim());
         
         VerificarUsuarioDAO verificarDAO = new  VerificarUsuarioDAO();
-        verificarDAO.verificarUsuario(usuario);
-            
-            
-        
         
     }
     

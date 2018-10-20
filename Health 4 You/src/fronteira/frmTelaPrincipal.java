@@ -4,7 +4,8 @@
  * and open the template in the editor.
  */
 package fronteira;
-
+import entidade.Usuario;
+import persistencia.UsuarioDAO;
 import java.awt.Color;
 import java.awt.Graphics;
 import javax.swing.JComponent;
@@ -23,6 +24,10 @@ public class frmTelaPrincipal extends javax.swing.JFrame {
     public frmTelaPrincipal() {
         initComponents();
         lblHelpPrincipal.setText("<html><u>Precisa de Ajuda?</u></html>");
+        UsuarioDAO logado = new UsuarioDAO();
+        Usuario us = new Usuario();
+        lblNomeUsuario.setText(us.getNome());
+              
         
     }
 

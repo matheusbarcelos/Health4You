@@ -2,12 +2,12 @@
 
     package persistencia;
     import entidade.Usuario;
-    import fronteira.frmTelaPrincipal;
-    import java.util.List;
+//    import fronteira.frmTelaPrincipal;
+//    import java.util.List;
     import java.sql.PreparedStatement;
     import java.sql.ResultSet;
-    import java.util.ArrayList;
-    import javax.swing.JOptionPane;
+//    import java.util.ArrayList;
+//    import javax.swing.JOptionPane;
 
 public class VerificarUsuarioDAO {
     

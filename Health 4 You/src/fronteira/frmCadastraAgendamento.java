@@ -372,11 +372,9 @@ public class frmCadastraAgendamento extends javax.swing.JFrame {
         agendamento.setNome(txtNomePaciente.getText().trim());
         agendamento.setCpf(txtCPFPaciente.getText().trim());
         agendamento.setServico(txtNomeServico.getText().trim());
-        agendamento.setValor(txtValorServico.getText().trim());;
-        agendamento.setHorario(txtHorario.getText().trim());;
-        agendamento.setData(String.valueOf(txtData.getDate()));
-        
-        
+        agendamento.setValor(txtValorServico.getText().trim());
+        agendamento.setHorario(txtHorario.getText().trim());
+        agendamento.setData(String.valueOf(txtData.getDate()).format(novaData));
         
         AgendamentoDAO agendamentoDAO = new AgendamentoDAO();
         agendamentoDAO.cadastrarAgendamento(agendamento);
@@ -405,7 +403,6 @@ public class frmCadastraAgendamento extends javax.swing.JFrame {
         }
     }
     
-
      private void listarServicos(){
         
         ServicoDAO servicoDAO =  new ServicoDAO();
@@ -414,8 +411,7 @@ public class frmCadastraAgendamento extends javax.swing.JFrame {
         mostrarServicos(listaServicos);
         
     }
-    
-     
+
       private void mostrarPacientes(List<Paciente> pacientes){
         
         while (tmPacientes.getRowCount() > 0){

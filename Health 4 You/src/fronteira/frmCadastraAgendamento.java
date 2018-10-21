@@ -363,7 +363,7 @@ public class frmCadastraAgendamento extends javax.swing.JFrame {
         
             
         Date data = txtData.getDate();
-        SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat formatador = new SimpleDateFormat("yyyy/MM/dd");
         String novaData = formatador.format(data);
             
         Agendamento agendamento = new  Agendamento();
@@ -372,7 +372,7 @@ public class frmCadastraAgendamento extends javax.swing.JFrame {
         agendamento.setServico(txtNomeServico.getText().trim());
         agendamento.setValor(txtValorServico.getText().trim());
         agendamento.setHorario(txtHorario.getText().trim());
-        agendamento.setData(String.valueOf(txtData.getDate()).format(novaData));
+        agendamento.setData((txtData.getDateFormatString()).format(novaData));
         
         AgendamentoDAO agendamentoDAO = new AgendamentoDAO();
         agendamentoDAO.cadastrarAgendamento(agendamento);

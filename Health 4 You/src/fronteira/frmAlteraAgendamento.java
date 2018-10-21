@@ -68,10 +68,10 @@ public class frmAlteraAgendamento extends javax.swing.JFrame {
     private void initComponents() {
 
         txtId = new javax.swing.JTextField();
-        txtNomePaciente = new javax.swing.JTextField();
-        txtCPFPaciente = new javax.swing.JTextField();
-        txtNomeServico = new javax.swing.JTextField();
-        txtValorServico = new javax.swing.JTextField();
+        txtCPFPacienteAlterar = new javax.swing.JTextField();
+        txtNomeServicoAlterar = new javax.swing.JTextField();
+        txtValorServicoAlterar = new javax.swing.JTextField();
+        txtNomePacienteAlterar = new javax.swing.JTextField();
         btnNovoServico = new javax.swing.JButton();
         txtPesquisaServicos = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
@@ -79,7 +79,7 @@ public class frmAlteraAgendamento extends javax.swing.JFrame {
         tblServico = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        txtHorario = new javax.swing.JFormattedTextField();
+        txtHorarioAlterar = new javax.swing.JFormattedTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblPaciente = new javax.swing.JTable();
         jLabel4 = new javax.swing.JLabel();
@@ -88,20 +88,10 @@ public class frmAlteraAgendamento extends javax.swing.JFrame {
         txtPesquisaPaciente = new javax.swing.JTextField();
         btnCadastrar = new javax.swing.JButton();
         btnNovoCliente = new javax.swing.JButton();
-        txtData = new com.toedter.calendar.JDateChooser();
         btnPesquisarPaciente = new javax.swing.JButton();
         btnPesquisarServico = new javax.swing.JButton();
-        txtTeste = new javax.swing.JTextField();
-
-        txtId.setText("jTextField1");
-
-        txtNomePaciente.setText("jTextField1");
-
-        txtCPFPaciente.setText("jTextField2");
-
-        txtNomeServico.setText("jTextField3");
-
-        txtValorServico.setText("jTextField4");
+        txtRecebeData = new javax.swing.JTextField();
+        btnAlterarDataAgendamento = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -134,11 +124,11 @@ public class frmAlteraAgendamento extends javax.swing.JFrame {
         jLabel3.setText("Serviço:");
 
         try {
-            txtHorario.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##:##")));
+            txtHorarioAlterar.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##:##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        txtHorario.setToolTipText("  ");
+        txtHorarioAlterar.setToolTipText("  ");
 
         tblPaciente.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
         tblPaciente.setModel(tmPacientes);
@@ -193,14 +183,27 @@ public class frmAlteraAgendamento extends javax.swing.JFrame {
             }
         });
 
+        txtRecebeData.setEditable(false);
+
+        btnAlterarDataAgendamento.setText("Alterar Data");
+        btnAlterarDataAgendamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAlterarDataAgendamentoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(103, 342, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(txtPesquisaServicos)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
@@ -219,41 +222,34 @@ public class frmAlteraAgendamento extends javax.swing.JFrame {
                                 .addGap(0, 315, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnCadastrar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel4)
-                                            .addComponent(txtHorario, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(0, 0, Short.MAX_VALUE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(btnCadastrar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(txtHorarioAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(0, 0, Short.MAX_VALUE)))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel4)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel5)
-                                    .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(33, 33, 33))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtTeste, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(103, 103, 103))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel5)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(txtRecebeData, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(btnAlterarDataAgendamento))))))
+                        .addGap(33, 33, 33))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(9, 9, 9)
-                        .addComponent(jLabel1)
-                        .addGap(6, 6, 6))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(txtTeste, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                .addComponent(jLabel2)
+                .addGap(9, 9, 9)
+                .addComponent(jLabel1)
+                .addGap(6, 6, 6)
                 .addComponent(txtPesquisaPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -271,19 +267,20 @@ public class frmAlteraAgendamento extends javax.swing.JFrame {
                     .addComponent(btnPesquisarServico))
                 .addGap(7, 7, 7)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(7, 7, 7)
+                .addGap(3, 3, 3)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
-                    .addComponent(jLabel5))
-                .addGap(6, 6, 6)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel5)
+                        .addComponent(btnAlterarDataAgendamento)))
+                .addGap(1, 1, 1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtHorarioAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtRecebeData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(txtHorario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnCadastrar)
-                            .addComponent(jButton5)))
-                    .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnCadastrar)
+                    .addComponent(jButton5))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -303,6 +300,7 @@ public class frmAlteraAgendamento extends javax.swing.JFrame {
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
         // TODO add your handling code here:
+        alterarAgendamento();
         
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
@@ -313,15 +311,20 @@ public class frmAlteraAgendamento extends javax.swing.JFrame {
 
     private void btnPesquisarPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarPacienteActionPerformed
         // TODO add your handling code here:
-
+        listarPacientes();
         
     }//GEN-LAST:event_btnPesquisarPacienteActionPerformed
 
     private void btnPesquisarServicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarServicoActionPerformed
         // TODO add your handling code here:
 
-        
+        listarServicos();
     }//GEN-LAST:event_btnPesquisarServicoActionPerformed
+
+    private void btnAlterarDataAgendamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarDataAgendamentoActionPerformed
+        // TODO add your handling code here:
+        new frmAlterarDataAgendamento().setVisible(true);
+    }//GEN-LAST:event_btnAlterarDataAgendamentoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -359,17 +362,17 @@ public class frmAlteraAgendamento extends javax.swing.JFrame {
     }
     
      public void recebeNome(String recebeNome){ 
-       txtTeste.setText(recebeNome);
+       txtPesquisaPaciente.setText(recebeNome);
    }
       public void recebeServico(String recebeServico){ 
        txtPesquisaServicos.setText(recebeServico);
    }
        public void recebeHora(String recebeHora){ 
-       txtHorario.setText(recebeHora);
+       txtHorarioAlterar.setText(recebeHora);
    }
-       public void recebeData(Date recebeData){ 
-       txtData.setDate(recebeData);
-   }
+       public void recebeData(String recebeData){ 
+       txtRecebeData.setText(recebeData);
+       }
      public void recebeId(String recebeId){ 
        txtId.setText(recebeId);
    }
@@ -437,8 +440,8 @@ public class frmAlteraAgendamento extends javax.swing.JFrame {
           
              if (linhaSelecionada != -1){
             
-             txtNomePaciente.setText(listaPacientes.get(linhaSelecionada).getNome());
-             txtCPFPaciente.setText(listaPacientes.get(linhaSelecionada).getCpf());
+             txtNomePacienteAlterar.setText(listaPacientes.get(linhaSelecionada).getNome());
+             txtCPFPacienteAlterar.setText(listaPacientes.get(linhaSelecionada).getCpf());
                  }
         }
      
@@ -448,16 +451,45 @@ public class frmAlteraAgendamento extends javax.swing.JFrame {
           
              if (linhaSelecionada != -1){
             
-             txtNomeServico.setText(listaServicos.get(linhaSelecionada).getNome());
-             txtValorServico.setText(listaServicos.get(linhaSelecionada).getValor());
+             txtNomeServicoAlterar.setText(listaServicos.get(linhaSelecionada).getNome());
+             txtValorServicoAlterar.setText(listaServicos.get(linhaSelecionada).getValor());
                  }
         }
        
+       private void alterarDataAgendamento(){
+           
+           
+       }
        
+       
+       private void alterarAgendamento(){
+    
+        /*Date data = txtDataAlterar.getDate();
+        SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
+        String novaData = formatador.format(data);  */ 
+           
+        Agendamento age = new Agendamento();
+        
+        age.setNome(txtNomePacienteAlterar.getText().trim());
+        age.setCpf(txtCPFPacienteAlterar.getText().trim());
+        age.setServico(txtNomeServicoAlterar.getText().trim());
+        age.setValor(txtValorServicoAlterar.getText().trim());
+        age.setHorario(txtHorarioAlterar.getText().trim());
+        age.setData(txtRecebeData.getText().trim());
+        //age.setData(String.valueOf(txtDataAlterar.getDate()).format(novaData));
+       
+        age.setCodigo(Integer.valueOf(txtId.getText()));
+        
+        AgendamentoDAO agendamentoDAO = new AgendamentoDAO();
+        agendamentoDAO.alterarAgendamento(age);
+        JOptionPane.showMessageDialog(this, "Agendamento alterado com sucesso!");
+        
+    }
       
      
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JToggleButton btnAlterarDataAgendamento;
     private javax.swing.JButton btnCadastrar;
     private javax.swing.JButton btnNovoCliente;
     private javax.swing.JButton btnNovoServico;
@@ -473,15 +505,14 @@ public class frmAlteraAgendamento extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable tblPaciente;
     private javax.swing.JTable tblServico;
-    private javax.swing.JTextField txtCPFPaciente;
-    private com.toedter.calendar.JDateChooser txtData;
-    private javax.swing.JFormattedTextField txtHorario;
+    private javax.swing.JTextField txtCPFPacienteAlterar;
+    private javax.swing.JFormattedTextField txtHorarioAlterar;
     private javax.swing.JTextField txtId;
-    private javax.swing.JTextField txtNomePaciente;
-    private javax.swing.JTextField txtNomeServico;
+    private javax.swing.JTextField txtNomePacienteAlterar;
+    private javax.swing.JTextField txtNomeServicoAlterar;
     private javax.swing.JTextField txtPesquisaPaciente;
     private javax.swing.JTextField txtPesquisaServicos;
-    private javax.swing.JTextField txtTeste;
-    private javax.swing.JTextField txtValorServico;
+    private javax.swing.JTextField txtRecebeData;
+    private javax.swing.JTextField txtValorServicoAlterar;
     // End of variables declaration//GEN-END:variables
 }

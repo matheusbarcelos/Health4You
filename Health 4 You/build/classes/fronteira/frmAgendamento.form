@@ -14,7 +14,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtHorario">
     </Component>
-    <Component class="com.toedter.calendar.JDateChooser" name="txtData">
+    <Component class="javax.swing.JTextField" name="txtData">
     </Component>
   </NonVisualComponents>
   <Properties>

@@ -26,6 +26,8 @@ public class AgendamentoDAO {
     
      private String excluiAgendamento = "DELETE FROM AGENDAMENTO WHERE ID_AGENDAMENTO = ?";
     
+     private String alteraAgendamento = "UPDATE AGENDAMENTO SET NOMEPACIENTE =?,CPFPACIENTE=?,SERVICO=?,VALOR=?,HORARIO=?,DATA=?"
+            + "WHERE ID_AGENDAMENTO=?";
     
     public void cadastrarAgendamento(Agendamento agendamento){
         
@@ -89,6 +91,26 @@ public class AgendamentoDAO {
          }
     
       }
+      
+       public void alterarAgendamento(Agendamento agendamento){
+         try{
+             bd = new BaseDeDados();
+             pstm = bd.conecta().prepareStatement(alteraAgendamento);
+             pstm.setString(1, agendamento.getNome().trim());
+             pstm.setString(2, agendamento.getCpf().trim());
+             pstm.setString(3, agendamento.getServico().trim());
+             pstm.setString(4, agendamento.getValor().trim());
+             pstm.setString(5, agendamento.getHorario().trim());
+             pstm.setString(6, agendamento.getData().trim());
+             pstm.setInt(7, agendamento.getCodigo());
+             pstm.executeUpdate();
+             bd.desconecta();
+             
+         }catch(Exception e){
+             
+             e.printStackTrace();
+         }
+     }
     
 }
     

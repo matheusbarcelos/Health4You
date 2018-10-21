@@ -58,7 +58,7 @@ public class frmAgendamento extends javax.swing.JFrame {
         txtServico = new javax.swing.JTextField();
         txtValor = new javax.swing.JTextField();
         txtHorario = new javax.swing.JTextField();
-        txtData = new com.toedter.calendar.JDateChooser();
+        txtData = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         txtPesquisarConsultas = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -343,7 +343,7 @@ public class frmAgendamento extends javax.swing.JFrame {
              txtNomePaciente.setText(listaAgendamentos.get(linhaSelecionada).getNome());
              txtServico.setText(listaAgendamentos.get(linhaSelecionada).getServico());
              txtHorario.setText(listaAgendamentos.get(linhaSelecionada).getHorario());
-             txtData.setDate(Date.valueOf(listaAgendamentos.get(linhaSelecionada).getData()));
+             txtData.setText(listaAgendamentos.get(linhaSelecionada).getData());
              txtIDAgendamento.setText(String.valueOf(listaAgendamentos.get(linhaSelecionada).getCodigo()));
              
              }
@@ -358,7 +358,7 @@ public class frmAgendamento extends javax.swing.JFrame {
             enviar.recebeNome(txtNomePaciente.getText());
             enviar.recebeServico(txtServico.getText());
             enviar.recebeHora(txtHorario.getText());
-            enviar.recebeData(txtData.getDate());
+            enviar.recebeData(txtData.getText());
             enviar.recebeId(txtIDAgendamento.getText());
             
             
@@ -370,7 +370,7 @@ public class frmAgendamento extends javax.swing.JFrame {
             enviar.recebeNome(txtNomePaciente.getText());
             enviar.recebeServico(txtServico.getText());
             enviar.recebeHora(txtHorario.getText());
-            enviar.recebeData(txtData.getDate());
+            enviar.recebeData(txtData.getText());
             enviar.recebeId(txtIDAgendamento.getText());
             enviar.setState(frmAlteraAgendamento.NORMAL);
              
@@ -392,7 +392,7 @@ public class frmAgendamento extends javax.swing.JFrame {
     private javax.swing.JLabel lblSair;
     private javax.swing.JTable tblAgendamentos;
     private javax.swing.JTextField txtCPFPaciente;
-    private com.toedter.calendar.JDateChooser txtData;
+    private javax.swing.JTextField txtData;
     private javax.swing.JTextField txtHorario;
     private javax.swing.JTextField txtIDAgendamento;
     private javax.swing.JTextField txtNomePaciente;

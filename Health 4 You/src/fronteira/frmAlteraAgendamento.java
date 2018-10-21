@@ -124,7 +124,7 @@ public class frmAlteraAgendamento extends javax.swing.JFrame {
         jLabel3.setText("Serviço:");
 
         try {
-            txtHorarioAlterar.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##:##")));
+            txtHorarioAlterar.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##:## horas")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
@@ -155,7 +155,7 @@ public class frmAlteraAgendamento extends javax.swing.JFrame {
             }
         });
 
-        btnCadastrar.setText("Cadastrar");
+        btnCadastrar.setText("Alterar Agendamento");
         btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCadastrarActionPerformed(evt);
@@ -221,11 +221,12 @@ public class frmAlteraAgendamento extends javax.swing.JFrame {
                                         .addGap(0, 0, Short.MAX_VALUE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(10, 10, 10)
-                                        .addComponent(txtDataAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel5))))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel5)
+                                            .addComponent(txtDataAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                         .addGap(33, 33, 33))))
         );
         layout.setVerticalGroup(
@@ -258,7 +259,7 @@ public class frmAlteraAgendamento extends javax.swing.JFrame {
                         .addGap(3, 3, 3)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
-                            .addComponent(jLabel5))
+                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addGap(6, 6, 6)
                         .addComponent(txtHorarioAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(txtDataAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -444,6 +445,18 @@ public class frmAlteraAgendamento extends javax.swing.JFrame {
        
        private void alterarAgendamento(){
     
+        if(txtNomePacienteAlterar.getText().isEmpty()){
+            
+            JOptionPane.showMessageDialog(null,"Você precisa selecionar um paciente para agendar","Selecionar Paciente",
+                    JOptionPane.INFORMATION_MESSAGE);
+            
+        }else if( txtNomeServicoAlterar.getText().isEmpty()){
+            
+            JOptionPane.showMessageDialog(null,"Você precisa selecionar um serviço para agendar","Selecionar Serviço",
+                    JOptionPane.INFORMATION_MESSAGE);
+            
+            }else{  
+              
         Date data = txtDataAlterar.getDate();
         SimpleDateFormat formatador = new SimpleDateFormat("yyyy/MM/dd");
         String novaData = formatador.format(data);   
@@ -465,6 +478,7 @@ public class frmAlteraAgendamento extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Agendamento alterado com sucesso!");
         
     }
+       }
       
      
 

@@ -176,7 +176,7 @@ public class frmCadastraAgendamento extends javax.swing.JFrame {
         });
 
         try {
-            txtHorario.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##:##")));
+            txtHorario.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##:## horas")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }

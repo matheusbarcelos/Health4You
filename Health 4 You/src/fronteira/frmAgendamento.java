@@ -232,7 +232,13 @@ public class frmAgendamento extends javax.swing.JFrame {
 
     private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
         // TODO add your handling code here:
-       enviarAlteracaoAgendamento();
+        
+        if(txtNomePaciente.getText().isEmpty()){
+         JOptionPane.showMessageDialog(null,"Favor selecionar um agendamento para alterar","Alterar Agendamento",
+                 JOptionPane.INFORMATION_MESSAGE);
+        }else{
+       enviarAlteracaoAgendamento();}
+    
     }//GEN-LAST:event_btnAlterarActionPerformed
 
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed

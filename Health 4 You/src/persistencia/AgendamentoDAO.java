@@ -24,6 +24,8 @@ public class AgendamentoDAO {
     private String consultaAgendamento = "SELECT * FROM AGENDAMENTO WHERE "
                                         + "NOMEPACIENTE LIKE ?";
     
+     private String excluiAgendamento = "DELETE FROM AGENDAMENTO WHERE ID_AGENDAMENTO = ?";
+    
     
     public void cadastrarAgendamento(Agendamento agendamento){
         
@@ -73,6 +75,20 @@ public class AgendamentoDAO {
          bd.desconecta();
          return listaAgendamentos;
     }
+    
+      public void excluirAgendamento(Agendamento agendamento){
+         try{
+             bd = new BaseDeDados();
+             pstm = bd.conecta().prepareStatement(excluiAgendamento);
+             pstm.setInt(1,agendamento.getCodigo());
+             pstm.executeUpdate();
+             bd.desconecta();
+            
+         }catch(Exception e){
+             e.printStackTrace();
+         }
+    
+      }
     
 }
     

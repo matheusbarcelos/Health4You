@@ -7,18 +7,23 @@ package fronteira;
 
 import entidade.Agendamento;
 import java.awt.Color;
+import java.sql.Date;
 import persistencia.AgendamentoDAO;
 import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
-
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 /**
  *
  * @author joao-
  */
 public class frmAgendamento extends javax.swing.JFrame {
 
+    frmAlteraAgendamento enviar;
+    
     private String[] colunas = new String[]{"Número","Nome",
            "Servico","Valor","Horario","Data"};
     
@@ -47,6 +52,13 @@ public class frmAgendamento extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        txtIDAgendamento = new javax.swing.JTextField();
+        txtNomePaciente = new javax.swing.JTextField();
+        txtCPFPaciente = new javax.swing.JTextField();
+        txtServico = new javax.swing.JTextField();
+        txtValor = new javax.swing.JTextField();
+        txtHorario = new javax.swing.JTextField();
+        txtData = new com.toedter.calendar.JDateChooser();
         jLabel1 = new javax.swing.JLabel();
         txtPesquisarConsultas = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -75,6 +87,16 @@ public class frmAgendamento extends javax.swing.JFrame {
         tblAgendamentos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219), 2));
         tblAgendamentos.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
         tblAgendamentos.setModel(tmAgendamentos);
+        tblAgendamentos.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        lsmAgendamentos = tblAgendamentos.getSelectionModel();
+        lsmAgendamentos.addListSelectionListener (new ListSelectionListener() {
+            public void valueChanged(ListSelectionEvent e) {
+                if (! e.getValueIsAdjusting()) {
+                    tblAgendamentosLinhaSelecionada(tblAgendamentos);
+                }
+            }
+
+        });
         jScrollPane1.setViewportView(tblAgendamentos);
 
         btnAlterar.setBackground(new java.awt.Color(0, 155, 219));
@@ -104,6 +126,11 @@ public class frmAgendamento extends javax.swing.JFrame {
         btnExcluir.setForeground(new java.awt.Color(255, 255, 255));
         btnExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/Lixeira.png"))); // NOI18N
         btnExcluir.setText("Excluir");
+        btnExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirActionPerformed(evt);
+            }
+        });
 
         btnCancelar.setBackground(new java.awt.Color(0, 155, 219));
         btnCancelar.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
@@ -157,11 +184,11 @@ public class frmAgendamento extends javax.swing.JFrame {
                                 .addComponent(btnInserr, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGap(18, 18, 18)
                                 .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGap(2, 2, 2)
                                 .addComponent(btnCancelar))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                         .addGap(0, 3, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -204,7 +231,7 @@ public class frmAgendamento extends javax.swing.JFrame {
 
     private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
         // TODO add your handling code here:
-        new frmCadastraAgendamento().setVisible(true);
+       enviarAlteracaoAgendamento();
     }//GEN-LAST:event_btnAlterarActionPerformed
 
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
@@ -216,6 +243,11 @@ public class frmAgendamento extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.setVisible(false);
     }//GEN-LAST:event_lblSairMouseClicked
+
+    private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
+        // TODO add your handling code here:
+        excluirAgendamento();
+    }//GEN-LAST:event_btnExcluirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -283,7 +315,69 @@ public class frmAgendamento extends javax.swing.JFrame {
         mostrarAgendamentos(listaAgendamentos);
         
     }
+      
+       private void excluirAgendamento(){
+        
+          int excluir;
+          
+          excluir = JOptionPane.showConfirmDialog(null,"Deseja excluir esse agendamento ?","Excluir Agendamento",0);
+          
+          if(excluir == 0){
+              
+        Agendamento agendamento = new Agendamento();
+        agendamento.setCodigo(listaAgendamentos.get(tblAgendamentos.getSelectedRow()).getCodigo());
+        AgendamentoDAO agendamentoDAO = new AgendamentoDAO();
+        agendamentoDAO.excluirAgendamento(agendamento);
+        JOptionPane.showMessageDialog(this, "Agendamento excluído com sucesso!");
+        
+    }
+     
+     }
     
+       public void tblAgendamentosLinhaSelecionada(JTable tbl){
+        
+            int linhaSelecionada = tbl.getSelectedRow();
+            
+             if (linhaSelecionada != -1){
+            
+             txtNomePaciente.setText(listaAgendamentos.get(linhaSelecionada).getNome());
+             txtServico.setText(listaAgendamentos.get(linhaSelecionada).getServico());
+             txtHorario.setText(listaAgendamentos.get(linhaSelecionada).getHorario());
+             txtData.setDate(Date.valueOf(listaAgendamentos.get(linhaSelecionada).getData()));
+             txtIDAgendamento.setText(String.valueOf(listaAgendamentos.get(linhaSelecionada).getCodigo()));
+             
+             }
+        }
+       
+       public void enviarAlteracaoAgendamento(){
+              if(enviar==null){
+           
+            
+            enviar = new frmAlteraAgendamento();
+            enviar.setVisible(true);
+            enviar.recebeNome(txtNomePaciente.getText());
+            enviar.recebeServico(txtServico.getText());
+            enviar.recebeHora(txtHorario.getText());
+            enviar.recebeData(txtData.getDate());
+            enviar.recebeId(txtIDAgendamento.getText());
+            
+            
+        }else{
+             
+                  
+            enviar = new frmAlteraAgendamento();
+            enviar.setVisible(true);
+            enviar.recebeNome(txtNomePaciente.getText());
+            enviar.recebeServico(txtServico.getText());
+            enviar.recebeHora(txtHorario.getText());
+            enviar.recebeData(txtData.getDate());
+            enviar.recebeId(txtIDAgendamento.getText());
+            enviar.setState(frmAlteraAgendamento.NORMAL);
+             
+          }
+      
+          }
+       
     
     
     
@@ -297,6 +391,13 @@ public class frmAgendamento extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblSair;
     private javax.swing.JTable tblAgendamentos;
+    private javax.swing.JTextField txtCPFPaciente;
+    private com.toedter.calendar.JDateChooser txtData;
+    private javax.swing.JTextField txtHorario;
+    private javax.swing.JTextField txtIDAgendamento;
+    private javax.swing.JTextField txtNomePaciente;
     private javax.swing.JTextField txtPesquisarConsultas;
+    private javax.swing.JTextField txtServico;
+    private javax.swing.JTextField txtValor;
     // End of variables declaration//GEN-END:variables
 }

@@ -363,7 +363,7 @@ public class frmCadastraAgendamento extends javax.swing.JFrame {
         
             
         Date data = txtData.getDate();
-        SimpleDateFormat formatador = new SimpleDateFormat("yyyy/MM/dd");
+        SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
         String novaData = formatador.format(data);
             
         Agendamento agendamento = new  Agendamento();

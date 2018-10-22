@@ -458,7 +458,7 @@ public class frmAlteraAgendamento extends javax.swing.JFrame {
             }else{  
               
         Date data = txtDataAlterar.getDate();
-        SimpleDateFormat formatador = new SimpleDateFormat("yyyy/MM/dd");
+        SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
         String novaData = formatador.format(data);   
            
         Agendamento age = new Agendamento();

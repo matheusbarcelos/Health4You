@@ -167,6 +167,9 @@ public class frmAlterarUsuario extends javax.swing.JFrame {
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         // TODO add your handling code here:
         alterarUsuario();
+        
+        
+    
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
@@ -243,7 +246,23 @@ public class frmAlterarUsuario extends javax.swing.JFrame {
        
         UsuarioDAO usuarioDAO = new UsuarioDAO();
         usuarioDAO.alterarUsuario(usuario);
-        JOptionPane.showMessageDialog(this, "Usuário alterado com sucesso!");
+       int opcao =  JOptionPane.showConfirmDialog(this, "Usuário alterado com sucesso!");
+       
+       if (opcao == 0){
+        frmPesquisaUsuario pes = new frmPesquisaUsuario();
+        //pes.listarUsuarios();
+      
+    
+        String n = txtNomeAlterar.getText();
+       
+        pes.listaUsuarios = usuarioDAO.listarUsuarios("%"+
+             n + "%");
+        pes.mostrarUsuarios(pes.listaUsuarios);
+        pes.listarUsuarios();
+        dispose();
+        pes.setVisible(true);
+       }
+        
         
         
         

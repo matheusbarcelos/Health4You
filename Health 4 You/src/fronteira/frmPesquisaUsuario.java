@@ -31,7 +31,7 @@ public class frmPesquisaUsuario extends javax.swing.JFrame {
     private DefaultTableModel tmUsuarios = new DefaultTableModel
                (null, colunas);
     
-    private List<Usuario> listaUsuarios;
+    public List<Usuario> listaUsuarios;
     private ListSelectionModel lsmUsuarios; 
     
     
@@ -42,6 +42,7 @@ public class frmPesquisaUsuario extends javax.swing.JFrame {
      */
     public frmPesquisaUsuario() {
         initComponents();
+        
     }
 
     /**
@@ -197,6 +198,8 @@ public class frmPesquisaUsuario extends javax.swing.JFrame {
                  JOptionPane.INFORMATION_MESSAGE);
         }else{
             enviarAlteracaoUsuario();
+            listarUsuarios();
+            dispose();
         }        
     }//GEN-LAST:event_btnAlterarActionPerformed
 
@@ -260,7 +263,7 @@ public class frmPesquisaUsuario extends javax.swing.JFrame {
     }
 
     
-    private void mostrarUsuarios(List<Usuario> usuarios){
+    public void mostrarUsuarios(List<Usuario> usuarios){
         
         while (tmUsuarios.getRowCount() > 0){
             tmUsuarios.removeRow(0);
@@ -269,7 +272,7 @@ public class frmPesquisaUsuario extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Nenhum Paciente foi encontrado!");
         }else{
             
-            for (int i = 0; i < usuarios.size(); i++){
+             for (int i = 0; i < usuarios.size(); i++){
                 tmUsuarios.addRow(colunas);
                 tmUsuarios.setValueAt(usuarios.get(i).getCodigo(), i,0);
                 tmUsuarios.setValueAt(usuarios.get(i).getNome(), i,1);
@@ -290,6 +293,7 @@ public class frmPesquisaUsuario extends javax.swing.JFrame {
         mostrarUsuarios(listaUsuarios);
         
     }
+    
     
     private void excluirUsuario(){
         

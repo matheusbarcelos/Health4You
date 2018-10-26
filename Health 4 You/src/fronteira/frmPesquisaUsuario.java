@@ -282,7 +282,7 @@ public class frmPesquisaUsuario extends javax.swing.JFrame {
     
      
     
-    private void listarUsuarios(){
+    public void listarUsuarios(){
         
         UsuarioDAO usuarioDAO =  new UsuarioDAO();
         listaUsuarios = usuarioDAO.listarUsuarios("%"

@@ -167,14 +167,14 @@ public class frmAlterarUsuario extends javax.swing.JFrame {
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         // TODO add your handling code here:
         alterarUsuario();
-<<<<<<< HEAD
+
         frmPesquisaUsuario pu  = new frmPesquisaUsuario();
         pu.listarUsuarios();
-=======
+
         
         
     
->>>>>>> 8bfb6109579ea6d2f0cb9371488c280a4140b262
+
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed

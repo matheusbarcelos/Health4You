@@ -49,7 +49,7 @@ public class frmAlterarUsuario extends javax.swing.JFrame {
 
         txtId.setText("jTextField1");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Champagne & Limousines", 1, 24)); // NOI18N
         jLabel1.setText("Alteração de Usuário");
@@ -167,18 +167,16 @@ public class frmAlterarUsuario extends javax.swing.JFrame {
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         // TODO add your handling code here:
         alterarUsuario();
-
         frmPesquisaUsuario pu  = new frmPesquisaUsuario();
         pu.listarUsuarios();
-
-        
-        
-    
-
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        this.setVisible(false);
+
+        frmPesquisaUsuario usu = new frmPesquisaUsuario();
+        usu.setVisible(true);
+        usu.listarUsuarios();
+        dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     /**
@@ -237,7 +235,7 @@ public class frmAlterarUsuario extends javax.swing.JFrame {
        txtId.setText(recebeId);
    }
      
-     private void alterarUsuario(){
+     public void alterarUsuario(){
         
         Usuario usuario = new Usuario();
         
@@ -251,13 +249,13 @@ public class frmAlterarUsuario extends javax.swing.JFrame {
        
         UsuarioDAO usuarioDAO = new UsuarioDAO();
         usuarioDAO.alterarUsuario(usuario);
-       int opcao =  JOptionPane.showConfirmDialog(this, "Usuário alterado com sucesso!");
+       int opcao =  JOptionPane.showConfirmDialog(null, "Deseja alterar o usuário?","Alterar",0);
        
        if (opcao == 0){
+           JOptionPane.showMessageDialog(null,"Usuário alterado com sucesso!","Usuário Alterado",JOptionPane.INFORMATION_MESSAGE);
         frmPesquisaUsuario pes = new frmPesquisaUsuario();
         //pes.listarUsuarios();
       
-    
         String n = txtNomeAlterar.getText();
        
         pes.listaUsuarios = usuarioDAO.listarUsuarios("%"+
@@ -266,6 +264,12 @@ public class frmAlterarUsuario extends javax.swing.JFrame {
         pes.listarUsuarios();
         dispose();
         pes.setVisible(true);
+       }else{
+        frmPesquisaUsuario usu = new frmPesquisaUsuario();
+        usu.setVisible(true);
+        usu.listarUsuarios();
+        dispose();
+           
        }
         
         

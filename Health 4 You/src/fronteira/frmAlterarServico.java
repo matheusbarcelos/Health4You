@@ -13,6 +13,7 @@ import persistencia.ServicoDAO;
  */
 public class frmAlterarServico extends javax.swing.JFrame {
 
+    
     /**
      * Creates new form frmAlterarServico
      */
@@ -111,7 +112,10 @@ public class frmAlterarServico extends javax.swing.JFrame {
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
         // TODO add your handling code here:
+         frmPesquisaServico ps = new frmPesquisaServico();
         alterarServico();
+        ps.listarServicos();
+        dispose();
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
@@ -176,7 +180,30 @@ public class frmAlterarServico extends javax.swing.JFrame {
         
         ServicoDAO servicoDAO = new ServicoDAO();
         servicoDAO.alterarServico(ser);
-        JOptionPane.showMessageDialog(this, "Serviço alterado com sucesso!");
+        
+        int opcao =  JOptionPane.showConfirmDialog(null, "Deseja alterar o serviço?","Alterar Serviço",0);
+       
+       if (opcao == 0){
+           JOptionPane.showMessageDialog(null,"Serviço alterado com sucesso!","Serviço Alterado",JOptionPane.INFORMATION_MESSAGE);
+        
+           frmPesquisaServico ps = new frmPesquisaServico();
+           
+        String n = txtNomeServicoAlterar.getText();
+       
+        ps.listaServicos = servicoDAO.listarServicos("%"+
+             n + "%");
+        ps.mostrarServicos(ps.listaServicos);
+        ps.listarServicos();
+        dispose();
+        ps.setVisible(true);
+       }else{
+        frmPesquisaServico ps = new frmPesquisaServico();
+        ps.setVisible(true);
+        ps.listarServicos();
+        dispose();
+     
+        
+       }   
         
     }
     

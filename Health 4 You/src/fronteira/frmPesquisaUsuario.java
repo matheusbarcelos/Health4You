@@ -25,14 +25,14 @@ public class frmPesquisaUsuario extends javax.swing.JFrame {
     
     frmAlterarUsuario enviar;
     
-    private String[] colunas = new String[]{"Codigo","Nome",
+    public String[] colunas = new String[]{"Codigo","Nome",
            "Login","Permissao"};
     
-    private DefaultTableModel tmUsuarios = new DefaultTableModel
+    public DefaultTableModel tmUsuarios = new DefaultTableModel
                (null, colunas);
     
     public List<Usuario> listaUsuarios;
-    private ListSelectionModel lsmUsuarios; 
+    public ListSelectionModel lsmUsuarios; 
     
     
     
@@ -42,7 +42,7 @@ public class frmPesquisaUsuario extends javax.swing.JFrame {
      */
     public frmPesquisaUsuario() {
         initComponents();
-        
+        listarUsuarios();
     }
 
     /**
@@ -206,6 +206,7 @@ public class frmPesquisaUsuario extends javax.swing.JFrame {
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
+        
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed

@@ -331,7 +331,7 @@ public class frmTelaPrincipal extends javax.swing.JFrame {
 
     private void mnuClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuClientesActionPerformed
         // TODO add your handling code here:
-        new frmPesquisarCliente().setVisible(true);
+        new frmPesquisarPaciente().setVisible(true);
     }//GEN-LAST:event_mnuClientesActionPerformed
 
     private void mnuSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnuSairMouseClicked
@@ -378,12 +378,12 @@ public class frmTelaPrincipal extends javax.swing.JFrame {
 
     private void btnCadastroPacienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCadastroPacienteMouseClicked
         // TODO add your handling code here:
-        new frmPesquisarCliente().setVisible(true);
+        new frmPesquisarPaciente().setVisible(true);
     }//GEN-LAST:event_btnCadastroPacienteMouseClicked
 
     private void lblCadastroPacienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCadastroPacienteMouseClicked
         // TODO add your handling code here:
-        new frmPesquisarCliente().setVisible(true);
+        new frmPesquisarPaciente().setVisible(true);
     }//GEN-LAST:event_lblCadastroPacienteMouseClicked
 
     private void btnCadastroUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCadastroUsuarioMouseClicked

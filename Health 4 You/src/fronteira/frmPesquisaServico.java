@@ -31,7 +31,7 @@ public class frmPesquisaServico extends javax.swing.JFrame {
     private DefaultTableModel tmServicos = new DefaultTableModel
                (null, colunas);
     
-    private List<Servico> listaServicos;
+    public List<Servico> listaServicos;
     private ListSelectionModel lsmServicos; 
     
     
@@ -178,6 +178,8 @@ public class frmPesquisaServico extends javax.swing.JFrame {
                  JOptionPane.INFORMATION_MESSAGE);
         }else{
             enviarAlteracaoServico();
+            listarServicos();
+            dispose();
        }
         
     }//GEN-LAST:event_btnAlterarActionPerformed
@@ -234,7 +236,7 @@ public class frmPesquisaServico extends javax.swing.JFrame {
         });
     }
 
-    private void mostrarServicos(List<Servico> servicos){
+    public void mostrarServicos(List<Servico> servicos){
         
         while (tmServicos.getRowCount() > 0){
             tmServicos.removeRow(0);
@@ -253,7 +255,7 @@ public class frmPesquisaServico extends javax.swing.JFrame {
         }
     }
     
-     private void listarServicos(){
+     public void listarServicos(){
         
         ServicoDAO servicoDAO =  new ServicoDAO();
         listaServicos = servicoDAO.listarServicos("%"

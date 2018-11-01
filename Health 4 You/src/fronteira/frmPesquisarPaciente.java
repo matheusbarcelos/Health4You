@@ -19,7 +19,7 @@ import javax.swing.event.ListSelectionListener;
  *
  * @author ma-th
  */
-public class frmPesquisarCliente extends javax.swing.JFrame {
+public class frmPesquisarPaciente extends javax.swing.JFrame {
   
  
     frmAlterarPaciente enviar;
@@ -30,16 +30,16 @@ public class frmPesquisarCliente extends javax.swing.JFrame {
     private DefaultTableModel tmPacientes = new DefaultTableModel
                (null, colunas);
     
-    private List<Paciente> listaPacientes;
+    public List<Paciente> listaPacientes;
     private ListSelectionModel lsmPacientes; 
     
    
     /**
      * Creates new form frmPesquisarCliente
      */
-    public frmPesquisarCliente() {
+    public frmPesquisarPaciente() {
         initComponents();
-        
+       
         
         
     }
@@ -224,7 +224,7 @@ public class frmPesquisarCliente extends javax.swing.JFrame {
         }else{
             enviarAlteracaoPaciente();
         }
-      
+        dispose();
     }//GEN-LAST:event_btnAlterarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
@@ -265,20 +265,21 @@ public class frmPesquisarCliente extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frmPesquisarCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmPesquisarPaciente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frmPesquisarCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmPesquisarPaciente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frmPesquisarCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmPesquisarPaciente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frmPesquisarCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmPesquisarPaciente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new frmPesquisarCliente().setVisible(true);
+                new frmPesquisarPaciente().setVisible(true);
             }
         });
     }

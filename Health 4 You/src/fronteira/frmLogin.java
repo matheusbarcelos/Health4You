@@ -177,6 +177,7 @@ public class frmLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
         frmTelaPrincipal telaPrincipal = new frmTelaPrincipal();
         new frmTelaPrincipal().setVisible(true);
+        dispose();
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     private void lblFecharMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblFecharMouseClicked

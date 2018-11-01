@@ -21,7 +21,7 @@ import javax.swing.event.ListSelectionListener;
 public class frmAlterarPaciente extends javax.swing.JFrame {
 
     
-    private List<Paciente> listaPacientes;
+    public List<Paciente> listaPacientes;
     private ListSelectionModel lsmPacientes;
   
     
@@ -309,9 +309,11 @@ public class frmAlterarPaciente extends javax.swing.JFrame {
 
     private void btnSalvarAlteracaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarAlteracaoActionPerformed
         // TODO add your handling code here:
-        
+        frmPesquisarPaciente pp = new frmPesquisarPaciente();
         alterarPaciente();
-        
+        dispose();
+        //pp.setVisible(true);
+        pp.listarPacientes();
         
     }//GEN-LAST:event_btnSalvarAlteracaoActionPerformed
 
@@ -388,10 +390,10 @@ public class frmAlterarPaciente extends javax.swing.JFrame {
        txtEmailAlterar.setText(recebeEmail);
    }
    
-    private void alterarPaciente(){
+    public void alterarPaciente(){
         
         Paciente paciente = new Paciente();
-        frmPesquisarCliente al = new frmPesquisarCliente ();
+        frmPesquisarPaciente al = new frmPesquisarPaciente ();
         
         paciente.setNome(txtNomeAlterar.getText().trim());
         paciente.setCpf(txtCPFAlterar.getText().trim());
@@ -409,11 +411,29 @@ public class frmAlterarPaciente extends javax.swing.JFrame {
         PacienteDAO pacienteDAO = new PacienteDAO();
         pacienteDAO.alterarPaciente(paciente);
         al.exibePacientes();
-        JOptionPane.showMessageDialog(this, "Paciente alterado com sucesso!");
+        int opcao =  JOptionPane.showConfirmDialog(null, "Deseja alterar o Paciente?","Alterar",0);
+       
+       if (opcao == 0){
+           JOptionPane.showMessageDialog(null,"Paciente alterado com sucesso!","Paciente Alterado",JOptionPane.INFORMATION_MESSAGE);
+        frmPesquisarPaciente pes = new frmPesquisarPaciente();
+        //pes.listarUsuarios();
+      
+        String n = txtNomeAlterar.getText();
+       
+        pes.listaPacientes = pacienteDAO.listarPacientes("%"+
+             n + "%");
+        pes.mostrarPacientes(pes.listaPacientes);
+        pes.listarPacientes();
+        pes.setVisible(true);
+                dispose();
+       }else{
+        frmPesquisarPaciente pp = new frmPesquisarPaciente();
+        pp.setVisible(true);
+        pp.listarPacientes();
+        dispose();
         
         
-        
-        
+       }
    
     } 
    

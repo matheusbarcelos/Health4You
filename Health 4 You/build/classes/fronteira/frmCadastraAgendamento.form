@@ -85,8 +85,8 @@
           </Group>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
-              <Component id="jLabel2" min="-2" pref="191" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="113" max="-2" attributes="0"/>
+              <Component id="jLabel2" min="-2" pref="291" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -150,7 +150,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Champagne &amp; Limousines" size="24" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Agendamentos"/>
+        <Property name="text" type="java.lang.String" value=" Cadastro de Consultas"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">

@@ -97,7 +97,7 @@ public class frmCadastraAgendamento extends javax.swing.JFrame {
         jLabel1.setText("Paciente:");
 
         jLabel2.setFont(new java.awt.Font("Champagne & Limousines", 1, 24)); // NOI18N
-        jLabel2.setText("Agendamentos");
+        jLabel2.setText(" Cadastro de Consultas");
 
         jLabel3.setText("Serviço:");
 
@@ -222,8 +222,8 @@ public class frmCadastraAgendamento extends javax.swing.JFrame {
                 .addGap(33, 33, 33))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(113, 113, 113))
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -365,7 +365,7 @@ public class frmCadastraAgendamento extends javax.swing.JFrame {
         
             
         Date data = txtData.getDate();
-        SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat formatador = new SimpleDateFormat("yyyy/MM/dd");
         String novaData = formatador.format(data);
             
         Agendamento agendamento = new  Agendamento();
@@ -374,7 +374,7 @@ public class frmCadastraAgendamento extends javax.swing.JFrame {
         agendamento.setServico(txtNomeServico.getText().trim());
         agendamento.setValor(txtValorServico.getText().trim());
         agendamento.setHorario(txtHorario.getText().trim());
-        agendamento.setData((txtData.getDateFormatString()).format(novaData));
+        agendamento.setData(txtData.getDateFormatString().format(novaData));
         
         AgendamentoDAO agendamentoDAO = new AgendamentoDAO();
         agendamentoDAO.cadastrarAgendamento(agendamento);

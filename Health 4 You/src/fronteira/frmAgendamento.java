@@ -31,7 +31,7 @@ public class frmAgendamento extends javax.swing.JFrame {
     private DefaultTableModel tmAgendamentos = new DefaultTableModel
                (null, colunas);
     
-    private List<Agendamento> listaAgendamentos;
+    public List<Agendamento> listaAgendamentos;
     private ListSelectionModel lsmAgendamentos;
     
     
@@ -225,11 +225,13 @@ public class frmAgendamento extends javax.swing.JFrame {
     private void btnInserrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInserrActionPerformed
         // TODO add your handling code here:
         new frmCadastraAgendamento().setVisible(true);
+        dispose();
     }//GEN-LAST:event_btnInserrActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
+        
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
@@ -298,7 +300,7 @@ public class frmAgendamento extends javax.swing.JFrame {
         });
     }
 
-      private void mostrarAgendamentos(List<Agendamento> agendamentos){
+      public void mostrarAgendamentos(List<Agendamento> agendamentos){
         
         while (tmAgendamentos.getRowCount() > 0){
             tmAgendamentos.removeRow(0);
@@ -321,7 +323,7 @@ public class frmAgendamento extends javax.swing.JFrame {
     }
       
       
-      private void listarAgendamentos(){
+      public void listarAgendamentos(){
         
         AgendamentoDAO agendamentoDAO =  new AgendamentoDAO();
         listaAgendamentos = agendamentoDAO.listarAgendamentos("%"
@@ -357,7 +359,7 @@ public class frmAgendamento extends javax.swing.JFrame {
              txtNomePaciente.setText(listaAgendamentos.get(linhaSelecionada).getNome());
              txtServico.setText(listaAgendamentos.get(linhaSelecionada).getServico());
              txtHorario.setText(listaAgendamentos.get(linhaSelecionada).getHorario());
-             txtData.setDate(Date.valueOf(listaAgendamentos.get(linhaSelecionada).getData()));
+             //txtData.setDate(Date.valueOf(listaAgendamentos.get(linhaSelecionada).getData()));
              txtIDAgendamento.setText(String.valueOf(listaAgendamentos.get(linhaSelecionada).getCodigo()));
              
              }

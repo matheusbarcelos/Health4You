@@ -83,7 +83,7 @@ public class frmCadastraAgendamento extends javax.swing.JFrame {
         tblServico = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblPaciente = new javax.swing.JTable();
-        jButton5 = new javax.swing.JButton();
+        btnCancelar = new javax.swing.JButton();
         btnCadastrar = new javax.swing.JButton();
         txtData = new com.toedter.calendar.JDateChooser();
         txtHorario = new javax.swing.JFormattedTextField();
@@ -161,10 +161,10 @@ public class frmCadastraAgendamento extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(tblPaciente);
 
-        jButton5.setText("Cancelar");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                btnCancelarActionPerformed(evt);
             }
         });
 
@@ -216,7 +216,7 @@ public class frmCadastraAgendamento extends javax.swing.JFrame {
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel5)
                             .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(33, 33, 33))
@@ -261,7 +261,7 @@ public class frmCadastraAgendamento extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnCadastrar)
-                            .addComponent(jButton5)))
+                            .addComponent(btnCancelar)))
                     .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
@@ -280,10 +280,12 @@ public class frmCadastraAgendamento extends javax.swing.JFrame {
         new frmCadastraServico().setVisible(true);
     }//GEN-LAST:event_btnNovoServicoActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
-    }//GEN-LAST:event_jButton5ActionPerformed
+        frmAgendamento pu  = new frmAgendamento();
+        pu.setVisible(true);
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnPesquisarServicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarServicoActionPerformed
         // TODO add your handling code here:
@@ -379,6 +381,17 @@ public class frmCadastraAgendamento extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null,"Agendamento Cadastrado com sucesso !","Cadastro de Agendamento",
                 JOptionPane.INFORMATION_MESSAGE);
     
+        frmAgendamento pes = new frmAgendamento();
+        
+        String n = txtNomePaciente.getText();
+       
+        pes.listaAgendamentos = agendamentoDAO.listarAgendamentos("%"+
+             n + "%");
+        pes.mostrarAgendamentos(pes.listaAgendamentos);
+        pes.listarAgendamentos();
+        dispose();
+        pes.setVisible(true);
+        
     }
 }
     
@@ -467,11 +480,11 @@ public class frmCadastraAgendamento extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastrar;
+    private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnNovoCliente;
     private javax.swing.JButton btnNovoServico;
     private javax.swing.JButton btnPesquisarPaciente;
     private javax.swing.JButton btnPesquisarServico;
-    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

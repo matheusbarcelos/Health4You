@@ -177,9 +177,8 @@ public class frmCadastraUsuario extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"Existem campos obrigatórios a serem preenchidos","Preencher Campos",
                     JOptionPane.INFORMATION_MESSAGE);
             
-    }else{
-        
-        
+    }else {
+      
         
         Usuario usuario = new Usuario();
         usuario.setNome(txtNome.getText().trim());
@@ -192,16 +191,33 @@ public class frmCadastraUsuario extends javax.swing.JFrame {
         usuarioDAO.cadastrarUsuario(usuario);
         JOptionPane.showMessageDialog(null,"Usuario Cadastrado com sucesso !","Cadastro de Cliente",
                 JOptionPane.INFORMATION_MESSAGE);
-    }
-    
+        
+        frmPesquisaUsuario pes = new frmPesquisaUsuario();
+        
+        String n = txtNome.getText();
+       
+        pes.listaUsuarios = usuarioDAO.listarUsuarios("%"+
+             n + "%");
+        pes.mostrarUsuarios(pes.listaUsuarios);
+        pes.listarUsuarios();
+        dispose();
+        pes.setVisible(true);
+       
+           
+          }
+   
     }
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         this.setVisible(false);
+        frmPesquisaUsuario pu  = new frmPesquisaUsuario();
+        pu.setVisible(true);
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         // TODO add your handling code here:
         cadastrarUsuario();
+        frmPesquisaUsuario pu  = new frmPesquisaUsuario();
+        pu.listarUsuarios();
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     /**

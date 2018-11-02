@@ -190,6 +190,7 @@ public class frmPesquisaUsuario extends javax.swing.JFrame {
 
     private void btnInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInserirActionPerformed
         new frmCadastraUsuario().setVisible(true);
+        dispose();
     }//GEN-LAST:event_btnInserirActionPerformed
 
     private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
@@ -218,9 +219,14 @@ public class frmPesquisaUsuario extends javax.swing.JFrame {
 
     private void btnExcluirPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirPacienteActionPerformed
         // TODO add your handling code here:
+        if(txtNome.getText().isEmpty()){
+         JOptionPane.showMessageDialog(null,"Favor selecionar um usuário para excluir","Excluir Usuário",
+                 JOptionPane.INFORMATION_MESSAGE);
+        }else{
         excluirUsuario();
+        listarUsuarios();
     }//GEN-LAST:event_btnExcluirPacienteActionPerformed
-
+    }
     private void tblUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblUsuariosMouseClicked
         // TODO add your handling code here:
         btnAlterar.setEnabled(true);
@@ -270,7 +276,7 @@ public class frmPesquisaUsuario extends javax.swing.JFrame {
             tmUsuarios.removeRow(0);
         }
         if(usuarios.size() == 0){
-            JOptionPane.showMessageDialog(this, "Nenhum Paciente foi encontrado!");
+            JOptionPane.showMessageDialog(this, "Nenhum usuario foi encontrado!");
         }else{
             
              for (int i = 0; i < usuarios.size(); i++){
@@ -310,6 +316,10 @@ public class frmPesquisaUsuario extends javax.swing.JFrame {
         usuarioDAO.excluirUsuario(usuario);
         JOptionPane.showMessageDialog(this, "Usuário excluído com sucesso!");
         
+        dispose();
+     
+        setVisible(true);
+        listarUsuarios();     
     }
      
      }

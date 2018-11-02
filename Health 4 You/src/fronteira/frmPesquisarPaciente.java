@@ -39,6 +39,7 @@ public class frmPesquisarPaciente extends javax.swing.JFrame {
      */
     public frmPesquisarPaciente() {
         initComponents();
+        listarPacientes();
        
         
         
@@ -213,9 +214,10 @@ public class frmPesquisarPaciente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInserirActionPerformed
+        dispose();
         frmPaciente cliente = new frmPaciente();
         cliente.setVisible(true);
-
+                
     }//GEN-LAST:event_btnInserirActionPerformed
     private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
 
@@ -223,8 +225,9 @@ public class frmPesquisarPaciente extends javax.swing.JFrame {
          JOptionPane.showMessageDialog(null,"Favor selecionar um paciente para alterar","Alterar Paciente",JOptionPane.INFORMATION_MESSAGE);
         }else{
             enviarAlteracaoPaciente();
+            dispose();
         }
-        dispose();
+        
     }//GEN-LAST:event_btnAlterarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
@@ -241,6 +244,7 @@ public class frmPesquisarPaciente extends javax.swing.JFrame {
     private void btnExcluirPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirPacienteActionPerformed
         // TODO add your handling code here:
         excluirPaciente();
+        listarPacientes();
     }//GEN-LAST:event_btnExcluirPacienteActionPerformed
 
     private void tblPacienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblPacienteMouseClicked
@@ -329,7 +333,7 @@ public class frmPesquisarPaciente extends javax.swing.JFrame {
       private void excluirPaciente(){
         
           if(txtNome.getText().isEmpty()){
-         JOptionPane.showMessageDialog(null,"Favor selecionar um paciente para exclusão","Excluir Paciente",JOptionPane.INFORMATION_MESSAGE);
+         JOptionPane.showMessageDialog(null,"Favor selecionar um paciente para excluir","Excluir Paciente",JOptionPane.INFORMATION_MESSAGE);
         }else{
           
           int excluir;

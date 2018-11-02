@@ -40,6 +40,7 @@ public class frmPesquisaServico extends javax.swing.JFrame {
      */
     public frmPesquisaServico() {
         initComponents();
+        listarServicos();
     }
 
     /**
@@ -170,6 +171,7 @@ public class frmPesquisaServico extends javax.swing.JFrame {
 
     private void btnInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInserirActionPerformed
         new frmCadastraServico().setVisible(true);
+        dispose();
     }//GEN-LAST:event_btnInserirActionPerformed
 
     private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
@@ -197,10 +199,14 @@ public class frmPesquisaServico extends javax.swing.JFrame {
 
     private void btnExcluirServicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirServicoActionPerformed
         // TODO add your handling code here:
-        
+        if(txtNomeServico.getText().isEmpty()){
+         JOptionPane.showMessageDialog(null,"Favor selecionar um serviço para excluir","Excluir Servico",
+                 JOptionPane.INFORMATION_MESSAGE);
+        }else{
         excluirServico();
+        listarServicos();
     }//GEN-LAST:event_btnExcluirServicoActionPerformed
-
+    }
     /**
      * @param args the command line arguments
      */

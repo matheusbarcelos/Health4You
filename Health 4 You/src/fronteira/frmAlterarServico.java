@@ -112,7 +112,7 @@ public class frmAlterarServico extends javax.swing.JFrame {
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
         // TODO add your handling code here:
-         frmPesquisaServico ps = new frmPesquisaServico();
+        frmPesquisaServico ps = new frmPesquisaServico();
         alterarServico();
         ps.listarServicos();
         dispose();
@@ -120,7 +120,13 @@ public class frmAlterarServico extends javax.swing.JFrame {
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
-        this.setVisible(false);
+        frmPesquisaServico ps = new frmPesquisaServico();
+        ps.setVisible(true);
+        ps.listarServicos();
+        dispose();
+        
+        
+        
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     /**
@@ -172,7 +178,12 @@ public class frmAlterarServico extends javax.swing.JFrame {
     
     private void alterarServico(){
     
-        Servico ser = new Servico();
+       
+        int opcao =  JOptionPane.showConfirmDialog(null, "Deseja alterar o serviço?","Alterar Serviço",0);
+       
+       if (opcao == 0){
+           
+          Servico ser = new Servico();
         
         ser.setNome(txtNomeServicoAlterar.getText().trim());
         ser.setValor(txtValorAlterar.getText().trim());
@@ -180,10 +191,6 @@ public class frmAlterarServico extends javax.swing.JFrame {
         
         ServicoDAO servicoDAO = new ServicoDAO();
         servicoDAO.alterarServico(ser);
-        
-        int opcao =  JOptionPane.showConfirmDialog(null, "Deseja alterar o serviço?","Alterar Serviço",0);
-       
-       if (opcao == 0){
            JOptionPane.showMessageDialog(null,"Serviço alterado com sucesso!","Serviço Alterado",JOptionPane.INFORMATION_MESSAGE);
         
            frmPesquisaServico ps = new frmPesquisaServico();

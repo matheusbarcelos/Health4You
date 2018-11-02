@@ -251,9 +251,7 @@ public class frmPaciente extends javax.swing.JFrame {
                                     .addComponent(jLabel13))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel12)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(jLabel12)
                                     .addComponent(txtCelular))))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -316,8 +314,8 @@ public class frmPaciente extends javax.swing.JFrame {
                     .addComponent(txtEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel13)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel12))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -340,6 +338,8 @@ public class frmPaciente extends javax.swing.JFrame {
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         this.setVisible(false);
+        frmPesquisarPaciente pu  = new frmPesquisarPaciente();
+        pu.setVisible(true);
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
@@ -396,6 +396,17 @@ public class frmPaciente extends javax.swing.JFrame {
         pacienteDAO.cadastrarPaciente(paciente);
         JOptionPane.showMessageDialog(null,"Paciente Cadastrado com sucesso !","Cadastro de Cliente",
                 JOptionPane.INFORMATION_MESSAGE);
+        
+        frmPesquisarPaciente pes = new frmPesquisarPaciente();
+        
+        String n = txtNome.getText();
+       
+        pes.listaPacientes = pacienteDAO.listarPacientes("%"+
+             n + "%");
+        pes.mostrarPacientes(pes.listaPacientes);
+        pes.listarPacientes();
+        dispose();
+        pes.setVisible(true);
         
     }
     

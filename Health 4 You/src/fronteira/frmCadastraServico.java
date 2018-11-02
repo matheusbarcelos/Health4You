@@ -134,6 +134,18 @@ public class frmCadastraServico extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null,"Servico Cadastrado com sucesso !","Cadastro de Cliente",
                 JOptionPane.INFORMATION_MESSAGE);
         
+        
+        frmPesquisaServico pes = new frmPesquisaServico();
+        
+        String n = txtNomeServico.getText();
+       
+        pes.listaServicos = servicoDAO.listarServicos("%"+
+             n + "%");
+        pes.mostrarServicos(pes.listaServicos);
+        pes.listarServicos();
+        dispose();
+        pes.setVisible(true);
+        
     }
     }
     
@@ -147,6 +159,8 @@ public class frmCadastraServico extends javax.swing.JFrame {
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
+        frmPesquisaServico pu  = new frmPesquisaServico();
+        pu.setVisible(true);
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     /**

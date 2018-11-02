@@ -41,7 +41,9 @@ public class frmAgendamento extends javax.swing.JFrame {
      */
     public frmAgendamento() {
         initComponents();
+        listarAgendamentos();
         this.getContentPane().setBackground(Color.WHITE);
+        
     }
 
     /**
@@ -253,9 +255,14 @@ public class frmAgendamento extends javax.swing.JFrame {
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
         // TODO add your handling code here:
+         if(txtNomePaciente.getText().isEmpty()){
+         JOptionPane.showMessageDialog(null,"Favor selecionar um agendamento para excluir","Excluir Agendamento",
+                 JOptionPane.INFORMATION_MESSAGE);
+        }else{
         excluirAgendamento();
+        listarAgendamentos();
     }//GEN-LAST:event_btnExcluirActionPerformed
-
+    }
     /**
      * @param args the command line arguments
      */

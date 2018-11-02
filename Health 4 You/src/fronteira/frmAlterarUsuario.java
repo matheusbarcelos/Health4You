@@ -236,10 +236,13 @@ public class frmAlterarUsuario extends javax.swing.JFrame {
    }
      
      public void alterarUsuario(){
-        
+          
+       int opcao =  JOptionPane.showConfirmDialog(null, "Deseja alterar o usuário?","Alterar",0);
+       
+       if (opcao == 0){
+           
         Usuario usuario = new Usuario();
-        
-        
+         
         usuario.setNome(txtNomeAlterar.getText().trim());
         usuario.setLogin(txtLoginAlterar.getText().trim());
         usuario.setSenha(txtSenhaAlterar.getText().trim());
@@ -249,13 +252,10 @@ public class frmAlterarUsuario extends javax.swing.JFrame {
        
         UsuarioDAO usuarioDAO = new UsuarioDAO();
         usuarioDAO.alterarUsuario(usuario);
-       int opcao =  JOptionPane.showConfirmDialog(null, "Deseja alterar o usuário?","Alterar",0);
-       
-       if (opcao == 0){
-           JOptionPane.showMessageDialog(null,"Usuário alterado com sucesso!","Usuário Alterado",JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null,"Usuário alterado com sucesso!","Usuário Alterado",JOptionPane.INFORMATION_MESSAGE);
+        
         frmPesquisaUsuario pes = new frmPesquisaUsuario();
-        //pes.listarUsuarios();
-      
+        
         String n = txtNomeAlterar.getText();
        
         pes.listaUsuarios = usuarioDAO.listarUsuarios("%"+
@@ -264,19 +264,14 @@ public class frmAlterarUsuario extends javax.swing.JFrame {
         pes.listarUsuarios();
         dispose();
         pes.setVisible(true);
-       }else{
+       } else if(opcao == 1){
+           
         frmPesquisaUsuario usu = new frmPesquisaUsuario();
         usu.setVisible(true);
         usu.listarUsuarios();
         dispose();
            
        }
-        
-        
-        
-        
-        
-   
     } 
     
     

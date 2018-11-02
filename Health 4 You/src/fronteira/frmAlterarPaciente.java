@@ -300,7 +300,11 @@ public class frmAlterarPaciente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        this.setVisible(false);
+        frmPesquisarPaciente ps = new frmPesquisarPaciente();
+        ps.setVisible(true);
+        ps.listarPacientes();
+        dispose();
+        
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void txtEstadoAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEstadoAlterarActionPerformed
@@ -392,6 +396,11 @@ public class frmAlterarPaciente extends javax.swing.JFrame {
    
     public void alterarPaciente(){
         
+      
+       int opcao =  JOptionPane.showConfirmDialog(null, "Deseja alterar o Paciente?","Alterar",0);
+       
+       if (opcao == 0){
+           
         Paciente paciente = new Paciente();
         frmPesquisarPaciente al = new frmPesquisarPaciente ();
         
@@ -411,9 +420,6 @@ public class frmAlterarPaciente extends javax.swing.JFrame {
         PacienteDAO pacienteDAO = new PacienteDAO();
         pacienteDAO.alterarPaciente(paciente);
         al.exibePacientes();
-        int opcao =  JOptionPane.showConfirmDialog(null, "Deseja alterar o Paciente?","Alterar",0);
-       
-       if (opcao == 0){
            JOptionPane.showMessageDialog(null,"Paciente alterado com sucesso!","Paciente Alterado",JOptionPane.INFORMATION_MESSAGE);
         frmPesquisarPaciente pes = new frmPesquisarPaciente();
         //pes.listarUsuarios();

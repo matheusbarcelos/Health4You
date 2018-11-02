@@ -274,7 +274,7 @@ public class frmAlteraAgendamento extends javax.swing.JFrame {
       
         txtRecebeDataAlterada.setText((String.valueOf(txtDataNova)));
           
-        if(String.valueOf(txtRecebeDataAlterada.getText()).isEmpty()){
+        if((txtRecebeDataAlterada.getText().isEmpty())){
             
         int opcao =  JOptionPane.showConfirmDialog(null, "Deseja alterar a consulta?","Alterar Consulta",0);
            

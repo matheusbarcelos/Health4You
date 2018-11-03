@@ -2,10 +2,14 @@
 
 package persistencia;
 import entidade.Usuario;
+import java.sql.Connection;
 import java.util.List;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class UsuarioDAO {
@@ -26,6 +30,8 @@ public class UsuarioDAO {
     
     private String alteraUsuario = "UPDATE USUARIO SET NOME =?,LOGIN=?,SENHA=?,PERMISSAO=?,STATUS=?"
             + "WHERE ID_USUARIO=?";
+    
+    private String checkLogin = "SELECT * FROM usuario WHERE login = ? and senha = ?";
     
     
     public void cadastrarUsuario(Usuario usuario ){
@@ -111,5 +117,36 @@ public class UsuarioDAO {
              e.printStackTrace();
          }
      }
-    
+      
+       public boolean checkLogin(String login, String senha) {
+
+        bd = new BaseDeDados();
+        PreparedStatement stmt = null;
+       
+
+        boolean check = false;
+
+        try {
+
+            pstm = bd.conecta().prepareStatement(checkLogin);
+            pstm.setString(1, login);
+            pstm.setString(2, senha);
+
+            rs = pstm.executeQuery();
+            bd.desconecta();
+            if (rs.next()) {
+                check = true;
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+
+        return check;
+
+    }
+
 }
+
+    
+

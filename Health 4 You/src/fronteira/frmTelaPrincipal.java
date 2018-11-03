@@ -27,8 +27,7 @@ public class frmTelaPrincipal extends javax.swing.JFrame {
         UsuarioDAO logado = new UsuarioDAO();
         Usuario us = new Usuario();
         lblNomeUsuario.setText(us.getNome());
-              
-        
+ 
     }
 
     /**

@@ -5,6 +5,8 @@
  */
 package fronteira;
 import entidade.Usuario;
+import javax.swing.JOptionPane;
+import persistencia.UsuarioDAO;
 import persistencia.VerificarUsuarioDAO;
 
 /**
@@ -175,9 +177,17 @@ public class frmLogin extends javax.swing.JFrame {
     
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
         // TODO add your handling code here:
-        frmTelaPrincipal telaPrincipal = new frmTelaPrincipal();
-        new frmTelaPrincipal().setVisible(true);
-        dispose();
+          
+        UsuarioDAO dao = new UsuarioDAO();
+       
+       if(dao.checkLogin(txtLogin.getText(), txtSenha.getText())){
+          
+           new frmTelaPrincipal().setVisible(true);
+           this.dispose();
+       }else{
+           JOptionPane.showMessageDialog(null, "Usuário ou senha incorretos!");
+       }
+
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     private void lblFecharMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblFecharMouseClicked

@@ -2,11 +2,11 @@
 
     package persistencia;
     import entidade.Usuario;
-//    import fronteira.frmTelaPrincipal;
-//    import java.util.List;
+    import fronteira.frmTelaPrincipal;
+  import java.util.List;
     import java.sql.PreparedStatement;
     import java.sql.ResultSet;
-//    import java.util.ArrayList;
+    import java.util.ArrayList;
 //    import javax.swing.JOptionPane;
 
 public class VerificarUsuarioDAO {
@@ -19,20 +19,25 @@ public class VerificarUsuarioDAO {
     
     private String verificaUsuario =  "SELECT * FROM USUARIO WHERE LOGIN =  ? AND SENHA = ?  ";
     
-    /*public boolean verificarUsuario(String LOGIN, String SENHA) {
+    public boolean verificarUsuario(String LOGIN, String SENHA) {
         boolean autenticado = false;
         try{
         bd = new BaseDeDados();
         pstm = bd.conecta().prepareStatement(verificaUsuario);
-       // pstm.setString(1, LOGIN.getLogin().trim());
-        //pstm.setString(2, SENHA.getSenha().trim());
+        pstm.setString(1, usuario.getLogin().trim());
+        pstm.setString(2, usuario.getSenha().trim());
         rs = pstm.executeQuery();
-        bd.desconecta();
+        while (rs.next()){
+                 usuario = new Usuario();
+                 usuario.setLogin(rs.getString("LOGIN"));
+                 usuario.setSenha(rs.getString("SENHA"));
+                 autenticado = true;
+             }
     } catch (Exception e){
-        e.printStackTrace();
+        e.printStackTrace(); 
+    }  
+        bd.desconecta();
+        return autenticado;
     }
-    
-    }*/
-    
-
 }
+    

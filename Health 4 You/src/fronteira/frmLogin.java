@@ -185,7 +185,7 @@ public class frmLogin extends javax.swing.JFrame {
            new frmTelaPrincipal().setVisible(true);
            this.dispose();
        }else{
-           JOptionPane.showMessageDialog(null, "Usuário ou senha incorretos!");
+           JOptionPane.showMessageDialog(null, "Usuário ou incorreta!");
        }
 
     }//GEN-LAST:event_btnEntrarActionPerformed

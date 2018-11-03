@@ -31,7 +31,7 @@ public class UsuarioDAO {
     private String alteraUsuario = "UPDATE USUARIO SET NOME =?,LOGIN=?,SENHA=?,PERMISSAO=?,STATUS=?"
             + "WHERE ID_USUARIO=?";
     
-    private String checkLogin = "SELECT * FROM usuario WHERE login = ? and senha = ?";
+    private String checkLogin = "SELECT LOGIN, SENHA FROM USUARIO WHERE LOGIN = ? AND SENHA = ?";
     
     
     public void cadastrarUsuario(Usuario usuario ){
@@ -118,35 +118,43 @@ public class UsuarioDAO {
          }
      }
       
-       public boolean checkLogin(String login, String senha) {
-
-        bd = new BaseDeDados();
-        PreparedStatement stmt = null;
-       
-
-        boolean check = false;
-
-        try {
-
-            pstm = bd.conecta().prepareStatement(checkLogin);
+      public boolean consultar (String login, String senha) throws SQLException{
+           boolean autenticado = false; 
+          try{
+           
+            String sql;
+            sql = "select login, senha from usuario where login = ? and senha = ?";
+            
+            
+            pstm = bd.conecta().prepareStatement(alteraUsuario);
             pstm.setString(1, login);
             pstm.setString(2, senha);
-
+ 
+            
             rs = pstm.executeQuery();
-            bd.desconecta();
+ 
             if (rs.next()) {
-                check = true;
+                String loginBanco = rs.getString("LOGIN");
+                String senhaBanco = rs.getString("SENHA");
+            autenticado = true;
             }
+ 
+            pstm.close();
+   
+ 
+            return autenticado;
+ 
+        } catch(Exception e){
+             
+             e.printStackTrace();
+         }
+            return autenticado;
+      }
 
-        } catch (SQLException ex) {
-            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
-        } 
+     
 
-        return check;
 
-    }
 
-}
 
     
 

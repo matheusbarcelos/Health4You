@@ -27,7 +27,7 @@ public class frmAgendamento extends javax.swing.JFrame {
     frmAlteraAgendamento enviar;
     
     private String[] colunas = new String[]{"Número","Nome",
-           "Servico","Valor","Horario","Data"};
+           "Procedimento","Valor","Horario","Data"};
     
     private DefaultTableModel tmAgendamentos = new DefaultTableModel
                (null, colunas);
@@ -383,7 +383,6 @@ public class frmAgendamento extends javax.swing.JFrame {
             enviar.recebeServico(txtServico.getText());
             enviar.recebeValor(txtValor.getText());
             enviar.recebeHora(txtHorario.getText());
-            enviar.recebeData(txtData.getText());
             enviar.recebeId(txtIDAgendamento.getText());
             
             
@@ -396,7 +395,6 @@ public class frmAgendamento extends javax.swing.JFrame {
             enviar.recebeServico(txtServico.getText());
             enviar.recebeValor(txtValor.getText());
             enviar.recebeHora(txtHorario.getText());
-            enviar.recebeData(txtData.getText());
             enviar.recebeId(txtIDAgendamento.getText());
             enviar.setState(frmAlteraAgendamento.NORMAL);
              

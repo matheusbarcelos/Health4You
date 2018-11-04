@@ -37,7 +37,7 @@ public class frmCadastraServico extends javax.swing.JFrame {
         btnCadastrar = new javax.swing.JButton();
         txtNomeServico = new javax.swing.JTextField();
         btnCancelar = new javax.swing.JButton();
-        txtValor = new javax.swing.JFormattedTextField();
+        txtValor = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro de Serviços");
@@ -86,7 +86,7 @@ public class frmCadastraServico extends javax.swing.JFrame {
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                             .addGap(27, 27, 27)
                             .addComponent(jLabel1)))
-                    .addComponent(txtValor, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtValor, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(28, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -100,9 +100,9 @@ public class frmCadastraServico extends javax.swing.JFrame {
                 .addComponent(txtNomeServico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
+                .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCancelar)
                     .addComponent(btnCadastrar))
@@ -115,13 +115,12 @@ public class frmCadastraServico extends javax.swing.JFrame {
 
     private void cadastrarServico(){
         
-        if(txtNomeServico.getText().isEmpty() || txtValor.getText().equals("R$"))
+        if(txtNomeServico.getText().isEmpty() || txtValor.getText().isEmpty())
                {
-        
-            JOptionPane.showMessageDialog(null,"Existem campos obrigatórios a serem preenchidos","Preencher Campos",
+       JOptionPane.showMessageDialog(null,"É necessário informar um nome e valor para cadastro","Preencher Campos",
                     JOptionPane.INFORMATION_MESSAGE);
             
-    }else{
+      }else{
         
         
         Servico servico = new  Servico();
@@ -205,6 +204,6 @@ public class frmCadastraServico extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JTextField txtNomeServico;
-    private javax.swing.JFormattedTextField txtValor;
+    private javax.swing.JTextField txtValor;
     // End of variables declaration//GEN-END:variables
 }

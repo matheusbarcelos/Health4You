@@ -341,6 +341,8 @@ public class frmCadastraAgendamento extends javax.swing.JFrame {
     
     private void cadastrarAgendamento(){
         
+        
+        
         if(txtNomePaciente.getText().isEmpty()){
             
             JOptionPane.showMessageDialog(null,"Você precisa selecionar um paciente para agendar","Selecionar Paciente",

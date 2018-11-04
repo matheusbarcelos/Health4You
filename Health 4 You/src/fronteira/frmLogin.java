@@ -184,20 +184,26 @@ public class frmLogin extends javax.swing.JFrame {
   
         String login = txtLogin.getText();
         String senha = txtSenha.getText();
-       
+        
         VerificarUsuarioDAO dao  = new VerificarUsuarioDAO();
-        
-        
+       
+        if(txtLogin.getText().isEmpty() || txtSenha.getText().isEmpty()){
+            
+        JOptionPane.showMessageDialog(null,"É necessário informar usuário e senha para entrar no sistema");
+            
+        }else{
         
         boolean resposta = dao.verificar(login, senha);
  
         if (resposta == true){
+            
         frmTelaPrincipal telaPrincipal = new frmTelaPrincipal();
         new frmTelaPrincipal().setVisible(true);
         dispose();
- 
-        }else {
-        JOptionPane.showMessageDialog(rootPane, "login não realizado!\n Favor conferir o usuario e senha digitado!");
+
+        }else{
+        JOptionPane.showMessageDialog(rootPane, "Usuário ou senha incorretos");
+        }
         }
     }//GEN-LAST:event_btnEntrarActionPerformed
 

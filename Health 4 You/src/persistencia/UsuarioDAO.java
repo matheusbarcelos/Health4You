@@ -118,24 +118,25 @@ public class UsuarioDAO {
          }
      }
       
-      public boolean consultar (String login, String senha) throws SQLException{
+      public boolean consultar (String login, String senha, String permissao) throws SQLException{
            boolean autenticado = false; 
           try{
            
             String sql;
-            sql = "select login, senha from usuario where login = ? and senha = ?";
+            sql = "select login, senha from usuario where login = ? and senha = ? and permissao = ?";
             
             
             pstm = bd.conecta().prepareStatement(alteraUsuario);
             pstm.setString(1, login);
             pstm.setString(2, senha);
- 
+            pstm.setString(3, permissao);
             
             rs = pstm.executeQuery();
  
             if (rs.next()) {
                 String loginBanco = rs.getString("LOGIN");
                 String senhaBanco = rs.getString("SENHA");
+                String permissaoBanco = rs.getString("PERMISSAO");
             autenticado = true;
             }
  
@@ -150,6 +151,7 @@ public class UsuarioDAO {
          }
             return autenticado;
       }
+}
 
      
 

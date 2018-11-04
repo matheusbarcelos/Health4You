@@ -8,8 +8,6 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtDataNormal">
     </Component>
-    <Component class="javax.swing.JTextField" name="txtRecebeDataAlterada">
-    </Component>
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
@@ -65,6 +63,7 @@
                                   <Component id="jButton5" alignment="0" min="-2" pref="176" max="-2" attributes="0"/>
                                   <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                                   <Component id="txtDataNova" min="-2" pref="166" max="-2" attributes="0"/>
+                                  <Component id="txtRecebeDataAlterada" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -98,7 +97,9 @@
               <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="txtValorServicoAlterar" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+              <Component id="txtRecebeDataAlterada" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -194,6 +195,8 @@
       </Properties>
     </Component>
     <Component class="com.toedter.calendar.JDateChooser" name="txtDataNova">
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtRecebeDataAlterada">
     </Component>
   </SubComponents>
 </Form>

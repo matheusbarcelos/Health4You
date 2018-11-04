@@ -71,7 +71,6 @@ public class frmAlteraAgendamento extends javax.swing.JFrame {
         txtId = new javax.swing.JTextField();
         txtCPFPacienteAlterar = new javax.swing.JTextField();
         txtDataNormal = new javax.swing.JTextField();
-        txtRecebeDataAlterada = new javax.swing.JTextField();
         txtNomeServicoAlterar = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -85,6 +84,7 @@ public class frmAlteraAgendamento extends javax.swing.JFrame {
         txtValorServicoAlterar = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         txtDataNova = new com.toedter.calendar.JDateChooser();
+        txtRecebeDataAlterada = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -158,7 +158,8 @@ public class frmAlteraAgendamento extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel5)
-                                    .addComponent(txtDataNova, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(txtDataNova, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtRecebeDataAlterada, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(33, 33, 33))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -183,7 +184,9 @@ public class frmAlteraAgendamento extends javax.swing.JFrame {
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtValorServicoAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(58, 58, 58)
+                .addGap(20, 20, 20)
+                .addComponent(txtRecebeDataAlterada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -258,11 +261,7 @@ public class frmAlteraAgendamento extends javax.swing.JFrame {
        public void recebeHora(String recebeHora){ 
        txtHorarioAlterar.setText(recebeHora);
    }
-       public void recebeData(String recebeData){ 
-           
-       txtDataNormal.setText(recebeData);
        
-       }
      public void recebeId(String recebeId){ 
        txtId.setText(recebeId);
    }
@@ -272,58 +271,17 @@ public class frmAlteraAgendamento extends javax.swing.JFrame {
        
        private void alterarAgendamento(){
       
-        txtRecebeDataAlterada.setText((String.valueOf(txtDataNova)));
+         String recebe = "";   
+           
+        recebe = ((String.valueOf(txtDataNova.getDate())));
           
-        if((txtRecebeDataAlterada.getText().isEmpty())){
+    
+        if((recebe == "" )){
             
-        int opcao =  JOptionPane.showConfirmDialog(null, "Deseja alterar a consulta?","Alterar Consulta",0);
-           
-        if (opcao == 0){
-        
-        
+            JOptionPane.showMessageDialog(this, "É necessário selecionar a data");
             
-        /*Date data = txtDataNormal.getDate();
-        SimpleDateFormat formatador = new SimpleDateFormat("yyyy/MM/dd");
-        String novaData = formatador.format(data);*/
-           
-        Agendamento age = new Agendamento();
+        }else{
         
-        
-        age.setNome(txtNomePacienteAlterar.getText().trim());
-        age.setCpf(txtCPFPacienteAlterar.getText().trim());
-        age.setServico(txtNomeServicoAlterar.getText().trim());
-        age.setValor(txtValorServicoAlterar.getText().trim());
-        age.setHorario(txtHorarioAlterar.getText().trim());
-        age.setData(txtDataNormal.getText());
-        
-        
-        age.setCodigo(Integer.valueOf(txtId.getText()));
-        
-        AgendamentoDAO agendamentoDAO = new AgendamentoDAO();
-        agendamentoDAO.alterarAgendamento(age);
-        JOptionPane.showMessageDialog(this, "Consulta alterada com sucesso!");
-        
-        frmAgendamento ps = new frmAgendamento();
-        
-        String n = txtNomePacienteAlterar.getText();
-       
-        ps.listaAgendamentos = agendamentoDAO.listarAgendamentos("%"+
-             n + "%");
-        ps.mostrarAgendamentos(ps.listaAgendamentos);
-        ps.listarAgendamentos();
-        dispose();
-        ps.setVisible(true);
-       }else{
-        frmAgendamento ps = new frmAgendamento();
-        ps.setVisible(true);
-        ps.listarAgendamentos();
-        dispose();
-        
-        
-    }
-       }else{
-           
-     
         int opcao =  JOptionPane.showConfirmDialog(null, "Deseja alterar a consulta?","Alterar Consulta",0);
            
         if (opcao == 0){
@@ -349,7 +307,6 @@ public class frmAlteraAgendamento extends javax.swing.JFrame {
         agendamentoDAO.alterarAgendamento(age);
         JOptionPane.showMessageDialog(this, "Consulta alterada com sucesso!");
         
-      
         
         frmAgendamento ps = new frmAgendamento();
         

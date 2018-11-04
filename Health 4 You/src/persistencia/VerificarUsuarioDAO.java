@@ -17,7 +17,7 @@ public class VerificarUsuarioDAO {
     private Usuario usuario;
 
     
-    private String verificaUsuario =  "SELECT LOGIN, SENHA FROM USUARIO WHERE LOGIN =  ? AND SENHA = ?  ";
+    private String verificaUsuario =  "SELECT LOGIN, SENHA FROM USUARIO WHERE LOGIN =  ? AND SENHA = ?   ";
     
     public boolean verificar(String login, String senha) {
         boolean autenticado = false;
@@ -26,6 +26,7 @@ public class VerificarUsuarioDAO {
         pstm = bd.conecta().prepareStatement(verificaUsuario);
         pstm.setString(1, login);
         pstm.setString(2, senha);
+        
         rs = pstm.executeQuery();
         if (rs.next()){
                  usuario = new Usuario();

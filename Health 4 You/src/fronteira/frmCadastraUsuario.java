@@ -55,10 +55,12 @@ public class frmCadastraUsuario extends javax.swing.JFrame {
         txtNome.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
         txtNome.setForeground(new java.awt.Color(0, 73, 125));
         txtNome.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219), 2));
+        txtNome.setCaretColor(new java.awt.Color(0, 73, 125));
 
         txtLogin.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
         txtLogin.setForeground(new java.awt.Color(0, 73, 125));
         txtLogin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219), 2));
+        txtLogin.setCaretColor(new java.awt.Color(0, 73, 125));
 
         btnSalvar.setBackground(new java.awt.Color(0, 155, 219));
         btnSalvar.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
@@ -103,6 +105,7 @@ public class frmCadastraUsuario extends javax.swing.JFrame {
         txtSenha.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
         txtSenha.setForeground(new java.awt.Color(0, 73, 125));
         txtSenha.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219), 2));
+        txtSenha.setCaretColor(new java.awt.Color(0, 73, 125));
         txtSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtSenhaActionPerformed(evt);

@@ -137,7 +137,7 @@ public class frmTelaPrincipal extends javax.swing.JFrame {
         btnHelpPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/icon 6 principal.png"))); // NOI18N
         jPanel1.add(btnHelpPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 500, -1, -1));
 
-        btnCadastroUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/icon 3 principal.png"))); // NOI18N
+        btnCadastroUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/icon 3 - cadastro de serviços.png"))); // NOI18N
         btnCadastroUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnCadastroUsuarioMouseClicked(evt);
@@ -176,7 +176,7 @@ public class frmTelaPrincipal extends javax.swing.JFrame {
         lblCadastroUsuario.setBackground(new java.awt.Color(0, 73, 125));
         lblCadastroUsuario.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
         lblCadastroUsuario.setForeground(new java.awt.Color(0, 73, 125));
-        lblCadastroUsuario.setText("Cadastro de Usuários");
+        lblCadastroUsuario.setText("Cadastro de Serviços");
         lblCadastroUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblCadastroUsuarioMouseClicked(evt);
@@ -388,7 +388,7 @@ public class frmTelaPrincipal extends javax.swing.JFrame {
 
     private void btnCadastroUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCadastroUsuarioMouseClicked
         // TODO add your handling code here:
-        new frmPesquisaUsuario().setVisible(true);
+        new frmPesquisaServico().setVisible(true);
     }//GEN-LAST:event_btnCadastroUsuarioMouseClicked
 
     private void lblCadastroUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCadastroUsuarioMouseClicked

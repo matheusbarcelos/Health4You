@@ -85,6 +85,7 @@ public class frmAgendamento extends javax.swing.JFrame {
         txtPesquisarConsultas.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
         txtPesquisarConsultas.setForeground(new java.awt.Color(0, 73, 125));
         txtPesquisarConsultas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219), 2));
+        txtPesquisarConsultas.setCaretColor(new java.awt.Color(0, 73, 125));
 
         tblAgendamentos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219), 2));
         tblAgendamentos.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N

@@ -71,6 +71,7 @@ public class frmCadastraServico extends javax.swing.JFrame {
 
         txtNomeServico.setForeground(new java.awt.Color(0, 73, 125));
         txtNomeServico.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219), 2));
+        txtNomeServico.setCaretColor(new java.awt.Color(0, 73, 125));
 
         btnCancelar.setBackground(new java.awt.Color(0, 155, 219));
         btnCancelar.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
@@ -87,6 +88,7 @@ public class frmCadastraServico extends javax.swing.JFrame {
         txtValor.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219), 2));
         txtValor.setForeground(new java.awt.Color(0, 73, 125));
         txtValor.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
+        txtValor.setCaretColor(new java.awt.Color(0, 73, 125));
 
         lblSair.setFont(new java.awt.Font("Open Sans", 1, 18)); // NOI18N
         lblSair.setForeground(new java.awt.Color(0, 73, 125));

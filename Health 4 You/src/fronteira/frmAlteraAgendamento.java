@@ -112,6 +112,7 @@ public class frmAlteraAgendamento extends javax.swing.JFrame {
         txtPesquisaServicos.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
         txtPesquisaServicos.setForeground(new java.awt.Color(0, 73, 125));
         txtPesquisaServicos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219), 2));
+        txtPesquisaServicos.setCaretColor(new java.awt.Color(0, 73, 125));
 
         jLabel1.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 73, 125));
@@ -147,6 +148,7 @@ public class frmAlteraAgendamento extends javax.swing.JFrame {
             ex.printStackTrace();
         }
         txtHorarioAlterar.setToolTipText("  ");
+        txtHorarioAlterar.setCaretColor(new java.awt.Color(0, 73, 125));
 
         tblPaciente.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
         tblPaciente.setModel(tmPacientes);
@@ -185,6 +187,7 @@ public class frmAlteraAgendamento extends javax.swing.JFrame {
         txtPesquisaPaciente.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
         txtPesquisaPaciente.setForeground(new java.awt.Color(0, 73, 125));
         txtPesquisaPaciente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219), 2));
+        txtPesquisaPaciente.setCaretColor(new java.awt.Color(0, 73, 125));
 
         btnAtualizar.setBackground(new java.awt.Color(0, 155, 219));
         btnAtualizar.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N

@@ -21,7 +21,7 @@ public class frmPaciente extends javax.swing.JFrame {
      */
     public frmPaciente() {
         initComponents();
-        this.getContentPane().setBackground(Color.WHITE);
+        this.getContentPane().setBackground(new Color(240,240,240));
     }
 
     /**
@@ -65,6 +65,7 @@ public class frmPaciente extends javax.swing.JFrame {
         jFormattedTextField1.setText("jFormattedTextField1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setBackground(new java.awt.Color(0, 0, 0));
         setUndecorated(true);
         setResizable(false);
 
@@ -96,7 +97,7 @@ public class frmPaciente extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(0, 73, 125));
         jLabel7.setText("E-mail:");
 
-        txtNome.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
+        txtNome.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
         txtNome.setForeground(new java.awt.Color(0, 73, 125));
         txtNome.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219), 2));
         txtNome.addActionListener(new java.awt.event.ActionListener() {
@@ -105,15 +106,15 @@ public class frmPaciente extends javax.swing.JFrame {
             }
         });
 
-        txtEndereco.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
+        txtEndereco.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
         txtEndereco.setForeground(new java.awt.Color(0, 73, 125));
         txtEndereco.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219), 2));
 
-        txtNumero.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
+        txtNumero.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
         txtNumero.setForeground(new java.awt.Color(0, 73, 125));
         txtNumero.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219), 2));
 
-        txtEmail.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
+        txtEmail.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
         txtEmail.setForeground(new java.awt.Color(0, 73, 125));
         txtEmail.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219), 2));
 
@@ -143,7 +144,7 @@ public class frmPaciente extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(0, 73, 125));
         jLabel8.setText("Bairro:");
 
-        txtBairro.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
+        txtBairro.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
         txtBairro.setForeground(new java.awt.Color(0, 73, 125));
         txtBairro.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219), 2));
 
@@ -163,6 +164,7 @@ public class frmPaciente extends javax.swing.JFrame {
         jLabel13.setForeground(new java.awt.Color(0, 73, 125));
         jLabel13.setText("Telefone:");
 
+        txtCidade.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
         txtCidade.setForeground(new java.awt.Color(0, 73, 125));
         txtCidade.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219), 2));
 
@@ -173,6 +175,7 @@ public class frmPaciente extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        txtDataDeNascimento.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
 
         txtCPF.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219), 2));
         txtCPF.setForeground(new java.awt.Color(0, 73, 125));
@@ -181,6 +184,7 @@ public class frmPaciente extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        txtCPF.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
 
         txtTelefone.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219), 2));
         txtTelefone.setForeground(new java.awt.Color(0, 73, 125));
@@ -189,6 +193,7 @@ public class frmPaciente extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        txtTelefone.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
 
         txtCelular.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219), 2));
         txtCelular.setForeground(new java.awt.Color(0, 73, 125));
@@ -197,9 +202,11 @@ public class frmPaciente extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        txtCelular.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
 
         txtEstado.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219), 2));
         txtEstado.setForeground(new java.awt.Color(0, 73, 125));
+        txtEstado.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
 
         lblSair.setFont(new java.awt.Font("Open Sans", 1, 24)); // NOI18N
         lblSair.setForeground(new java.awt.Color(0, 73, 125));

@@ -84,7 +84,7 @@ public class frmTelaPrincipal extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Desenvolvido por Health Solutions");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(940, 1060, 181, 16);
+        jLabel4.setBounds(940, 1060, 164, 15);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setMinimumSize(new java.awt.Dimension(1080, 1920));

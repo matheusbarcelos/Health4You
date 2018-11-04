@@ -6,8 +6,12 @@
 package fronteira;
 import entidade.Usuario;
 import javax.swing.JOptionPane;
+
 import persistencia.UsuarioDAO;
+
+
 import persistencia.VerificarUsuarioDAO;
+import static sun.security.jgss.GSSUtil.login;
 
 /**
  *
@@ -158,7 +162,7 @@ public class frmLogin extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
     
-    private void verificarUsuario(){
+    /*private void verificarUsuario(){
         
         Usuario usuario = new Usuario();
         
@@ -166,8 +170,8 @@ public class frmLogin extends javax.swing.JFrame {
         usuario.setSenha(txtSenha.getText().trim());
         
         VerificarUsuarioDAO verificarDAO = new  VerificarUsuarioDAO();
-        
-    }
+        if(verificarUsuario(veri))
+    }*/
     
     
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
@@ -177,17 +181,24 @@ public class frmLogin extends javax.swing.JFrame {
     
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
         // TODO add your handling code here:
-          
-        UsuarioDAO dao = new UsuarioDAO();
+  
+        String login = txtLogin.getText();
+        String senha = txtSenha.getText();
        
-       if(dao.checkLogin(txtLogin.getText(), txtSenha.getText())){
-          
-           new frmTelaPrincipal().setVisible(true);
-           this.dispose();
-       }else{
-           JOptionPane.showMessageDialog(null, "Usuário ou incorreta!");
-       }
-
+        VerificarUsuarioDAO dao  = new VerificarUsuarioDAO();
+        
+        
+        
+        boolean resposta = dao.verificar(login, senha);
+ 
+        if (resposta == true){
+        frmTelaPrincipal telaPrincipal = new frmTelaPrincipal();
+        new frmTelaPrincipal().setVisible(true);
+        dispose();
+ 
+        }else {
+        JOptionPane.showMessageDialog(rootPane, "login não realizado!\n Favor conferir o usuario e senha digitado!");
+        }
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     private void lblFecharMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblFecharMouseClicked

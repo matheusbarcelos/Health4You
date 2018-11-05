@@ -21,7 +21,7 @@ public class frmPaciente extends javax.swing.JFrame {
      */
     public frmPaciente() {
         initComponents();
-        this.getContentPane().setBackground(Color.WHITE);
+        this.getContentPane().setBackground(new Color(240,240,240));
     }
 
     /**
@@ -65,6 +65,7 @@ public class frmPaciente extends javax.swing.JFrame {
         jFormattedTextField1.setText("jFormattedTextField1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setBackground(new java.awt.Color(0, 0, 0));
         setUndecorated(true);
         setResizable(false);
 
@@ -96,26 +97,30 @@ public class frmPaciente extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(0, 73, 125));
         jLabel7.setText("E-mail:");
 
-        txtNome.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
+        txtNome.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
         txtNome.setForeground(new java.awt.Color(0, 73, 125));
         txtNome.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219), 2));
+        txtNome.setCaretColor(new java.awt.Color(0, 73, 125));
         txtNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNomeActionPerformed(evt);
             }
         });
 
-        txtEndereco.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
+        txtEndereco.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
         txtEndereco.setForeground(new java.awt.Color(0, 73, 125));
         txtEndereco.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219), 2));
+        txtEndereco.setCaretColor(new java.awt.Color(0, 73, 125));
 
-        txtNumero.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
+        txtNumero.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
         txtNumero.setForeground(new java.awt.Color(0, 73, 125));
         txtNumero.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219), 2));
+        txtNumero.setCaretColor(new java.awt.Color(0, 73, 125));
 
-        txtEmail.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
+        txtEmail.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
         txtEmail.setForeground(new java.awt.Color(0, 73, 125));
         txtEmail.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219), 2));
+        txtEmail.setCaretColor(new java.awt.Color(0, 73, 125));
 
         btnSalvar.setBackground(new java.awt.Color(0, 155, 219));
         btnSalvar.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
@@ -143,9 +148,10 @@ public class frmPaciente extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(0, 73, 125));
         jLabel8.setText("Bairro:");
 
-        txtBairro.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
+        txtBairro.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
         txtBairro.setForeground(new java.awt.Color(0, 73, 125));
         txtBairro.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219), 2));
+        txtBairro.setCaretColor(new java.awt.Color(0, 73, 125));
 
         jLabel9.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 73, 125));
@@ -163,8 +169,10 @@ public class frmPaciente extends javax.swing.JFrame {
         jLabel13.setForeground(new java.awt.Color(0, 73, 125));
         jLabel13.setText("Telefone:");
 
+        txtCidade.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
         txtCidade.setForeground(new java.awt.Color(0, 73, 125));
         txtCidade.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219), 2));
+        txtCidade.setCaretColor(new java.awt.Color(0, 73, 125));
 
         txtDataDeNascimento.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219), 2));
         txtDataDeNascimento.setForeground(new java.awt.Color(0, 73, 125));
@@ -173,6 +181,8 @@ public class frmPaciente extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        txtDataDeNascimento.setCaretColor(new java.awt.Color(0, 73, 125));
+        txtDataDeNascimento.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
 
         txtCPF.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219), 2));
         txtCPF.setForeground(new java.awt.Color(0, 73, 125));
@@ -181,6 +191,8 @@ public class frmPaciente extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        txtCPF.setCaretColor(new java.awt.Color(0, 73, 125));
+        txtCPF.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
 
         txtTelefone.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219), 2));
         txtTelefone.setForeground(new java.awt.Color(0, 73, 125));
@@ -189,6 +201,8 @@ public class frmPaciente extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        txtTelefone.setCaretColor(new java.awt.Color(0, 73, 125));
+        txtTelefone.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
 
         txtCelular.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219), 2));
         txtCelular.setForeground(new java.awt.Color(0, 73, 125));
@@ -197,9 +211,13 @@ public class frmPaciente extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        txtCelular.setCaretColor(new java.awt.Color(0, 73, 125));
+        txtCelular.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
 
         txtEstado.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219), 2));
         txtEstado.setForeground(new java.awt.Color(0, 73, 125));
+        txtEstado.setCaretColor(new java.awt.Color(0, 73, 125));
+        txtEstado.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
 
         lblSair.setFont(new java.awt.Font("Open Sans", 1, 24)); // NOI18N
         lblSair.setForeground(new java.awt.Color(0, 73, 125));
@@ -217,43 +235,6 @@ public class frmPaciente extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel5)
-                                    .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel8)
-                                    .addComponent(txtBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel9)))
-                            .addComponent(txtEndereco)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(txtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel4))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel6)
-                                        .addComponent(txtDataDeNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addComponent(jLabel3))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel10)
-                                    .addComponent(txtEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel13))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel12)
-                                    .addComponent(txtCelular))))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -263,17 +244,51 @@ public class frmPaciente extends javax.swing.JFrame {
                                 .addComponent(jLabel2)
                                 .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(29, 29, 29)
                                 .addComponent(btnCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(txtEmail))
-                        .addContainerGap())
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                            .addComponent(txtEmail, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel5)
+                                    .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel8)
+                                    .addComponent(txtBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel9)))
+                            .addComponent(txtEndereco, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel4))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel6)
+                                        .addComponent(txtDataDeNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jLabel3))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel10)
+                                    .addComponent(txtEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel13))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel12)
+                                    .addComponent(txtCelular))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

@@ -45,36 +45,70 @@ public class frmAlterarUsuario extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         cmbPermissaoAlterar = new javax.swing.JComboBox<>();
+<<<<<<< HEAD
         txtSenhaAlterar = new javax.swing.JPasswordField();
+=======
+        jLabel4 = new javax.swing.JLabel();
+>>>>>>> 894fdd2873b7c369828c0706fc34d28ea4c16368
 
         txtId.setText("jTextField1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setUndecorated(true);
 
-        jLabel1.setFont(new java.awt.Font("Champagne & Limousines", 1, 24)); // NOI18N
-        jLabel1.setText("Alteração de Usuário");
+        jLabel1.setFont(new java.awt.Font("Open Sans", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 73, 125));
+        jLabel1.setText("ALTERAÇÃO DE USUÁRIO");
 
         jLabel10.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(0, 73, 125));
         jLabel10.setText("Permissão:");
 
         txtNomeAlterar.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
+        txtNomeAlterar.setForeground(new java.awt.Color(0, 73, 125));
+        txtNomeAlterar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219), 2));
+        txtNomeAlterar.setCaretColor(new java.awt.Color(0, 73, 125));
 
+        jLabel3.setForeground(new java.awt.Color(0, 73, 125));
         jLabel3.setText("Status:");
 
         txtLoginAlterar.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
+        txtLoginAlterar.setForeground(new java.awt.Color(0, 73, 125));
+        txtLoginAlterar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219), 2));
+        txtLoginAlterar.setCaretColor(new java.awt.Color(0, 73, 125));
+        txtLoginAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtLoginAlterarActionPerformed(evt);
+            }
+        });
 
+        cmbStatusAlterar.setBackground(new java.awt.Color(0, 73, 125));
+        cmbStatusAlterar.setForeground(new java.awt.Color(255, 255, 255));
         cmbStatusAlterar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ativo", "Inativo" }));
+        cmbStatusAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbStatusAlterarActionPerformed(evt);
+            }
+        });
 
+        btnSalvar.setBackground(new java.awt.Color(0, 155, 219));
         btnSalvar.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
+        btnSalvar.setForeground(new java.awt.Color(255, 255, 255));
+        btnSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/Salvar.png"))); // NOI18N
         btnSalvar.setText("Salvar");
+        btnSalvar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219)));
         btnSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalvarActionPerformed(evt);
             }
         });
 
+        btnCancelar.setBackground(new java.awt.Color(0, 155, 219));
         btnCancelar.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
+        btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
+        btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/Cancelar IMG - Sistema.png"))); // NOI18N
         btnCancelar.setText("Cancelar");
+        btnCancelar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219)));
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelarActionPerformed(evt);
@@ -82,16 +116,33 @@ public class frmAlterarUsuario extends javax.swing.JFrame {
         });
 
         jLabel2.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 73, 125));
         jLabel2.setText("Nome:");
 
         jLabel7.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 73, 125));
         jLabel7.setText("Login:");
 
         jLabel8.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 73, 125));
         jLabel8.setText("Senha:");
 
+<<<<<<< HEAD
+=======
+        txtSenhaAlterar.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
+        txtSenhaAlterar.setForeground(new java.awt.Color(0, 73, 125));
+        txtSenhaAlterar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219), 2));
+        txtSenhaAlterar.setCaretColor(new java.awt.Color(0, 73, 125));
+
+        cmbPermissaoAlterar.setBackground(new java.awt.Color(0, 73, 125));
+>>>>>>> 894fdd2873b7c369828c0706fc34d28ea4c16368
         cmbPermissaoAlterar.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
+        cmbPermissaoAlterar.setForeground(new java.awt.Color(255, 255, 255));
         cmbPermissaoAlterar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Usuário" }));
+
+        jLabel4.setFont(new java.awt.Font("Open Sans", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 73, 125));
+        jLabel4.setText("X");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -102,11 +153,16 @@ public class frmAlterarUsuario extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(63, 63, 63))
             .addGroup(layout.createSequentialGroup()
+<<<<<<< HEAD
                 .addGap(56, 56, 56)
+=======
+                .addGap(20, 20, 20)
+>>>>>>> 894fdd2873b7c369828c0706fc34d28ea4c16368
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7)
                     .addComponent(jLabel8)
                     .addComponent(jLabel2)
+<<<<<<< HEAD
                     .addComponent(txtNomeAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -122,23 +178,61 @@ public class frmAlterarUsuario extends javax.swing.JFrame {
                         .addComponent(txtSenhaAlterar, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(txtLoginAlterar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 242, Short.MAX_VALUE)))
                 .addContainerGap(44, Short.MAX_VALUE))
+=======
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jLabel4)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(txtSenhaAlterar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 272, Short.MAX_VALUE)
+                        .addComponent(txtLoginAlterar, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(txtNomeAlterar, javax.swing.GroupLayout.Alignment.LEADING))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addComponent(jLabel10)
+                            .addGap(103, 103, 103)
+                            .addComponent(jLabel3)
+                            .addGap(82, 82, 82))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(btnSalvar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGap(18, 18, 18))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(cmbPermissaoAlterar, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGap(18, 18, 18)))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(cmbStatusAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(0, 14, Short.MAX_VALUE))
+>>>>>>> 894fdd2873b7c369828c0706fc34d28ea4c16368
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
+<<<<<<< HEAD
+=======
+                .addComponent(jLabel4)
+                .addGap(19, 19, 19)
+>>>>>>> 894fdd2873b7c369828c0706fc34d28ea4c16368
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+<<<<<<< HEAD
                 .addComponent(txtNomeAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
+=======
+                .addComponent(txtNomeAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+>>>>>>> 894fdd2873b7c369828c0706fc34d28ea4c16368
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtLoginAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtLoginAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+<<<<<<< HEAD
                 .addComponent(txtSenhaAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -153,6 +247,25 @@ public class frmAlterarUsuario extends javax.swing.JFrame {
                     .addComponent(btnSalvar)
                     .addComponent(btnCancelar))
                 .addContainerGap(53, Short.MAX_VALUE))
+=======
+                .addComponent(txtSenhaAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel10)
+                        .addGap(1, 1, 1)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cmbPermissaoAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cmbStatusAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(8, 8, 8)
+                        .addComponent(jLabel3)))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(25, Short.MAX_VALUE))
+>>>>>>> 894fdd2873b7c369828c0706fc34d28ea4c16368
         );
 
         pack();
@@ -174,6 +287,14 @@ public class frmAlterarUsuario extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
 
+    private void txtLoginAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLoginAlterarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtLoginAlterarActionPerformed
+
+    private void cmbStatusAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbStatusAlterarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbStatusAlterarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -183,22 +304,22 @@ public class frmAlterarUsuario extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frmAlterarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frmAlterarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frmAlterarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frmAlterarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(frmAlterarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(frmAlterarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(frmAlterarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(frmAlterarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
         //</editor-fold>
 
         /* Create and display the form */
@@ -281,6 +402,7 @@ public class frmAlterarUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JTextField txtId;

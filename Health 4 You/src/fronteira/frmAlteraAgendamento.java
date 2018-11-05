@@ -79,54 +79,202 @@ public class frmAlteraAgendamento extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
+<<<<<<< HEAD
         txtNomePacienteAlterar = new javax.swing.JTextField();
         btnCadastrar = new javax.swing.JButton();
         txtValorServicoAlterar = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         txtDataNova = new com.toedter.calendar.JDateChooser();
         txtRecebeDataAlterada = new javax.swing.JTextField();
+=======
+        txtPesquisaPaciente = new javax.swing.JTextField();
+        btnAtualizar = new javax.swing.JButton();
+        btnNovoCliente = new javax.swing.JButton();
+        btnPesquisarPaciente = new javax.swing.JButton();
+        btnPesquisarServico = new javax.swing.JButton();
+        txtDataAlterar = new com.toedter.calendar.JDateChooser();
+        lblSair = new javax.swing.JLabel();
+>>>>>>> 894fdd2873b7c369828c0706fc34d28ea4c16368
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setUndecorated(true);
 
+<<<<<<< HEAD
         txtNomeServicoAlterar.setEditable(false);
+=======
+        btnNovoServico.setBackground(new java.awt.Color(0, 155, 219));
+        btnNovoServico.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
+        btnNovoServico.setForeground(new java.awt.Color(255, 255, 255));
+        btnNovoServico.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/Inserir.png"))); // NOI18N
+        btnNovoServico.setText("Novo Serviço");
+        btnNovoServico.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219)));
+        btnNovoServico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNovoServicoActionPerformed(evt);
+            }
+        });
+>>>>>>> 894fdd2873b7c369828c0706fc34d28ea4c16368
 
+        txtPesquisaServicos.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
+        txtPesquisaServicos.setForeground(new java.awt.Color(0, 73, 125));
+        txtPesquisaServicos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219), 2));
+        txtPesquisaServicos.setCaretColor(new java.awt.Color(0, 73, 125));
+
+        jLabel1.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 73, 125));
         jLabel1.setText("Paciente:");
 
+<<<<<<< HEAD
         jLabel2.setFont(new java.awt.Font("Champagne & Limousines", 1, 24)); // NOI18N
         jLabel2.setText("    Alteraração de Consulta");
+=======
+        tblServico.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
+        tblServico.setModel(tmServicos);
+        tblServico.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        lsmServicos = tblServico.getSelectionModel();
+        lsmServicos.addListSelectionListener (new ListSelectionListener() {
+            public void valueChanged(ListSelectionEvent e) {
+                if (! e.getValueIsAdjusting()) {
+                    tblServicoLinhaSelecionada(tblServico);
+                }
+            }
 
+        });
+        jScrollPane1.setViewportView(tblServico);
+
+        jLabel2.setFont(new java.awt.Font("Open Sans", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 73, 125));
+        jLabel2.setText("ALTERAÇÃO DE AGENDAMENTO");
+>>>>>>> 894fdd2873b7c369828c0706fc34d28ea4c16368
+
+        jLabel3.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 73, 125));
         jLabel3.setText("Serviço:");
 
+        txtHorarioAlterar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219), 2));
+        txtHorarioAlterar.setForeground(new java.awt.Color(0, 73, 125));
         try {
             txtHorarioAlterar.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##:## horas")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
         txtHorarioAlterar.setToolTipText("  ");
+        txtHorarioAlterar.setCaretColor(new java.awt.Color(0, 73, 125));
 
+<<<<<<< HEAD
+=======
+        tblPaciente.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
+        tblPaciente.setModel(tmPacientes);
+        tblPaciente.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        lsmPacientes = tblPaciente.getSelectionModel();
+        lsmPacientes.addListSelectionListener (new ListSelectionListener() {
+            public void valueChanged(ListSelectionEvent e) {
+                if (! e.getValueIsAdjusting()) {
+                    tblPacienteLinhaSelecionada(tblPaciente);
+                }
+            }
+
+        });
+        jScrollPane2.setViewportView(tblPaciente);
+
+        jLabel4.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 73, 125));
+>>>>>>> 894fdd2873b7c369828c0706fc34d28ea4c16368
         jLabel4.setText("Horário:");
 
+        jLabel5.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 73, 125));
         jLabel5.setText("Data:");
 
+        jButton5.setBackground(new java.awt.Color(0, 155, 219));
+        jButton5.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
+        jButton5.setForeground(new java.awt.Color(255, 255, 255));
+        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/Cancelar IMG - Sistema.png"))); // NOI18N
         jButton5.setText("Cancelar");
+        jButton5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219)));
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
             }
         });
 
+<<<<<<< HEAD
         txtNomePacienteAlterar.setEditable(false);
 
         btnCadastrar.setText("Alterar Consulta");
         btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
+=======
+        txtPesquisaPaciente.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
+        txtPesquisaPaciente.setForeground(new java.awt.Color(0, 73, 125));
+        txtPesquisaPaciente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219), 2));
+        txtPesquisaPaciente.setCaretColor(new java.awt.Color(0, 73, 125));
+
+        btnAtualizar.setBackground(new java.awt.Color(0, 155, 219));
+        btnAtualizar.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
+        btnAtualizar.setForeground(new java.awt.Color(255, 255, 255));
+        btnAtualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/Atualizar.png"))); // NOI18N
+        btnAtualizar.setText("Alterar Agendamento");
+        btnAtualizar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219)));
+        btnAtualizar.addActionListener(new java.awt.event.ActionListener() {
+>>>>>>> 894fdd2873b7c369828c0706fc34d28ea4c16368
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCadastrarActionPerformed(evt);
+                btnAtualizarActionPerformed(evt);
             }
         });
 
+<<<<<<< HEAD
         txtValorServicoAlterar.setEditable(false);
 
         jLabel6.setText("Valor Serviço:");
+=======
+        btnNovoCliente.setBackground(new java.awt.Color(0, 155, 219));
+        btnNovoCliente.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
+        btnNovoCliente.setForeground(new java.awt.Color(255, 255, 255));
+        btnNovoCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/Inserir.png"))); // NOI18N
+        btnNovoCliente.setText("Novo Paciente");
+        btnNovoCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219)));
+        btnNovoCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNovoClienteActionPerformed(evt);
+            }
+        });
+
+        btnPesquisarPaciente.setBackground(new java.awt.Color(0, 155, 219));
+        btnPesquisarPaciente.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
+        btnPesquisarPaciente.setForeground(new java.awt.Color(255, 255, 255));
+        btnPesquisarPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/Pesquisar.png"))); // NOI18N
+        btnPesquisarPaciente.setText("Pesquisar Paciente");
+        btnPesquisarPaciente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219)));
+        btnPesquisarPaciente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesquisarPacienteActionPerformed(evt);
+            }
+        });
+
+        btnPesquisarServico.setBackground(new java.awt.Color(0, 155, 219));
+        btnPesquisarServico.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
+        btnPesquisarServico.setForeground(new java.awt.Color(255, 255, 255));
+        btnPesquisarServico.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/Pesquisar.png"))); // NOI18N
+        btnPesquisarServico.setText("Pesquisar Serviço");
+        btnPesquisarServico.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219)));
+        btnPesquisarServico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesquisarServicoActionPerformed(evt);
+            }
+        });
+>>>>>>> 894fdd2873b7c369828c0706fc34d28ea4c16368
+
+        txtDataAlterar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219), 2));
+        txtDataAlterar.setForeground(new java.awt.Color(0, 73, 125));
+
+        lblSair.setFont(new java.awt.Font("Open Sans", 1, 18)); // NOI18N
+        lblSair.setForeground(new java.awt.Color(0, 73, 125));
+        lblSair.setText("X");
+        lblSair.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblSairMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -135,28 +283,39 @@ public class frmAlteraAgendamento extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addGap(103, 342, Short.MAX_VALUE))
+                        .addGap(337, 370, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 399, Short.MAX_VALUE)
+                        .addGap(18, 18, 18))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnNovoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtPesquisaPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+<<<<<<< HEAD
                             .addComponent(txtNomeServicoAlterar)
                             .addComponent(txtNomePacienteAlterar, javax.swing.GroupLayout.Alignment.LEADING)
+=======
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(txtPesquisaServicos)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+>>>>>>> 894fdd2873b7c369828c0706fc34d28ea4c16368
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(jLabel3)
-                                .addGap(0, 315, Short.MAX_VALUE))
+                                .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnCadastrar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txtHorarioAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel4))
-                                        .addGap(0, 0, Short.MAX_VALUE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel4)
+                                    .addComponent(btnAtualizar, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
+                                    .addComponent(txtHorarioAlterar))
+                                .addGap(18, 18, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+<<<<<<< HEAD
                                     .addComponent(jLabel5)
                                     .addComponent(txtDataNova, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtRecebeDataAlterada, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -166,14 +325,32 @@ public class frmAlteraAgendamento extends javax.swing.JFrame {
                             .addComponent(jLabel6)
                             .addComponent(txtValorServicoAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))))
+=======
+                                    .addComponent(txtDataAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel5)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(btnPesquisarPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnNovoServico, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnPesquisarServico, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(33, 33, 33))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblSair, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+>>>>>>> 894fdd2873b7c369828c0706fc34d28ea4c16368
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addComponent(lblSair)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
-                .addGap(9, 9, 9)
+                .addGap(20, 20, 20)
                 .addComponent(jLabel1)
+<<<<<<< HEAD
                 .addGap(6, 6, 6)
                 .addComponent(txtNomePacienteAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(86, 86, 86)
@@ -200,6 +377,41 @@ public class frmAlteraAgendamento extends javax.swing.JFrame {
                     .addComponent(btnCadastrar)
                     .addComponent(jButton5))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+=======
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtPesquisaPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnNovoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnPesquisarPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtPesquisaServicos, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnNovoServico, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnPesquisarServico, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(txtDataAlterar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtHorarioAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+>>>>>>> 894fdd2873b7c369828c0706fc34d28ea4c16368
         );
 
         pack();
@@ -211,12 +423,37 @@ public class frmAlteraAgendamento extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
+    private void btnAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarActionPerformed
         // TODO add your handling code here:
         alterarAgendamento();
         
-    }//GEN-LAST:event_btnCadastrarActionPerformed
+    }//GEN-LAST:event_btnAtualizarActionPerformed
 
+<<<<<<< HEAD
+=======
+    private void btnNovoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoClienteActionPerformed
+        // TODO add your handling code here:
+        new frmPaciente().setVisible(true);
+    }//GEN-LAST:event_btnNovoClienteActionPerformed
+
+    private void btnPesquisarPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarPacienteActionPerformed
+        // TODO add your handling code here:
+        listarPacientes();
+        
+    }//GEN-LAST:event_btnPesquisarPacienteActionPerformed
+
+    private void btnPesquisarServicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarServicoActionPerformed
+        // TODO add your handling code here:
+
+        listarServicos();
+    }//GEN-LAST:event_btnPesquisarServicoActionPerformed
+
+    private void lblSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSairMouseClicked
+        // TODO add your handling code here:
+        this.setVisible(false);
+    }//GEN-LAST:event_lblSairMouseClicked
+
+>>>>>>> 894fdd2873b7c369828c0706fc34d28ea4c16368
     /**
      * @param args the command line arguments
      */
@@ -226,22 +463,22 @@ public class frmAlteraAgendamento extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frmAlteraAgendamento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frmAlteraAgendamento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frmAlteraAgendamento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frmAlteraAgendamento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(frmAlteraAgendamento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(frmAlteraAgendamento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(frmAlteraAgendamento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(frmAlteraAgendamento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
         //</editor-fold>
 
         /* Create and display the form */
@@ -331,14 +568,30 @@ public class frmAlteraAgendamento extends javax.swing.JFrame {
      
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+<<<<<<< HEAD
     private javax.swing.JButton btnCadastrar;
+=======
+    private javax.swing.JButton btnAtualizar;
+    private javax.swing.JButton btnNovoCliente;
+    private javax.swing.JButton btnNovoServico;
+    private javax.swing.JButton btnPesquisarPaciente;
+    private javax.swing.JButton btnPesquisarServico;
+>>>>>>> 894fdd2873b7c369828c0706fc34d28ea4c16368
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+<<<<<<< HEAD
     private javax.swing.JLabel jLabel6;
+=======
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lblSair;
+    private javax.swing.JTable tblPaciente;
+    private javax.swing.JTable tblServico;
+>>>>>>> 894fdd2873b7c369828c0706fc34d28ea4c16368
     private javax.swing.JTextField txtCPFPacienteAlterar;
     private javax.swing.JTextField txtDataNormal;
     private com.toedter.calendar.JDateChooser txtDataNova;

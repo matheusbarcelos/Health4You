@@ -17,17 +17,23 @@ public class VerificarUsuarioDAO {
     private Usuario usuario;
 
     
-    private String verificaUsuario =  "SELECT * FROM USUARIO WHERE LOGIN =  ? AND SENHA = ?  ";
+    private String verificaUsuario =  "SELECT LOGIN, SENHA FROM USUARIO WHERE LOGIN =  ? AND SENHA = ?   ";
     
-    public boolean verificarUsuario(String LOGIN, String SENHA) {
+    public boolean verificar(String login, String senha) {
         boolean autenticado = false;
         try{
         bd = new BaseDeDados();
         pstm = bd.conecta().prepareStatement(verificaUsuario);
+<<<<<<< HEAD
         pstm.setString(1, LOGIN);
         pstm.setString(2, SENHA);
+=======
+        pstm.setString(1, login);
+        pstm.setString(2, senha);
+        
+>>>>>>> 2e6ebb52bf3e5c6576b98b55ec1b89c66c541077
         rs = pstm.executeQuery();
-        while (rs.next()){
+        if (rs.next()){
                  usuario = new Usuario();
                  usuario.setLogin(rs.getString("LOGIN"));
                  usuario.setSenha(rs.getString("SENHA"));

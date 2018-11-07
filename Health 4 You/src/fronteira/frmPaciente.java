@@ -353,8 +353,8 @@ public class frmPaciente extends javax.swing.JFrame {
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         this.setVisible(false);
-        frmPesquisarPaciente pu  = new frmPesquisarPaciente();
-        pu.setVisible(true);
+        frmPesquisarPaciente fr  = new frmPesquisarPaciente();
+        fr.setVisible(true);
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed

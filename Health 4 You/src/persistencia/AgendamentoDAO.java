@@ -3,11 +3,13 @@
 package persistencia;
 
 import entidade.Agendamento;
+import java.sql.Date;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+
 
 
 public class AgendamentoDAO {
@@ -101,7 +103,7 @@ public class AgendamentoDAO {
              pstm.setString(3, agendamento.getServico().trim());
              pstm.setString(4, agendamento.getValor().trim());
              pstm.setString(5, agendamento.getHorario().trim());
-             pstm.setString(6, agendamento.getData().trim());
+             pstm.setString(6, agendamento.getData());
              pstm.setInt(7, agendamento.getCodigo());
              pstm.executeUpdate();
              bd.desconecta();

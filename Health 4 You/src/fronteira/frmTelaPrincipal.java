@@ -24,6 +24,7 @@ public class frmTelaPrincipal extends javax.swing.JFrame {
         initComponents();
         lblHelpPrincipal.setText("<html><u>Precisa de Ajuda?</u></html>");
         Usuario us = new Usuario();
+<<<<<<< HEAD
         recebeNomeUsuario(us.getNome());
 
          
@@ -31,6 +32,11 @@ public class frmTelaPrincipal extends javax.swing.JFrame {
               
 
     
+=======
+        lblNomeUsuario.setText(us.getNome());
+ 
+    }
+>>>>>>> 2e6ebb52bf3e5c6576b98b55ec1b89c66c541077
 
     /**
      * This method is called from within the constructor to initialize the form.

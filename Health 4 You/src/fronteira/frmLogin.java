@@ -6,7 +6,12 @@
 package fronteira;
 import entidade.Usuario;
 import javax.swing.JOptionPane;
+
+import persistencia.UsuarioDAO;
+
+
 import persistencia.VerificarUsuarioDAO;
+import static sun.security.jgss.GSSUtil.login;
 
 /**
  *
@@ -177,14 +182,22 @@ public class frmLogin extends javax.swing.JFrame {
     
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
         // TODO add your handling code here:
-        VerificarUsuarioDAO verificarDAO = new  VerificarUsuarioDAO();
-        
+  
         String login = txtLogin.getText();
         String senha = txtSenha.getText();
- 
-        boolean resposta = verificarDAO.verificarUsuario(login, senha);
+        
+        VerificarUsuarioDAO dao  = new VerificarUsuarioDAO();
+       
+        if(txtLogin.getText().isEmpty() || txtSenha.getText().isEmpty()){
+            
+        JOptionPane.showMessageDialog(null,"É necessário informar usuário e senha para entrar no sistema");
+            
+        }else{
+        
+        boolean resposta = dao.verificar(login, senha);
  
         if (resposta == true){
+<<<<<<< HEAD
         frmTelaPrincipal telaPrincipal = new frmTelaPrincipal();
         new frmTelaPrincipal().setVisible(true);
         dispose();
@@ -195,6 +208,17 @@ public class frmLogin extends javax.swing.JFrame {
      Usuario us = new Usuario();
           frmTelaPrincipal teste = new frmTelaPrincipal();
           teste.lblNomeUsuario.setText(us.getNome());
+=======
+            
+        frmTelaPrincipal telaPrincipal = new frmTelaPrincipal();
+        new frmTelaPrincipal().setVisible(true);
+        dispose();
+
+        }else{
+        JOptionPane.showMessageDialog(rootPane, "Usuário ou senha incorretos");
+        }
+        }
+>>>>>>> 2e6ebb52bf3e5c6576b98b55ec1b89c66c541077
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     private void lblFecharMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblFecharMouseClicked

@@ -210,6 +210,14 @@ public class frmAlterarServico extends javax.swing.JFrame {
     
     private void alterarServico(){
     
+         if(txtNomeServicoAlterar.getText().isEmpty() || txtValorAlterar.getText().isEmpty())
+         {
+        
+     JOptionPane.showMessageDialog(null,"É necessário informar um nome e valor para cadastro","Preencher Campos",
+                    JOptionPane.INFORMATION_MESSAGE);
+            
+        }else{
+        
        
         int opcao =  JOptionPane.showConfirmDialog(null, "Deseja alterar o serviço?","Alterar Serviço",0);
        
@@ -241,7 +249,7 @@ public class frmAlterarServico extends javax.swing.JFrame {
         ps.listarServicos();
         dispose();
      
-        
+       }
        }   
         
     }

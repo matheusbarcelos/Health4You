@@ -17,19 +17,20 @@ import javax.swing.plaf.basic.BasicMenuBarUI;
  * @author ma-th
  */
 public class frmTelaPrincipal extends javax.swing.JFrame {
-
     /**
      * Creates new form frmTelaPrincipal
      */
     public frmTelaPrincipal() {
         initComponents();
         lblHelpPrincipal.setText("<html><u>Precisa de Ajuda?</u></html>");
-        UsuarioDAO logado = new UsuarioDAO();
         Usuario us = new Usuario();
-        lblNomeUsuario.setText(us.getNome());
+        recebeNomeUsuario(us.getNome());
+
+         
+   }
               
-        
-    }
+
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -85,7 +86,7 @@ public class frmTelaPrincipal extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Desenvolvido por Health Solutions");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(940, 1060, 181, 16);
+        jLabel4.setBounds(940, 1060, 164, 15);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setMinimumSize(new java.awt.Dimension(1080, 1920));
@@ -399,6 +400,12 @@ public class frmTelaPrincipal extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
+    
+    public void recebeNomeUsuario(String nomeUsuario){
+        Usuario us = new Usuario();
+        us.getNome();
+        lblNomeUsuario.setText(nomeUsuario);
+    }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -451,7 +458,7 @@ public class frmTelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel lblCadastroUsuario;
     private javax.swing.JLabel lblConsultaAgendada;
     private javax.swing.JLabel lblHelpPrincipal;
-    private javax.swing.JLabel lblNomeUsuario;
+    public javax.swing.JLabel lblNomeUsuario;
     private javax.swing.JLabel lblRelatorioConsulta;
     private javax.swing.JLabel lblRelatorioPaciente;
     private javax.swing.JLabel lblWelcome;

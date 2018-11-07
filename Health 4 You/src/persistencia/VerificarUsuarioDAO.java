@@ -24,8 +24,8 @@ public class VerificarUsuarioDAO {
         try{
         bd = new BaseDeDados();
         pstm = bd.conecta().prepareStatement(verificaUsuario);
-        pstm.setString(1, usuario.getLogin().trim());
-        pstm.setString(2, usuario.getSenha().trim());
+        pstm.setString(1, LOGIN);
+        pstm.setString(2, SENHA);
         rs = pstm.executeQuery();
         while (rs.next()){
                  usuario = new Usuario();

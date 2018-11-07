@@ -20,6 +20,7 @@ public class frmLogin extends javax.swing.JFrame {
     public frmLogin() {
         initComponents();
         lblHelp.setText("<html><u>Precisa de Ajuda?</u></html>");
+          
     }
     
     /**
@@ -184,14 +185,16 @@ public class frmLogin extends javax.swing.JFrame {
         boolean resposta = verificarDAO.verificarUsuario(login, senha);
  
         if (resposta == true){
-         frmTelaPrincipal telaPrincipal = new frmTelaPrincipal();
+        frmTelaPrincipal telaPrincipal = new frmTelaPrincipal();
         new frmTelaPrincipal().setVisible(true);
         dispose();
  
         }else {
-        JOptionPane.showMessageDialog(rootPane, "login não realizado!\n Favor conferir o usuario e senha digitado!");
+        JOptionPane.showMessageDialog(null, "login não realizado!\n Favor conferir o usuario e senha digitado!");
 }
-     
+     Usuario us = new Usuario();
+          frmTelaPrincipal teste = new frmTelaPrincipal();
+          teste.lblNomeUsuario.setText(us.getNome());
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     private void lblFecharMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblFecharMouseClicked
@@ -228,6 +231,7 @@ public class frmLogin extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
+
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {

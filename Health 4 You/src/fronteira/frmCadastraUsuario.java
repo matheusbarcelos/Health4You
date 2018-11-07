@@ -333,7 +333,7 @@ public class frmCadastraUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel lblSair;
     private javax.swing.JTextField txtLogin;
-    private javax.swing.JTextField txtNome;
+    public javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtSenha;
     // End of variables declaration//GEN-END:variables
 }

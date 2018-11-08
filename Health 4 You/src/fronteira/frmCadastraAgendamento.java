@@ -88,6 +88,7 @@ public class frmCadastraAgendamento extends javax.swing.JFrame {
         txtData = new com.toedter.calendar.JDateChooser();
         txtHorario = new javax.swing.JFormattedTextField();
         lblSair = new javax.swing.JLabel();
+        txtRecebeData = new javax.swing.JTextField();
 
         txtValorServico.setText("jTextField1");
 
@@ -298,8 +299,13 @@ public class frmCadastraAgendamento extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblSair)
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(lblSair)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(txtRecebeData, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(75, 75, 75))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -327,7 +333,9 @@ public class frmCadastraAgendamento extends javax.swing.JFrame {
                     .addComponent(btnPesquisarServico, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtRecebeData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
                     .addComponent(jLabel5))
@@ -420,6 +428,14 @@ public class frmCadastraAgendamento extends javax.swing.JFrame {
     
     private void cadastrarAgendamento(){
         
+        Date data = txtData.getDate();
+        SimpleDateFormat formatador = new SimpleDateFormat("yyyy/MM/dd");
+        String novaData = formatador.format(data);
+            
+        String vazio = "0000/00/00";
+        txtRecebeData.setText(vazio);
+        txtRecebeData.setText((String.valueOf(txtData)));
+        
         if(txtNomePaciente.getText().isEmpty()){
             
             JOptionPane.showMessageDialog(null,"Você precisa selecionar um paciente para agendar","Selecionar Paciente",
@@ -435,18 +451,8 @@ public class frmCadastraAgendamento extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"Você precisa informar um horário para o agendamento","Selecionar Horário",
                     JOptionPane.INFORMATION_MESSAGE);
             
-        }else if(String.valueOf(txtData.getDate()).isEmpty()){
-            
-            JOptionPane.showMessageDialog(null,"Você precisa informar uma data para o agendamento","Selecionar Horário",
-                    JOptionPane.INFORMATION_MESSAGE);
-            
         }else{
-        
-            
-        Date data = txtData.getDate();
-        SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
-        String novaData = formatador.format(data);
-            
+       
         Agendamento agendamento = new  Agendamento();
         agendamento.setNome(txtNomePaciente.getText().trim());
         agendamento.setCpf(txtCPFPaciente.getText().trim());
@@ -570,6 +576,7 @@ public class frmCadastraAgendamento extends javax.swing.JFrame {
     private javax.swing.JTextField txtNomeServico;
     private javax.swing.JTextField txtPesquisaPaciente;
     private javax.swing.JTextField txtPesquisaServicos;
+    private javax.swing.JTextField txtRecebeData;
     private javax.swing.JTextField txtValorServico;
     // End of variables declaration//GEN-END:variables
 }

@@ -26,6 +26,8 @@ import javax.swing.event.ListSelectionListener;
  */
 public class frmCadastraAgendamento extends javax.swing.JFrame {
 
+    
+    
     public String Nome, Servico;
     
     
@@ -53,6 +55,7 @@ public class frmCadastraAgendamento extends javax.swing.JFrame {
      */
     public frmCadastraAgendamento() {
         initComponents();
+        txtData.setCalendar(null);
     }
 
     /**
@@ -422,37 +425,30 @@ public class frmCadastraAgendamento extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new frmCadastraAgendamento().setVisible(true);
+               
             }
         });
     }
     
+    
+    
     private void cadastrarAgendamento(){
         
+       
+       
+        
+        
+         if(txtData.getCalendar()==null){
+          
+            JOptionPane.showMessageDialog(null,"Você precisa selecionar uma data para agendar","Selecionar Serviço",
+                    JOptionPane.INFORMATION_MESSAGE);
+        }else{
+            
         Date data = txtData.getDate();
         SimpleDateFormat formatador = new SimpleDateFormat("yyyy/MM/dd");
         String novaData = formatador.format(data);
-            
-        String vazio = "0000/00/00";
-        txtRecebeData.setText(vazio);
-        txtRecebeData.setText((String.valueOf(txtData)));
-        
-        if(txtNomePaciente.getText().isEmpty()){
-            
-            JOptionPane.showMessageDialog(null,"Você precisa selecionar um paciente para agendar","Selecionar Paciente",
-                    JOptionPane.INFORMATION_MESSAGE);
-            
-        }else if( txtNomeServico.getText().isEmpty()){
-            
-            JOptionPane.showMessageDialog(null,"Você precisa selecionar um serviço para agendar","Selecionar Serviço",
-                    JOptionPane.INFORMATION_MESSAGE);
-            
-        }else if(txtHorario.getText().isEmpty()){
-        
-            JOptionPane.showMessageDialog(null,"Você precisa informar um horário para o agendamento","Selecionar Horário",
-                    JOptionPane.INFORMATION_MESSAGE);
-            
-        }else{
-       
+             
+             
         Agendamento agendamento = new  Agendamento();
         agendamento.setNome(txtNomePaciente.getText().trim());
         agendamento.setCpf(txtCPFPaciente.getText().trim());

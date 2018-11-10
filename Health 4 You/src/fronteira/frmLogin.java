@@ -176,6 +176,16 @@ public class frmLogin extends javax.swing.JFrame {
     
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
         // TODO add your handling code here:
+        
+        if(txtLogin.getText().isEmpty() || txtSenha.getText().isEmpty()){
+            
+            JOptionPane.showMessageDialog(null,"Favor informar usuário e senha para Login",
+                    "Login",JOptionPane.INFORMATION_MESSAGE);
+        }else{
+            
+            
+        
+        
         VerificarUsuarioDAO verificarDAO = new  VerificarUsuarioDAO();
         
         String login = txtLogin.getText();
@@ -189,8 +199,9 @@ public class frmLogin extends javax.swing.JFrame {
         dispose();
  
         }else {
-        JOptionPane.showMessageDialog(rootPane, "login não realizado!\n Favor conferir o usuario e senha digitado!");
+        JOptionPane.showMessageDialog(null,"Login ou senha Incorretos !","Login",JOptionPane.INFORMATION_MESSAGE);
 }
+        }
      
     }//GEN-LAST:event_btnEntrarActionPerformed
 

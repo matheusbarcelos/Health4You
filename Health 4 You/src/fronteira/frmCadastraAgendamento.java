@@ -71,6 +71,7 @@ public class frmCadastraAgendamento extends javax.swing.JFrame {
         txtCPFPaciente = new javax.swing.JTextField();
         txtNomeServico = new javax.swing.JTextField();
         txtValorServico = new javax.swing.JTextField();
+        txtRecebeHora = new javax.swing.JFormattedTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -86,14 +87,24 @@ public class frmCadastraAgendamento extends javax.swing.JFrame {
         tblServico = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblPaciente = new javax.swing.JTable();
-        jButton5 = new javax.swing.JButton();
+        btnCancelar = new javax.swing.JButton();
         btnCadastrar = new javax.swing.JButton();
         txtData = new com.toedter.calendar.JDateChooser();
         txtHorario = new javax.swing.JFormattedTextField();
         lblSair = new javax.swing.JLabel();
-        txtRecebeData = new javax.swing.JTextField();
 
         txtValorServico.setText("jTextField1");
+
+        txtRecebeHora.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219), 2));
+        txtRecebeHora.setForeground(new java.awt.Color(0, 73, 125));
+        try {
+            txtRecebeHora.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        txtRecebeHora.setToolTipText("  ");
+        txtRecebeHora.setCaretColor(new java.awt.Color(0, 73, 125));
+        txtRecebeHora.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Agendamentos");
@@ -206,15 +217,15 @@ public class frmCadastraAgendamento extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(tblPaciente);
 
-        jButton5.setBackground(new java.awt.Color(0, 155, 219));
-        jButton5.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/Cancelar IMG - Sistema.png"))); // NOI18N
-        jButton5.setText("Cancelar");
-        jButton5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219)));
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        btnCancelar.setBackground(new java.awt.Color(0, 155, 219));
+        btnCancelar.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
+        btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
+        btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/Cancelar IMG - Sistema.png"))); // NOI18N
+        btnCancelar.setText("Cancelar");
+        btnCancelar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219)));
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                btnCancelarActionPerformed(evt);
             }
         });
 
@@ -283,7 +294,7 @@ public class frmCadastraAgendamento extends javax.swing.JFrame {
                                     .addComponent(txtHorario))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jLabel5)
                                     .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(23, 23, 23))
@@ -302,13 +313,8 @@ public class frmCadastraAgendamento extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(lblSair)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(txtRecebeData, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(75, 75, 75))))
+                .addComponent(lblSair)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -336,9 +342,7 @@ public class frmCadastraAgendamento extends javax.swing.JFrame {
                     .addComponent(btnPesquisarServico, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtRecebeData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
                     .addComponent(jLabel5))
@@ -348,7 +352,7 @@ public class frmCadastraAgendamento extends javax.swing.JFrame {
                     .addComponent(txtHorario, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40))
         );
@@ -367,10 +371,12 @@ public class frmCadastraAgendamento extends javax.swing.JFrame {
         new frmCadastraServico().setVisible(true);
     }//GEN-LAST:event_btnNovoServicoActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
-    }//GEN-LAST:event_jButton5ActionPerformed
+        frmAgendamento pu  = new frmAgendamento();
+        pu.setVisible(true);;
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnPesquisarServicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarServicoActionPerformed
         // TODO add your handling code here:
@@ -434,14 +440,31 @@ public class frmCadastraAgendamento extends javax.swing.JFrame {
     
     private void cadastrarAgendamento(){
         
-       
-       
         
-        
-         if(txtData.getCalendar()==null){
-          
-            JOptionPane.showMessageDialog(null,"Você precisa selecionar uma data para agendar","Selecionar Serviço",
+
+        if(txtNomePaciente.getText().isEmpty()){
+            
+            JOptionPane.showMessageDialog(null,"Você precisa selecionar um nome para agendamento","Selecionar Nome",
                     JOptionPane.INFORMATION_MESSAGE);
+        }
+        
+        else if(txtNomeServico.getText().isEmpty()){
+            
+            JOptionPane.showMessageDialog(null,"Você precisa selecionar um serviço para agendamento","Selecionar Serviço",
+                    JOptionPane.INFORMATION_MESSAGE);
+        }
+        
+        else if(txtHorario.getText().equals("  :   horas")){
+            
+            JOptionPane.showMessageDialog(null,"Você precisa selecionar um horário para agendamento","Selecionar Horário",
+                    JOptionPane.INFORMATION_MESSAGE);
+        }
+        
+        else if(txtData.getCalendar()==null){
+          
+            JOptionPane.showMessageDialog(null,"Você precisa selecionar uma data para agendamento","Selecionar Data",
+                    JOptionPane.INFORMATION_MESSAGE);
+            
         }else{
             
         Date data = txtData.getDate();
@@ -461,6 +484,17 @@ public class frmCadastraAgendamento extends javax.swing.JFrame {
         agendamentoDAO.cadastrarAgendamento(agendamento);
         JOptionPane.showMessageDialog(null,"Agendamento Cadastrado com sucesso !","Cadastro de Agendamento",
                 JOptionPane.INFORMATION_MESSAGE);
+        
+        frmAgendamento pes = new frmAgendamento();
+        
+        String n = txtNomePaciente.getText();
+       
+        pes.listaAgendamentos = agendamentoDAO.listarAgendamentos("%"+
+             n + "%");
+        pes.mostrarAgendamentos(pes.listaAgendamentos);
+        pes.listarAgendamentos();
+        dispose();
+        pes.setVisible(true);
     
     }
 }
@@ -550,11 +584,11 @@ public class frmCadastraAgendamento extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastrar;
+    private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnNovoCliente;
     private javax.swing.JButton btnNovoServico;
     private javax.swing.JButton btnPesquisarPaciente;
     private javax.swing.JButton btnPesquisarServico;
-    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -572,7 +606,7 @@ public class frmCadastraAgendamento extends javax.swing.JFrame {
     private javax.swing.JTextField txtNomeServico;
     private javax.swing.JTextField txtPesquisaPaciente;
     private javax.swing.JTextField txtPesquisaServicos;
-    private javax.swing.JTextField txtRecebeData;
+    private javax.swing.JFormattedTextField txtRecebeHora;
     private javax.swing.JTextField txtValorServico;
     // End of variables declaration//GEN-END:variables
 }

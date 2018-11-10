@@ -44,9 +44,9 @@ public class frmAlterarUsuario extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        txtSenhaAlterar = new javax.swing.JTextField();
         cmbPermissaoAlterar = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
+        txtSenhaAlterar = new javax.swing.JPasswordField();
 
         txtId.setText("jTextField1");
 
@@ -124,11 +124,6 @@ public class frmAlterarUsuario extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(0, 73, 125));
         jLabel8.setText("Senha:");
 
-        txtSenhaAlterar.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
-        txtSenhaAlterar.setForeground(new java.awt.Color(0, 73, 125));
-        txtSenhaAlterar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219), 2));
-        txtSenhaAlterar.setCaretColor(new java.awt.Color(0, 73, 125));
-
         cmbPermissaoAlterar.setBackground(new java.awt.Color(0, 73, 125));
         cmbPermissaoAlterar.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
         cmbPermissaoAlterar.setForeground(new java.awt.Color(255, 255, 255));
@@ -152,10 +147,6 @@ public class frmAlterarUsuario extends javax.swing.JFrame {
                         .addComponent(jLabel4)
                         .addComponent(jLabel1))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(txtSenhaAlterar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 272, Short.MAX_VALUE)
-                        .addComponent(txtLoginAlterar, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(txtNomeAlterar, javax.swing.GroupLayout.Alignment.LEADING))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                             .addComponent(jLabel10)
                             .addGap(103, 103, 103)
@@ -171,7 +162,11 @@ public class frmAlterarUsuario extends javax.swing.JFrame {
                                     .addGap(18, 18, 18)))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(cmbStatusAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(txtSenhaAlterar, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(txtLoginAlterar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 272, Short.MAX_VALUE)
+                        .addComponent(txtNomeAlterar, javax.swing.GroupLayout.Alignment.LEADING)))
                 .addGap(0, 14, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -192,23 +187,23 @@ public class frmAlterarUsuario extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtSenhaAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtSenhaAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
+                        .addGap(18, 18, 18)
                         .addComponent(jLabel10)
                         .addGap(1, 1, 1)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(cmbPermissaoAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cmbStatusAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(8, 8, 8)
+                        .addGap(16, 16, 16)
                         .addComponent(jLabel3)))
-                .addGap(18, 18, 18)
+                .addGap(101, 101, 101)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -351,6 +346,6 @@ public class frmAlterarUsuario extends javax.swing.JFrame {
     private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtLoginAlterar;
     private javax.swing.JTextField txtNomeAlterar;
-    private javax.swing.JTextField txtSenhaAlterar;
+    private javax.swing.JPasswordField txtSenhaAlterar;
     // End of variables declaration//GEN-END:variables
 }

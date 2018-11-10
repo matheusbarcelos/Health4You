@@ -31,8 +31,8 @@ public class frmAgendamento extends javax.swing.JFrame {
     private DefaultTableModel tmAgendamentos = new DefaultTableModel
                (null, colunas);
     
-    private List<Agendamento> listaAgendamentos;
-    private ListSelectionModel lsmAgendamentos;
+    public List<Agendamento> listaAgendamentos;
+    public ListSelectionModel lsmAgendamentos;
     
     
     
@@ -224,6 +224,7 @@ public class frmAgendamento extends javax.swing.JFrame {
 
     private void btnInserrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInserrActionPerformed
         // TODO add your handling code here:
+        dispose();
         new frmCadastraAgendamento().setVisible(true);
     }//GEN-LAST:event_btnInserrActionPerformed
 
@@ -240,7 +241,7 @@ public class frmAgendamento extends javax.swing.JFrame {
                  JOptionPane.INFORMATION_MESSAGE);
         }else{
        enviarAlteracaoAgendamento();}
-    
+        dispose();
     }//GEN-LAST:event_btnAlterarActionPerformed
 
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
@@ -298,7 +299,7 @@ public class frmAgendamento extends javax.swing.JFrame {
         });
     }
 
-      private void mostrarAgendamentos(List<Agendamento> agendamentos){
+      public void mostrarAgendamentos(List<Agendamento> agendamentos){
         
         while (tmAgendamentos.getRowCount() > 0){
             tmAgendamentos.removeRow(0);
@@ -321,7 +322,7 @@ public class frmAgendamento extends javax.swing.JFrame {
     }
       
       
-      private void listarAgendamentos(){
+      public void listarAgendamentos(){
         
         AgendamentoDAO agendamentoDAO =  new AgendamentoDAO();
         listaAgendamentos = agendamentoDAO.listarAgendamentos("%"
@@ -356,6 +357,7 @@ public class frmAgendamento extends javax.swing.JFrame {
             
              txtNomePaciente.setText(listaAgendamentos.get(linhaSelecionada).getNome());
              txtServico.setText(listaAgendamentos.get(linhaSelecionada).getServico());
+             txtValor.setText(listaAgendamentos.get(linhaSelecionada).getValor());
              txtHorario.setText(listaAgendamentos.get(linhaSelecionada).getHorario());
              txtData.setDate(Date.valueOf(listaAgendamentos.get(linhaSelecionada).getData()));
              txtIDAgendamento.setText(String.valueOf(listaAgendamentos.get(linhaSelecionada).getCodigo()));
@@ -371,6 +373,7 @@ public class frmAgendamento extends javax.swing.JFrame {
             enviar.setVisible(true);
             enviar.recebeNome(txtNomePaciente.getText());
             enviar.recebeServico(txtServico.getText());
+            enviar.recebeValor(txtValor.getText());
             enviar.recebeHora(txtHorario.getText());
             enviar.recebeData(txtData.getDate());
             enviar.recebeId(txtIDAgendamento.getText());
@@ -383,6 +386,7 @@ public class frmAgendamento extends javax.swing.JFrame {
             enviar.setVisible(true);
             enviar.recebeNome(txtNomePaciente.getText());
             enviar.recebeServico(txtServico.getText());
+            enviar.recebeValor(txtValor.getText());
             enviar.recebeHora(txtHorario.getText());
             enviar.recebeData(txtData.getDate());
             enviar.recebeId(txtIDAgendamento.getText());

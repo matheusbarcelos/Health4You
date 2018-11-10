@@ -73,64 +73,34 @@ public class frmAlteraAgendamento extends javax.swing.JFrame {
         txtNomeServicoAlterar = new javax.swing.JTextField();
         txtValorServicoAlterar = new javax.swing.JTextField();
         txtNomePacienteAlterar = new javax.swing.JTextField();
-        btnNovoServico = new javax.swing.JButton();
-        txtPesquisaServicos = new javax.swing.JTextField();
+        txtRecebeServico = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tblServico = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         txtHorarioAlterar = new javax.swing.JFormattedTextField();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        tblPaciente = new javax.swing.JTable();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
-        txtPesquisaPaciente = new javax.swing.JTextField();
+        btnCancelar = new javax.swing.JButton();
+        txtRecebeNome = new javax.swing.JTextField();
         btnAtualizar = new javax.swing.JButton();
-        btnNovoCliente = new javax.swing.JButton();
-        btnPesquisarPaciente = new javax.swing.JButton();
-        btnPesquisarServico = new javax.swing.JButton();
         txtDataAlterar = new com.toedter.calendar.JDateChooser();
         lblSair = new javax.swing.JLabel();
+        txtRecebeValor = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
 
-        btnNovoServico.setBackground(new java.awt.Color(0, 155, 219));
-        btnNovoServico.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
-        btnNovoServico.setForeground(new java.awt.Color(255, 255, 255));
-        btnNovoServico.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/Inserir.png"))); // NOI18N
-        btnNovoServico.setText("Novo Serviço");
-        btnNovoServico.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219)));
-        btnNovoServico.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNovoServicoActionPerformed(evt);
-            }
-        });
-
-        txtPesquisaServicos.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
-        txtPesquisaServicos.setForeground(new java.awt.Color(0, 73, 125));
-        txtPesquisaServicos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219), 2));
-        txtPesquisaServicos.setCaretColor(new java.awt.Color(0, 73, 125));
+        txtRecebeServico.setEditable(false);
+        txtRecebeServico.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
+        txtRecebeServico.setForeground(new java.awt.Color(0, 73, 125));
+        txtRecebeServico.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219), 2));
+        txtRecebeServico.setCaretColor(new java.awt.Color(0, 73, 125));
 
         jLabel1.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 73, 125));
         jLabel1.setText("Paciente:");
-
-        tblServico.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
-        tblServico.setModel(tmServicos);
-        tblServico.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        lsmServicos = tblServico.getSelectionModel();
-        lsmServicos.addListSelectionListener (new ListSelectionListener() {
-            public void valueChanged(ListSelectionEvent e) {
-                if (! e.getValueIsAdjusting()) {
-                    tblServicoLinhaSelecionada(tblServico);
-                }
-            }
-
-        });
-        jScrollPane1.setViewportView(tblServico);
 
         jLabel2.setFont(new java.awt.Font("Open Sans", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 73, 125));
@@ -150,20 +120,6 @@ public class frmAlteraAgendamento extends javax.swing.JFrame {
         txtHorarioAlterar.setToolTipText("  ");
         txtHorarioAlterar.setCaretColor(new java.awt.Color(0, 73, 125));
 
-        tblPaciente.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
-        tblPaciente.setModel(tmPacientes);
-        tblPaciente.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        lsmPacientes = tblPaciente.getSelectionModel();
-        lsmPacientes.addListSelectionListener (new ListSelectionListener() {
-            public void valueChanged(ListSelectionEvent e) {
-                if (! e.getValueIsAdjusting()) {
-                    tblPacienteLinhaSelecionada(tblPaciente);
-                }
-            }
-
-        });
-        jScrollPane2.setViewportView(tblPaciente);
-
         jLabel4.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 73, 125));
         jLabel4.setText("Horário:");
@@ -172,22 +128,23 @@ public class frmAlteraAgendamento extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(0, 73, 125));
         jLabel5.setText("Data:");
 
-        jButton5.setBackground(new java.awt.Color(0, 155, 219));
-        jButton5.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/Cancelar IMG - Sistema.png"))); // NOI18N
-        jButton5.setText("Cancelar");
-        jButton5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219)));
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        btnCancelar.setBackground(new java.awt.Color(0, 155, 219));
+        btnCancelar.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
+        btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
+        btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/Cancelar IMG - Sistema.png"))); // NOI18N
+        btnCancelar.setText("Cancelar");
+        btnCancelar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219)));
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                btnCancelarActionPerformed(evt);
             }
         });
 
-        txtPesquisaPaciente.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
-        txtPesquisaPaciente.setForeground(new java.awt.Color(0, 73, 125));
-        txtPesquisaPaciente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219), 2));
-        txtPesquisaPaciente.setCaretColor(new java.awt.Color(0, 73, 125));
+        txtRecebeNome.setEditable(false);
+        txtRecebeNome.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
+        txtRecebeNome.setForeground(new java.awt.Color(0, 73, 125));
+        txtRecebeNome.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219), 2));
+        txtRecebeNome.setCaretColor(new java.awt.Color(0, 73, 125));
 
         btnAtualizar.setBackground(new java.awt.Color(0, 155, 219));
         btnAtualizar.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
@@ -198,42 +155,6 @@ public class frmAlteraAgendamento extends javax.swing.JFrame {
         btnAtualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAtualizarActionPerformed(evt);
-            }
-        });
-
-        btnNovoCliente.setBackground(new java.awt.Color(0, 155, 219));
-        btnNovoCliente.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
-        btnNovoCliente.setForeground(new java.awt.Color(255, 255, 255));
-        btnNovoCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/Inserir.png"))); // NOI18N
-        btnNovoCliente.setText("Novo Paciente");
-        btnNovoCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219)));
-        btnNovoCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNovoClienteActionPerformed(evt);
-            }
-        });
-
-        btnPesquisarPaciente.setBackground(new java.awt.Color(0, 155, 219));
-        btnPesquisarPaciente.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
-        btnPesquisarPaciente.setForeground(new java.awt.Color(255, 255, 255));
-        btnPesquisarPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/Pesquisar.png"))); // NOI18N
-        btnPesquisarPaciente.setText("Pesquisar Paciente");
-        btnPesquisarPaciente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219)));
-        btnPesquisarPaciente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPesquisarPacienteActionPerformed(evt);
-            }
-        });
-
-        btnPesquisarServico.setBackground(new java.awt.Color(0, 155, 219));
-        btnPesquisarServico.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
-        btnPesquisarServico.setForeground(new java.awt.Color(255, 255, 255));
-        btnPesquisarServico.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/Pesquisar.png"))); // NOI18N
-        btnPesquisarServico.setText("Pesquisar Serviço");
-        btnPesquisarServico.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219)));
-        btnPesquisarServico.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPesquisarServicoActionPerformed(evt);
             }
         });
 
@@ -249,10 +170,27 @@ public class frmAlteraAgendamento extends javax.swing.JFrame {
             }
         });
 
+        txtRecebeValor.setEditable(false);
+        txtRecebeValor.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
+        txtRecebeValor.setForeground(new java.awt.Color(0, 73, 125));
+        txtRecebeValor.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219), 2));
+        txtRecebeValor.setCaretColor(new java.awt.Color(0, 73, 125));
+
+        jLabel6.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 73, 125));
+
+        jLabel7.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 73, 125));
+        jLabel7.setText("Valor:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblSair, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -262,19 +200,9 @@ public class frmAlteraAgendamento extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 399, Short.MAX_VALUE)
                         .addGap(18, 18, 18))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnNovoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPesquisaPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addComponent(txtPesquisaServicos)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(txtRecebeServico)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jLabel4)
@@ -282,21 +210,20 @@ public class frmAlteraAgendamento extends javax.swing.JFrame {
                                     .addComponent(txtHorarioAlterar))
                                 .addGap(18, 18, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtDataAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel5)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(btnPesquisarPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnNovoServico, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnPesquisarServico, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(33, 33, 33))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblSair, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(33, 33, 33))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel6)
+                            .addComponent(txtRecebeNome, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtRecebeValor, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -307,26 +234,18 @@ public class frmAlteraAgendamento extends javax.swing.JFrame {
                 .addGap(20, 20, 20)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtPesquisaPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtRecebeNome, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnNovoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnPesquisarPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(jLabel6)
+                .addGap(142, 142, 142)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtPesquisaServicos, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnNovoServico, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btnPesquisarServico, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(txtRecebeServico, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(11, 11, 11)
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtRecebeValor, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 132, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jLabel5))
@@ -337,7 +256,7 @@ public class frmAlteraAgendamento extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -345,38 +264,19 @@ public class frmAlteraAgendamento extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnNovoServicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoServicoActionPerformed
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
-        new frmCadastraServico().setVisible(true);
-    }//GEN-LAST:event_btnNovoServicoActionPerformed
-
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-        this.setVisible(false);
-    }//GEN-LAST:event_jButton5ActionPerformed
+        frmAgendamento ps = new frmAgendamento();
+        ps.setVisible(true);
+        ps.listarAgendamentos();
+        dispose();
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarActionPerformed
         // TODO add your handling code here:
         alterarAgendamento();
         
     }//GEN-LAST:event_btnAtualizarActionPerformed
-
-    private void btnNovoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoClienteActionPerformed
-        // TODO add your handling code here:
-        new frmPaciente().setVisible(true);
-    }//GEN-LAST:event_btnNovoClienteActionPerformed
-
-    private void btnPesquisarPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarPacienteActionPerformed
-        // TODO add your handling code here:
-        listarPacientes();
-        
-    }//GEN-LAST:event_btnPesquisarPacienteActionPerformed
-
-    private void btnPesquisarServicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarServicoActionPerformed
-        // TODO add your handling code here:
-
-        listarServicos();
-    }//GEN-LAST:event_btnPesquisarServicoActionPerformed
 
     private void lblSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSairMouseClicked
         // TODO add your handling code here:
@@ -419,10 +319,13 @@ public class frmAlteraAgendamento extends javax.swing.JFrame {
     }
     
      public void recebeNome(String recebeNome){ 
-       txtPesquisaPaciente.setText(recebeNome);
+       txtRecebeNome.setText(recebeNome);
    }
       public void recebeServico(String recebeServico){ 
-       txtPesquisaServicos.setText(recebeServico);
+       txtRecebeServico.setText(recebeServico);
+   }
+        public void recebeValor(String recebeValor){ 
+       txtRecebeValor.setText(recebeValor);
    }
        public void recebeHora(String recebeHora){ 
        txtHorarioAlterar.setText(recebeHora);
@@ -434,115 +337,24 @@ public class frmAlteraAgendamento extends javax.swing.JFrame {
        txtId.setText(recebeId);
    }
        
-       private void mostrarServicos(List<Servico> servicos){
-        
-        while (tmServicos.getRowCount() > 0){
-            tmServicos.removeRow(0);
-        }
-        if(servicos.size() == 0){
-            JOptionPane.showMessageDialog(this, "Nenhum Serviço foi encontrado!");
-        }else{
-            
-            for (int i = 0; i < servicos.size(); i++){
-                tmServicos.addRow(colunas);
-                tmServicos.setValueAt(servicos.get(i).getCodigo(), i,0);
-                tmServicos.setValueAt(servicos.get(i).getNome(), i,1);
-                tmServicos.setValueAt(servicos.get(i).getValor(), i,2);
-                                
-            }
-        }
-    }
-       
-         private void listarServicos(){
-        
-        ServicoDAO servicoDAO =  new ServicoDAO();
-        listaServicos = servicoDAO.listarServicos("%"
-             +txtPesquisaServicos.getText().trim() + "%");
-        mostrarServicos(listaServicos);
-        
-    }
-         
-          private void mostrarPacientes(List<Paciente> pacientes){
-        
-        while (tmPacientes.getRowCount() > 0){
-            tmPacientes.removeRow(0);
-        }
-        if(pacientes.size() == 0){
-            JOptionPane.showMessageDialog(this, "Nenhum Paciente foi encontrado!");
-        }else{
-            
-            for (int i = 0; i < pacientes.size(); i++){
-                tmPacientes.addRow(colunaspaciente);
-                tmPacientes.setValueAt(pacientes.get(i).getCodigo(), i,0);
-                tmPacientes.setValueAt(pacientes.get(i).getNome(), i,1);
-                tmPacientes.setValueAt(pacientes.get(i).getRua(), i,2);
-                tmPacientes.setValueAt(pacientes.get(i).getTelefone(), i,3);
-                
-            }
-        }
-    }
-     
-     private void listarPacientes(){
-        
-        PacienteDAO pacienteDAO =  new PacienteDAO();
-        listaPacientes = pacienteDAO.listarPacientes("%"
-             +txtPesquisaPaciente.getText().trim() + "%");
-        mostrarPacientes(listaPacientes);
-        
-    }
-     
-      public void tblPacienteLinhaSelecionada(JTable tbl){
-        
-            int linhaSelecionada = tbl.getSelectedRow();
-          
-             if (linhaSelecionada != -1){
-            
-             txtNomePacienteAlterar.setText(listaPacientes.get(linhaSelecionada).getNome());
-             txtCPFPacienteAlterar.setText(listaPacientes.get(linhaSelecionada).getCpf());
-                 }
-        }
-     
-       public void tblServicoLinhaSelecionada(JTable tbl){
-        
-            int linhaSelecionada = tbl.getSelectedRow();
-          
-             if (linhaSelecionada != -1){
-            
-             txtNomeServicoAlterar.setText(listaServicos.get(linhaSelecionada).getNome());
-             txtValorServicoAlterar.setText(listaServicos.get(linhaSelecionada).getValor());
-                 }
-        }
-       
-       private void alterarDataAgendamento(){
-           
-           
-       }
-       
+      
        
        private void alterarAgendamento(){
     
-        if(txtNomePacienteAlterar.getText().isEmpty()){
-            
-            JOptionPane.showMessageDialog(null,"Você precisa selecionar um paciente para agendar","Selecionar Paciente",
-                    JOptionPane.INFORMATION_MESSAGE);
-            
-        }else if( txtNomeServicoAlterar.getText().isEmpty()){
-            
-            JOptionPane.showMessageDialog(null,"Você precisa selecionar um serviço para agendar","Selecionar Serviço",
-                    JOptionPane.INFORMATION_MESSAGE);
-            
-            }else{  
+       int opcao =  JOptionPane.showConfirmDialog(null, "Deseja alterar o Agendamento?","Alterar",0);
+       
+       if (opcao == 0){
               
         Date data = txtDataAlterar.getDate();
-        SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat formatador = new SimpleDateFormat("yyyy/MM/dd");
         String novaData = formatador.format(data);   
            
         Agendamento age = new Agendamento();
         
-        age.setNome(txtNomePacienteAlterar.getText().trim());
+        age.setNome(txtRecebeNome.getText().trim());
         age.setCpf(txtCPFPacienteAlterar.getText().trim());
-        age.setServico(txtNomeServicoAlterar.getText().trim());
-        age.setValor(txtValorServicoAlterar.getText().trim());
+        age.setServico(txtRecebeServico.getText().trim());
+        age.setValor(txtRecebeValor.getText().trim());
         age.setHorario(txtHorarioAlterar.getText().trim());
         age.setData(txtDataAlterar.getDateFormatString().format(novaData));
         
@@ -553,36 +365,48 @@ public class frmAlteraAgendamento extends javax.swing.JFrame {
         agendamentoDAO.alterarAgendamento(age);
         JOptionPane.showMessageDialog(this, "Agendamento alterado com sucesso!");
         
+        
+        frmAgendamento pes = new frmAgendamento();
+        
+        String n = txtRecebeNome.getText();
+       
+        pes.listaAgendamentos = agendamentoDAO.listarAgendamentos("%"+
+             n + "%");
+        pes.mostrarAgendamentos(pes.listaAgendamentos);
+        pes.listarAgendamentos();
+        dispose();
+        pes.setVisible(true);
+        
+       }else{
+        frmAgendamento pes = new frmAgendamento();
+         pes.setVisible(true);
+        pes.listarAgendamentos();
+        dispose();
     }
+       
        }
-      
      
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAtualizar;
-    private javax.swing.JButton btnNovoCliente;
-    private javax.swing.JButton btnNovoServico;
-    private javax.swing.JButton btnPesquisarPaciente;
-    private javax.swing.JButton btnPesquisarServico;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JButton btnCancelar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel lblSair;
-    private javax.swing.JTable tblPaciente;
-    private javax.swing.JTable tblServico;
     private javax.swing.JTextField txtCPFPacienteAlterar;
     private com.toedter.calendar.JDateChooser txtDataAlterar;
     private javax.swing.JFormattedTextField txtHorarioAlterar;
     private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtNomePacienteAlterar;
     private javax.swing.JTextField txtNomeServicoAlterar;
-    private javax.swing.JTextField txtPesquisaPaciente;
-    private javax.swing.JTextField txtPesquisaServicos;
+    private javax.swing.JTextField txtRecebeNome;
+    private javax.swing.JTextField txtRecebeServico;
+    private javax.swing.JTextField txtRecebeValor;
     private javax.swing.JTextField txtValorServicoAlterar;
     // End of variables declaration//GEN-END:variables
 }

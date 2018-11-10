@@ -8,7 +8,8 @@ package fronteira;
 import javax.swing.JOptionPane;
 import entidade.Servico;
 import persistencia.ServicoDAO;
-
+import java.text.NumberFormat;
+import javax.swing.JFormattedTextField;
 /**
  *
  * @author ma-th
@@ -20,6 +21,7 @@ public class frmCadastraServico extends javax.swing.JFrame {
      */
     public frmCadastraServico() {
         initComponents();
+       
     }
 
     /**
@@ -37,7 +39,7 @@ public class frmCadastraServico extends javax.swing.JFrame {
         btnCadastrar = new javax.swing.JButton();
         txtNomeServico = new javax.swing.JTextField();
         btnCancelar = new javax.swing.JButton();
-        txtValor = new javax.swing.JFormattedTextField();
+        txtValor = new JFormattedTextField(NumberFormat.getNumberInstance());
         lblSair = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -152,14 +154,19 @@ public class frmCadastraServico extends javax.swing.JFrame {
 
     private void cadastrarServico(){
         
-        if(txtNomeServico.getText().isEmpty() || txtValor.getText().equals("R$"))
+        if(txtNomeServico.getText().isEmpty() || txtValor.getText().isEmpty())
                {
         
             JOptionPane.showMessageDialog(null,"Existem campos obrigatórios a serem preenchidos","Preencher Campos",
                     JOptionPane.INFORMATION_MESSAGE);
             
-    }else{
+        }
+         
+        Double recebeValor = 0.0;
         
+        recebeValor = Double.valueOf(txtValor.getText());
+        
+        if((recebeValor > 0)){
         
         Servico servico = new  Servico();
         servico.setNome(txtNomeServico.getText().trim());
@@ -168,8 +175,9 @@ public class frmCadastraServico extends javax.swing.JFrame {
         
         ServicoDAO servicoDAO = new ServicoDAO();
         servicoDAO.cadastrarServico(servico);
-        JOptionPane.showMessageDialog(null,"Servico Cadastrado com sucesso !","Cadastro de Cliente",
+        JOptionPane.showMessageDialog(null,"Servico Cadastrado com sucesso !","Cadastro de Serviço",
                 JOptionPane.INFORMATION_MESSAGE);
+        
         
         
         frmPesquisaServico pes = new frmPesquisaServico();
@@ -183,8 +191,12 @@ public class frmCadastraServico extends javax.swing.JFrame {
         dispose();
         pes.setVisible(true);
         
+        }else{
+        JOptionPane.showMessageDialog(null,"Informe apenas números para valor !","Cadastro de Serviços",
+        JOptionPane.INFORMATION_MESSAGE);
+                }
     }
-    }
+    
     
     
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed

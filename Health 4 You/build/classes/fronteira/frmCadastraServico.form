@@ -205,6 +205,9 @@
           <Color blue="7d" green="49" red="0" type="rgb"/>
         </Property>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new JFormattedTextField(NumberFormat.getNumberInstance());"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="lblSair">
       <Properties>

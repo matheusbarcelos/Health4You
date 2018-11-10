@@ -20,6 +20,7 @@ import persistencia.PacienteDAO;
 import persistencia.ServicoDAO;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import persistencia.VerificarUsuarioDAO;
 /**
  *
  * @author joao-
@@ -441,7 +442,6 @@ public class frmCadastraAgendamento extends javax.swing.JFrame {
     private void cadastrarAgendamento(){
         
         
-
         if(txtNomePaciente.getText().isEmpty()){
             
             JOptionPane.showMessageDialog(null,"Você precisa selecionar um nome para agendamento","Selecionar Nome",
@@ -466,13 +466,28 @@ public class frmCadastraAgendamento extends javax.swing.JFrame {
                     JOptionPane.INFORMATION_MESSAGE);
             
         }else{
-            
+        
         Date data = txtData.getDate();
         SimpleDateFormat formatador = new SimpleDateFormat("yyyy/MM/dd");
-        String novaData = formatador.format(data);
-             
-             
+        String novaData = formatador.format(data);   
+            
+        VerificarUsuarioDAO verificarDAO = new  VerificarUsuarioDAO();
+        
+        String hora = txtHorario.getText();
+        String date = txtData.getDateFormatString().format(novaData);
+ 
+        boolean resposta = verificarDAO.verificaAgendamento(hora, date);
+        
+        if(resposta == true){    
+           
+            JOptionPane.showMessageDialog(null,"Já existe um paciente marcado para esse dia e horário !","Cadastro de Agendamento",
+                JOptionPane.INFORMATION_MESSAGE);
+        
+      
+        }else{
+            
         Agendamento agendamento = new  Agendamento();
+        
         agendamento.setNome(txtNomePaciente.getText().trim());
         agendamento.setCpf(txtCPFPaciente.getText().trim());
         agendamento.setServico(txtNomeServico.getText().trim());
@@ -495,9 +510,9 @@ public class frmCadastraAgendamento extends javax.swing.JFrame {
         pes.listarAgendamentos();
         dispose();
         pes.setVisible(true);
-    
-    }
+        }
 }
+    }
     
      private void mostrarServicos(List<Servico> servicos){
         

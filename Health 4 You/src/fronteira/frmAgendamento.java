@@ -8,6 +8,7 @@ package fronteira;
 import entidade.Agendamento;
 import java.awt.Color;
 import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import persistencia.AgendamentoDAO;
 import java.util.List;
@@ -24,6 +25,9 @@ import javax.swing.event.ListSelectionListener;
 public class frmAgendamento extends javax.swing.JFrame {
 
     frmAlteraAgendamento enviar;
+    
+    
+    
     
     private String[] colunas = new String[]{"Número","Nome",
            "Servico","Valor","Horario","Data"};
@@ -240,8 +244,9 @@ public class frmAgendamento extends javax.swing.JFrame {
          JOptionPane.showMessageDialog(null,"Favor selecionar um agendamento para alterar","Alterar Agendamento",
                  JOptionPane.INFORMATION_MESSAGE);
         }else{
-       enviarAlteracaoAgendamento();}
-        dispose();
+        enviarAlteracaoAgendamento();}
+        listarAgendamentos();
+        
     }//GEN-LAST:event_btnAlterarActionPerformed
 
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
@@ -298,6 +303,9 @@ public class frmAgendamento extends javax.swing.JFrame {
             }
         });
     }
+    
+    
+    
 
       public void mostrarAgendamentos(List<Agendamento> agendamentos){
         
@@ -367,7 +375,7 @@ public class frmAgendamento extends javax.swing.JFrame {
        
        public void enviarAlteracaoAgendamento(){
               if(enviar==null){
-           
+            dispose();
             
             enviar = new frmAlteraAgendamento();
             enviar.setVisible(true);
@@ -380,7 +388,7 @@ public class frmAgendamento extends javax.swing.JFrame {
             
             
         }else{
-             
+             dispose();
                   
             enviar = new frmAlteraAgendamento();
             enviar.setVisible(true);

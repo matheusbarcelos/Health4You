@@ -74,7 +74,7 @@ public class frmAgendamento extends javax.swing.JFrame {
         btnPesquisar = new javax.swing.JButton();
         btnExcluir = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
-        btnInserr = new javax.swing.JButton();
+        btnInserir = new javax.swing.JButton();
         lblSair = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -150,14 +150,14 @@ public class frmAgendamento extends javax.swing.JFrame {
             }
         });
 
-        btnInserr.setBackground(new java.awt.Color(0, 155, 219));
-        btnInserr.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
-        btnInserr.setForeground(new java.awt.Color(255, 255, 255));
-        btnInserr.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/Inserir.png"))); // NOI18N
-        btnInserr.setText("Inserir");
-        btnInserr.addActionListener(new java.awt.event.ActionListener() {
+        btnInserir.setBackground(new java.awt.Color(0, 155, 219));
+        btnInserir.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
+        btnInserir.setForeground(new java.awt.Color(255, 255, 255));
+        btnInserir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/Inserir.png"))); // NOI18N
+        btnInserir.setText("Inserir");
+        btnInserir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnInserrActionPerformed(evt);
+                btnInserirActionPerformed(evt);
             }
         });
 
@@ -188,7 +188,7 @@ public class frmAgendamento extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(btnPesquisar))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnInserr, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnInserir, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(10, 10, 10)
@@ -215,7 +215,7 @@ public class frmAgendamento extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnInserr)
+                    .addComponent(btnInserir)
                     .addComponent(btnAlterar)
                     .addComponent(btnExcluir)
                     .addComponent(btnCancelar))
@@ -226,11 +226,11 @@ public class frmAgendamento extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnInserrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInserrActionPerformed
+    private void btnInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInserirActionPerformed
         // TODO add your handling code here:
         dispose();
         new frmCadastraAgendamento().setVisible(true);
-    }//GEN-LAST:event_btnInserrActionPerformed
+    }//GEN-LAST:event_btnInserirActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
@@ -411,7 +411,7 @@ public class frmAgendamento extends javax.swing.JFrame {
     private javax.swing.JButton btnAlterar;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnExcluir;
-    private javax.swing.JButton btnInserr;
+    private javax.swing.JButton btnInserir;
     private javax.swing.JButton btnPesquisar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;

@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 import entidade.Paciente;
 import java.awt.Color;
 import persistencia.PacienteDAO;
+import persistencia.VerificarUsuarioDAO;
 
 /**
  *
@@ -392,6 +393,19 @@ public class frmPaciente extends javax.swing.JFrame {
             
     }else{
         
+        VerificarUsuarioDAO verificarDAO = new  VerificarUsuarioDAO();
+        
+        String cpf = txtCPF.getText();
+        
+ 
+        boolean resposta = verificarDAO.verificaPaciente(cpf); 
+        
+        if(resposta == true){    
+           
+            JOptionPane.showMessageDialog(null,"Esse paciente já está cadastrado !","Cadastro de Paciente",
+                JOptionPane.INFORMATION_MESSAGE);
+        }else{
+            
         
         Paciente paciente = new Paciente();
         paciente.setNome(txtNome.getText().trim());
@@ -423,6 +437,7 @@ public class frmPaciente extends javax.swing.JFrame {
         dispose();
         pes.setVisible(true);
         
+        }
     }
     
     

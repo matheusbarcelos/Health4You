@@ -365,11 +365,16 @@ public class frmCadastraAgendamento extends javax.swing.JFrame {
     private void btnNovoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoClienteActionPerformed
         // TODO add your handling code here:
         new frmPaciente().setVisible(true);
+        frmPesquisarPaciente pe =  new frmPesquisarPaciente();
+        pe.setVisible(false);
+        
     }//GEN-LAST:event_btnNovoClienteActionPerformed
 
     private void btnNovoServicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoServicoActionPerformed
         // TODO add your handling code here:
         new frmCadastraServico().setVisible(true);
+        frmPesquisaServico pe = new frmPesquisaServico();
+        pe.setVisible(false);
     }//GEN-LAST:event_btnNovoServicoActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed

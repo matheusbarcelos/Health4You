@@ -2,6 +2,7 @@
 
     package persistencia;
 import entidade.Agendamento;
+import entidade.Paciente;
     import entidade.Usuario;
     import fronteira.frmTelaPrincipal;
   import java.util.List;
@@ -17,11 +18,33 @@ public class VerificarUsuarioDAO {
     private ResultSet rs;
     private Usuario usuario;
     private Agendamento agendamento;
-
+    private Paciente paciente ;
     
     private String verificaUsuario =  "SELECT * FROM USUARIO WHERE LOGIN =  ? AND SENHA = ?  ";
     
     private String verificaAgendamento = "SELECT * FROM AGENDAMENTO WHERE HORARIO = ? AND DATA = ? ";
+    
+    private String verificaPaciente = "SELECT * FROM PACIENTE WHERE CPF = ? ";
+    
+    public boolean verificaPaciente(String CPF) {
+        boolean autenticado = false;
+        try{
+        bd = new BaseDeDados();
+        pstm = bd.conecta().prepareStatement(verificaPaciente);
+        pstm.setString(1, CPF);
+        rs = pstm.executeQuery();
+        while (rs.next()){
+                 paciente = new Paciente();
+                 paciente.setCpf(rs.getString("CPF"));
+                 autenticado = true;
+             }
+    } catch (Exception e){
+        e.printStackTrace(); 
+    }  
+        bd.desconecta();
+        return autenticado;
+    }
+    
     
     public boolean verificaAgendamento(String HORARIO, String DATE) {
         boolean autenticado = false;

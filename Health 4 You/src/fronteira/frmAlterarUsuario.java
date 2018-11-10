@@ -295,6 +295,8 @@ public class frmAlterarUsuario extends javax.swing.JFrame {
        
        if (opcao == 0){
            
+           
+           
         Usuario usuario = new Usuario();
          
         usuario.setNome(txtNomeAlterar.getText().trim());

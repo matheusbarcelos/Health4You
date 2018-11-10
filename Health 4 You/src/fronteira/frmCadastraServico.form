@@ -48,10 +48,6 @@
                       <EmptySpace pref="45" max="32767" attributes="0"/>
                       <Component id="lblSair" min="-2" max="-2" attributes="0"/>
                   </Group>
-<<<<<<< HEAD
-                  <Component id="txtValor" min="-2" pref="152" max="-2" attributes="0"/>
-=======
->>>>>>> 894fdd2873b7c369828c0706fc34d28ea4c16368
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -73,15 +69,9 @@
               <Component id="txtNomeServico" min="-2" pref="26" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-<<<<<<< HEAD
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="txtValor" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-=======
               <EmptySpace max="-2" attributes="0"/>
               <Component id="txtValor" min="-2" pref="27" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
->>>>>>> 894fdd2873b7c369828c0706fc34d28ea4c16368
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btnCancelar" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                   <Component id="btnCadastrar" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
@@ -196,9 +186,6 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCancelarActionPerformed"/>
       </Events>
     </Component>
-<<<<<<< HEAD
-    <Component class="javax.swing.JTextField" name="txtValor">
-=======
     <Component class="javax.swing.JFormattedTextField" name="txtValor">
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -232,7 +219,6 @@
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblSairMouseClicked"/>
       </Events>
->>>>>>> 894fdd2873b7c369828c0706fc34d28ea4c16368
     </Component>
   </SubComponents>
 </Form>

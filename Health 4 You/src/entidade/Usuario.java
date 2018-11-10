@@ -14,7 +14,7 @@ public class Usuario {
     public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
-    public String nome;
+    private String nome;
     private String login;
     private String senha;
     private String permissao;

@@ -2,8 +2,6 @@
 
 package entidade;
 
-import java.util.Date;
-
 
 public class Agendamento {
 
@@ -21,8 +19,7 @@ public class Agendamento {
     private String servico;
     private String valor;
     private String horario;
-    private String data;
-    
+
     public String getHorario() {
         return horario;
     }
@@ -38,7 +35,7 @@ public class Agendamento {
     public void setData(String data) {
         this.data = data;
     }
-    
+    private String data;
 
     public String getServico() {
         return servico;

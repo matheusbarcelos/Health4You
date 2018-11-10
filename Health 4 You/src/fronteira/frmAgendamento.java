@@ -8,7 +8,6 @@ package fronteira;
 import entidade.Agendamento;
 import java.awt.Color;
 import java.sql.Date;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import persistencia.AgendamentoDAO;
 import java.util.List;
@@ -27,12 +26,12 @@ public class frmAgendamento extends javax.swing.JFrame {
     frmAlteraAgendamento enviar;
     
     private String[] colunas = new String[]{"Número","Nome",
-           "Procedimento","Valor","Horario","Data"};
+           "Servico","Valor","Horario","Data"};
     
     private DefaultTableModel tmAgendamentos = new DefaultTableModel
                (null, colunas);
     
-    public List<Agendamento> listaAgendamentos;
+    private List<Agendamento> listaAgendamentos;
     private ListSelectionModel lsmAgendamentos;
     
     
@@ -62,7 +61,7 @@ public class frmAgendamento extends javax.swing.JFrame {
         txtServico = new javax.swing.JTextField();
         txtValor = new javax.swing.JTextField();
         txtHorario = new javax.swing.JTextField();
-        txtData = new javax.swing.JTextField();
+        txtData = new com.toedter.calendar.JDateChooser();
         jLabel1 = new javax.swing.JLabel();
         txtPesquisarConsultas = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -202,11 +201,9 @@ public class frmAgendamento extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblSair)
-                        .addGap(51, 51, 51))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(jLabel1)
-                        .addGap(14, 14, 14)))
+                        .addGap(37, 37, 37))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(14, 14, 14)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnPesquisar)
                     .addComponent(txtPesquisarConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -218,7 +215,7 @@ public class frmAgendamento extends javax.swing.JFrame {
                     .addComponent(btnAlterar)
                     .addComponent(btnExcluir)
                     .addComponent(btnCancelar))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         setSize(new java.awt.Dimension(474, 373));
@@ -228,13 +225,11 @@ public class frmAgendamento extends javax.swing.JFrame {
     private void btnInserrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInserrActionPerformed
         // TODO add your handling code here:
         new frmCadastraAgendamento().setVisible(true);
-        dispose();
     }//GEN-LAST:event_btnInserrActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
-        
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
@@ -244,9 +239,7 @@ public class frmAgendamento extends javax.swing.JFrame {
          JOptionPane.showMessageDialog(null,"Favor selecionar um agendamento para alterar","Alterar Agendamento",
                  JOptionPane.INFORMATION_MESSAGE);
         }else{
-       enviarAlteracaoAgendamento();
-        dispose();
-        }
+       enviarAlteracaoAgendamento();}
     
     }//GEN-LAST:event_btnAlterarActionPerformed
 
@@ -305,7 +298,7 @@ public class frmAgendamento extends javax.swing.JFrame {
         });
     }
 
-      public void mostrarAgendamentos(List<Agendamento> agendamentos){
+      private void mostrarAgendamentos(List<Agendamento> agendamentos){
         
         while (tmAgendamentos.getRowCount() > 0){
             tmAgendamentos.removeRow(0);
@@ -328,7 +321,7 @@ public class frmAgendamento extends javax.swing.JFrame {
     }
       
       
-      public void listarAgendamentos(){
+      private void listarAgendamentos(){
         
         AgendamentoDAO agendamentoDAO =  new AgendamentoDAO();
         listaAgendamentos = agendamentoDAO.listarAgendamentos("%"
@@ -361,13 +354,10 @@ public class frmAgendamento extends javax.swing.JFrame {
             
              if (linhaSelecionada != -1){
             
-              
-          
              txtNomePaciente.setText(listaAgendamentos.get(linhaSelecionada).getNome());
              txtServico.setText(listaAgendamentos.get(linhaSelecionada).getServico());
-             txtValor.setText(listaAgendamentos.get(linhaSelecionada).getValor());
              txtHorario.setText(listaAgendamentos.get(linhaSelecionada).getHorario());
-             txtData.setText(listaAgendamentos.get(linhaSelecionada).getData());
+             txtData.setDate(Date.valueOf(listaAgendamentos.get(linhaSelecionada).getData()));
              txtIDAgendamento.setText(String.valueOf(listaAgendamentos.get(linhaSelecionada).getCodigo()));
              
              }
@@ -381,8 +371,8 @@ public class frmAgendamento extends javax.swing.JFrame {
             enviar.setVisible(true);
             enviar.recebeNome(txtNomePaciente.getText());
             enviar.recebeServico(txtServico.getText());
-            enviar.recebeValor(txtValor.getText());
             enviar.recebeHora(txtHorario.getText());
+            enviar.recebeData(txtData.getDate());
             enviar.recebeId(txtIDAgendamento.getText());
             
             
@@ -393,8 +383,8 @@ public class frmAgendamento extends javax.swing.JFrame {
             enviar.setVisible(true);
             enviar.recebeNome(txtNomePaciente.getText());
             enviar.recebeServico(txtServico.getText());
-            enviar.recebeValor(txtValor.getText());
             enviar.recebeHora(txtHorario.getText());
+            enviar.recebeData(txtData.getDate());
             enviar.recebeId(txtIDAgendamento.getText());
             enviar.setState(frmAlteraAgendamento.NORMAL);
              
@@ -416,7 +406,7 @@ public class frmAgendamento extends javax.swing.JFrame {
     private javax.swing.JLabel lblSair;
     private javax.swing.JTable tblAgendamentos;
     private javax.swing.JTextField txtCPFPaciente;
-    private javax.swing.JTextField txtData;
+    private com.toedter.calendar.JDateChooser txtData;
     private javax.swing.JTextField txtHorario;
     private javax.swing.JTextField txtIDAgendamento;
     private javax.swing.JTextField txtNomePaciente;

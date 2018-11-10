@@ -31,42 +31,12 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-<<<<<<< HEAD
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
-=======
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
->>>>>>> 894fdd2873b7c369828c0706fc34d28ea4c16368
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-<<<<<<< HEAD
-                  <Component id="txtNomeAlterar" alignment="0" min="-2" pref="242" max="-2" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="cmbPermissaoAlterar" alignment="0" min="-2" pref="149" max="-2" attributes="0"/>
-                          <Component id="btnSalvar" min="-2" pref="114" max="-2" attributes="0"/>
-                          <Component id="jLabel10" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                          <Component id="cmbStatusAlterar" min="-2" pref="72" max="-2" attributes="0"/>
-                          <Component id="btnCancelar" alignment="0" min="-2" pref="115" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                      <Component id="txtSenhaAlterar" alignment="0" max="32767" attributes="0"/>
-                      <Component id="txtLoginAlterar" alignment="0" pref="242" max="32767" attributes="0"/>
-                  </Group>
-=======
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
@@ -100,7 +70,6 @@
                           </Group>
                       </Group>
                   </Group>
->>>>>>> 894fdd2873b7c369828c0706fc34d28ea4c16368
               </Group>
               <EmptySpace min="0" pref="14" max="32767" attributes="0"/>
           </Group>
@@ -110,47 +79,20 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-<<<<<<< HEAD
-=======
               <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
->>>>>>> 894fdd2873b7c369828c0706fc34d28ea4c16368
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-<<<<<<< HEAD
-              <Component id="txtNomeAlterar" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-=======
               <Component id="txtNomeAlterar" min="-2" pref="25" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
->>>>>>> 894fdd2873b7c369828c0706fc34d28ea4c16368
               <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="txtLoginAlterar" min="-2" pref="25" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-<<<<<<< HEAD
-              <Component id="txtSenhaAlterar" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel3" alignment="3" min="-2" pref="14" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="cmbPermissaoAlterar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="cmbStatusAlterar" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnSalvar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnCancelar" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace pref="53" max="32767" attributes="0"/>
-=======
               <Component id="txtSenhaAlterar" min="-2" pref="28" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
@@ -173,7 +115,6 @@
                   <Component id="btnSalvar" min="-2" pref="31" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="25" max="32767" attributes="0"/>
->>>>>>> 894fdd2873b7c369828c0706fc34d28ea4c16368
           </Group>
       </Group>
     </DimensionLayout>
@@ -361,8 +302,6 @@
         <Property name="text" type="java.lang.String" value="Senha:"/>
       </Properties>
     </Component>
-<<<<<<< HEAD
-=======
     <Component class="javax.swing.JTextField" name="txtSenhaAlterar">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -383,7 +322,6 @@
         </Property>
       </Properties>
     </Component>
->>>>>>> 894fdd2873b7c369828c0706fc34d28ea4c16368
     <Component class="javax.swing.JComboBox" name="cmbPermissaoAlterar">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -406,9 +344,6 @@
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
-<<<<<<< HEAD
-    <Component class="javax.swing.JPasswordField" name="txtSenhaAlterar">
-=======
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -419,7 +354,6 @@
         </Property>
         <Property name="text" type="java.lang.String" value="X"/>
       </Properties>
->>>>>>> 894fdd2873b7c369828c0706fc34d28ea4c16368
     </Component>
   </SubComponents>
 </Form>

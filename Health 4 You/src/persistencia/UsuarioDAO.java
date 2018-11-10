@@ -2,14 +2,10 @@
 
 package persistencia;
 import entidade.Usuario;
-import java.sql.Connection;
 import java.util.List;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 
 public class UsuarioDAO {
@@ -30,8 +26,6 @@ public class UsuarioDAO {
     
     private String alteraUsuario = "UPDATE USUARIO SET NOME =?,LOGIN=?,SENHA=?,PERMISSAO=?,STATUS=?"
             + "WHERE ID_USUARIO=?";
-    
-    private String checkLogin = "SELECT LOGIN, SENHA FROM USUARIO WHERE LOGIN = ? AND SENHA = ?";
     
     
     public void cadastrarUsuario(Usuario usuario ){
@@ -117,46 +111,5 @@ public class UsuarioDAO {
              e.printStackTrace();
          }
      }
-      
-      public boolean consultar (String login, String senha, String permissao) throws SQLException{
-           boolean autenticado = false; 
-          try{
-           
-            String sql;
-            sql = "select login, senha from usuario where login = ? and senha = ? and permissao = ?";
-            
-            
-            pstm = bd.conecta().prepareStatement(alteraUsuario);
-            pstm.setString(1, login);
-            pstm.setString(2, senha);
-            pstm.setString(3, permissao);
-            
-            rs = pstm.executeQuery();
- 
-            if (rs.next()) {
-                String loginBanco = rs.getString("LOGIN");
-                String senhaBanco = rs.getString("SENHA");
-                String permissaoBanco = rs.getString("PERMISSAO");
-            autenticado = true;
-            }
- 
-            pstm.close();
-   
- 
-            return autenticado;
- 
-        } catch(Exception e){
-             
-             e.printStackTrace();
-         }
-            return autenticado;
-      }
-}
-
-     
-
-
-
-
     
-
+}

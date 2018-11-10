@@ -6,12 +6,7 @@
 package fronteira;
 import entidade.Usuario;
 import javax.swing.JOptionPane;
-
-import persistencia.UsuarioDAO;
-
-
 import persistencia.VerificarUsuarioDAO;
-import static sun.security.jgss.GSSUtil.login;
 
 /**
  *
@@ -25,7 +20,6 @@ public class frmLogin extends javax.swing.JFrame {
     public frmLogin() {
         initComponents();
         lblHelp.setText("<html><u>Precisa de Ajuda?</u></html>");
-          
     }
     
     /**
@@ -182,43 +176,22 @@ public class frmLogin extends javax.swing.JFrame {
     
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
         // TODO add your handling code here:
-  
+        VerificarUsuarioDAO verificarDAO = new  VerificarUsuarioDAO();
+        
         String login = txtLogin.getText();
         String senha = txtSenha.getText();
-        
-        VerificarUsuarioDAO dao  = new VerificarUsuarioDAO();
-       
-        if(txtLogin.getText().isEmpty() || txtSenha.getText().isEmpty()){
-            
-        JOptionPane.showMessageDialog(null,"É necessário informar usuário e senha para entrar no sistema");
-            
-        }else{
-        
-        boolean resposta = dao.verificar(login, senha);
+ 
+        boolean resposta = verificarDAO.verificarUsuario(login, senha);
  
         if (resposta == true){
-<<<<<<< HEAD
-        frmTelaPrincipal telaPrincipal = new frmTelaPrincipal();
+         frmTelaPrincipal telaPrincipal = new frmTelaPrincipal();
         new frmTelaPrincipal().setVisible(true);
         dispose();
  
         }else {
-        JOptionPane.showMessageDialog(null, "login não realizado!\n Favor conferir o usuario e senha digitado!");
+        JOptionPane.showMessageDialog(rootPane, "login não realizado!\n Favor conferir o usuario e senha digitado!");
 }
-     Usuario us = new Usuario();
-          frmTelaPrincipal teste = new frmTelaPrincipal();
-          teste.lblNomeUsuario.setText(us.getNome());
-=======
-            
-        frmTelaPrincipal telaPrincipal = new frmTelaPrincipal();
-        new frmTelaPrincipal().setVisible(true);
-        dispose();
-
-        }else{
-        JOptionPane.showMessageDialog(rootPane, "Usuário ou senha incorretos");
-        }
-        }
->>>>>>> 2e6ebb52bf3e5c6576b98b55ec1b89c66c541077
+     
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     private void lblFecharMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblFecharMouseClicked
@@ -255,7 +228,6 @@ public class frmLogin extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {

@@ -6,7 +6,11 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtCPFPacienteAlterar">
     </Component>
-    <Component class="javax.swing.JTextField" name="txtDataNormal">
+    <Component class="javax.swing.JTextField" name="txtNomeServicoAlterar">
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtValorServicoAlterar">
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtNomePacienteAlterar">
     </Component>
   </NonVisualComponents>
   <Properties>
@@ -52,14 +56,9 @@
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
-<<<<<<< HEAD
-                          <Component id="txtNomeServicoAlterar" alignment="1" max="32767" attributes="0"/>
-                          <Component id="txtNomePacienteAlterar" alignment="0" max="32767" attributes="0"/>
-=======
                           <Component id="jScrollPane2" alignment="0" pref="0" max="32767" attributes="0"/>
                           <Component id="txtPesquisaServicos" alignment="1" max="32767" attributes="0"/>
                           <Component id="jScrollPane1" alignment="0" pref="0" max="32767" attributes="0"/>
->>>>>>> 894fdd2873b7c369828c0706fc34d28ea4c16368
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -73,14 +72,8 @@
                               <EmptySpace type="separate" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jButton5" alignment="0" min="-2" pref="176" max="-2" attributes="0"/>
-<<<<<<< HEAD
-                                  <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtDataNova" min="-2" pref="166" max="-2" attributes="0"/>
-                                  <Component id="txtRecebeDataAlterada" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
-=======
                                   <Component id="txtDataAlterar" min="-2" pref="176" max="-2" attributes="0"/>
                                   <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
->>>>>>> 894fdd2873b7c369828c0706fc34d28ea4c16368
                               </Group>
                           </Group>
                           <Group type="102" attributes="0">
@@ -94,13 +87,6 @@
                           </Group>
                       </Group>
                       <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtValorServicoAlterar" alignment="0" min="-2" pref="103" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -119,38 +105,6 @@
               <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-<<<<<<< HEAD
-              <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-              <Component id="txtNomePacienteAlterar" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
-              <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="txtNomeServicoAlterar" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-              <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="txtValorServicoAlterar" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-              <Component id="txtRecebeDataAlterada" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="txtHorarioAlterar" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Component id="txtDataNova" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnCadastrar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton5" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="32767" attributes="0"/>
-=======
               <EmptySpace max="-2" attributes="0"/>
               <Component id="txtPesquisaPaciente" min="-2" pref="26" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
@@ -190,18 +144,13 @@
                   <Component id="jButton5" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" max="-2" attributes="0"/>
->>>>>>> 894fdd2873b7c369828c0706fc34d28ea4c16368
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JTextField" name="txtNomeServicoAlterar">
+    <Component class="javax.swing.JButton" name="btnNovoServico">
       <Properties>
-<<<<<<< HEAD
-        <Property name="editable" type="boolean" value="false"/>
-      </Properties>
-=======
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="db" green="9b" red="0" type="rgb"/>
         </Property>
@@ -246,7 +195,6 @@
           <Color blue="7d" green="49" red="0" type="rgb"/>
         </Property>
       </Properties>
->>>>>>> 894fdd2873b7c369828c0706fc34d28ea4c16368
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
@@ -259,8 +207,6 @@
         <Property name="text" type="java.lang.String" value="Paciente:"/>
       </Properties>
     </Component>
-<<<<<<< HEAD
-=======
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
       <AuxValues>
         <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
@@ -286,7 +232,6 @@
         </Component>
       </SubComponents>
     </Container>
->>>>>>> 894fdd2873b7c369828c0706fc34d28ea4c16368
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -295,11 +240,7 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="7d" green="49" red="0" type="rgb"/>
         </Property>
-<<<<<<< HEAD
-        <Property name="text" type="java.lang.String" value="    Alterara&#xe7;&#xe3;o de Consulta"/>
-=======
         <Property name="text" type="java.lang.String" value="ALTERA&#xc7;&#xc3;O DE AGENDAMENTO"/>
->>>>>>> 894fdd2873b7c369828c0706fc34d28ea4c16368
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
@@ -334,8 +275,6 @@
         </Property>
       </Properties>
     </Component>
-<<<<<<< HEAD
-=======
     <Container class="javax.swing.JScrollPane" name="jScrollPane2">
       <AuxValues>
         <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
@@ -361,7 +300,6 @@
         </Component>
       </SubComponents>
     </Container>
->>>>>>> 894fdd2873b7c369828c0706fc34d28ea4c16368
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -411,11 +349,6 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton5ActionPerformed"/>
       </Events>
     </Component>
-<<<<<<< HEAD
-    <Component class="javax.swing.JTextField" name="txtNomePacienteAlterar">
-      <Properties>
-        <Property name="editable" type="boolean" value="false"/>
-=======
     <Component class="javax.swing.JTextField" name="txtPesquisaPaciente">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -434,14 +367,10 @@
         <Property name="caretColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="7d" green="49" red="0" type="rgb"/>
         </Property>
->>>>>>> 894fdd2873b7c369828c0706fc34d28ea4c16368
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnAtualizar">
       <Properties>
-<<<<<<< HEAD
-        <Property name="text" type="java.lang.String" value="Alterar Consulta"/>
-=======
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="db" green="9b" red="0" type="rgb"/>
         </Property>
@@ -462,17 +391,13 @@
             </LineBorder>
           </Border>
         </Property>
->>>>>>> 894fdd2873b7c369828c0706fc34d28ea4c16368
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAtualizarActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtValorServicoAlterar">
+    <Component class="javax.swing.JButton" name="btnNovoCliente">
       <Properties>
-<<<<<<< HEAD
-        <Property name="editable" type="boolean" value="false"/>
-=======
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="db" green="9b" red="0" type="rgb"/>
         </Property>
@@ -493,14 +418,13 @@
             </LineBorder>
           </Border>
         </Property>
->>>>>>> 894fdd2873b7c369828c0706fc34d28ea4c16368
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNovoClienteActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel6">
+    <Component class="javax.swing.JButton" name="btnPesquisarPaciente">
       <Properties>
-<<<<<<< HEAD
-        <Property name="text" type="java.lang.String" value="Valor Servi&#xe7;o:"/>
-=======
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="db" green="9b" red="0" type="rgb"/>
         </Property>
@@ -521,14 +445,11 @@
             </LineBorder>
           </Border>
         </Property>
->>>>>>> 894fdd2873b7c369828c0706fc34d28ea4c16368
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPesquisarPacienteActionPerformed"/>
+      </Events>
     </Component>
-<<<<<<< HEAD
-    <Component class="com.toedter.calendar.JDateChooser" name="txtDataNova">
-    </Component>
-    <Component class="javax.swing.JTextField" name="txtRecebeDataAlterada">
-=======
     <Component class="javax.swing.JButton" name="btnPesquisarServico">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -583,7 +504,6 @@
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblSairMouseClicked"/>
       </Events>
->>>>>>> 894fdd2873b7c369828c0706fc34d28ea4c16368
     </Component>
   </SubComponents>
 </Form>

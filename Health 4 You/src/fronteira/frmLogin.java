@@ -194,8 +194,8 @@ public class frmLogin extends javax.swing.JFrame {
         boolean resposta = verificarDAO.verificarUsuario(login, senha);
  
         if (resposta == true){
-         frmTelaPrincipal telaPrincipal = new frmTelaPrincipal();
-        new frmTelaPrincipal().setVisible(true);
+         frmTelaPrincipal telaPrincipal = new frmTelaPrincipal(txtLogin.getText());
+         telaPrincipal.setVisible(true);
         dispose();
  
         }else {

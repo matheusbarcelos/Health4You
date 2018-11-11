@@ -8,27 +8,29 @@ import entidade.Usuario;
 import persistencia.UsuarioDAO;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.sql.ResultSet;
 import javax.swing.JComponent;
 import javax.swing.JOptionPane;
 import javax.swing.plaf.basic.BasicMenuBarUI;
+import persistencia.BaseDeDados;
 
 /**
  *
  * @author ma-th
  */
 public class frmTelaPrincipal extends javax.swing.JFrame {
-
     /**
      * Creates new form frmTelaPrincipal
      */
-    public frmTelaPrincipal() {
+    public frmTelaPrincipal(String user) {
         initComponents();
         lblHelpPrincipal.setText("<html><u>Precisa de Ajuda?</u></html>");
-        UsuarioDAO logado = new UsuarioDAO();
-        Usuario us = new Usuario();
-        lblNomeUsuario.setText(us.getNome());
-              
+        lblNomeUsuario.setText(user);
         
+    }
+
+    frmTelaPrincipal() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**
@@ -87,7 +89,7 @@ public class frmTelaPrincipal extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Desenvolvido por Health Solutions");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(940, 1060, 181, 16);
+        jLabel4.setBounds(940, 1060, 164, 15);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setMinimumSize(new java.awt.Dimension(1080, 1920));
@@ -358,7 +360,8 @@ public class frmTelaPrincipal extends javax.swing.JFrame {
 
     private void mnuCadastroUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuCadastroUsuarioActionPerformed
         // TODO add your handling code here:
-        new frmPesquisaUsuario().setVisible(true);
+        new frmPesquisaUsuario().setVisible(true);     
+        
     }//GEN-LAST:event_mnuCadastroUsuarioActionPerformed
 
     private void mnuSobreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuSobreActionPerformed

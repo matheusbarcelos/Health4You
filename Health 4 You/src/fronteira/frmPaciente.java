@@ -16,7 +16,7 @@ import persistencia.VerificarUsuarioDAO;
  * @author ma-th
  */
 public class frmPaciente extends javax.swing.JFrame {
-
+        String teste;
     /**
      * Creates new form frmCliente
      */
@@ -396,6 +396,8 @@ public class frmPaciente extends javax.swing.JFrame {
         VerificarUsuarioDAO verificarDAO = new  VerificarUsuarioDAO();
         
         String cpf = txtCPF.getText();
+        
+        // Comentario teste //
         
  
         boolean resposta = verificarDAO.verificaPaciente(cpf); 

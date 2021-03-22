@@ -7,7 +7,12 @@ import entidade.Agendamento;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 
 public class AgendamentoDAO {
@@ -30,7 +35,7 @@ public class AgendamentoDAO {
             + "WHERE ID_AGENDAMENTO=?";
     
     public void cadastrarAgendamento(Agendamento agendamento){
-        
+           SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
         try{
             bd = new BaseDeDados();
             pstm = bd.conecta().prepareStatement(cadastraAgendamento);
@@ -39,7 +44,7 @@ public class AgendamentoDAO {
             pstm.setString(3, agendamento.getServico().trim());
             pstm.setString(4, agendamento.getValor().trim());
             pstm.setString(5, agendamento.getHorario().trim());
-            pstm.setString(6, agendamento.getData().trim());
+            pstm.setString(6,simpleDateFormat.format(agendamento.getData()));
             pstm.executeUpdate();
             bd.desconecta();
              
@@ -58,6 +63,10 @@ public class AgendamentoDAO {
              pstm = bd.conecta().prepareStatement(consultaAgendamento);
              pstm.setString(1, nome);
              rs = pstm.executeQuery();
+             //Date data = agendamento.getData();
+             //SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
+             //java.util.Date dataString = data;
+             //String dataFormatada = String.valueOf(simpleDateFormat.format(dataString));
              while (rs.next()){
                  agendamento = new Agendamento();
                  agendamento.setCodigo(rs.getInt("ID_AGENDAMENTO"));
@@ -65,9 +74,9 @@ public class AgendamentoDAO {
                  agendamento.setServico(rs.getString("SERVICO"));
                  agendamento.setValor(rs.getString("VALOR"));
                  agendamento.setHorario(rs.getString("HORARIO"));
-                 agendamento.setData(rs.getString("DATA"));
+                 agendamento.setData(rs.getDate("DATA"));
                  listaAgendamentos.add(agendamento);
-        
+                 
              }
          }catch(Exception e) {
                      
@@ -93,6 +102,8 @@ public class AgendamentoDAO {
       }
       
        public void alterarAgendamento(Agendamento agendamento){
+  
+           SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd");
          try{
              bd = new BaseDeDados();
              pstm = bd.conecta().prepareStatement(alteraAgendamento);
@@ -101,7 +112,7 @@ public class AgendamentoDAO {
              pstm.setString(3, agendamento.getServico().trim());
              pstm.setString(4, agendamento.getValor().trim());
              pstm.setString(5, agendamento.getHorario().trim());
-             pstm.setString(6, agendamento.getData().trim());
+             pstm.setString(6,simpleDateFormat.format(agendamento.getData()));
              pstm.setInt(7, agendamento.getCodigo());
              pstm.executeUpdate();
              bd.desconecta();

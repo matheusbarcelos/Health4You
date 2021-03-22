@@ -60,8 +60,8 @@ public class frmPaciente extends javax.swing.JFrame {
         txtCPF = new javax.swing.JFormattedTextField();
         txtTelefone = new javax.swing.JFormattedTextField();
         txtCelular = new javax.swing.JFormattedTextField();
-        txtEstado = new javax.swing.JFormattedTextField();
         lblSair = new javax.swing.JLabel();
+        txtEstado = new javax.swing.JComboBox<>();
 
         jFormattedTextField1.setText("jFormattedTextField1");
 
@@ -70,7 +70,7 @@ public class frmPaciente extends javax.swing.JFrame {
         setUndecorated(true);
         setResizable(false);
 
-        jLabel1.setFont(new java.awt.Font("Open Sans", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 73, 125));
         jLabel1.setText("CADASTRO DE PACIENTES");
 
@@ -128,6 +128,7 @@ public class frmPaciente extends javax.swing.JFrame {
         btnSalvar.setForeground(new java.awt.Color(255, 255, 255));
         btnSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/Salvar.png"))); // NOI18N
         btnSalvar.setText("Salvar");
+        btnSalvar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalvarActionPerformed(evt);
@@ -139,6 +140,7 @@ public class frmPaciente extends javax.swing.JFrame {
         btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
         btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/Cancelar IMG - Sistema.png"))); // NOI18N
         btnCancelar.setText("Cancelar");
+        btnCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelarActionPerformed(evt);
@@ -215,19 +217,20 @@ public class frmPaciente extends javax.swing.JFrame {
         txtCelular.setCaretColor(new java.awt.Color(0, 73, 125));
         txtCelular.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
 
-        txtEstado.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219), 2));
-        txtEstado.setForeground(new java.awt.Color(0, 73, 125));
-        txtEstado.setCaretColor(new java.awt.Color(0, 73, 125));
-        txtEstado.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
-
-        lblSair.setFont(new java.awt.Font("Open Sans", 1, 24)); // NOI18N
+        lblSair.setFont(new java.awt.Font("Open Sans", 1, 18)); // NOI18N
         lblSair.setForeground(new java.awt.Color(0, 73, 125));
         lblSair.setText("X");
+        lblSair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblSair.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblSairMouseClicked(evt);
             }
         });
+
+        txtEstado.setBackground(new java.awt.Color(0, 73, 125));
+        txtEstado.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
+        txtEstado.setForeground(new java.awt.Color(255, 255, 255));
+        txtEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -238,12 +241,10 @@ public class frmPaciente extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblSair)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel1)
-                                .addComponent(jLabel2)
-                                .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2)
+                            .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel7)
@@ -278,8 +279,8 @@ public class frmPaciente extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel10)
-                                    .addComponent(txtEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(txtEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(24, 24, 24)
                                 .addComponent(txtCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -290,6 +291,10 @@ public class frmPaciente extends javax.swing.JFrame {
                                     .addComponent(jLabel12)
                                     .addComponent(txtCelular))))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblSair)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -327,9 +332,9 @@ public class frmPaciente extends javax.swing.JFrame {
                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                    .addComponent(txtCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel12))
@@ -354,8 +359,8 @@ public class frmPaciente extends javax.swing.JFrame {
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         this.setVisible(false);
-        frmPesquisarPaciente pu  = new frmPesquisarPaciente();
-        pu.setVisible(true);
+        frmPesquisarPaciente pp  = new frmPesquisarPaciente();
+        pp.setVisible(true);
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
@@ -366,6 +371,8 @@ public class frmPaciente extends javax.swing.JFrame {
     private void lblSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSairMouseClicked
         // TODO add your handling code here:
         this.setVisible(false);
+        frmPesquisarPaciente pp = new frmPesquisarPaciente();
+        pp.setVisible(true);
     }//GEN-LAST:event_lblSairMouseClicked
 
     private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
@@ -384,12 +391,12 @@ public class frmPaciente extends javax.swing.JFrame {
         if(txtNome.getText().isEmpty() || txtCPF.getText().isEmpty()
                 || txtDataDeNascimento.getText().isEmpty() || txtEndereco.getText().isEmpty()
                 || txtNumero.getText().isEmpty() || txtBairro.getText().isEmpty() ||
-                txtCidade.getText().isEmpty() || txtEstado.getText().isEmpty()
+                txtCidade.getText().isEmpty() 
                 
                 ){
         
-            JOptionPane.showMessageDialog(null,"Existem campos obrigatórios a serem preenchidos","Preencher Campos",
-                    JOptionPane.INFORMATION_MESSAGE);
+            telaAvisos avisos = new telaAvisos();
+            avisos.campoObrigatorio();
             
     }else{
         
@@ -404,8 +411,9 @@ public class frmPaciente extends javax.swing.JFrame {
         
         if(resposta == true){    
            
-            JOptionPane.showMessageDialog(null,"Esse paciente já está cadastrado !","Cadastro de Paciente",
-                JOptionPane.INFORMATION_MESSAGE);
+            telaAvisos avisos = new telaAvisos();
+            avisos.avisoPacienteJaCadastrado();
+            
         }else{
             
         
@@ -416,7 +424,7 @@ public class frmPaciente extends javax.swing.JFrame {
         paciente.setRua(txtEndereco.getText().trim());
         paciente.setNumero(txtNumero.getText().trim());
         paciente.setBairro(txtBairro.getText().trim());
-        paciente.setEstado(txtEstado.getText().trim());
+        paciente.setEstado(txtEstado.getSelectedItem().toString());
         paciente.setCidade(txtCidade.getText().trim());
         paciente.setTelefone(txtTelefone.getText().trim());
         paciente.setCelular(txtCelular.getText().trim());
@@ -425,8 +433,9 @@ public class frmPaciente extends javax.swing.JFrame {
   
         PacienteDAO pacienteDAO = new PacienteDAO();
         pacienteDAO.cadastrarPaciente(paciente);
-        JOptionPane.showMessageDialog(null,"Paciente Cadastrado com sucesso !","Cadastro de Cliente",
-                JOptionPane.INFORMATION_MESSAGE);
+        
+        telaAvisos avisos = new telaAvisos();
+        avisos.PacienteCadastrado();
         
         frmPesquisarPaciente pes = new frmPesquisarPaciente();
         
@@ -502,7 +511,7 @@ public class frmPaciente extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField txtDataDeNascimento;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtEndereco;
-    private javax.swing.JFormattedTextField txtEstado;
+    private javax.swing.JComboBox<String> txtEstado;
     private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtNumero;
     private javax.swing.JFormattedTextField txtTelefone;

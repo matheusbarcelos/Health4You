@@ -8,17 +8,16 @@ import entidade.Usuario;
 import persistencia.UsuarioDAO;
 import java.awt.Color;
 import java.awt.Graphics;
-import java.sql.ResultSet;
 import javax.swing.JComponent;
 import javax.swing.JOptionPane;
 import javax.swing.plaf.basic.BasicMenuBarUI;
-import persistencia.BaseDeDados;
 
 /**
  *
  * @author ma-th
  */
 public class frmTelaPrincipal extends javax.swing.JFrame {
+
     /**
      * Creates new form frmTelaPrincipal
      */
@@ -26,10 +25,11 @@ public class frmTelaPrincipal extends javax.swing.JFrame {
         initComponents();
         lblHelpPrincipal.setText("<html><u>Precisa de Ajuda?</u></html>");
         lblNomeUsuario.setText(user);
+              
         
     }
 
-    frmTelaPrincipal() {
+    private frmTelaPrincipal() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -72,6 +72,8 @@ public class frmTelaPrincipal extends javax.swing.JFrame {
         mnuClientes = new javax.swing.JMenuItem();
         mnuServicos = new javax.swing.JMenuItem();
         mnuRelatorio = new javax.swing.JMenu();
+        btnConsultasAgendadas = new javax.swing.JMenuItem();
+        btnPacientesCadastrados = new javax.swing.JMenuItem();
         mnuConfiguracoes = new javax.swing.JMenu();
         mnuCadastroUsuario = new javax.swing.JMenuItem();
         mnuSobre = new javax.swing.JMenuItem();
@@ -89,7 +91,7 @@ public class frmTelaPrincipal extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Desenvolvido por Health Solutions");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(940, 1060, 164, 15);
+        jLabel4.setBounds(940, 1060, 181, 16);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setMinimumSize(new java.awt.Dimension(1080, 1920));
@@ -105,7 +107,7 @@ public class frmTelaPrincipal extends javax.swing.JFrame {
         jLabel2.setText("Desenvolvido por");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 600, -1, -1));
 
-        lblNomeUsuario.setFont(new java.awt.Font("Open Sans", 2, 14)); // NOI18N
+        lblNomeUsuario.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lblNomeUsuario.setForeground(new java.awt.Color(0, 73, 125));
         lblNomeUsuario.setText("Nome da Pessoa");
         jPanel1.add(lblNomeUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 40, -1, -1));
@@ -116,32 +118,40 @@ public class frmTelaPrincipal extends javax.swing.JFrame {
         jSeparator1.setAlignmentY(2.0F);
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 1280, 20));
 
-        jLabel5.setFont(new java.awt.Font("Open Sans", 2, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 73, 125));
         jLabel5.setText("Acesso Rápido");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
 
-        lblWelcome.setFont(new java.awt.Font("Open Sans", 2, 14)); // NOI18N
+        lblWelcome.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lblWelcome.setForeground(new java.awt.Color(0, 73, 125));
         lblWelcome.setText("Seja bem-vindo, ");
-        jPanel1.add(lblWelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 40, -1, -1));
+        jPanel1.add(lblWelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 40, -1, -1));
         jPanel1.add(filler1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, -1, -1));
 
         iconProfille.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/doctor profile teste.png"))); // NOI18N
         jPanel1.add(iconProfille, new org.netbeans.lib.awtextra.AbsoluteConstraints(1230, 20, 70, 70));
 
         btnConsultaAgendada.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/icon 1 principal.png"))); // NOI18N
+        btnConsultaAgendada.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnConsultaAgendada.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnConsultaAgendadaMouseClicked(evt);
             }
         });
-        jPanel1.add(btnConsultaAgendada, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
+        jPanel1.add(btnConsultaAgendada, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
 
         btnHelpPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/icon 6 principal.png"))); // NOI18N
+        btnHelpPrincipal.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnHelpPrincipal.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnHelpPrincipalMouseClicked(evt);
+            }
+        });
         jPanel1.add(btnHelpPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 520, -1, -1));
 
         btnCadastroUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/icon 3 - cadastro de serviços.png"))); // NOI18N
+        btnCadastroUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCadastroUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnCadastroUsuarioMouseClicked(evt);
@@ -150,7 +160,7 @@ public class frmTelaPrincipal extends javax.swing.JFrame {
         jPanel1.add(btnCadastroUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 130, -1, -1));
 
         lblConsultaAgendada.setBackground(new java.awt.Color(0, 73, 125));
-        lblConsultaAgendada.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
+        lblConsultaAgendada.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lblConsultaAgendada.setForeground(new java.awt.Color(0, 73, 125));
         lblConsultaAgendada.setText("Consultas Agendadas");
         lblConsultaAgendada.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -161,7 +171,7 @@ public class frmTelaPrincipal extends javax.swing.JFrame {
         jPanel1.add(lblConsultaAgendada, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, -1, -1));
 
         lblCadastroPaciente.setBackground(new java.awt.Color(0, 73, 125));
-        lblCadastroPaciente.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
+        lblCadastroPaciente.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lblCadastroPaciente.setForeground(new java.awt.Color(0, 73, 125));
         lblCadastroPaciente.setText("Cadastro de Pacientes");
         lblCadastroPaciente.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -175,10 +185,21 @@ public class frmTelaPrincipal extends javax.swing.JFrame {
         lblHelpPrincipal.setFont(new java.awt.Font("Open Sans", 2, 14)); // NOI18N
         lblHelpPrincipal.setForeground(new java.awt.Color(0, 73, 125));
         lblHelpPrincipal.setText("Precida de ajuda?");
+        lblHelpPrincipal.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblHelpPrincipalMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblHelpPrincipalMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblHelpPrincipalMouseExited(evt);
+            }
+        });
         jPanel1.add(lblHelpPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 600, -1, 20));
 
         lblCadastroUsuario.setBackground(new java.awt.Color(0, 73, 125));
-        lblCadastroUsuario.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
+        lblCadastroUsuario.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lblCadastroUsuario.setForeground(new java.awt.Color(0, 73, 125));
         lblCadastroUsuario.setText("Cadastro de Serviços");
         lblCadastroUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -189,12 +210,13 @@ public class frmTelaPrincipal extends javax.swing.JFrame {
         jPanel1.add(lblCadastroUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 320, -1, -1));
 
         lblRelatorioConsulta.setBackground(new java.awt.Color(0, 73, 125));
-        lblRelatorioConsulta.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
+        lblRelatorioConsulta.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lblRelatorioConsulta.setForeground(new java.awt.Color(0, 73, 125));
         lblRelatorioConsulta.setText("Relatório de Consultas");
         jPanel1.add(lblRelatorioConsulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 320, -1, -1));
 
         btnCadastroPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/icon 2 principal.png"))); // NOI18N
+        btnCadastroPaciente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCadastroPaciente.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnCadastroPacienteMouseClicked(evt);
@@ -203,29 +225,48 @@ public class frmTelaPrincipal extends javax.swing.JFrame {
         jPanel1.add(btnCadastroPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 130, -1, -1));
 
         lblRelatorioPaciente.setBackground(new java.awt.Color(0, 73, 125));
-        lblRelatorioPaciente.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
+        lblRelatorioPaciente.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lblRelatorioPaciente.setForeground(new java.awt.Color(0, 73, 125));
         lblRelatorioPaciente.setText("Relatório de Pacientes");
         jPanel1.add(lblRelatorioPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 320, -1, -1));
 
         btnRelatorioConsulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/icon 4 principal.png"))); // NOI18N
+        btnRelatorioConsulta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRelatorioConsulta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnRelatorioConsultaMouseClicked(evt);
+            }
+        });
         jPanel1.add(btnRelatorioConsulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 130, -1, -1));
 
         lblSair.setFont(new java.awt.Font("Open Sans", 1, 24)); // NOI18N
         lblSair.setForeground(new java.awt.Color(0, 73, 125));
         lblSair.setText("X");
+        lblSair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblSair.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblSairMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblSairMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblSairMouseExited(evt);
             }
         });
         jPanel1.add(lblSair, new org.netbeans.lib.awtextra.AbsoluteConstraints(1340, 0, -1, -1));
 
         btnRelatorioPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/icon 5 principal.png"))); // NOI18N
+        btnRelatorioPaciente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRelatorioPaciente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnRelatorioPacienteMouseClicked(evt);
+            }
+        });
         jPanel1.add(btnRelatorioPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 130, -1, -1));
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 1370, 720);
+        jPanel1.setBounds(0, 0, 1370, 750);
 
         jLabel15.setText("jLabel15");
         getContentPane().add(jLabel15);
@@ -239,6 +280,7 @@ public class frmTelaPrincipal extends javax.swing.JFrame {
         mnuAgendamento.setBackground(new java.awt.Color(0, 155, 219));
         mnuAgendamento.setForeground(new java.awt.Color(255, 255, 255));
         mnuAgendamento.setText("Agendamento");
+        mnuAgendamento.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         mnuAgendamento.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
         mnuAgendamento.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -255,12 +297,14 @@ public class frmTelaPrincipal extends javax.swing.JFrame {
         mnuCadastros.setBackground(new java.awt.Color(0, 155, 219));
         mnuCadastros.setForeground(new java.awt.Color(255, 255, 255));
         mnuCadastros.setText("Cadastros");
+        mnuCadastros.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         mnuCadastros.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
 
         mnuClientes.setBackground(new java.awt.Color(0, 155, 219));
-        mnuClientes.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
+        mnuClientes.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         mnuClientes.setForeground(new java.awt.Color(255, 255, 255));
         mnuClientes.setText("Pacientes");
+        mnuClientes.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         mnuClientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mnuClientesActionPerformed(evt);
@@ -269,9 +313,10 @@ public class frmTelaPrincipal extends javax.swing.JFrame {
         mnuCadastros.add(mnuClientes);
 
         mnuServicos.setBackground(new java.awt.Color(0, 155, 219));
-        mnuServicos.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
+        mnuServicos.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         mnuServicos.setForeground(new java.awt.Color(255, 255, 255));
         mnuServicos.setText("Serviços");
+        mnuServicos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         mnuServicos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mnuServicosActionPerformed(evt);
@@ -284,13 +329,38 @@ public class frmTelaPrincipal extends javax.swing.JFrame {
         mnuRelatorio.setBackground(new java.awt.Color(0, 155, 219));
         mnuRelatorio.setForeground(new java.awt.Color(255, 255, 255));
         mnuRelatorio.setText("Relatórios");
-        mnuRelatorio.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
+        mnuRelatorio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        mnuRelatorio.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+
+        btnConsultasAgendadas.setBackground(new java.awt.Color(0, 155, 219));
+        btnConsultasAgendadas.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
+        btnConsultasAgendadas.setForeground(new java.awt.Color(255, 255, 255));
+        btnConsultasAgendadas.setText("Consultas Agendadas");
+        btnConsultasAgendadas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultasAgendadasActionPerformed(evt);
+            }
+        });
+        mnuRelatorio.add(btnConsultasAgendadas);
+
+        btnPacientesCadastrados.setBackground(new java.awt.Color(0, 155, 219));
+        btnPacientesCadastrados.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
+        btnPacientesCadastrados.setForeground(new java.awt.Color(255, 255, 255));
+        btnPacientesCadastrados.setText("Pacientes Cadastrados");
+        btnPacientesCadastrados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPacientesCadastradosActionPerformed(evt);
+            }
+        });
+        mnuRelatorio.add(btnPacientesCadastrados);
+
         menuPrincipal.add(mnuRelatorio);
 
         mnuConfiguracoes.setBackground(new java.awt.Color(0, 155, 219));
         mnuConfiguracoes.setForeground(new java.awt.Color(255, 255, 255));
         mnuConfiguracoes.setText("Configurações");
-        mnuConfiguracoes.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
+        mnuConfiguracoes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        mnuConfiguracoes.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
 
         mnuCadastroUsuario.setBackground(new java.awt.Color(0, 155, 219));
         mnuCadastroUsuario.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
@@ -320,6 +390,7 @@ public class frmTelaPrincipal extends javax.swing.JFrame {
         mnuSair.setBorder(null);
         mnuSair.setForeground(new java.awt.Color(255, 255, 255));
         mnuSair.setText("Sair");
+        mnuSair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         mnuSair.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
         mnuSair.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -360,8 +431,7 @@ public class frmTelaPrincipal extends javax.swing.JFrame {
 
     private void mnuCadastroUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuCadastroUsuarioActionPerformed
         // TODO add your handling code here:
-        new frmPesquisaUsuario().setVisible(true);     
-        
+        new frmPesquisaUsuario().setVisible(true);
     }//GEN-LAST:event_mnuCadastroUsuarioActionPerformed
 
     private void mnuSobreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuSobreActionPerformed
@@ -417,6 +487,63 @@ public class frmTelaPrincipal extends javax.swing.JFrame {
         sair.setVisible(true);
     }//GEN-LAST:event_lblSairMouseClicked
 
+    private void btnPacientesCadastradosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPacientesCadastradosActionPerformed
+        // TODO add your handling code here:
+        relConsultasAgendadas rel = new relConsultasAgendadas();
+        rel.exibeRelatorioClientes();
+    }//GEN-LAST:event_btnPacientesCadastradosActionPerformed
+
+    private void btnConsultasAgendadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultasAgendadasActionPerformed
+        // TODO add your handling code here:
+        
+        relConsultasAgendadas rel = new relConsultasAgendadas();
+        rel.exibeRelatorio();
+    }//GEN-LAST:event_btnConsultasAgendadasActionPerformed
+
+    private void lblSairMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSairMouseEntered
+        // TODO add your handling code here:
+        lblSair.setForeground(new Color(0, 155, 219));
+    }//GEN-LAST:event_lblSairMouseEntered
+
+    private void lblSairMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSairMouseExited
+        // TODO add your handling code here:
+        lblSair.setForeground(new Color(0, 73, 125));
+    }//GEN-LAST:event_lblSairMouseExited
+
+    private void lblHelpPrincipalMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblHelpPrincipalMouseEntered
+        // TODO add your handling code here:
+        lblHelpPrincipal.setForeground(new Color(0, 155, 219));
+    }//GEN-LAST:event_lblHelpPrincipalMouseEntered
+
+    private void lblHelpPrincipalMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblHelpPrincipalMouseExited
+        // TODO add your handling code here:
+        lblHelpPrincipal.setForeground(new Color(0, 73, 125));
+    }//GEN-LAST:event_lblHelpPrincipalMouseExited
+
+    private void btnRelatorioConsultaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRelatorioConsultaMouseClicked
+        // TODO add your handling code here:
+         relConsultasAgendadas rel = new relConsultasAgendadas();
+        rel.exibeRelatorio();
+    }//GEN-LAST:event_btnRelatorioConsultaMouseClicked
+
+    private void btnRelatorioPacienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRelatorioPacienteMouseClicked
+        // TODO add your handling code here:
+        relConsultasAgendadas rel = new relConsultasAgendadas();
+        rel.exibeRelatorioClientes();
+    }//GEN-LAST:event_btnRelatorioPacienteMouseClicked
+
+    private void lblHelpPrincipalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblHelpPrincipalMouseClicked
+        // TODO add your handling code here:
+        telaAjuda ajuda = new telaAjuda();
+        ajuda.setVisible(true);
+    }//GEN-LAST:event_lblHelpPrincipalMouseClicked
+
+    private void btnHelpPrincipalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnHelpPrincipalMouseClicked
+        // TODO add your handling code here:
+        telaAjuda ajuda = new telaAjuda();
+        ajuda.setVisible(true);
+    }//GEN-LAST:event_btnHelpPrincipalMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -452,11 +579,14 @@ public class frmTelaPrincipal extends javax.swing.JFrame {
         });
     }
 
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel btnCadastroPaciente;
     private javax.swing.JLabel btnCadastroUsuario;
     private javax.swing.JLabel btnConsultaAgendada;
+    private javax.swing.JMenuItem btnConsultasAgendadas;
     private javax.swing.JLabel btnHelpPrincipal;
+    private javax.swing.JMenuItem btnPacientesCadastrados;
     private javax.swing.JLabel btnRelatorioConsulta;
     private javax.swing.JLabel btnRelatorioPaciente;
     private javax.swing.Box.Filler filler1;

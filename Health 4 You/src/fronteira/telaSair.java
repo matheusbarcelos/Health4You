@@ -5,6 +5,8 @@
  */
 package fronteira;
 
+import java.awt.Color;
+
 /**
  *
  * @author joao-
@@ -47,26 +49,42 @@ public class telaSair extends javax.swing.JFrame {
         lblSair.setFont(new java.awt.Font("Open Sans", 1, 18)); // NOI18N
         lblSair.setForeground(new java.awt.Color(255, 255, 255));
         lblSair.setText("X");
+        lblSair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblSair.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblSairMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblSairMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblSairMouseExited(evt);
+            }
         });
 
-        jLabel2.setFont(new java.awt.Font("Open Sans", 1, 28)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 28)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("SAIR?!");
 
-        jLabel3.setFont(new java.awt.Font("Open Sans", 1, 28)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 28)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("DESEJA REALMENTE");
 
         btnVoltar.setBackground(new java.awt.Color(0, 155, 219));
-        btnVoltar.setFont(new java.awt.Font("Open Sans", 0, 13)); // NOI18N
+        btnVoltar.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
         btnVoltar.setForeground(new java.awt.Color(255, 255, 255));
         btnVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/Entrar IMG - Sistema.png"))); // NOI18N
         btnVoltar.setText("Não, quero ficar.");
         btnVoltar.setBorder(null);
+        btnVoltar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnVoltar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnVoltarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnVoltarMouseExited(evt);
+            }
+        });
         btnVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVoltarActionPerformed(evt);
@@ -74,11 +92,20 @@ public class telaSair extends javax.swing.JFrame {
         });
 
         btnSair.setBackground(new java.awt.Color(0, 155, 219));
-        btnSair.setFont(new java.awt.Font("Open Sans", 0, 13)); // NOI18N
+        btnSair.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
         btnSair.setForeground(new java.awt.Color(255, 255, 255));
         btnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/Cancelar IMG - Sistema.png"))); // NOI18N
         btnSair.setText("Sim, desejo sair.");
         btnSair.setBorder(null);
+        btnSair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSair.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnSairMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnSairMouseExited(evt);
+            }
+        });
         btnSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSairActionPerformed(evt);
@@ -140,7 +167,7 @@ public class telaSair extends javax.swing.JFrame {
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
         // TODO add your handling code here:
-        this.setVisible(false);
+        dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
@@ -149,8 +176,38 @@ public class telaSair extends javax.swing.JFrame {
 
     private void lblSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSairMouseClicked
         // TODO add your handling code here:
-        this.setVisible(false);
+        dispose();
     }//GEN-LAST:event_lblSairMouseClicked
+
+    private void btnSairMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSairMouseEntered
+        // TODO add your handling code here:
+        btnSair.setForeground(new Color(0, 73, 125));
+    }//GEN-LAST:event_btnSairMouseEntered
+
+    private void btnSairMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSairMouseExited
+        // TODO add your handling code here:
+        btnSair.setForeground(Color.WHITE);
+    }//GEN-LAST:event_btnSairMouseExited
+
+    private void btnVoltarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVoltarMouseEntered
+        // TODO add your handling code here:
+        btnVoltar.setForeground(new Color(0, 73, 125));
+    }//GEN-LAST:event_btnVoltarMouseEntered
+
+    private void btnVoltarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVoltarMouseExited
+        // TODO add your handling code here:
+        btnVoltar.setForeground(Color.WHITE);
+    }//GEN-LAST:event_btnVoltarMouseExited
+
+    private void lblSairMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSairMouseEntered
+        // TODO add your handling code here:
+        lblSair.setForeground(new Color(0, 155, 219));
+    }//GEN-LAST:event_lblSairMouseEntered
+
+    private void lblSairMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSairMouseExited
+        // TODO add your handling code here:
+        lblSair.setForeground(Color.WHITE);
+    }//GEN-LAST:event_lblSairMouseExited
 
     /**
      * @param args the command line arguments

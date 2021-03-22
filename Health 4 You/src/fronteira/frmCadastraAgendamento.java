@@ -9,9 +9,12 @@ import persistencia.AgendamentoDAO;
 import entidade.Agendamento;
 import entidade.Paciente;
 import entidade.Servico;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
@@ -57,6 +60,8 @@ public class frmCadastraAgendamento extends javax.swing.JFrame {
     public frmCadastraAgendamento() {
         initComponents();
         txtData.setCalendar(null);
+        listarServicos();
+        listarPacientes();
     }
 
     /**
@@ -120,11 +125,11 @@ public class frmCadastraAgendamento extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(0, 73, 125));
         jLabel2.setText("CADASTRO DE AGENDAMENTO");
 
-        jLabel3.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 73, 125));
         jLabel3.setText("Serviço:");
 
-        jLabel4.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 73, 125));
         jLabel4.setText("Horário:");
 
@@ -132,7 +137,7 @@ public class frmCadastraAgendamento extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(0, 73, 125));
         jLabel5.setText("Data:");
 
-        txtPesquisaPaciente.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
+        txtPesquisaPaciente.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         txtPesquisaPaciente.setForeground(new java.awt.Color(0, 73, 125));
         txtPesquisaPaciente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219), 2));
         txtPesquisaPaciente.setCaretColor(new java.awt.Color(0, 73, 125));
@@ -142,7 +147,7 @@ public class frmCadastraAgendamento extends javax.swing.JFrame {
         btnNovoCliente.setForeground(new java.awt.Color(255, 255, 255));
         btnNovoCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/Inserir.png"))); // NOI18N
         btnNovoCliente.setText("Novo Paciente");
-        btnNovoCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219)));
+        btnNovoCliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnNovoCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNovoClienteActionPerformed(evt);
@@ -154,7 +159,7 @@ public class frmCadastraAgendamento extends javax.swing.JFrame {
         btnPesquisarPaciente.setForeground(new java.awt.Color(255, 255, 255));
         btnPesquisarPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/Pesquisar.png"))); // NOI18N
         btnPesquisarPaciente.setText("Pesquisar Paciente");
-        btnPesquisarPaciente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219)));
+        btnPesquisarPaciente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnPesquisarPaciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPesquisarPacienteActionPerformed(evt);
@@ -166,7 +171,7 @@ public class frmCadastraAgendamento extends javax.swing.JFrame {
         btnPesquisarServico.setForeground(new java.awt.Color(255, 255, 255));
         btnPesquisarServico.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/Pesquisar.png"))); // NOI18N
         btnPesquisarServico.setText("Pesquisar Serviço");
-        btnPesquisarServico.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219)));
+        btnPesquisarServico.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnPesquisarServico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPesquisarServicoActionPerformed(evt);
@@ -178,19 +183,19 @@ public class frmCadastraAgendamento extends javax.swing.JFrame {
         btnNovoServico.setForeground(new java.awt.Color(255, 255, 255));
         btnNovoServico.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/Inserir.png"))); // NOI18N
         btnNovoServico.setText("Novo Serviço");
-        btnNovoServico.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219)));
+        btnNovoServico.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnNovoServico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNovoServicoActionPerformed(evt);
             }
         });
 
-        txtPesquisaServicos.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
+        txtPesquisaServicos.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         txtPesquisaServicos.setForeground(new java.awt.Color(0, 73, 125));
         txtPesquisaServicos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219), 2));
         txtPesquisaServicos.setCaretColor(new java.awt.Color(0, 73, 125));
 
-        tblServico.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
+        tblServico.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         tblServico.setModel(tmServicos);
         tblServico.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         lsmServicos = tblServico.getSelectionModel();
@@ -204,7 +209,7 @@ public class frmCadastraAgendamento extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tblServico);
 
-        tblPaciente.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
+        tblPaciente.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         tblPaciente.setModel(tmPacientes);
         tblPaciente.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         lsmPacientes = tblPaciente.getSelectionModel();
@@ -223,7 +228,7 @@ public class frmCadastraAgendamento extends javax.swing.JFrame {
         btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
         btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/Cancelar IMG - Sistema.png"))); // NOI18N
         btnCancelar.setText("Cancelar");
-        btnCancelar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219)));
+        btnCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelarActionPerformed(evt);
@@ -235,7 +240,7 @@ public class frmCadastraAgendamento extends javax.swing.JFrame {
         btnCadastrar.setForeground(new java.awt.Color(255, 255, 255));
         btnCadastrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/Salvar.png"))); // NOI18N
         btnCadastrar.setText("Cadastrar");
-        btnCadastrar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219)));
+        btnCadastrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCadastrarActionPerformed(evt);
@@ -259,6 +264,7 @@ public class frmCadastraAgendamento extends javax.swing.JFrame {
         lblSair.setFont(new java.awt.Font("Open Sans", 1, 18)); // NOI18N
         lblSair.setForeground(new java.awt.Color(0, 73, 125));
         lblSair.setText("X");
+        lblSair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblSair.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblSairMouseClicked(evt);
@@ -349,7 +355,7 @@ public class frmCadastraAgendamento extends javax.swing.JFrame {
                     .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtData, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtData, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
                     .addComponent(txtHorario, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -364,17 +370,15 @@ public class frmCadastraAgendamento extends javax.swing.JFrame {
 
     private void btnNovoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoClienteActionPerformed
         // TODO add your handling code here:
-        new frmPaciente().setVisible(true);
-        frmPesquisarPaciente pe =  new frmPesquisarPaciente();
-        pe.setVisible(false);
-        
+        new frmPacienteAgendamento().setVisible(true);
+        dispose();
+  
     }//GEN-LAST:event_btnNovoClienteActionPerformed
 
     private void btnNovoServicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoServicoActionPerformed
         // TODO add your handling code here:
-        new frmCadastraServico().setVisible(true);
-        frmPesquisaServico pe = new frmPesquisaServico();
-        pe.setVisible(false);
+        new frmServicoAgendamento().setVisible(true);
+        dispose();
     }//GEN-LAST:event_btnNovoServicoActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
@@ -399,6 +403,8 @@ public class frmCadastraAgendamento extends javax.swing.JFrame {
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
         // TODO add your handling code here:
         cadastrarAgendamento();
+        
+        
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     private void lblSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSairMouseClicked
@@ -449,28 +455,28 @@ public class frmCadastraAgendamento extends javax.swing.JFrame {
         
         if(txtNomePaciente.getText().isEmpty()){
             
-            JOptionPane.showMessageDialog(null,"Você precisa selecionar um nome para agendamento","Selecionar Nome",
-                    JOptionPane.INFORMATION_MESSAGE);
+            telaAvisos avisos = new telaAvisos();
+            avisos.selecionaNomeAgendamento();
         }
         
         else if(txtNomeServico.getText().isEmpty()){
             
-            JOptionPane.showMessageDialog(null,"Você precisa selecionar um serviço para agendamento","Selecionar Serviço",
-                    JOptionPane.INFORMATION_MESSAGE);
+            telaAvisos avisos = new telaAvisos();
+            avisos.selecionaServicoAgendamento();
         }
         
         else if(txtHorario.getText().equals("  :   horas")){
             
-            JOptionPane.showMessageDialog(null,"Você precisa selecionar um horário para agendamento","Selecionar Horário",
-                    JOptionPane.INFORMATION_MESSAGE);
+            telaAvisos avisos = new telaAvisos();
+            avisos.selecionaHoraAgendamento();
         }
         
         else if(txtData.getCalendar()==null){
           
-            JOptionPane.showMessageDialog(null,"Você precisa selecionar uma data para agendamento","Selecionar Data",
-                    JOptionPane.INFORMATION_MESSAGE);
+            telaAvisos avisos = new telaAvisos();
+            avisos.selecionaHoraAgendamento();
             
-        }else{
+        }else {
         
         Date data = txtData.getDate();
         SimpleDateFormat formatador = new SimpleDateFormat("yyyy/MM/dd");
@@ -484,12 +490,12 @@ public class frmCadastraAgendamento extends javax.swing.JFrame {
         boolean resposta = verificarDAO.verificaAgendamento(hora, date);
         
         if(resposta == true){    
-           
-            JOptionPane.showMessageDialog(null,"Já existe um paciente marcado para esse dia e horário !","Cadastro de Agendamento",
-                JOptionPane.INFORMATION_MESSAGE);
-        
+            telaAvisos avisos = new telaAvisos();
+            avisos.agendamentoJaCadastrado();
+            
       
-        }else{
+        }else if(resposta == false){
+         
             
         Agendamento agendamento = new  Agendamento();
         
@@ -498,12 +504,10 @@ public class frmCadastraAgendamento extends javax.swing.JFrame {
         agendamento.setServico(txtNomeServico.getText().trim());
         agendamento.setValor(txtValorServico.getText().trim());
         agendamento.setHorario(txtHorario.getText().trim());
-        agendamento.setData((txtData.getDateFormatString()).format(novaData));
+        agendamento.setData(txtData.getDate());
         
         AgendamentoDAO agendamentoDAO = new AgendamentoDAO();
         agendamentoDAO.cadastrarAgendamento(agendamento);
-        JOptionPane.showMessageDialog(null,"Agendamento Cadastrado com sucesso !","Cadastro de Agendamento",
-                JOptionPane.INFORMATION_MESSAGE);
         
         frmAgendamento pes = new frmAgendamento();
         
@@ -515,6 +519,9 @@ public class frmCadastraAgendamento extends javax.swing.JFrame {
         pes.listarAgendamentos();
         dispose();
         pes.setVisible(true);
+        
+        telaAvisos avisos = new telaAvisos();
+        avisos.agendamentoCadastrado();
         }
 }
     }
@@ -525,7 +532,8 @@ public class frmCadastraAgendamento extends javax.swing.JFrame {
             tmServicos.removeRow(0);
         }
         if(servicos.size() == 0){
-            JOptionPane.showMessageDialog(this, "Nenhum Serviço foi encontrado!");
+            telaAvisos avisos = new telaAvisos();
+            avisos.naoEncontraServico();
         }else{
             
             for (int i = 0; i < servicos.size(); i++){
@@ -553,7 +561,8 @@ public class frmCadastraAgendamento extends javax.swing.JFrame {
             tmPacientes.removeRow(0);
         }
         if(pacientes.size() == 0){
-            JOptionPane.showMessageDialog(this, "Nenhum Paciente foi encontrado!");
+            telaAvisos avisos = new telaAvisos();
+            avisos.naoEncontraPaciente();
         }else{
             
             for (int i = 0; i < pacientes.size(); i++){

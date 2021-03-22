@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relatorioPacientes" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4712fca8-eaaa-4fed-bad4-68f2eaeab22e">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     paciente.`CODIGO` AS paciente_CODIGO,
+     paciente.`NOME` AS paciente_NOME,
+     paciente.`TELEFONE` AS paciente_TELEFONE,
+     paciente.`CELULAR` AS paciente_CELULAR,
+     paciente.`CPF` AS paciente_CPF
+FROM
+     `paciente` paciente]]>
+	</queryString>
+	<field name="paciente_CODIGO" class="java.lang.Integer"/>
+	<field name="paciente_NOME" class="java.lang.String"/>
+	<field name="paciente_TELEFONE" class="java.lang.String"/>
+	<field name="paciente_CELULAR" class="java.lang.String"/>
+	<field name="paciente_CPF" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="47" splitType="Stretch">
+			<staticText>
+				<reportElement x="130" y="12" width="337" height="35" uuid="66349878-4c49-4b57-919b-a66a6a16ea1c"/>
+				<textElement>
+					<font fontName="Arial" size="26" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Pacientes Cadastrados]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="27" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="7" width="50" height="20" uuid="d1103605-9b03-4436-a70c-16da7e50e22e"/>
+				<textElement>
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Código]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="61" y="7" width="100" height="20" uuid="2f025ffe-93eb-4832-845c-9ad08f2fbf93"/>
+				<textElement>
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nome ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="173" y="7" width="100" height="20" uuid="1872d4d5-6026-49ce-99db-8edae506e191"/>
+				<textElement>
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CPF]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="288" y="7" width="100" height="20" uuid="183551d7-01ed-430c-a6a3-2acf6055b03d"/>
+				<textElement>
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Telefone]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="411" y="7" width="100" height="20" uuid="d5f7ba46-ad66-45dd-a8bd-732acd01140c"/>
+				<textElement>
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Celular]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="39" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="50" height="20" uuid="ea646d1e-0174-4690-a633-cf8a760f16e5"/>
+				<textFieldExpression><![CDATA[$F{paciente_CODIGO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="61" y="0" width="100" height="20" uuid="979befc5-2bb9-4e78-b56d-69b86819c732"/>
+				<textFieldExpression><![CDATA[$F{paciente_NOME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="173" y="0" width="100" height="20" uuid="f6e73480-d4c8-45c0-942e-6846f4bf6318"/>
+				<textFieldExpression><![CDATA[$F{paciente_CPF}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="288" y="0" width="100" height="20" uuid="dd14e7a2-a41e-4aeb-8603-d8f572ac7bb5"/>
+				<textFieldExpression><![CDATA[$F{paciente_TELEFONE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="411" y="0" width="100" height="20" uuid="68fc5213-4120-43e7-bec2-f6e7a550701a"/>
+				<textFieldExpression><![CDATA[$F{paciente_CELULAR}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="455" y="34" width="100" height="20" uuid="94784c6f-dd68-40e4-8942-2aea23f60e80"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

@@ -33,7 +33,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" pref="239" max="-2" attributes="0"/>
+                      <Component id="jLabel1" min="-2" pref="290" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="lblSair" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -77,12 +77,10 @@
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="jLabel10" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtEstadoAlterar" alignment="0" pref="59" max="32767" attributes="0"/>
-                                      <Component id="txtNumeroAlterar" alignment="0" max="32767" attributes="0"/>
-                                  </Group>
+                                  <Component id="jLabel10" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtNumeroAlterar" alignment="0" min="-2" pref="59" max="-2" attributes="0"/>
                                   <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtEstadoAlterar" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -152,9 +150,9 @@
                   <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="txtEstadoAlterar" pref="27" max="32767" attributes="0"/>
-                  <Component id="txtCidadeAlterar" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="txtCidadeAlterar" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                  <Component id="txtEstadoAlterar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -184,7 +182,7 @@
     <Component class="javax.swing.JTextField" name="txtCidadeAlterar">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Open Sans" size="12" style="0"/>
+          <Font name="Arial" size="12" style="0"/>
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="7d" green="49" red="0" type="rgb"/>
@@ -244,7 +242,7 @@
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Open Sans" size="24" style="1"/>
+          <Font name="Arial" size="24" style="1"/>
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="7d" green="49" red="0" type="rgb"/>
@@ -299,7 +297,7 @@
     <Component class="javax.swing.JTextField" name="txtEmailAlterar">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Open Sans" size="11" style="0"/>
+          <Font name="Arial" size="11" style="0"/>
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="7d" green="49" red="0" type="rgb"/>
@@ -331,12 +329,8 @@
           <Image iconType="3" name="/fronteira/imgs/Cancelar IMG - Sistema.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Cancelar"/>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-            <LineBorder>
-              <Color PropertyName="color" blue="db" green="9b" red="0" type="rgb"/>
-            </LineBorder>
-          </Border>
+        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+          <Color id="Cursor em Forma de M&#xe3;o"/>
         </Property>
       </Properties>
       <Events>
@@ -357,7 +351,7 @@
     <Component class="javax.swing.JTextField" name="txtBairroAlterar">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Open Sans" size="12" style="0"/>
+          <Font name="Arial" size="12" style="0"/>
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="7d" green="49" red="0" type="rgb"/>
@@ -410,32 +404,6 @@
         <Property name="text" type="java.lang.String" value="Telefone:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtEstadoAlterar">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Open Sans" size="12" style="0"/>
-        </Property>
-        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="7d" green="49" red="0" type="rgb"/>
-        </Property>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-            <LineBorder thickness="2">
-              <Color PropertyName="color" blue="db" green="9b" red="0" type="rgb"/>
-            </LineBorder>
-          </Border>
-        </Property>
-        <Property name="caretColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="7d" green="49" red="0" type="rgb"/>
-        </Property>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtEstadoAlterarActionPerformed"/>
-      </Events>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-      </AuxValues>
-    </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -450,7 +418,7 @@
     <Component class="javax.swing.JTextField" name="txtNomeAlterar">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Open Sans" size="12" style="0"/>
+          <Font name="Arial" size="12" style="0"/>
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="7d" green="49" red="0" type="rgb"/>
@@ -525,7 +493,7 @@
     <Component class="javax.swing.JTextField" name="txtEnderecoAlterar">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Open Sans" size="12" style="0"/>
+          <Font name="Arial" size="12" style="0"/>
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="7d" green="49" red="0" type="rgb"/>
@@ -548,7 +516,7 @@
     <Component class="javax.swing.JTextField" name="txtNumeroAlterar">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Open Sans" size="12" style="0"/>
+          <Font name="Arial" size="12" style="0"/>
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="7d" green="49" red="0" type="rgb"/>
@@ -591,12 +559,8 @@
           <Image iconType="3" name="/fronteira/imgs/Salvar.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Salvar"/>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-            <LineBorder>
-              <Color PropertyName="color" blue="db" green="9b" red="0" type="rgb"/>
-            </LineBorder>
-          </Border>
+        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+          <Color id="Cursor em Forma de M&#xe3;o"/>
         </Property>
       </Properties>
       <Events>
@@ -607,6 +571,9 @@
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Open Sans" size="11" style="0"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="7d" green="49" red="0" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="CPF:"/>
       </Properties>
@@ -628,10 +595,60 @@
           <Color blue="7d" green="49" red="0" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="X"/>
+        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+          <Color id="Cursor em Forma de M&#xe3;o"/>
+        </Property>
       </Properties>
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblSairMouseClicked"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="txtEstadoAlterar">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="7d" green="49" red="0" type="rgb"/>
+        </Property>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Open Sans" size="11" style="0"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="27">
+            <StringItem index="0" value="AC"/>
+            <StringItem index="1" value="AL"/>
+            <StringItem index="2" value="AP"/>
+            <StringItem index="3" value="AM"/>
+            <StringItem index="4" value="BA"/>
+            <StringItem index="5" value="CE"/>
+            <StringItem index="6" value="DF"/>
+            <StringItem index="7" value="ES"/>
+            <StringItem index="8" value="GO"/>
+            <StringItem index="9" value="MA"/>
+            <StringItem index="10" value="MT"/>
+            <StringItem index="11" value="MS"/>
+            <StringItem index="12" value="MG"/>
+            <StringItem index="13" value="PA"/>
+            <StringItem index="14" value="PB"/>
+            <StringItem index="15" value="PR"/>
+            <StringItem index="16" value="PE"/>
+            <StringItem index="17" value="PI"/>
+            <StringItem index="18" value="RJ"/>
+            <StringItem index="19" value="RN"/>
+            <StringItem index="20" value="RS"/>
+            <StringItem index="21" value="RO"/>
+            <StringItem index="22" value="RR"/>
+            <StringItem index="23" value="SC"/>
+            <StringItem index="24" value="SP"/>
+            <StringItem index="25" value="SE"/>
+            <StringItem index="26" value="TO"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>

@@ -20,34 +20,26 @@ import javax.swing.event.ListSelectionListener;
  * @author ma-th
  */
 public class frmPesquisarPaciente extends javax.swing.JFrame {
-  
- 
+
     frmAlterarPaciente enviar;
-    
-    private String[] colunas = new String[]{"Codigo","Nome",
-           "Endereço","Telefone"};
-    
-    private DefaultTableModel tmPacientes = new DefaultTableModel
-               (null, colunas);
-    
+
+    private String[] colunas = new String[]{"Codigo", "Nome",
+        "Endereço", "Telefone"};
+
+    private DefaultTableModel tmPacientes = new DefaultTableModel(null, colunas);
+
     public List<Paciente> listaPacientes;
-    private ListSelectionModel lsmPacientes; 
-    
-   
+    private ListSelectionModel lsmPacientes;
+
     /**
      * Creates new form frmPesquisarCliente
      */
     public frmPesquisarPaciente() {
         initComponents();
         listarPacientes();
-       
-        
-        
+
     }
 
-    
-    
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -118,14 +110,14 @@ public class frmPesquisarPaciente extends javax.swing.JFrame {
         btnPesquisar.setForeground(new java.awt.Color(255, 255, 255));
         btnPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/Pesquisar.png"))); // NOI18N
         btnPesquisar.setText("Pesquisar");
-        btnPesquisar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219)));
+        btnPesquisar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPesquisarActionPerformed(evt);
             }
         });
 
-        tblPaciente.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
+        tblPaciente.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         tblPaciente.setModel(tmPacientes);
         tblPaciente.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         lsmPacientes = tblPaciente.getSelectionModel();
@@ -145,11 +137,11 @@ public class frmPesquisarPaciente extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tblPaciente);
 
         btnInserir.setBackground(new java.awt.Color(0, 155, 219));
-        btnInserir.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
+        btnInserir.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         btnInserir.setForeground(new java.awt.Color(255, 255, 255));
         btnInserir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/Inserir.png"))); // NOI18N
         btnInserir.setText("Inserir");
-        btnInserir.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219)));
+        btnInserir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnInserir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnInserirActionPerformed(evt);
@@ -161,7 +153,7 @@ public class frmPesquisarPaciente extends javax.swing.JFrame {
         btnAlterar.setForeground(new java.awt.Color(255, 255, 255));
         btnAlterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/Atualizar.png"))); // NOI18N
         btnAlterar.setText("Alterar");
-        btnAlterar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219)));
+        btnAlterar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAlterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAlterarActionPerformed(evt);
@@ -173,7 +165,7 @@ public class frmPesquisarPaciente extends javax.swing.JFrame {
         btnExcluirPaciente.setForeground(new java.awt.Color(255, 255, 255));
         btnExcluirPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/Lixeira.png"))); // NOI18N
         btnExcluirPaciente.setText("Excluir");
-        btnExcluirPaciente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219)));
+        btnExcluirPaciente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnExcluirPaciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnExcluirPacienteActionPerformed(evt);
@@ -185,20 +177,21 @@ public class frmPesquisarPaciente extends javax.swing.JFrame {
         btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
         btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/Cancelar IMG - Sistema.png"))); // NOI18N
         btnCancelar.setText("Cancelar");
-        btnCancelar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219)));
+        btnCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelarActionPerformed(evt);
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Open Sans", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 73, 125));
         jLabel1.setText("PESQUISA DE PACIENTES");
 
         lblSair.setFont(new java.awt.Font("Open Sans", 1, 18)); // NOI18N
         lblSair.setForeground(new java.awt.Color(0, 73, 125));
         lblSair.setText("X");
+        lblSair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblSair.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblSairMouseClicked(evt);
@@ -239,7 +232,7 @@ public class frmPesquisarPaciente extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel1)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
@@ -264,17 +257,18 @@ public class frmPesquisarPaciente extends javax.swing.JFrame {
         dispose();
         frmPaciente cliente = new frmPaciente();
         cliente.setVisible(true);
-                
+
     }//GEN-LAST:event_btnInserirActionPerformed
     private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
 
-        if(txtNome.getText().isEmpty()){
-         JOptionPane.showMessageDialog(null,"Favor selecionar um paciente para alterar","Alterar Paciente",JOptionPane.INFORMATION_MESSAGE);
-        }else{
+        if (txtNome.getText().isEmpty()) {
+            telaAvisos avisos = new telaAvisos();
+            avisos.selecionePaciente();
+        } else {
             enviarAlteracaoPaciente();
             dispose();
         }
-        
+
     }//GEN-LAST:event_btnAlterarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
@@ -284,8 +278,8 @@ public class frmPesquisarPaciente extends javax.swing.JFrame {
 
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
         // TODO add your handling code here:
-        
-       listarPacientes();
+
+        listarPacientes();
     }//GEN-LAST:event_btnPesquisarActionPerformed
 
     private void btnExcluirPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirPacienteActionPerformed
@@ -296,12 +290,12 @@ public class frmPesquisarPaciente extends javax.swing.JFrame {
 
     private void tblPacienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblPacienteMouseClicked
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_tblPacienteMouseClicked
 
     private void lblSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSairMouseClicked
         // TODO add your handling code here:
-        this.setVisible(false);
+        this.dispose();
     }//GEN-LAST:event_lblSairMouseClicked
 
     /**
@@ -340,99 +334,95 @@ public class frmPesquisarPaciente extends javax.swing.JFrame {
         });
     }
 
-    
-      public void mostrarPacientes(List<Paciente> pacientes){
-        
-        while (tmPacientes.getRowCount() > 0){
+    public void mostrarPacientes(List<Paciente> pacientes) {
+
+        while (tmPacientes.getRowCount() > 0) {
             tmPacientes.removeRow(0);
         }
-        if(pacientes.size() == 0){
-            JOptionPane.showMessageDialog(this, "Nenhum Paciente foi encontrado!");
-        }else{
-            
-            for (int i = 0; i < pacientes.size(); i++){
+        if (pacientes.size() == 0) {
+            telaAvisos avisos = new telaAvisos();
+            avisos.naoEncontraPaciente();
+        } else {
+
+            for (int i = 0; i < pacientes.size(); i++) {
                 tmPacientes.addRow(colunas);
-                tmPacientes.setValueAt(pacientes.get(i).getCodigo(), i,0);
-                tmPacientes.setValueAt(pacientes.get(i).getNome(), i,1);
-                tmPacientes.setValueAt(pacientes.get(i).getRua(), i,2);
-                tmPacientes.setValueAt(pacientes.get(i).getTelefone(), i,3);
-                
+                tmPacientes.setValueAt(pacientes.get(i).getCodigo(), i, 0);
+                tmPacientes.setValueAt(pacientes.get(i).getNome(), i, 1);
+                tmPacientes.setValueAt(pacientes.get(i).getRua(), i, 2);
+                tmPacientes.setValueAt(pacientes.get(i).getTelefone(), i, 3);
+
             }
         }
     }
-      
-      public void listarPacientes(){
-        
-        PacienteDAO pacienteDAO =  new PacienteDAO();
-        listaPacientes = pacienteDAO.listarPacientes("%"
-             +txtPesquisaPaciente.getText().trim() + "%");
-        mostrarPacientes(listaPacientes);
-        
-    }
-      
-      public void exibePacientes(){
-          
-          frmAlterarPaciente alt = new frmAlterarPaciente();
-          PacienteDAO pacienteDAO =  new PacienteDAO();
-        listaPacientes = pacienteDAO.listarPacientes("%"
-             +alt.txtNomeAlterar.getText().trim() + "%");
-        mostrarPacientes(listaPacientes);
-      }
-    
-      
-     
-      
-      private void excluirPaciente(){
-        
-          if(txtNome.getText().isEmpty()){
-         JOptionPane.showMessageDialog(null,"Favor selecionar um paciente para excluir","Excluir Paciente",JOptionPane.INFORMATION_MESSAGE);
-        }else{
-          
-          int excluir;
-          
-          excluir = JOptionPane.showConfirmDialog(null,"Deseja excluir esse paciente ?","Excluir Paciente",0);
-          
-          if(excluir == 0){
-              
-        Paciente paciente = new Paciente();
-        paciente.setCodigo(listaPacientes.get(tblPaciente.getSelectedRow()).getCodigo());
+
+    public void listarPacientes() {
+
         PacienteDAO pacienteDAO = new PacienteDAO();
-        pacienteDAO.excluirPaciente(paciente);
-        JOptionPane.showMessageDialog(this, "Pacinte excluído com sucesso!");
-        
+        listaPacientes = pacienteDAO.listarPacientes("%"
+                + txtPesquisaPaciente.getText().trim() + "%");
+        mostrarPacientes(listaPacientes);
+
     }
-          }
-      }
-      
-          public void tblPacienteLinhaSelecionada(JTable tbl){
-        
-            int linhaSelecionada = tbl.getSelectedRow();
-            
-            
-            
-             if (linhaSelecionada != -1){
-            
-             txtNome.setText(listaPacientes.get(linhaSelecionada).getNome());
-             txtCPF.setText(listaPacientes.get(linhaSelecionada).getCpf());
-             txtDataDeNascimento.setText(listaPacientes.get(linhaSelecionada).getDatanascimento());
-             txtEndereco.setText(listaPacientes.get(linhaSelecionada).getRua());
-             txtNumero.setText(listaPacientes.get(linhaSelecionada).getNumero());
-             txtBairro.setText(listaPacientes.get(linhaSelecionada).getBairro());
-             txtEstado.setText(listaPacientes.get(linhaSelecionada).getEstado());
-             txtCidade.setText(listaPacientes.get(linhaSelecionada).getCidade());
-             txtTelefone.setText(listaPacientes.get(linhaSelecionada).getTelefone());
-             txtCelular.setText(listaPacientes.get(linhaSelecionada).getCelular());
-             txtEmail.setText(listaPacientes.get(linhaSelecionada).getEmail());
-             txtId.setText(String.valueOf(listaPacientes.get(linhaSelecionada).getCodigo()));
-             
-             }
+
+    public void exibePacientes() {
+
+        frmAlterarPaciente alt = new frmAlterarPaciente();
+        PacienteDAO pacienteDAO = new PacienteDAO();
+        listaPacientes = pacienteDAO.listarPacientes("%"
+                + alt.txtNomeAlterar.getText().trim() + "%");
+        mostrarPacientes(listaPacientes);
+    }
+
+    private void excluirPaciente() {
+
+        if (txtNome.getText().isEmpty()) {
+            telaAvisos avisos = new telaAvisos();
+            avisos.selecionePaciente();
+        } else {
+
+            int excluir;
+
+            excluir = JOptionPane.showConfirmDialog(null, "Deseja excluir esse paciente ?", "Excluir Paciente", 0);
+
+            if (excluir == 0) {
+
+                Paciente paciente = new Paciente();
+                paciente.setCodigo(listaPacientes.get(tblPaciente.getSelectedRow()).getCodigo());
+                PacienteDAO pacienteDAO = new PacienteDAO();
+                pacienteDAO.excluirPaciente(paciente);
+                
+                telaAvisos avisos = new telaAvisos();
+                avisos.PacienteExcluido();
+
+            }
         }
-      
-      
-          public void enviarAlteracaoPaciente(){
-              if(enviar==null){
-           
-            
+    }
+
+    public void tblPacienteLinhaSelecionada(JTable tbl) {
+
+        int linhaSelecionada = tbl.getSelectedRow();
+
+        if (linhaSelecionada != -1) {
+
+            txtNome.setText(listaPacientes.get(linhaSelecionada).getNome());
+            txtCPF.setText(listaPacientes.get(linhaSelecionada).getCpf());
+            txtDataDeNascimento.setText(listaPacientes.get(linhaSelecionada).getDatanascimento());
+            txtEndereco.setText(listaPacientes.get(linhaSelecionada).getRua());
+            txtNumero.setText(listaPacientes.get(linhaSelecionada).getNumero());
+            txtBairro.setText(listaPacientes.get(linhaSelecionada).getBairro());
+            txtEstado.setText(listaPacientes.get(linhaSelecionada).getEstado());
+            txtCidade.setText(listaPacientes.get(linhaSelecionada).getCidade());
+            txtTelefone.setText(listaPacientes.get(linhaSelecionada).getTelefone());
+            txtCelular.setText(listaPacientes.get(linhaSelecionada).getCelular());
+            txtEmail.setText(listaPacientes.get(linhaSelecionada).getEmail());
+            txtId.setText(String.valueOf(listaPacientes.get(linhaSelecionada).getCodigo()));
+
+        }
+    }
+
+    public void enviarAlteracaoPaciente() {
+        if (enviar == null) {
+
             enviar = new frmAlterarPaciente();
             enviar.setVisible(true);
             enviar.recebe(txtNome.getText());
@@ -447,10 +437,9 @@ public class frmPesquisarPaciente extends javax.swing.JFrame {
             enviar.recebeTelefone(txtTelefone.getText());
             enviar.recebeCelular(txtCelular.getText());
             enviar.recebeEmail(txtEmail.getText());
-            
-        }else{
-             
-                  
+
+        } else {
+
             enviar = new frmAlterarPaciente();
             enviar.setVisible(true);
             enviar.recebe(txtNome.getText());
@@ -466,13 +455,12 @@ public class frmPesquisarPaciente extends javax.swing.JFrame {
             enviar.recebeCelular(txtCelular.getText());
             enviar.recebeEmail(txtEmail.getText());
             enviar.setState(frmAlterarPaciente.NORMAL);
-             
-          }
-      
-          }
-          
-      
-          
+
+        }
+
+    }
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAlterar;
     private javax.swing.JButton btnCancelar;

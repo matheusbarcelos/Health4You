@@ -5,6 +5,7 @@
  */
 package fronteira;
 import entidade.Usuario;
+import java.awt.Color;
 import javax.swing.JOptionPane;
 import persistencia.VerificarUsuarioDAO;
 
@@ -34,9 +35,6 @@ public class frmLogin extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        btnEntrar = new javax.swing.JButton();
-        btnSair = new javax.swing.JButton();
-        lblHelp = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         txtSenha = new javax.swing.JPasswordField();
         jPanel2 = new javax.swing.JPanel();
@@ -44,6 +42,9 @@ public class frmLogin extends javax.swing.JFrame {
         txtLogin = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        btnEntrar = new javax.swing.JButton();
+        btnSair = new javax.swing.JButton();
+        lblHelp = new javax.swing.JLabel();
         lblFechar = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
@@ -67,44 +68,13 @@ public class frmLogin extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/Health 4 You - Sistema.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, -1, 110));
 
-        btnEntrar.setBackground(new java.awt.Color(0, 155, 219));
-        btnEntrar.setFont(new java.awt.Font("Open Sans", 0, 13)); // NOI18N
-        btnEntrar.setForeground(new java.awt.Color(255, 255, 255));
-        btnEntrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/Entrar IMG - Sistema.png"))); // NOI18N
-        btnEntrar.setText("Entrar");
-        btnEntrar.setBorder(null);
-        btnEntrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEntrarActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, 110, 30));
-
-        btnSair.setBackground(new java.awt.Color(0, 155, 219));
-        btnSair.setFont(new java.awt.Font("Open Sans", 0, 13)); // NOI18N
-        btnSair.setForeground(new java.awt.Color(255, 255, 255));
-        btnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/Cancelar IMG - Sistema.png"))); // NOI18N
-        btnSair.setText("Sair");
-        btnSair.setBorder(null);
-        btnSair.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSairActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnSair, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 350, 110, 30));
-
-        lblHelp.setFont(new java.awt.Font("Open Sans", 2, 14)); // NOI18N
-        lblHelp.setForeground(new java.awt.Color(0, 73, 124));
-        lblHelp.setText("Precisa de Ajuda?!");
-        jPanel1.add(lblHelp, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 470, -1, -1));
-
         jLabel3.setBackground(new java.awt.Color(0, 73, 124));
         jLabel3.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 73, 124));
         jLabel3.setText("Senha:");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, -1, -1));
 
-        txtSenha.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
+        txtSenha.setFont(new java.awt.Font("Onyx", 0, 12)); // NOI18N
         txtSenha.setForeground(new java.awt.Color(0, 73, 124));
         txtSenha.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219), 2));
         txtSenha.setCaretColor(new java.awt.Color(0, 73, 124));
@@ -133,13 +103,81 @@ public class frmLogin extends javax.swing.JFrame {
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/Login - H4Y2.png"))); // NOI18N
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, -1, -1));
 
+        btnEntrar.setBackground(new java.awt.Color(0, 155, 219));
+        btnEntrar.setFont(new java.awt.Font("Open Sans", 0, 13)); // NOI18N
+        btnEntrar.setForeground(new java.awt.Color(255, 255, 255));
+        btnEntrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/Entrar IMG - Sistema.png"))); // NOI18N
+        btnEntrar.setText("Entrar");
+        btnEntrar.setBorder(null);
+        btnEntrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEntrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnEntrarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnEntrarMouseExited(evt);
+            }
+        });
+        btnEntrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEntrarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, 110, 30));
+
+        btnSair.setBackground(new java.awt.Color(0, 155, 219));
+        btnSair.setFont(new java.awt.Font("Open Sans", 0, 13)); // NOI18N
+        btnSair.setForeground(new java.awt.Color(255, 255, 255));
+        btnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/Cancelar IMG - Sistema.png"))); // NOI18N
+        btnSair.setText("Sair");
+        btnSair.setBorder(null);
+        btnSair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSair.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnSairMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnSairMouseExited(evt);
+            }
+        });
+        btnSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSairActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnSair, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 350, 110, 30));
+
+        lblHelp.setFont(new java.awt.Font("Open Sans", 2, 14)); // NOI18N
+        lblHelp.setForeground(new java.awt.Color(0, 73, 124));
+        lblHelp.setText("Precisa de Ajuda?!");
+        lblHelp.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblHelp.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblHelpMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblHelpMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblHelpMouseExited(evt);
+            }
+        });
+        jPanel1.add(lblHelp, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 470, -1, -1));
+
         lblFechar.setBackground(new java.awt.Color(0, 73, 124));
         lblFechar.setFont(new java.awt.Font("Open Sans", 1, 18)); // NOI18N
         lblFechar.setForeground(new java.awt.Color(0, 73, 124));
         lblFechar.setText("X");
+        lblFechar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblFechar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblFecharMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblFecharMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblFecharMouseExited(evt);
             }
         });
         jPanel1.add(lblFechar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, -1, -1));
@@ -156,6 +194,92 @@ public class frmLogin extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnEntrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEntrarMouseEntered
+        // TODO add your handling code here:
+        btnEntrar.setBackground(new Color(0, 73, 125));
+    }//GEN-LAST:event_btnEntrarMouseEntered
+
+    private void btnEntrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEntrarMouseExited
+        // TODO add your handling code here:
+        btnEntrar.setBackground(new Color(0, 155, 219));
+    }//GEN-LAST:event_btnEntrarMouseExited
+
+    private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
+        // TODO add your handling code here:
+
+        if(txtLogin.getText().isEmpty() || txtSenha.getText().isEmpty()){
+
+            telaAvisos aviso = new telaAvisos();
+            aviso.loginInforma();
+        }else{
+
+            VerificarUsuarioDAO verificarDAO = new  VerificarUsuarioDAO();
+
+            String login = txtLogin.getText();
+            String senha = txtSenha.getText();
+
+            boolean resposta = verificarDAO.verificarUsuario(login, senha);
+
+            if (resposta == true){
+                frmTelaPrincipal telaPrincipal = new frmTelaPrincipal(txtLogin.getText());
+                telaPrincipal.setVisible(true);
+                dispose();
+
+            }else {
+                telaAvisos aviso = new telaAvisos();
+                aviso.loginInvalido();
+            }
+        }
+
+    }//GEN-LAST:event_btnEntrarActionPerformed
+
+    private void btnSairMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSairMouseEntered
+        // TODO add your handling code here:
+        btnSair.setBackground(new Color(0, 73, 125));
+    }//GEN-LAST:event_btnSairMouseEntered
+
+    private void btnSairMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSairMouseExited
+        // TODO add your handling code here:
+        btnSair.setBackground(new Color(0, 155, 219));
+    }//GEN-LAST:event_btnSairMouseExited
+
+    private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
+        telaSair sair = new telaSair();
+        sair.setVisible(true);
+    }//GEN-LAST:event_btnSairActionPerformed
+
+    private void lblHelpMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblHelpMouseEntered
+        // TODO add your handling code here:
+        lblHelp.setForeground(new Color(0, 155, 219));
+    }//GEN-LAST:event_lblHelpMouseEntered
+
+    private void lblHelpMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblHelpMouseExited
+        // TODO add your handling code here:
+        lblHelp.setForeground(new Color(0, 73, 125));
+    }//GEN-LAST:event_lblHelpMouseExited
+
+    private void lblFecharMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblFecharMouseClicked
+        // TODO add your handling code here:
+        telaSair sair = new telaSair();
+        sair.setVisible(true);
+    }//GEN-LAST:event_lblFecharMouseClicked
+
+    private void lblFecharMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblFecharMouseEntered
+        // TODO add your handling code here:
+        lblFechar.setForeground(new Color(0, 155, 219));
+    }//GEN-LAST:event_lblFecharMouseEntered
+
+    private void lblFecharMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblFecharMouseExited
+        // TODO add your handling code here:
+        lblFechar.setForeground(new Color(0, 73, 125));
+    }//GEN-LAST:event_lblFecharMouseExited
+
+    private void lblHelpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblHelpMouseClicked
+        // TODO add your handling code here:
+        telaAjuda ajuda = new telaAjuda();
+        ajuda.setVisible(true);
+    }//GEN-LAST:event_lblHelpMouseClicked
     
     /*private void verificarUsuario(){
         
@@ -168,49 +292,7 @@ public class frmLogin extends javax.swing.JFrame {
         if(verificarUsuario(veri))
     }*/
     
-    
-    private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
-        telaSair sair = new telaSair();
-        sair.setVisible(true);
-    }//GEN-LAST:event_btnSairActionPerformed
-    
-    private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
-        // TODO add your handling code here:
         
-        if(txtLogin.getText().isEmpty() || txtSenha.getText().isEmpty()){
-            
-            JOptionPane.showMessageDialog(null,"Favor informar usuário e senha para Login",
-                    "Login",JOptionPane.INFORMATION_MESSAGE);
-        }else{
-            
-            
-        
-        
-        VerificarUsuarioDAO verificarDAO = new  VerificarUsuarioDAO();
-        
-        String login = txtLogin.getText();
-        String senha = txtSenha.getText();
- 
-        boolean resposta = verificarDAO.verificarUsuario(login, senha);
- 
-        if (resposta == true){
-         frmTelaPrincipal telaPrincipal = new frmTelaPrincipal(txtLogin.getText());
-         telaPrincipal.setVisible(true);
-        dispose();
- 
-        }else {
-        JOptionPane.showMessageDialog(null,"Login ou senha Incorretos !","Login",JOptionPane.INFORMATION_MESSAGE);
-}
-        }
-     
-    }//GEN-LAST:event_btnEntrarActionPerformed
-
-    private void lblFecharMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblFecharMouseClicked
-        // TODO add your handling code here:
-        telaSair sair = new telaSair();
-        sair.setVisible(true);
-    }//GEN-LAST:event_lblFecharMouseClicked
-
     /**
      * @param args the command line arguments
      */

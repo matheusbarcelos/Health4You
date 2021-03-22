@@ -163,7 +163,7 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="txtData" alignment="0" max="32767" attributes="0"/>
+                  <Component id="txtData" alignment="0" pref="29" max="32767" attributes="0"/>
                   <Component id="txtHorario" alignment="0" min="-2" pref="24" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -202,7 +202,7 @@
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Open Sans" size="11" style="0"/>
+          <Font name="Arial" size="11" style="0"/>
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="7d" green="49" red="0" type="rgb"/>
@@ -213,7 +213,7 @@
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Open Sans" size="11" style="0"/>
+          <Font name="Arial" size="11" style="0"/>
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="7d" green="49" red="0" type="rgb"/>
@@ -235,7 +235,7 @@
     <Component class="javax.swing.JTextField" name="txtPesquisaPaciente">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Open Sans" size="12" style="0"/>
+          <Font name="Arial" size="12" style="0"/>
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="7d" green="49" red="0" type="rgb"/>
@@ -267,12 +267,8 @@
           <Image iconType="3" name="/fronteira/imgs/Inserir.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Novo Paciente"/>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-            <LineBorder>
-              <Color PropertyName="color" blue="db" green="9b" red="0" type="rgb"/>
-            </LineBorder>
-          </Border>
+        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+          <Color id="Cursor em Forma de M&#xe3;o"/>
         </Property>
       </Properties>
       <Events>
@@ -294,12 +290,8 @@
           <Image iconType="3" name="/fronteira/imgs/Pesquisar.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Pesquisar Paciente"/>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-            <LineBorder>
-              <Color PropertyName="color" blue="db" green="9b" red="0" type="rgb"/>
-            </LineBorder>
-          </Border>
+        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+          <Color id="Cursor em Forma de M&#xe3;o"/>
         </Property>
       </Properties>
       <Events>
@@ -321,12 +313,8 @@
           <Image iconType="3" name="/fronteira/imgs/Pesquisar.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Pesquisar Servi&#xe7;o"/>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-            <LineBorder>
-              <Color PropertyName="color" blue="db" green="9b" red="0" type="rgb"/>
-            </LineBorder>
-          </Border>
+        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+          <Color id="Cursor em Forma de M&#xe3;o"/>
         </Property>
       </Properties>
       <Events>
@@ -348,12 +336,8 @@
           <Image iconType="3" name="/fronteira/imgs/Inserir.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Novo Servi&#xe7;o"/>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-            <LineBorder>
-              <Color PropertyName="color" blue="db" green="9b" red="0" type="rgb"/>
-            </LineBorder>
-          </Border>
+        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+          <Color id="Cursor em Forma de M&#xe3;o"/>
         </Property>
       </Properties>
       <Events>
@@ -363,7 +347,7 @@
     <Component class="javax.swing.JTextField" name="txtPesquisaServicos">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Open Sans" size="12" style="0"/>
+          <Font name="Arial" size="12" style="0"/>
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="7d" green="49" red="0" type="rgb"/>
@@ -390,7 +374,7 @@
         <Component class="javax.swing.JTable" name="tblServico">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Open Sans" size="11" style="0"/>
+              <Font name="Arial" size="11" style="0"/>
             </Property>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
               <Connection code="tmServicos" type="code"/>
@@ -429,7 +413,7 @@
         <Component class="javax.swing.JTable" name="tblPaciente">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Open Sans" size="11" style="0"/>
+              <Font name="Arial" size="11" style="0"/>
             </Property>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
               <Connection code="tmPacientes" type="code"/>
@@ -478,12 +462,8 @@
           <Image iconType="3" name="/fronteira/imgs/Cancelar IMG - Sistema.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Cancelar"/>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-            <LineBorder>
-              <Color PropertyName="color" blue="db" green="9b" red="0" type="rgb"/>
-            </LineBorder>
-          </Border>
+        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+          <Color id="Cursor em Forma de M&#xe3;o"/>
         </Property>
       </Properties>
       <Events>
@@ -505,12 +485,8 @@
           <Image iconType="3" name="/fronteira/imgs/Salvar.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Cadastrar"/>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-            <LineBorder>
-              <Color PropertyName="color" blue="db" green="9b" red="0" type="rgb"/>
-            </LineBorder>
-          </Border>
+        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+          <Color id="Cursor em Forma de M&#xe3;o"/>
         </Property>
       </Properties>
       <Events>
@@ -564,6 +540,9 @@
           <Color blue="7d" green="49" red="0" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="X"/>
+        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+          <Color id="Cursor em Forma de M&#xe3;o"/>
+        </Property>
       </Properties>
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblSairMouseClicked"/>

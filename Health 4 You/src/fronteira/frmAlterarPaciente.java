@@ -63,7 +63,6 @@ public class frmAlterarPaciente extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        txtEstadoAlterar = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         txtNomeAlterar = new javax.swing.JTextField();
         txtCPFAlterar = new javax.swing.JFormattedTextField();
@@ -75,12 +74,13 @@ public class frmAlterarPaciente extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         lblSair = new javax.swing.JLabel();
+        txtEstadoAlterar = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Alterar Paciente");
         setUndecorated(true);
 
-        txtCidadeAlterar.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
+        txtCidadeAlterar.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         txtCidadeAlterar.setForeground(new java.awt.Color(0, 73, 125));
         txtCidadeAlterar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219), 2));
         txtCidadeAlterar.setCaretColor(new java.awt.Color(0, 73, 125));
@@ -103,7 +103,7 @@ public class frmAlterarPaciente extends javax.swing.JFrame {
         }
         txtCelularAlterar.setCaretColor(new java.awt.Color(0, 73, 125));
 
-        jLabel1.setFont(new java.awt.Font("Open Sans", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 73, 125));
         jLabel1.setText("ALTERAR PACIENTE");
 
@@ -123,7 +123,7 @@ public class frmAlterarPaciente extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(0, 73, 125));
         jLabel7.setText("E-mail:");
 
-        txtEmailAlterar.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
+        txtEmailAlterar.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         txtEmailAlterar.setForeground(new java.awt.Color(0, 73, 125));
         txtEmailAlterar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219), 2));
         txtEmailAlterar.setCaretColor(new java.awt.Color(0, 73, 125));
@@ -133,7 +133,7 @@ public class frmAlterarPaciente extends javax.swing.JFrame {
         btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
         btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/Cancelar IMG - Sistema.png"))); // NOI18N
         btnCancelar.setText("Cancelar");
-        btnCancelar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219)));
+        btnCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelarActionPerformed(evt);
@@ -144,7 +144,7 @@ public class frmAlterarPaciente extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(0, 73, 125));
         jLabel8.setText("Bairro:");
 
-        txtBairroAlterar.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
+        txtBairroAlterar.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         txtBairroAlterar.setForeground(new java.awt.Color(0, 73, 125));
         txtBairroAlterar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219), 2));
         txtBairroAlterar.setCaretColor(new java.awt.Color(0, 73, 125));
@@ -161,21 +161,11 @@ public class frmAlterarPaciente extends javax.swing.JFrame {
         jLabel13.setForeground(new java.awt.Color(0, 73, 125));
         jLabel13.setText("Telefone:");
 
-        txtEstadoAlterar.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
-        txtEstadoAlterar.setForeground(new java.awt.Color(0, 73, 125));
-        txtEstadoAlterar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219), 2));
-        txtEstadoAlterar.setCaretColor(new java.awt.Color(0, 73, 125));
-        txtEstadoAlterar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtEstadoAlterarActionPerformed(evt);
-            }
-        });
-
         jLabel3.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 73, 125));
         jLabel3.setText("CPF:");
 
-        txtNomeAlterar.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
+        txtNomeAlterar.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         txtNomeAlterar.setForeground(new java.awt.Color(0, 73, 125));
         txtNomeAlterar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219), 2));
         txtNomeAlterar.setCaretColor(new java.awt.Color(0, 73, 125));
@@ -200,12 +190,12 @@ public class frmAlterarPaciente extends javax.swing.JFrame {
         txtDataDeNascimentoAlterar.setCaretColor(new java.awt.Color(0, 73, 125));
         txtDataDeNascimentoAlterar.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
 
-        txtEnderecoAlterar.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
+        txtEnderecoAlterar.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         txtEnderecoAlterar.setForeground(new java.awt.Color(0, 73, 125));
         txtEnderecoAlterar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219), 2));
         txtEnderecoAlterar.setCaretColor(new java.awt.Color(0, 73, 125));
 
-        txtNumeroAlterar.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
+        txtNumeroAlterar.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         txtNumeroAlterar.setForeground(new java.awt.Color(0, 73, 125));
         txtNumeroAlterar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219), 2));
         txtNumeroAlterar.setCaretColor(new java.awt.Color(0, 73, 125));
@@ -218,7 +208,7 @@ public class frmAlterarPaciente extends javax.swing.JFrame {
         btnSalvarAlteracao.setForeground(new java.awt.Color(255, 255, 255));
         btnSalvarAlteracao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/Salvar.png"))); // NOI18N
         btnSalvarAlteracao.setText("Salvar");
-        btnSalvarAlteracao.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219)));
+        btnSalvarAlteracao.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnSalvarAlteracao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalvarAlteracaoActionPerformed(evt);
@@ -226,6 +216,7 @@ public class frmAlterarPaciente extends javax.swing.JFrame {
         });
 
         jLabel11.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(0, 73, 125));
         jLabel11.setText("CPF:");
 
         jLabel14.setForeground(new java.awt.Color(0, 73, 125));
@@ -234,11 +225,17 @@ public class frmAlterarPaciente extends javax.swing.JFrame {
         lblSair.setFont(new java.awt.Font("Open Sans", 1, 18)); // NOI18N
         lblSair.setForeground(new java.awt.Color(0, 73, 125));
         lblSair.setText("X");
+        lblSair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblSair.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblSairMouseClicked(evt);
             }
         });
+
+        txtEstadoAlterar.setBackground(new java.awt.Color(0, 73, 125));
+        txtEstadoAlterar.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
+        txtEstadoAlterar.setForeground(new java.awt.Color(255, 255, 255));
+        txtEstadoAlterar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -248,7 +245,7 @@ public class frmAlterarPaciente extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lblSair))
                     .addGroup(layout.createSequentialGroup()
@@ -284,11 +281,10 @@ public class frmAlterarPaciente extends javax.swing.JFrame {
                                     .addComponent(txtCelularAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jLabel10)
-                                        .addComponent(txtEstadoAlterar, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE)
-                                        .addComponent(txtNumeroAlterar))
-                                    .addComponent(jLabel5))
+                                    .addComponent(jLabel10)
+                                    .addComponent(txtNumeroAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel5)
+                                    .addComponent(txtEstadoAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(32, 32, 32)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel8)
@@ -340,9 +336,9 @@ public class frmAlterarPaciente extends javax.swing.JFrame {
                     .addComponent(jLabel10)
                     .addComponent(jLabel9))
                 .addGap(6, 6, 6)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtEstadoAlterar, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
-                    .addComponent(txtCidadeAlterar))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtCidadeAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtEstadoAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
@@ -374,14 +370,12 @@ public class frmAlterarPaciente extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnCancelarActionPerformed
 
-    private void txtEstadoAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEstadoAlterarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtEstadoAlterarActionPerformed
-
     private void btnSalvarAlteracaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarAlteracaoActionPerformed
         // TODO add your handling code here:
         frmPesquisarPaciente pp = new frmPesquisarPaciente();
         alterarPaciente();
+        telaAvisos avisos = new telaAvisos();
+        avisos.pacienteAlterado();
         dispose();
         //pp.setVisible(true);
         pp.listarPacientes();
@@ -451,7 +445,7 @@ public class frmAlterarPaciente extends javax.swing.JFrame {
        txtBairroAlterar.setText(recebeBairro);
    }
    public void recebeEstado(String recebeBairro){
-       txtEstadoAlterar.setText(recebeBairro);
+       txtEstadoAlterar.setSelectedItem(recebeBairro);
    }
    public void recebeCidade(String recebeCidade){
        txtCidadeAlterar.setText(recebeCidade);
@@ -482,7 +476,7 @@ public class frmAlterarPaciente extends javax.swing.JFrame {
         paciente.setRua(txtEnderecoAlterar.getText().trim());
         paciente.setNumero(txtNumeroAlterar.getText().trim());
         paciente.setBairro(txtBairroAlterar.getText().trim());
-        paciente.setEstado(txtEstadoAlterar.getText().trim());
+        paciente.setEstado(txtEstadoAlterar.getSelectedItem().toString().trim());
         paciente.setCidade(txtCidadeAlterar.getText().trim());
         paciente.setTelefone(txtTelefoneAlterar.getText().trim());
         paciente.setCelular(txtCelularAlterar.getText().trim());
@@ -491,8 +485,7 @@ public class frmAlterarPaciente extends javax.swing.JFrame {
        
         PacienteDAO pacienteDAO = new PacienteDAO();
         pacienteDAO.alterarPaciente(paciente);
-        al.exibePacientes();
-           JOptionPane.showMessageDialog(null,"Paciente alterado com sucesso!","Paciente Alterado",JOptionPane.INFORMATION_MESSAGE);
+           al.exibePacientes();
         frmPesquisarPaciente pes = new frmPesquisarPaciente();
         //pes.listarUsuarios();
       
@@ -548,7 +541,7 @@ public class frmAlterarPaciente extends javax.swing.JFrame {
     public javax.swing.JFormattedTextField txtDataDeNascimentoAlterar;
     private javax.swing.JTextField txtEmailAlterar;
     public javax.swing.JTextField txtEnderecoAlterar;
-    public javax.swing.JTextField txtEstadoAlterar;
+    private javax.swing.JComboBox<String> txtEstadoAlterar;
     public javax.swing.JTextField txtNomeAlterar;
     public javax.swing.JTextField txtNumeroAlterar;
     private javax.swing.JFormattedTextField txtTelefoneAlterar;

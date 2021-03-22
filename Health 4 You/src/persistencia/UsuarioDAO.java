@@ -16,15 +16,15 @@ public class UsuarioDAO {
     private Usuario usuario;
     
     private String cadastraUsuario = "INSERT INTO USUARIO "
-                + "(NOME, LOGIN, SENHA, PERMISSAO, STATUS)" +
-                    "VALUES (?, ?, ?, ?, ?)";
+                + "(NOME, LOGIN, SENHA)" +
+                    "VALUES (?, ?, ?)";
     
     private String consultaUsuario = "SELECT * FROM USUARIO WHERE "
                                         + "NOME LIKE ?";
     
     private String excluiUsuario = "DELETE FROM USUARIO WHERE ID_USUARIO = ?";
     
-    private String alteraUsuario = "UPDATE USUARIO SET NOME =?,LOGIN=?,SENHA=?,PERMISSAO=?,STATUS=?"
+    private String alteraUsuario = "UPDATE USUARIO SET NOME =?,LOGIN=?,SENHA=?"
             + "WHERE ID_USUARIO=?";
     
     
@@ -36,8 +36,7 @@ public class UsuarioDAO {
             pstm.setString(1, usuario.getNome().trim());
             pstm.setString(2, usuario.getLogin().trim());
             pstm.setString(3, usuario.getSenha().trim());
-            pstm.setString(4, usuario.getPermissao().trim());
-            pstm.setString(5, usuario.getStatus().trim());
+            
             
             pstm.executeUpdate();
             bd.desconecta();
@@ -62,8 +61,6 @@ public class UsuarioDAO {
                  usuario.setNome(rs.getString("NOME"));
                  usuario.setLogin(rs.getString("LOGIN"));
                  usuario.setSenha(rs.getString("SENHA"));
-                 usuario.setPermissao(rs.getString("PERMISSAO"));
-                 usuario.setStatus(rs.getString("STATUS"));
                  listaUsuarios.add(usuario);
         
              }
@@ -100,9 +97,7 @@ public class UsuarioDAO {
              pstm.setString(1, usuario.getNome().trim());
              pstm.setString(2, usuario.getLogin().trim());
              pstm.setString(3, usuario.getSenha().trim());
-             pstm.setString(4, usuario.getPermissao().trim());
-             pstm.setString(5, usuario.getStatus().trim());
-             pstm.setInt(6, usuario.getCodigo());
+             pstm.setInt(4, usuario.getCodigo());
              pstm.executeUpdate();
              bd.desconecta();
              

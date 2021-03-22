@@ -26,7 +26,7 @@ public class frmPesquisaUsuario extends javax.swing.JFrame {
     frmAlterarUsuario enviar;
     
     public String[] colunas = new String[]{"Codigo","Nome",
-           "Login","Permissao"};
+           "Login"};
     
     public DefaultTableModel tmUsuarios = new DefaultTableModel
                (null, colunas);
@@ -57,8 +57,6 @@ public class frmPesquisaUsuario extends javax.swing.JFrame {
         txtNome = new javax.swing.JTextField();
         txtLogin = new javax.swing.JTextField();
         txtSenha = new javax.swing.JTextField();
-        cmbPermissao = new javax.swing.JComboBox<>();
-        cmbStatus = new javax.swing.JComboBox<>();
         txtId = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblUsuarios = new javax.swing.JTable();
@@ -71,10 +69,6 @@ public class frmPesquisaUsuario extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         lblSair = new javax.swing.JLabel();
 
-        cmbPermissao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Usuário" }));
-
-        cmbStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ativo", "Inativo" }));
-
         txtId.setText("jTextField1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -82,7 +76,7 @@ public class frmPesquisaUsuario extends javax.swing.JFrame {
         setUndecorated(true);
         setResizable(false);
 
-        tblUsuarios.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
+        tblUsuarios.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         tblUsuarios.setModel(tmUsuarios);
         tblUsuarios.setToolTipText("");
         tblUsuarios.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -103,11 +97,11 @@ public class frmPesquisaUsuario extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tblUsuarios);
 
         btnInserir.setBackground(new java.awt.Color(0, 155, 219));
-        btnInserir.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
+        btnInserir.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         btnInserir.setForeground(new java.awt.Color(255, 255, 255));
         btnInserir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/Inserir.png"))); // NOI18N
         btnInserir.setText("Inserir");
-        btnInserir.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219)));
+        btnInserir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnInserir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnInserirActionPerformed(evt);
@@ -119,7 +113,7 @@ public class frmPesquisaUsuario extends javax.swing.JFrame {
         btnAlterar.setForeground(new java.awt.Color(255, 255, 255));
         btnAlterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/Atualizar.png"))); // NOI18N
         btnAlterar.setText("Alterar");
-        btnAlterar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219)));
+        btnAlterar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAlterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAlterarActionPerformed(evt);
@@ -131,7 +125,7 @@ public class frmPesquisaUsuario extends javax.swing.JFrame {
         btnExcluirPaciente.setForeground(new java.awt.Color(255, 255, 255));
         btnExcluirPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/Lixeira.png"))); // NOI18N
         btnExcluirPaciente.setText("Excluir");
-        btnExcluirPaciente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219)));
+        btnExcluirPaciente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnExcluirPaciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnExcluirPacienteActionPerformed(evt);
@@ -143,7 +137,7 @@ public class frmPesquisaUsuario extends javax.swing.JFrame {
         btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
         btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/Cancelar IMG - Sistema.png"))); // NOI18N
         btnCancelar.setText("Cancelar");
-        btnCancelar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219)));
+        btnCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelarActionPerformed(evt);
@@ -160,20 +154,21 @@ public class frmPesquisaUsuario extends javax.swing.JFrame {
         btnPesquisar.setForeground(new java.awt.Color(255, 255, 255));
         btnPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/Pesquisar.png"))); // NOI18N
         btnPesquisar.setText("Pesquisar");
-        btnPesquisar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219)));
+        btnPesquisar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPesquisarActionPerformed(evt);
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Open Sans", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 73, 125));
         jLabel1.setText("PESQUISA DE USUÁRIOS");
 
         lblSair.setFont(new java.awt.Font("Open Sans", 1, 18)); // NOI18N
         lblSair.setForeground(new java.awt.Color(0, 73, 125));
         lblSair.setText("X");
+        lblSair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblSair.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblSairMouseClicked(evt);
@@ -185,30 +180,28 @@ public class frmPesquisaUsuario extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(37, 37, 37)
+                .addContainerGap(23, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lblSair))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(5, 5, 5)
+                                .addComponent(txtPesquisarUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(btnInserir, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnExcluirPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnExcluirPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addComponent(txtPesquisarUsuarios)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(btnPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 399, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 24, Short.MAX_VALUE)))
+                                .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 13, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -216,10 +209,12 @@ public class frmPesquisaUsuario extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel1))
-                    .addComponent(lblSair))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                        .addComponent(lblSair)
+                        .addGap(0, 21, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel1)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtPesquisarUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -245,8 +240,8 @@ public class frmPesquisaUsuario extends javax.swing.JFrame {
 
     private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
         if(txtNome.getText().isEmpty()){
-         JOptionPane.showMessageDialog(null,"Favor selecionar um usuário para alterar","Alterar Usuário",
-                 JOptionPane.INFORMATION_MESSAGE);
+         telaAvisos avisos = new telaAvisos();
+         avisos.selecioneUsuario();
         }else{
             enviarAlteracaoUsuario();
             listarUsuarios();
@@ -270,11 +265,13 @@ public class frmPesquisaUsuario extends javax.swing.JFrame {
     private void btnExcluirPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirPacienteActionPerformed
         // TODO add your handling code here:
         if(txtNome.getText().isEmpty()){
-         JOptionPane.showMessageDialog(null,"Favor selecionar um usuário para excluir","Excluir Usuário",
-                 JOptionPane.INFORMATION_MESSAGE);
+         telaAvisos avisos = new telaAvisos();
+         avisos.selecioneUsuario();
         }else{
         excluirUsuario();
         listarUsuarios();
+        
+        
     }//GEN-LAST:event_btnExcluirPacienteActionPerformed
     }
     private void tblUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblUsuariosMouseClicked
@@ -331,7 +328,8 @@ public class frmPesquisaUsuario extends javax.swing.JFrame {
             tmUsuarios.removeRow(0);
         }
         if(usuarios.size() == 0){
-            JOptionPane.showMessageDialog(this, "Nenhum usuario foi encontrado!");
+            telaAvisos avisos = new telaAvisos();
+            avisos.naoEncontraUsuario();
         }else{
             
              for (int i = 0; i < usuarios.size(); i++){
@@ -339,7 +337,7 @@ public class frmPesquisaUsuario extends javax.swing.JFrame {
                 tmUsuarios.setValueAt(usuarios.get(i).getCodigo(), i,0);
                 tmUsuarios.setValueAt(usuarios.get(i).getNome(), i,1);
                 tmUsuarios.setValueAt(usuarios.get(i).getLogin(), i,2);
-                tmUsuarios.setValueAt(usuarios.get(i).getPermissao(), i,3);
+                
                 
             }
         }
@@ -369,15 +367,14 @@ public class frmPesquisaUsuario extends javax.swing.JFrame {
         usuario.setCodigo(listaUsuarios.get(tblUsuarios.getSelectedRow()).getCodigo());
         UsuarioDAO usuarioDAO = new UsuarioDAO();
         usuarioDAO.excluirUsuario(usuario);
-        JOptionPane.showMessageDialog(this, "Usuário excluído com sucesso!");
         
-        dispose();
+        telaAvisos avisos = new telaAvisos();
+        avisos.excluiUsuario();
+        
+            
+          }
      
-        setVisible(true);
-        listarUsuarios();     
     }
-     
-     }
     
      public void tblUsuariosLinhaSelecionada(JTable tbl){
         
@@ -388,8 +385,7 @@ public class frmPesquisaUsuario extends javax.swing.JFrame {
              txtNome.setText(listaUsuarios.get(linhaSelecionada).getNome());
              txtLogin.setText(listaUsuarios.get(linhaSelecionada).getLogin());
              txtSenha.setText(listaUsuarios.get(linhaSelecionada).getSenha());
-             cmbPermissao.setSelectedItem(listaUsuarios.get(linhaSelecionada).getPermissao());
-             cmbStatus.setSelectedItem(listaUsuarios.get(linhaSelecionada).getStatus());
+           
              txtId.setText(String.valueOf(listaUsuarios.get(linhaSelecionada).getCodigo()));
              
              }
@@ -404,8 +400,6 @@ public class frmPesquisaUsuario extends javax.swing.JFrame {
             enviar.recebeNome(txtNome.getText());
             enviar.recebeLogin(txtLogin.getText());
             enviar.recebeSenha(txtSenha.getText());
-            enviar.recebePermissao((String) cmbPermissao.getSelectedItem());
-            enviar.recebeStatus((String) cmbStatus.getSelectedItem());
             enviar.recebeId(txtId.getText());
             
             
@@ -417,8 +411,6 @@ public class frmPesquisaUsuario extends javax.swing.JFrame {
             enviar.recebeNome(txtNome.getText());
             enviar.recebeLogin(txtLogin.getText());
             enviar.recebeSenha(txtSenha.getText());
-            enviar.recebePermissao((String) cmbPermissao.getSelectedItem());
-            enviar.recebeStatus((String) cmbStatus.getSelectedItem());
             enviar.recebeId(txtId.getText());
             enviar.setState(frmAlterarUsuario.NORMAL);
              
@@ -435,8 +427,6 @@ public class frmPesquisaUsuario extends javax.swing.JFrame {
     private javax.swing.JButton btnExcluirPaciente;
     private javax.swing.JButton btnInserir;
     private javax.swing.JToggleButton btnPesquisar;
-    private javax.swing.JComboBox<String> cmbPermissao;
-    private javax.swing.JComboBox<String> cmbStatus;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblSair;

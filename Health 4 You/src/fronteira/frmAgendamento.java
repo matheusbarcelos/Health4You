@@ -18,6 +18,7 @@ import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+
 /**
  *
  * @author joao-
@@ -25,29 +26,23 @@ import javax.swing.event.ListSelectionListener;
 public class frmAgendamento extends javax.swing.JFrame {
 
     frmAlteraAgendamento enviar;
-    
-    
-    
-    
-    private String[] colunas = new String[]{"Número","Nome",
-           "Servico","Valor","Horario","Data"};
-    
-    private DefaultTableModel tmAgendamentos = new DefaultTableModel
-               (null, colunas);
-    
+
+    private String[] colunas = new String[]{"Número", "Nome",
+        "Servico", "Valor", "Horario", "Data"};
+
+    private DefaultTableModel tmAgendamentos = new DefaultTableModel(null, colunas);
+
     public List<Agendamento> listaAgendamentos;
     public ListSelectionModel lsmAgendamentos;
-    
-    
-    
+
     /**
      * Creates new form frmAgendamento
      */
     public frmAgendamento() {
         initComponents();
         listarAgendamentos();
-        this.getContentPane().setBackground(new Color(240,240,240));
-        
+        this.getContentPane().setBackground(new Color(240, 240, 240));
+
     }
 
     /**
@@ -86,13 +81,13 @@ public class frmAgendamento extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(0, 73, 125));
         jLabel1.setText("AGENDAMENTO DE CONSULTAS");
 
-        txtPesquisarConsultas.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
+        txtPesquisarConsultas.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         txtPesquisarConsultas.setForeground(new java.awt.Color(0, 73, 125));
         txtPesquisarConsultas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219), 2));
         txtPesquisarConsultas.setCaretColor(new java.awt.Color(0, 73, 125));
 
         tblAgendamentos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219), 2));
-        tblAgendamentos.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
+        tblAgendamentos.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         tblAgendamentos.setModel(tmAgendamentos);
         tblAgendamentos.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         lsmAgendamentos = tblAgendamentos.getSelectionModel();
@@ -111,6 +106,7 @@ public class frmAgendamento extends javax.swing.JFrame {
         btnAlterar.setForeground(new java.awt.Color(255, 255, 255));
         btnAlterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/Atualizar.png"))); // NOI18N
         btnAlterar.setText("Alterar");
+        btnAlterar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAlterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAlterarActionPerformed(evt);
@@ -122,6 +118,7 @@ public class frmAgendamento extends javax.swing.JFrame {
         btnPesquisar.setForeground(new java.awt.Color(255, 255, 255));
         btnPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/Pesquisar.png"))); // NOI18N
         btnPesquisar.setText("Pesquisar");
+        btnPesquisar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPesquisarActionPerformed(evt);
@@ -133,6 +130,7 @@ public class frmAgendamento extends javax.swing.JFrame {
         btnExcluir.setForeground(new java.awt.Color(255, 255, 255));
         btnExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/Lixeira.png"))); // NOI18N
         btnExcluir.setText("Excluir");
+        btnExcluir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnExcluirActionPerformed(evt);
@@ -144,6 +142,7 @@ public class frmAgendamento extends javax.swing.JFrame {
         btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
         btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/Cancelar IMG - Sistema.png"))); // NOI18N
         btnCancelar.setText("Cancelar");
+        btnCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelarActionPerformed(evt);
@@ -151,10 +150,11 @@ public class frmAgendamento extends javax.swing.JFrame {
         });
 
         btnInserir.setBackground(new java.awt.Color(0, 155, 219));
-        btnInserir.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
+        btnInserir.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         btnInserir.setForeground(new java.awt.Color(255, 255, 255));
         btnInserir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/Inserir.png"))); // NOI18N
         btnInserir.setText("Inserir");
+        btnInserir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnInserir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnInserirActionPerformed(evt);
@@ -164,6 +164,7 @@ public class frmAgendamento extends javax.swing.JFrame {
         lblSair.setFont(new java.awt.Font("Open Sans", 1, 18)); // NOI18N
         lblSair.setForeground(new java.awt.Color(0, 73, 125));
         lblSair.setText("X");
+        lblSair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblSair.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblSairMouseClicked(evt);
@@ -239,14 +240,16 @@ public class frmAgendamento extends javax.swing.JFrame {
 
     private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
         // TODO add your handling code here:
-        
-        if(txtNomePaciente.getText().isEmpty()){
-         JOptionPane.showMessageDialog(null,"Favor selecionar um agendamento para alterar","Alterar Agendamento",
-                 JOptionPane.INFORMATION_MESSAGE);
-        }else{
-        enviarAlteracaoAgendamento();}
+
+        if (txtNomePaciente.getText().isEmpty()) {
+            telaAvisos aviso = new telaAvisos();
+            aviso.alteraAgendamento();
+        } else {
+            enviarAlteracaoAgendamento();
+            
+        }
         listarAgendamentos();
-        
+
     }//GEN-LAST:event_btnAlterarActionPerformed
 
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
@@ -261,14 +264,15 @@ public class frmAgendamento extends javax.swing.JFrame {
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
         // TODO add your handling code here:
-         if(txtNomePaciente.getText().isEmpty()){
-         JOptionPane.showMessageDialog(null,"Favor selecionar um agendamento para excluir","Excluir Agendamento",
-                 JOptionPane.INFORMATION_MESSAGE);
-        }else{
-        excluirAgendamento();
-        listarAgendamentos();
+        if (txtNomePaciente.getText().isEmpty()) {
+            telaAvisos aviso = new telaAvisos();
+            aviso.excluiAgendamento();
+        } else {
+            excluirAgendamento();
+            listarAgendamentos();
     }//GEN-LAST:event_btnExcluirActionPerformed
     }
+
     /**
      * @param args the command line arguments
      */
@@ -303,80 +307,81 @@ public class frmAgendamento extends javax.swing.JFrame {
             }
         });
     }
-    
-    
-    
 
-      public void mostrarAgendamentos(List<Agendamento> agendamentos){
-        
-        while (tmAgendamentos.getRowCount() > 0){
+    public void mostrarAgendamentos(List<Agendamento> agendamentos) {
+        Agendamento ag = new Agendamento();
+        while (tmAgendamentos.getRowCount() > 0) {
             tmAgendamentos.removeRow(0);
         }
-        if(agendamentos.size() == 0){
-            JOptionPane.showMessageDialog(this, "Nenhum Agendamento foi encontrado!");
-        }else{
-            
-            for (int i = 0; i < agendamentos.size(); i++){
+        if (agendamentos.size() == 0) {
+            telaAvisos aviso = new telaAvisos();
+            aviso.naoEncontraAgendamento();
+        } else {
+
+            for (int i = 0; i < agendamentos.size(); i++) {
+                Date data = (Date) agendamentos.get(i).getData();
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+                java.util.Date dataString = data;
+                String dataFormatada = String.valueOf(simpleDateFormat.format(dataString));
                 tmAgendamentos.addRow(colunas);
-                tmAgendamentos.setValueAt(agendamentos.get(i).getCodigo(), i,0);
-                tmAgendamentos.setValueAt(agendamentos.get(i).getNome(), i,1);
-                tmAgendamentos.setValueAt(agendamentos.get(i).getServico(), i,2);
-                tmAgendamentos.setValueAt(agendamentos.get(i).getValor(), i,3);
-                tmAgendamentos.setValueAt(agendamentos.get(i).getHorario(), i,4);
-                tmAgendamentos.setValueAt(agendamentos.get(i).getData(), i,5);
-                
+                tmAgendamentos.setValueAt(agendamentos.get(i).getCodigo(), i, 0);
+                tmAgendamentos.setValueAt(agendamentos.get(i).getNome(), i, 1);
+                tmAgendamentos.setValueAt(agendamentos.get(i).getServico(), i, 2);
+                tmAgendamentos.setValueAt(agendamentos.get(i).getValor(), i, 3);
+                tmAgendamentos.setValueAt(agendamentos.get(i).getHorario(), i, 4);
+                tmAgendamentos.setValueAt(dataFormatada, i, 5);
             }
         }
     }
-      
-      
-      public void listarAgendamentos(){
-        
-        AgendamentoDAO agendamentoDAO =  new AgendamentoDAO();
-        listaAgendamentos = agendamentoDAO.listarAgendamentos("%"
-             +txtPesquisarConsultas.getText().trim() + "%");
-        mostrarAgendamentos(listaAgendamentos);
-        
-    }
-      
-       private void excluirAgendamento(){
-        
-          int excluir;
-          
-          excluir = JOptionPane.showConfirmDialog(null,"Deseja excluir esse agendamento ?","Excluir Agendamento",0);
-          
-          if(excluir == 0){
-              
-        Agendamento agendamento = new Agendamento();
-        agendamento.setCodigo(listaAgendamentos.get(tblAgendamentos.getSelectedRow()).getCodigo());
+
+    public void listarAgendamentos() {
+
         AgendamentoDAO agendamentoDAO = new AgendamentoDAO();
-        agendamentoDAO.excluirAgendamento(agendamento);
-        JOptionPane.showMessageDialog(this, "Agendamento excluído com sucesso!");
-        
+        listaAgendamentos = agendamentoDAO.listarAgendamentos("%"
+                + txtPesquisarConsultas.getText().trim() + "%");
+        mostrarAgendamentos(listaAgendamentos);
+
     }
-     
-     }
-    
-       public void tblAgendamentosLinhaSelecionada(JTable tbl){
-        
-            int linhaSelecionada = tbl.getSelectedRow();
-            
-             if (linhaSelecionada != -1){
-            
-             txtNomePaciente.setText(listaAgendamentos.get(linhaSelecionada).getNome());
-             txtServico.setText(listaAgendamentos.get(linhaSelecionada).getServico());
-             txtValor.setText(listaAgendamentos.get(linhaSelecionada).getValor());
-             txtHorario.setText(listaAgendamentos.get(linhaSelecionada).getHorario());
-             txtData.setDate(Date.valueOf(listaAgendamentos.get(linhaSelecionada).getData()));
-             txtIDAgendamento.setText(String.valueOf(listaAgendamentos.get(linhaSelecionada).getCodigo()));
-             
-             }
+
+    private void excluirAgendamento() {
+
+        int excluir;
+
+        excluir = JOptionPane.showConfirmDialog(null, "Deseja excluir esse agendamento ?", "Excluir Agendamento", 0);
+
+        if (excluir == 0) {
+
+            Agendamento agendamento = new Agendamento();
+            agendamento.setCodigo(listaAgendamentos.get(tblAgendamentos.getSelectedRow()).getCodigo());
+            AgendamentoDAO agendamentoDAO = new AgendamentoDAO();
+            agendamentoDAO.excluirAgendamento(agendamento);
+            telaAvisos aviso = new telaAvisos();
+            aviso.agendamentoExcluido();
+
         }
-       
-       public void enviarAlteracaoAgendamento(){
-              if(enviar==null){
+
+    }
+
+    public void tblAgendamentosLinhaSelecionada(JTable tbl) {
+
+        int linhaSelecionada = tbl.getSelectedRow();
+
+        if (linhaSelecionada != -1) {
+
+            txtNomePaciente.setText(listaAgendamentos.get(linhaSelecionada).getNome());
+            txtServico.setText(listaAgendamentos.get(linhaSelecionada).getServico());
+            txtValor.setText(listaAgendamentos.get(linhaSelecionada).getValor());
+            txtHorario.setText(listaAgendamentos.get(linhaSelecionada).getHorario());
+            txtData.setDate((listaAgendamentos.get(linhaSelecionada).getData()));
+            txtIDAgendamento.setText(String.valueOf(listaAgendamentos.get(linhaSelecionada).getCodigo()));
+
+        }
+    }
+
+    public void enviarAlteracaoAgendamento() {
+        if (enviar == null) {
             dispose();
-            
+
             enviar = new frmAlteraAgendamento();
             enviar.setVisible(true);
             enviar.recebeNome(txtNomePaciente.getText());
@@ -385,11 +390,10 @@ public class frmAgendamento extends javax.swing.JFrame {
             enviar.recebeHora(txtHorario.getText());
             enviar.recebeData(txtData.getDate());
             enviar.recebeId(txtIDAgendamento.getText());
-            
-            
-        }else{
-             dispose();
-                  
+
+        } else {
+            dispose();
+
             enviar = new frmAlteraAgendamento();
             enviar.setVisible(true);
             enviar.recebeNome(txtNomePaciente.getText());
@@ -399,14 +403,12 @@ public class frmAgendamento extends javax.swing.JFrame {
             enviar.recebeData(txtData.getDate());
             enviar.recebeId(txtIDAgendamento.getText());
             enviar.setState(frmAlteraAgendamento.NORMAL);
-             
-          }
-      
-          }
-       
-    
-    
-    
+
+        }
+
+    }
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAlterar;
     private javax.swing.JButton btnCancelar;

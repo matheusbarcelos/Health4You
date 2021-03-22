@@ -9,6 +9,7 @@ import persistencia.AgendamentoDAO;
 import entidade.Agendamento;
 import entidade.Paciente;
 import entidade.Servico;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -22,7 +23,6 @@ import persistencia.ServicoDAO;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-
 /**
  *
  * @author ma-th
@@ -30,28 +30,23 @@ import javax.swing.event.ListSelectionListener;
 public class frmAlteraAgendamento extends javax.swing.JFrame {
 
     public String Nome, Servico;
-    
-    
-    private String[] colunas = new String[]{"Codigo","Nome",
-           "Valor"};
-    
-    private DefaultTableModel tmServicos = new DefaultTableModel
-               (null, colunas);
-    
+
+    private String[] colunas = new String[]{"Codigo", "Nome",
+        "Valor"};
+
+    private DefaultTableModel tmServicos = new DefaultTableModel(null, colunas);
+
     private List<Servico> listaServicos;
     private ListSelectionModel lsmServicos;
-    
-    
-    private String[] colunaspaciente = new String[]{"Codigo","Nome",
-           "Endereço","Telefone"};
-    
-    private DefaultTableModel tmPacientes = new DefaultTableModel
-               (null, colunaspaciente);
-    
+
+    private String[] colunaspaciente = new String[]{"Codigo", "Nome",
+        "Endereço", "Telefone"};
+
+    private DefaultTableModel tmPacientes = new DefaultTableModel(null, colunaspaciente);
+
     private List<Paciente> listaPacientes;
-    private ListSelectionModel lsmPacientes; 
-    
-    
+    private ListSelectionModel lsmPacientes;
+
     /**
      * Creates new form frmAlteraAgendamento
      */
@@ -93,7 +88,7 @@ public class frmAlteraAgendamento extends javax.swing.JFrame {
         setUndecorated(true);
 
         txtRecebeServico.setEditable(false);
-        txtRecebeServico.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
+        txtRecebeServico.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         txtRecebeServico.setForeground(new java.awt.Color(0, 73, 125));
         txtRecebeServico.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219), 2));
         txtRecebeServico.setCaretColor(new java.awt.Color(0, 73, 125));
@@ -102,11 +97,11 @@ public class frmAlteraAgendamento extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(0, 73, 125));
         jLabel1.setText("Paciente:");
 
-        jLabel2.setFont(new java.awt.Font("Open Sans", 1, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 73, 125));
         jLabel2.setText("ALTERAÇÃO DE AGENDAMENTO");
 
-        jLabel3.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 73, 125));
         jLabel3.setText("Serviço:");
 
@@ -120,7 +115,7 @@ public class frmAlteraAgendamento extends javax.swing.JFrame {
         txtHorarioAlterar.setToolTipText("  ");
         txtHorarioAlterar.setCaretColor(new java.awt.Color(0, 73, 125));
 
-        jLabel4.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 73, 125));
         jLabel4.setText("Horário:");
 
@@ -133,7 +128,7 @@ public class frmAlteraAgendamento extends javax.swing.JFrame {
         btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
         btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/Cancelar IMG - Sistema.png"))); // NOI18N
         btnCancelar.setText("Cancelar");
-        btnCancelar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219)));
+        btnCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelarActionPerformed(evt);
@@ -141,7 +136,7 @@ public class frmAlteraAgendamento extends javax.swing.JFrame {
         });
 
         txtRecebeNome.setEditable(false);
-        txtRecebeNome.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
+        txtRecebeNome.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         txtRecebeNome.setForeground(new java.awt.Color(0, 73, 125));
         txtRecebeNome.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219), 2));
         txtRecebeNome.setCaretColor(new java.awt.Color(0, 73, 125));
@@ -151,7 +146,7 @@ public class frmAlteraAgendamento extends javax.swing.JFrame {
         btnAtualizar.setForeground(new java.awt.Color(255, 255, 255));
         btnAtualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/Atualizar.png"))); // NOI18N
         btnAtualizar.setText("Alterar Agendamento");
-        btnAtualizar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219)));
+        btnAtualizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAtualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAtualizarActionPerformed(evt);
@@ -164,6 +159,7 @@ public class frmAlteraAgendamento extends javax.swing.JFrame {
         lblSair.setFont(new java.awt.Font("Open Sans", 1, 18)); // NOI18N
         lblSair.setForeground(new java.awt.Color(0, 73, 125));
         lblSair.setText("X");
+        lblSair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblSair.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblSairMouseClicked(evt);
@@ -171,7 +167,7 @@ public class frmAlteraAgendamento extends javax.swing.JFrame {
         });
 
         txtRecebeValor.setEditable(false);
-        txtRecebeValor.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
+        txtRecebeValor.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         txtRecebeValor.setForeground(new java.awt.Color(0, 73, 125));
         txtRecebeValor.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219), 2));
         txtRecebeValor.setCaretColor(new java.awt.Color(0, 73, 125));
@@ -194,36 +190,43 @@ public class frmAlteraAgendamento extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(337, 370, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 399, Short.MAX_VALUE)
-                        .addGap(18, 18, 18))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtRecebeServico)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel4)
-                                    .addComponent(btnAtualizar, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
-                                    .addComponent(txtHorarioAlterar))
-                                .addGap(18, 18, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtDataAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel5)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addGap(33, 33, 33))
+                                .addComponent(btnAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(15, 15, 15))
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel6)
-                            .addComponent(txtRecebeNome, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtRecebeValor, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel6))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtRecebeNome, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(txtRecebeServico)
+                                        .addGap(18, 18, 18))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel4)
+                                            .addComponent(jLabel3))
+                                        .addGap(18, 18, Short.MAX_VALUE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addComponent(txtHorarioAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel7)
+                                    .addComponent(txtRecebeValor, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel5)
+                                    .addComponent(txtDataAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(33, 33, 33))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -237,27 +240,29 @@ public class frmAlteraAgendamento extends javax.swing.JFrame {
                 .addComponent(txtRecebeNome, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6)
-                .addGap(142, 142, 142)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtRecebeServico, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(11, 11, 11)
-                .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtRecebeValor, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 132, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtRecebeServico, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtRecebeValor, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(txtDataAlterar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtHorarioAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtHorarioAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtDataAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         pack();
@@ -275,7 +280,9 @@ public class frmAlteraAgendamento extends javax.swing.JFrame {
     private void btnAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarActionPerformed
         // TODO add your handling code here:
         alterarAgendamento();
-        
+        telaAvisos aviso = new telaAvisos();
+        aviso.agendamentoAlterado();
+
     }//GEN-LAST:event_btnAtualizarActionPerformed
 
     private void lblSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSairMouseClicked
@@ -317,75 +324,77 @@ public class frmAlteraAgendamento extends javax.swing.JFrame {
             }
         });
     }
-    
-     public void recebeNome(String recebeNome){ 
-       txtRecebeNome.setText(recebeNome);
-   }
-      public void recebeServico(String recebeServico){ 
-       txtRecebeServico.setText(recebeServico);
-   }
-        public void recebeValor(String recebeValor){ 
-       txtRecebeValor.setText(recebeValor);
-   }
-       public void recebeHora(String recebeHora){ 
-       txtHorarioAlterar.setText(recebeHora);
-   }
-       public void recebeData(Date recebeData){ 
-       txtDataAlterar.setDate(recebeData);
-       }
-     public void recebeId(String recebeId){ 
-       txtId.setText(recebeId);
-   }
-       
-      
-       
-       private void alterarAgendamento(){
-    
-       int opcao =  JOptionPane.showConfirmDialog(null, "Deseja alterar o Agendamento?","Alterar",0);
-       
-       if (opcao == 0){
-              
-        Date data = txtDataAlterar.getDate();
-        SimpleDateFormat formatador = new SimpleDateFormat("yyyy/MM/dd");
-        String novaData = formatador.format(data);   
-           
-        Agendamento age = new Agendamento();
-        
-        age.setNome(txtRecebeNome.getText().trim());
-        age.setCpf(txtCPFPacienteAlterar.getText().trim());
-        age.setServico(txtRecebeServico.getText().trim());
-        age.setValor(txtRecebeValor.getText().trim());
-        age.setHorario(txtHorarioAlterar.getText().trim());
-        age.setData(txtDataAlterar.getDateFormatString().format(novaData));
-        
-        
-        age.setCodigo(Integer.valueOf(txtId.getText()));
-        
-        AgendamentoDAO agendamentoDAO = new AgendamentoDAO();
-        agendamentoDAO.alterarAgendamento(age);
-        JOptionPane.showMessageDialog(this, "Agendamento alterado com sucesso!");
-        
-        
-        frmAgendamento pes = new frmAgendamento();
-        
-        String n = txtRecebeNome.getText();
-       
-        pes.listaAgendamentos = agendamentoDAO.listarAgendamentos("%"+
-             n + "%");
-        pes.mostrarAgendamentos(pes.listaAgendamentos);
-        pes.listarAgendamentos();
-        dispose();
-        pes.setVisible(true);
-        
-       }else{
-        frmAgendamento pes = new frmAgendamento();
-         pes.setVisible(true);
-        pes.listarAgendamentos();
-        dispose();
+
+    public void recebeNome(String recebeNome) {
+        txtRecebeNome.setText(recebeNome);
     }
-       
-       }
-     
+
+    public void recebeServico(String recebeServico) {
+        txtRecebeServico.setText(recebeServico);
+    }
+
+    public void recebeValor(String recebeValor) {
+        txtRecebeValor.setText(recebeValor);
+    }
+
+    public void recebeHora(String recebeHora) {
+        txtHorarioAlterar.setText(recebeHora);
+    }
+
+    public void recebeData(Date recebeData) {
+        txtDataAlterar.setDate(recebeData);
+    }
+
+    public void recebeId(String recebeId) {
+        txtId.setText(recebeId);
+    }
+
+    private void alterarAgendamento() {
+
+        int opcao = JOptionPane.showConfirmDialog(null, "Deseja alterar o Agendamento?", "Alterar", 0);
+
+        if (opcao == 0) {
+            Date data = txtDataAlterar.getDate();
+            SimpleDateFormat formatador = new SimpleDateFormat("yyyy/MM/dd");
+            try {
+                data = formatador.parse(data.toString());
+            } catch (ParseException ex) {
+                System.err.print(ex.getMessage());
+            }
+            Agendamento age = new Agendamento();
+
+            age.setNome(txtRecebeNome.getText().trim());
+            age.setCpf(txtCPFPacienteAlterar.getText().trim());
+            age.setServico(txtRecebeServico.getText().trim());
+            age.setValor(txtRecebeValor.getText().trim());
+            age.setHorario(txtHorarioAlterar.getText().trim());
+            age.setData(txtDataAlterar.getDate());
+
+            age.setCodigo(Integer.valueOf(txtId.getText()));
+
+            AgendamentoDAO agendamentoDAO = new AgendamentoDAO();
+            agendamentoDAO.alterarAgendamento(age);
+
+            frmAgendamento pes = new frmAgendamento();
+
+            String n = txtRecebeNome.getText();
+
+            pes.listaAgendamentos = agendamentoDAO.listarAgendamentos("%"
+                    + n + "%");
+            pes.mostrarAgendamentos(pes.listaAgendamentos);
+            pes.listarAgendamentos();
+            dispose();
+            pes.setVisible(true);
+
+        } else {
+            frmAgendamento pes = new frmAgendamento();
+            pes.setVisible(true);
+            pes.listarAgendamentos();
+            dispose();
+        }
+
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAtualizar;

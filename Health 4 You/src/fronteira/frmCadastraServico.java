@@ -47,7 +47,7 @@ public class frmCadastraServico extends javax.swing.JFrame {
         setUndecorated(true);
         setResizable(false);
 
-        jLabel1.setFont(new java.awt.Font("Open Sans", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 73, 125));
         jLabel1.setText("CADASTRO DE SERVIÇOS");
 
@@ -64,7 +64,7 @@ public class frmCadastraServico extends javax.swing.JFrame {
         btnCadastrar.setForeground(new java.awt.Color(255, 255, 255));
         btnCadastrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/Inserir.png"))); // NOI18N
         btnCadastrar.setText("Cadastrar");
-        btnCadastrar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219)));
+        btnCadastrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCadastrarActionPerformed(evt);
@@ -80,7 +80,7 @@ public class frmCadastraServico extends javax.swing.JFrame {
         btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
         btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/Cancelar IMG - Sistema.png"))); // NOI18N
         btnCancelar.setText("Cancelar");
-        btnCancelar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219)));
+        btnCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelarActionPerformed(evt);
@@ -95,6 +95,7 @@ public class frmCadastraServico extends javax.swing.JFrame {
         lblSair.setFont(new java.awt.Font("Open Sans", 1, 18)); // NOI18N
         lblSair.setForeground(new java.awt.Color(0, 73, 125));
         lblSair.setText("X");
+        lblSair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblSair.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblSairMouseClicked(evt);
@@ -121,7 +122,7 @@ public class frmCadastraServico extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                         .addComponent(lblSair)))
                 .addContainerGap())
         );
@@ -145,7 +146,7 @@ public class frmCadastraServico extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         pack();
@@ -157,8 +158,8 @@ public class frmCadastraServico extends javax.swing.JFrame {
         if(txtNomeServico.getText().isEmpty() || txtValor.getText().isEmpty())
                {
         
-            JOptionPane.showMessageDialog(null,"Existem campos obrigatórios a serem preenchidos","Preencher Campos",
-                    JOptionPane.INFORMATION_MESSAGE);
+            telaAvisos avisos = new telaAvisos();
+            avisos.campoObrigatorio();
             
         }
          
@@ -175,8 +176,9 @@ public class frmCadastraServico extends javax.swing.JFrame {
         
         ServicoDAO servicoDAO = new ServicoDAO();
         servicoDAO.cadastrarServico(servico);
-        JOptionPane.showMessageDialog(null,"Servico Cadastrado com sucesso !","Cadastro de Serviço",
-                JOptionPane.INFORMATION_MESSAGE);
+        
+        telaAvisos avisos = new telaAvisos();
+        avisos.servicoCadastrado();
         
         
         
@@ -192,8 +194,8 @@ public class frmCadastraServico extends javax.swing.JFrame {
         pes.setVisible(true);
         
         }else{
-        JOptionPane.showMessageDialog(null,"Informe apenas números para valor !","Cadastro de Serviços",
-        JOptionPane.INFORMATION_MESSAGE);
+        telaAvisos avisos = new telaAvisos();
+        avisos.informaNumero();
                 }
     }
     
@@ -207,14 +209,14 @@ public class frmCadastraServico extends javax.swing.JFrame {
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
-        this.setVisible(false);
+        dispose();
         frmPesquisaServico pu  = new frmPesquisaServico();
         pu.setVisible(true);
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void lblSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSairMouseClicked
         // TODO add your handling code here:
-        this.setVisible(false);
+        dispose();
     }//GEN-LAST:event_lblSairMouseClicked
 
     /**

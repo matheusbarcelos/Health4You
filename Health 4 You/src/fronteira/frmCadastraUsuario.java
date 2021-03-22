@@ -40,10 +40,6 @@ public class frmCadastraUsuario extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        cmbPermissao = new javax.swing.JComboBox<>();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        cmbStatus = new javax.swing.JComboBox<>();
         lblSair = new javax.swing.JLabel();
         txtSenha = new javax.swing.JPasswordField();
 
@@ -67,7 +63,7 @@ public class frmCadastraUsuario extends javax.swing.JFrame {
         btnSalvar.setForeground(new java.awt.Color(255, 255, 255));
         btnSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/Salvar.png"))); // NOI18N
         btnSalvar.setText("Salvar");
-        btnSalvar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219)));
+        btnSalvar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalvarActionPerformed(evt);
@@ -79,14 +75,14 @@ public class frmCadastraUsuario extends javax.swing.JFrame {
         btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
         btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/Cancelar IMG - Sistema.png"))); // NOI18N
         btnCancelar.setText("Cancelar");
-        btnCancelar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219)));
+        btnCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelarActionPerformed(evt);
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Open Sans", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 73, 125));
         jLabel1.setText("CADASTRO DE USUÁRIOS");
 
@@ -102,31 +98,10 @@ public class frmCadastraUsuario extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(0, 73, 125));
         jLabel8.setText("Senha:");
 
-        cmbPermissao.setBackground(new java.awt.Color(0, 73, 125));
-        cmbPermissao.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
-        cmbPermissao.setForeground(new java.awt.Color(255, 255, 255));
-        cmbPermissao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Usuário" }));
-        cmbPermissao.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbPermissaoActionPerformed(evt);
-            }
-        });
-
-        jLabel10.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(0, 73, 125));
-        jLabel10.setText("Permissão:");
-
-        jLabel3.setForeground(new java.awt.Color(0, 73, 125));
-        jLabel3.setText("Status:");
-
-        cmbStatus.setBackground(new java.awt.Color(0, 73, 125));
-        cmbStatus.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
-        cmbStatus.setForeground(new java.awt.Color(255, 255, 255));
-        cmbStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ativo", "Inativo" }));
-
         lblSair.setFont(new java.awt.Font("Open Sans", 1, 18)); // NOI18N
         lblSair.setForeground(new java.awt.Color(0, 73, 125));
         lblSair.setText("X");
+        lblSair.setCursor(new java.awt.Cursor(java.awt.Cursor.WAIT_CURSOR));
         lblSair.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblSairMouseClicked(evt);
@@ -142,7 +117,7 @@ public class frmCadastraUsuario extends javax.swing.JFrame {
                 .addComponent(lblSair)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(19, Short.MAX_VALUE)
+                .addContainerGap(15, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -151,14 +126,6 @@ public class frmCadastraUsuario extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(txtSenha, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel10)
-                                    .addComponent(cmbPermissao, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(42, 42, 42)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(cmbStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel3)))
                             .addComponent(txtNome, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtLogin, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
@@ -166,7 +133,7 @@ public class frmCadastraUsuario extends javax.swing.JFrame {
                             .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                                 .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
@@ -189,19 +156,11 @@ public class frmCadastraUsuario extends javax.swing.JFrame {
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cmbPermissao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cmbStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -217,8 +176,8 @@ public class frmCadastraUsuario extends javax.swing.JFrame {
                   
                {
         
-            JOptionPane.showMessageDialog(null,"Existem campos obrigatórios a serem preenchidos","Preencher Campos",
-                    JOptionPane.INFORMATION_MESSAGE);
+            telaAvisos avisos = new telaAvisos();
+            avisos.campoObrigatorio();
             
     }else {
       
@@ -227,13 +186,9 @@ public class frmCadastraUsuario extends javax.swing.JFrame {
         usuario.setNome(txtNome.getText().trim());
         usuario.setLogin(txtLogin.getText().trim());
         usuario.setSenha(txtSenha.getText().trim());
-        usuario.setPermissao(cmbPermissao.getSelectedItem().toString().trim());
-        usuario.setStatus(cmbStatus.getSelectedItem().toString().trim());
         
         UsuarioDAO usuarioDAO = new UsuarioDAO();
         usuarioDAO.cadastrarUsuario(usuario);
-        JOptionPane.showMessageDialog(null,"Usuario Cadastrado com sucesso !","Cadastro de Cliente",
-                JOptionPane.INFORMATION_MESSAGE);
         
         frmPesquisaUsuario pes = new frmPesquisaUsuario();
         
@@ -259,17 +214,15 @@ public class frmCadastraUsuario extends javax.swing.JFrame {
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         // TODO add your handling code here:
         cadastrarUsuario();
+        telaAvisos avisos = new telaAvisos();
+        avisos.usuarioCadastrado();
         frmPesquisaUsuario pu  = new frmPesquisaUsuario();
         pu.listarUsuarios();
     }//GEN-LAST:event_btnSalvarActionPerformed
 
-    private void cmbPermissaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbPermissaoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmbPermissaoActionPerformed
-
     private void lblSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSairMouseClicked
         // TODO add your handling code here:
-        this.setVisible(false);
+        this.dispose();
     }//GEN-LAST:event_lblSairMouseClicked
 
     /**
@@ -310,12 +263,8 @@ public class frmCadastraUsuario extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnSalvar;
-    private javax.swing.JComboBox<String> cmbPermissao;
-    private javax.swing.JComboBox<String> cmbStatus;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel lblSair;

@@ -76,7 +76,7 @@ public class frmPesquisaServico extends javax.swing.JFrame {
         btnExcluirServico.setForeground(new java.awt.Color(255, 255, 255));
         btnExcluirServico.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/Lixeira.png"))); // NOI18N
         btnExcluirServico.setText("Excluir");
-        btnExcluirServico.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219)));
+        btnExcluirServico.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnExcluirServico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnExcluirServicoActionPerformed(evt);
@@ -88,7 +88,7 @@ public class frmPesquisaServico extends javax.swing.JFrame {
         btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
         btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/Cancelar IMG - Sistema.png"))); // NOI18N
         btnCancelar.setText("Cancelar");
-        btnCancelar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219)));
+        btnCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelarActionPerformed(evt);
@@ -104,14 +104,14 @@ public class frmPesquisaServico extends javax.swing.JFrame {
         btnPesquisarServicos.setForeground(new java.awt.Color(255, 255, 255));
         btnPesquisarServicos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/Atualizar.png"))); // NOI18N
         btnPesquisarServicos.setText("Pesquisar");
-        btnPesquisarServicos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219)));
+        btnPesquisarServicos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnPesquisarServicos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPesquisarServicosActionPerformed(evt);
             }
         });
 
-        tblServicos.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
+        tblServicos.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         tblServicos.setModel(tmServicos);
         tblServicos.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         lsmServicos = tblServicos.getSelectionModel();
@@ -126,11 +126,11 @@ public class frmPesquisaServico extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tblServicos);
 
         btnInserir.setBackground(new java.awt.Color(0, 155, 219));
-        btnInserir.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
+        btnInserir.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         btnInserir.setForeground(new java.awt.Color(255, 255, 255));
         btnInserir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/Inserir.png"))); // NOI18N
         btnInserir.setText("Inserir");
-        btnInserir.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219)));
+        btnInserir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnInserir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnInserirActionPerformed(evt);
@@ -142,20 +142,21 @@ public class frmPesquisaServico extends javax.swing.JFrame {
         btnAlterar.setForeground(new java.awt.Color(255, 255, 255));
         btnAlterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/Atualizar.png"))); // NOI18N
         btnAlterar.setText("Alterar");
-        btnAlterar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219)));
+        btnAlterar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAlterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAlterarActionPerformed(evt);
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Open Sans", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 73, 125));
         jLabel1.setText("PESQUISA DE SERVIÇOS");
 
         lblSair.setFont(new java.awt.Font("Open Sans", 1, 18)); // NOI18N
         lblSair.setForeground(new java.awt.Color(0, 73, 125));
         lblSair.setText("X");
+        lblSair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblSair.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblSairMouseClicked(evt);
@@ -211,7 +212,7 @@ public class frmPesquisaServico extends javax.swing.JFrame {
                     .addComponent(btnInserir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnAlterar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnExcluirServico, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         pack();
@@ -225,8 +226,8 @@ public class frmPesquisaServico extends javax.swing.JFrame {
 
     private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
        if(txtNomeServico.getText().isEmpty()){
-         JOptionPane.showMessageDialog(null,"Favor selecionar um servico para alterar","Alterar Servico",
-                 JOptionPane.INFORMATION_MESSAGE);
+         telaAvisos avisos = new telaAvisos();
+         avisos.alteraServico();
         }else{
             enviarAlteracaoServico();
             listarServicos();
@@ -249,8 +250,8 @@ public class frmPesquisaServico extends javax.swing.JFrame {
     private void btnExcluirServicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirServicoActionPerformed
         // TODO add your handling code here:
         if(txtNomeServico.getText().isEmpty()){
-         JOptionPane.showMessageDialog(null,"Favor selecionar um serviço para excluir","Excluir Servico",
-                 JOptionPane.INFORMATION_MESSAGE);
+         telaAvisos avisos = new telaAvisos();
+         avisos.excluiServico();
         }else{
         excluirServico();
         listarServicos();
@@ -258,7 +259,7 @@ public class frmPesquisaServico extends javax.swing.JFrame {
     }
     private void lblSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSairMouseClicked
         // TODO add your handling code here:
-        this.setVisible(false);
+        this.dispose();
     }//GEN-LAST:event_lblSairMouseClicked
 
     
@@ -303,7 +304,8 @@ public class frmPesquisaServico extends javax.swing.JFrame {
             tmServicos.removeRow(0);
         }
         if(servicos.size() == 0){
-            JOptionPane.showMessageDialog(this, "Nenhum Serviço foi encontrado!");
+            telaAvisos avisos = new telaAvisos();
+            avisos.naoEncontraServico();
         }else{
             
             for (int i = 0; i < servicos.size(); i++){
@@ -338,7 +340,9 @@ public class frmPesquisaServico extends javax.swing.JFrame {
         servico.setCodigo(listaServicos.get(tblServicos.getSelectedRow()).getCodigo());
         ServicoDAO servicoDAO = new ServicoDAO();
         servicoDAO.excluirServico(servico);
-        JOptionPane.showMessageDialog(this, "Servico excluído com sucesso!");
+        
+        telaAvisos avisos = new telaAvisos();
+        avisos.servicoExcluido();
         
     }
      

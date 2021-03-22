@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 import entidade.Paciente;
+import java.awt.Color;
 import javax.swing.JTable;
 import persistencia.PacienteDAO;
 import javax.swing.event.ListSelectionEvent;
@@ -19,34 +20,28 @@ import javax.swing.event.ListSelectionListener;
  *
  * @author ma-th
  */
+
+
 public class frmPesquisarCliente extends javax.swing.JFrame {
-  
- 
+
     frmAlterarPaciente enviar;
-    
-    private String[] colunas = new String[]{"Codigo","Nome",
-           "Endereço","Telefone"};
-    
-    private DefaultTableModel tmPacientes = new DefaultTableModel
-               (null, colunas);
-    
+
+    private String[] colunas = new String[]{"Codigo", "Nome",
+        "Endereço", "Telefone"};
+
+    private DefaultTableModel tmPacientes = new DefaultTableModel(null, colunas);
+
     private List<Paciente> listaPacientes;
-    private ListSelectionModel lsmPacientes; 
-    
-   
+    private ListSelectionModel lsmPacientes;
+
     /**
      * Creates new form frmPesquisarCliente
      */
     public frmPesquisarCliente() {
         initComponents();
-        
-        
-        
+        listarPacientes();
     }
 
-    
-    
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -77,6 +72,8 @@ public class frmPesquisarCliente extends javax.swing.JFrame {
         btnAlterar = new javax.swing.JButton();
         btnExcluirPaciente = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        lblSair = new javax.swing.JLabel();
 
         jButton3.setText("jButton1");
 
@@ -102,19 +99,35 @@ public class frmPesquisarCliente extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro de Pacientes");
+        setUndecorated(true);
         setResizable(false);
 
-        txtPesquisaPaciente.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
+        txtPesquisaPaciente.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
+        txtPesquisaPaciente.setForeground(new java.awt.Color(0, 73, 125));
+        txtPesquisaPaciente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219), 2));
+        txtPesquisaPaciente.setCaretColor(new java.awt.Color(0, 73, 125));
 
+        btnPesquisar.setBackground(new java.awt.Color(0, 155, 219));
         btnPesquisar.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
+        btnPesquisar.setForeground(new java.awt.Color(255, 255, 255));
+        btnPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/Pesquisar.png"))); // NOI18N
         btnPesquisar.setText("Pesquisar");
+        btnPesquisar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnPesquisar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnPesquisarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnPesquisarMouseExited(evt);
+            }
+        });
         btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPesquisarActionPerformed(evt);
             }
         });
 
-        tblPaciente.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
+        tblPaciente.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         tblPaciente.setModel(tmPacientes);
         tblPaciente.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         lsmPacientes = tblPaciente.getSelectionModel();
@@ -133,35 +146,65 @@ public class frmPesquisarCliente extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tblPaciente);
 
-        btnInserir.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
+        btnInserir.setBackground(new java.awt.Color(0, 155, 219));
+        btnInserir.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        btnInserir.setForeground(new java.awt.Color(255, 255, 255));
+        btnInserir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/Inserir.png"))); // NOI18N
         btnInserir.setText("Inserir");
+        btnInserir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnInserir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnInserirActionPerformed(evt);
             }
         });
 
+        btnAlterar.setBackground(new java.awt.Color(0, 155, 219));
         btnAlterar.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
+        btnAlterar.setForeground(new java.awt.Color(255, 255, 255));
+        btnAlterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/Atualizar.png"))); // NOI18N
         btnAlterar.setText("Alterar");
+        btnAlterar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAlterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAlterarActionPerformed(evt);
             }
         });
 
+        btnExcluirPaciente.setBackground(new java.awt.Color(0, 155, 219));
         btnExcluirPaciente.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
+        btnExcluirPaciente.setForeground(new java.awt.Color(255, 255, 255));
+        btnExcluirPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/Lixeira.png"))); // NOI18N
         btnExcluirPaciente.setText("Excluir");
+        btnExcluirPaciente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnExcluirPaciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnExcluirPacienteActionPerformed(evt);
             }
         });
 
+        btnCancelar.setBackground(new java.awt.Color(0, 155, 219));
         btnCancelar.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
+        btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
+        btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/Cancelar IMG - Sistema.png"))); // NOI18N
         btnCancelar.setText("Cancelar");
+        btnCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelarActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 73, 125));
+        jLabel1.setText("PESQUISA DE CLIENTES");
+
+        lblSair.setFont(new java.awt.Font("Open Sans", 1, 18)); // NOI18N
+        lblSair.setForeground(new java.awt.Color(0, 73, 125));
+        lblSair.setText("X");
+        lblSair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblSair.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblSairMouseClicked(evt);
             }
         });
 
@@ -170,42 +213,53 @@ public class frmPesquisarCliente extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(15, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(txtPesquisaPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtPesquisaPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnPesquisar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnInserir, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnExcluirPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addComponent(btnInserir, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnExcluirPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 8, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblSair)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtPesquisaPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnPesquisar))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblSair)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 21, Short.MAX_VALUE)
+                        .addComponent(jLabel1)))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnPesquisar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtPesquisaPaciente))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnInserir)
-                    .addComponent(btnAlterar)
-                    .addComponent(btnExcluirPaciente)
-                    .addComponent(btnCancelar))
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnExcluirPaciente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnAlterar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(btnInserir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -219,12 +273,13 @@ public class frmPesquisarCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_btnInserirActionPerformed
     private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
 
-        if(txtNome.getText().isEmpty()){
-         JOptionPane.showMessageDialog(null,"Favor selecionar um paciente para alterar","Alterar Paciente",JOptionPane.INFORMATION_MESSAGE);
-        }else{
+        if (txtNome.getText().isEmpty()) {
+            telaAvisos avisos = new telaAvisos();
+            avisos.selecionePaciente();
+        } else {
             enviarAlteracaoPaciente();
         }
-      
+
     }//GEN-LAST:event_btnAlterarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
@@ -234,8 +289,7 @@ public class frmPesquisarCliente extends javax.swing.JFrame {
 
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
         // TODO add your handling code here:
-        
-       listarPacientes();
+        listarPacientes();
     }//GEN-LAST:event_btnPesquisarActionPerformed
 
     private void btnExcluirPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirPacienteActionPerformed
@@ -245,8 +299,23 @@ public class frmPesquisarCliente extends javax.swing.JFrame {
 
     private void tblPacienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblPacienteMouseClicked
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_tblPacienteMouseClicked
+
+    private void lblSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSairMouseClicked
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_lblSairMouseClicked
+
+    private void btnPesquisarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPesquisarMouseEntered
+        // TODO add your handling code here:
+        btnPesquisar.setBackground(new Color(0, 73, 125));
+    }//GEN-LAST:event_btnPesquisarMouseEntered
+
+    private void btnPesquisarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPesquisarMouseExited
+        // TODO add your handling code here:
+        btnPesquisar.setBackground(new Color(0, 155, 219));
+    }//GEN-LAST:event_btnPesquisarMouseExited
 
     /**
      * @param args the command line arguments
@@ -257,25 +326,25 @@ public class frmPesquisarCliente extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frmPesquisarCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frmPesquisarCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frmPesquisarCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frmPesquisarCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(frmPesquisarCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(frmPesquisarCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(frmPesquisarCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(frmPesquisarCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//
+//        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new frmPesquisarCliente().setVisible(true);
@@ -283,99 +352,95 @@ public class frmPesquisarCliente extends javax.swing.JFrame {
         });
     }
 
-    
-      public void mostrarPacientes(List<Paciente> pacientes){
-        
-        while (tmPacientes.getRowCount() > 0){
+    public void mostrarPacientes(List<Paciente> pacientes) {
+
+        while (tmPacientes.getRowCount() > 0) {
             tmPacientes.removeRow(0);
         }
-        if(pacientes.size() == 0){
-            JOptionPane.showMessageDialog(this, "Nenhum Paciente foi encontrado!");
-        }else{
-            
-            for (int i = 0; i < pacientes.size(); i++){
+        if (pacientes.size() == 0) {
+            telaAvisos avisos = new telaAvisos();
+            avisos.naoEncontraPaciente();
+        } else {
+
+            for (int i = 0; i < pacientes.size(); i++) {
                 tmPacientes.addRow(colunas);
-                tmPacientes.setValueAt(pacientes.get(i).getCodigo(), i,0);
-                tmPacientes.setValueAt(pacientes.get(i).getNome(), i,1);
-                tmPacientes.setValueAt(pacientes.get(i).getRua(), i,2);
-                tmPacientes.setValueAt(pacientes.get(i).getTelefone(), i,3);
-                
+                tmPacientes.setValueAt(pacientes.get(i).getCodigo(), i, 0);
+                tmPacientes.setValueAt(pacientes.get(i).getNome(), i, 1);
+                tmPacientes.setValueAt(pacientes.get(i).getRua(), i, 2);
+                tmPacientes.setValueAt(pacientes.get(i).getTelefone(), i, 3);
+
             }
         }
     }
-      
-      public void listarPacientes(){
-        
-        PacienteDAO pacienteDAO =  new PacienteDAO();
-        listaPacientes = pacienteDAO.listarPacientes("%"
-             +txtPesquisaPaciente.getText().trim() + "%");
-        mostrarPacientes(listaPacientes);
-        
-    }
-      
-      public void exibePacientes(){
-          
-          frmAlterarPaciente alt = new frmAlterarPaciente();
-          PacienteDAO pacienteDAO =  new PacienteDAO();
-        listaPacientes = pacienteDAO.listarPacientes("%"
-             +alt.txtNomeAlterar.getText().trim() + "%");
-        mostrarPacientes(listaPacientes);
-      }
-    
-      
-     
-      
-      private void excluirPaciente(){
-        
-          if(txtNome.getText().isEmpty()){
-         JOptionPane.showMessageDialog(null,"Favor selecionar um paciente para exclusão","Excluir Paciente",JOptionPane.INFORMATION_MESSAGE);
-        }else{
-          
-          int excluir;
-          
-          excluir = JOptionPane.showConfirmDialog(null,"Deseja excluir esse paciente ?","Excluir Paciente",0);
-          
-          if(excluir == 0){
-              
-        Paciente paciente = new Paciente();
-        paciente.setCodigo(listaPacientes.get(tblPaciente.getSelectedRow()).getCodigo());
+
+    public void listarPacientes() {
+
         PacienteDAO pacienteDAO = new PacienteDAO();
-        pacienteDAO.excluirPaciente(paciente);
-        JOptionPane.showMessageDialog(this, "Pacinte excluído com sucesso!");
-        
+        listaPacientes = pacienteDAO.listarPacientes("%"
+                + txtPesquisaPaciente.getText().trim() + "%");
+        mostrarPacientes(listaPacientes);
+
     }
-          }
-      }
-      
-          public void tblPacienteLinhaSelecionada(JTable tbl){
-        
-            int linhaSelecionada = tbl.getSelectedRow();
-            
-            
-            
-             if (linhaSelecionada != -1){
-            
-             txtNome.setText(listaPacientes.get(linhaSelecionada).getNome());
-             txtCPF.setText(listaPacientes.get(linhaSelecionada).getCpf());
-             txtDataDeNascimento.setText(listaPacientes.get(linhaSelecionada).getDatanascimento());
-             txtEndereco.setText(listaPacientes.get(linhaSelecionada).getRua());
-             txtNumero.setText(listaPacientes.get(linhaSelecionada).getNumero());
-             txtBairro.setText(listaPacientes.get(linhaSelecionada).getBairro());
-             txtEstado.setText(listaPacientes.get(linhaSelecionada).getEstado());
-             txtCidade.setText(listaPacientes.get(linhaSelecionada).getCidade());
-             txtTelefone.setText(listaPacientes.get(linhaSelecionada).getTelefone());
-             txtCelular.setText(listaPacientes.get(linhaSelecionada).getCelular());
-             txtEmail.setText(listaPacientes.get(linhaSelecionada).getEmail());
-             txtId.setText(String.valueOf(listaPacientes.get(linhaSelecionada).getCodigo()));
-             
-             }
+
+    public void exibePacientes() {
+
+        frmAlterarPaciente alt = new frmAlterarPaciente();
+        PacienteDAO pacienteDAO = new PacienteDAO();
+        listaPacientes = pacienteDAO.listarPacientes("%"
+                + alt.txtNomeAlterar.getText().trim() + "%");
+        mostrarPacientes(listaPacientes);
+    }
+
+    private void excluirPaciente() {
+
+        if (txtNome.getText().isEmpty()) {
+            telaAvisos avisos = new telaAvisos();
+            avisos.selecionePaciente();
+        } else {
+
+            int excluir;
+
+            excluir = JOptionPane.showConfirmDialog(null, "Deseja excluir esse paciente ?", "Excluir Paciente", 0);
+
+            if (excluir == 0) {
+
+                Paciente paciente = new Paciente();
+                paciente.setCodigo(listaPacientes.get(tblPaciente.getSelectedRow()).getCodigo());
+                PacienteDAO pacienteDAO = new PacienteDAO();
+                pacienteDAO.excluirPaciente(paciente);
+                
+                telaAvisos avisos = new telaAvisos();
+                avisos.excluiPaciente();
+
+            }
         }
-      
-      
-          public void enviarAlteracaoPaciente(){
-              if(enviar==null){
-           
-            
+    }
+
+    public void tblPacienteLinhaSelecionada(JTable tbl) {
+
+        int linhaSelecionada = tbl.getSelectedRow();
+
+        if (linhaSelecionada != -1) {
+
+            txtNome.setText(listaPacientes.get(linhaSelecionada).getNome());
+            txtCPF.setText(listaPacientes.get(linhaSelecionada).getCpf());
+            txtDataDeNascimento.setText(listaPacientes.get(linhaSelecionada).getDatanascimento());
+            txtEndereco.setText(listaPacientes.get(linhaSelecionada).getRua());
+            txtNumero.setText(listaPacientes.get(linhaSelecionada).getNumero());
+            txtBairro.setText(listaPacientes.get(linhaSelecionada).getBairro());
+            txtEstado.setText(listaPacientes.get(linhaSelecionada).getEstado());
+            txtCidade.setText(listaPacientes.get(linhaSelecionada).getCidade());
+            txtTelefone.setText(listaPacientes.get(linhaSelecionada).getTelefone());
+            txtCelular.setText(listaPacientes.get(linhaSelecionada).getCelular());
+            txtEmail.setText(listaPacientes.get(linhaSelecionada).getEmail());
+            txtId.setText(String.valueOf(listaPacientes.get(linhaSelecionada).getCodigo()));
+
+        }
+    }
+
+    public void enviarAlteracaoPaciente() {
+        if (enviar == null) {
+
             enviar = new frmAlterarPaciente();
             enviar.setVisible(true);
             enviar.recebe(txtNome.getText());
@@ -390,10 +455,9 @@ public class frmPesquisarCliente extends javax.swing.JFrame {
             enviar.recebeTelefone(txtTelefone.getText());
             enviar.recebeCelular(txtCelular.getText());
             enviar.recebeEmail(txtEmail.getText());
-            
-        }else{
-             
-                  
+
+        } else {
+
             enviar = new frmAlterarPaciente();
             enviar.setVisible(true);
             enviar.recebe(txtNome.getText());
@@ -409,13 +473,12 @@ public class frmPesquisarCliente extends javax.swing.JFrame {
             enviar.recebeCelular(txtCelular.getText());
             enviar.recebeEmail(txtEmail.getText());
             enviar.setState(frmAlterarPaciente.NORMAL);
-             
-          }
-      
-          }
-          
-      
-          
+
+        }
+
+    }
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAlterar;
     private javax.swing.JButton btnCancelar;
@@ -423,7 +486,9 @@ public class frmPesquisarCliente extends javax.swing.JFrame {
     private javax.swing.JButton btnInserir;
     private javax.swing.JToggleButton btnPesquisar;
     private javax.swing.JButton jButton3;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblSair;
     private javax.swing.JTable tblPaciente;
     private javax.swing.JTextField txtBairro;
     private javax.swing.JTextField txtCPF;

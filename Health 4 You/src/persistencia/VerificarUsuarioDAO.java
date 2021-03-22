@@ -1,17 +1,18 @@
 
 
     package persistencia;
-import entidade.Agendamento;
-import entidade.Paciente;
+    import entidade.Agendamento;
+    import entidade.Paciente;
     import entidade.Usuario;
     import fronteira.frmTelaPrincipal;
-  import java.util.List;
+    import java.util.List;
     import java.sql.PreparedStatement;
     import java.sql.ResultSet;
     import java.util.ArrayList;
+    import java.util.Date;
 //    import javax.swing.JOptionPane;
 
-public class VerificarUsuarioDAO {
+    public class VerificarUsuarioDAO {
     
     private BaseDeDados bd;
     private PreparedStatement pstm;
@@ -46,7 +47,7 @@ public class VerificarUsuarioDAO {
     }
     
     
-    public boolean verificaAgendamento(String HORARIO, String DATE) {
+   public boolean verificaAgendamento(String HORARIO, String DATE) {
         boolean autenticado = false;
         try{
         bd = new BaseDeDados();
@@ -57,7 +58,7 @@ public class VerificarUsuarioDAO {
         while (rs.next()){
                  agendamento = new Agendamento();
                  agendamento.setHorario(rs.getString("HORARIO"));
-                 agendamento.setData(rs.getString("DATA"));
+                 agendamento.setData(rs.getDate("DATA"));
                  autenticado = true;
              }
     } catch (Exception e){

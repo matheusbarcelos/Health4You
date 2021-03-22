@@ -34,17 +34,13 @@ public class frmAlterarUsuario extends javax.swing.JFrame {
 
         txtId = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
         txtNomeAlterar = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
         txtLoginAlterar = new javax.swing.JTextField();
-        cmbStatusAlterar = new javax.swing.JComboBox<>();
         btnSalvar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        cmbPermissaoAlterar = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
         txtSenhaAlterar = new javax.swing.JPasswordField();
 
@@ -53,23 +49,16 @@ public class frmAlterarUsuario extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
 
-        jLabel1.setFont(new java.awt.Font("Open Sans", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 73, 125));
         jLabel1.setText("ALTERAÇÃO DE USUÁRIO");
 
-        jLabel10.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(0, 73, 125));
-        jLabel10.setText("Permissão:");
-
-        txtNomeAlterar.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
+        txtNomeAlterar.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         txtNomeAlterar.setForeground(new java.awt.Color(0, 73, 125));
         txtNomeAlterar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219), 2));
         txtNomeAlterar.setCaretColor(new java.awt.Color(0, 73, 125));
 
-        jLabel3.setForeground(new java.awt.Color(0, 73, 125));
-        jLabel3.setText("Status:");
-
-        txtLoginAlterar.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
+        txtLoginAlterar.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         txtLoginAlterar.setForeground(new java.awt.Color(0, 73, 125));
         txtLoginAlterar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219), 2));
         txtLoginAlterar.setCaretColor(new java.awt.Color(0, 73, 125));
@@ -79,21 +68,12 @@ public class frmAlterarUsuario extends javax.swing.JFrame {
             }
         });
 
-        cmbStatusAlterar.setBackground(new java.awt.Color(0, 73, 125));
-        cmbStatusAlterar.setForeground(new java.awt.Color(255, 255, 255));
-        cmbStatusAlterar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ativo", "Inativo" }));
-        cmbStatusAlterar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbStatusAlterarActionPerformed(evt);
-            }
-        });
-
         btnSalvar.setBackground(new java.awt.Color(0, 155, 219));
         btnSalvar.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
         btnSalvar.setForeground(new java.awt.Color(255, 255, 255));
         btnSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/Salvar.png"))); // NOI18N
         btnSalvar.setText("Salvar");
-        btnSalvar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219)));
+        btnSalvar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalvarActionPerformed(evt);
@@ -105,7 +85,7 @@ public class frmAlterarUsuario extends javax.swing.JFrame {
         btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
         btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fronteira/imgs/Cancelar IMG - Sistema.png"))); // NOI18N
         btnCancelar.setText("Cancelar");
-        btnCancelar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219)));
+        btnCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelarActionPerformed(evt);
@@ -124,14 +104,14 @@ public class frmAlterarUsuario extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(0, 73, 125));
         jLabel8.setText("Senha:");
 
-        cmbPermissaoAlterar.setBackground(new java.awt.Color(0, 73, 125));
-        cmbPermissaoAlterar.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
-        cmbPermissaoAlterar.setForeground(new java.awt.Color(255, 255, 255));
-        cmbPermissaoAlterar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Usuário" }));
-
         jLabel4.setFont(new java.awt.Font("Open Sans", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 73, 125));
         jLabel4.setText("X");
+        jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        txtSenhaAlterar.setForeground(new java.awt.Color(0, 73, 125));
+        txtSenhaAlterar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 155, 219), 2));
+        txtSenhaAlterar.setCaretColor(new java.awt.Color(0, 73, 125));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -147,27 +127,14 @@ public class frmAlterarUsuario extends javax.swing.JFrame {
                         .addComponent(jLabel4)
                         .addComponent(jLabel1))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addComponent(jLabel10)
-                            .addGap(103, 103, 103)
-                            .addComponent(jLabel3)
-                            .addGap(82, 82, 82))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(btnSalvar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGap(18, 18, 18))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(cmbPermissaoAlterar, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGap(18, 18, 18)))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(cmbStatusAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(txtSenhaAlterar, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(txtLoginAlterar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 272, Short.MAX_VALUE)
-                        .addComponent(txtNomeAlterar, javax.swing.GroupLayout.Alignment.LEADING)))
-                .addGap(0, 14, Short.MAX_VALUE))
+                        .addComponent(txtNomeAlterar, javax.swing.GroupLayout.Alignment.LEADING))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 7, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -187,23 +154,12 @@ public class frmAlterarUsuario extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtSenhaAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel10)
-                        .addGap(1, 1, 1)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cmbPermissaoAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cmbStatusAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(jLabel3)))
-                .addGap(101, 101, 101)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(txtSenhaAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         pack();
@@ -213,6 +169,8 @@ public class frmAlterarUsuario extends javax.swing.JFrame {
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         // TODO add your handling code here:
         alterarUsuario();
+        telaAvisos avisos = new telaAvisos();
+        avisos.usuarioAlterado();
         frmPesquisaUsuario pu  = new frmPesquisaUsuario();
         pu.listarUsuarios();
     }//GEN-LAST:event_btnSalvarActionPerformed
@@ -228,10 +186,6 @@ public class frmAlterarUsuario extends javax.swing.JFrame {
     private void txtLoginAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLoginAlterarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtLoginAlterarActionPerformed
-
-    private void cmbStatusAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbStatusAlterarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmbStatusAlterarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -279,12 +233,7 @@ public class frmAlterarUsuario extends javax.swing.JFrame {
       public void recebeSenha(String recebeSenha){ 
        txtSenhaAlterar.setText(recebeSenha);
    }
-     public void recebePermissao(String recebePermissao){ 
-       cmbPermissaoAlterar.setSelectedItem(recebePermissao);
-   }
-     public void recebeStatus(String recebeStatus){ 
-       cmbStatusAlterar.setSelectedItem(recebeStatus);
-   }
+ 
      public void recebeId(String recebeId){ 
        txtId.setText(recebeId);
    }
@@ -302,13 +251,10 @@ public class frmAlterarUsuario extends javax.swing.JFrame {
         usuario.setNome(txtNomeAlterar.getText().trim());
         usuario.setLogin(txtLoginAlterar.getText().trim());
         usuario.setSenha(txtSenhaAlterar.getText().trim());
-        usuario.setPermissao(cmbPermissaoAlterar.getSelectedItem().toString().trim());
-        usuario.setStatus(cmbStatusAlterar.getSelectedItem().toString().trim());
         usuario.setCodigo(Integer.valueOf(txtId.getText()));
        
         UsuarioDAO usuarioDAO = new UsuarioDAO();
         usuarioDAO.alterarUsuario(usuario);
-        JOptionPane.showMessageDialog(null,"Usuário alterado com sucesso!","Usuário Alterado",JOptionPane.INFORMATION_MESSAGE);
         
         frmPesquisaUsuario pes = new frmPesquisaUsuario();
         
@@ -336,12 +282,8 @@ public class frmAlterarUsuario extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnSalvar;
-    private javax.swing.JComboBox<String> cmbPermissaoAlterar;
-    private javax.swing.JComboBox<String> cmbStatusAlterar;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
